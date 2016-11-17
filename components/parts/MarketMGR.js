@@ -1,26 +1,31 @@
-var Config=require('../parts/Config');
-var TradePanelMGR=require('./TradePanelMGR');
+
 var WSMGR=require('./WSMGR');
-var PubSub = require('pubsub-js');
+//var PubSub = require('pubsub-js');
 var MarketMGR=(function(){
 	var ws;
 	var subsyms=[];
 
 	var handleOnOpen=function(e) {
 		console.log('连接行情源成功');
-		TradePanelMGR.changeState({marketWS:"连通"});
+		//TradePanelMGR.changeState({marketWS:"连通"});
+      var cmdtxt = ".u.sub[`ohlcv_ws;";
+         cmdtxt += "`600000"; 
+         cmdtxt += "]";
+         console.log("Sending Subscribe Command:", cmdtxt);
+         ws.send(serialize(cmdtxt));
 	};
 
 	var handleOnMessage=function(e) {
-		//console.log('marketws onmessage',e);
+		console.log('marketws onmessage',e);
 		var payload=JSON.parse(e.data);
-		if (payload.length == 3 && payload[0] == "upd" && payload[1] == "Market") {
+		if (payload.length == 3 && payload[0] == "upd" && payload[1] == "ohlcv_ws") {
          var data=payload[2];
-         for (var i = 0; i < data.length; i++) {
-            var Market=conver2Makert(data[i]);
-            PubSub.publish(Market.Sym, Market);
-            //console.log('marketws onmessage',Market.Sym);
-         }
+         // for (var i = 0; i < data.length; i++) {
+         //    var Market=conver2Makert(data[i]);
+         //    PubSub.publish(Market.Sym, Market);
+         //    //console.log('marketws onmessage',Market.Sym);
+         // }
+         console.log('receive data',data)
 			
 		}
       //TODO 浮盈计算
@@ -30,19 +35,20 @@ var MarketMGR=(function(){
     var handleOnClose=function(e) {
     	console.log("行情源断开连接");
        //  alert("行情服务器未能连接,请刷新重新连接！！");
-       TradePanelMGR.changeState({marketWS:"未连接"});
+       //TradePanelMGR.changeState({marketWS:"未连接"});
         alert('行情服务器断开连接！！请刷新重试！！');
    };
 
    var handleOnError=function(e) {
 
-   	TradePanelMGR.changeState({marketWS:"错误"});
+   	//TradePanelMGR.changeState({marketWS:"错误"});
    	console.log('marketws onerror',e.data);
    };
 
 
    var init=function(){
-   	ws=WSMGR.init(Config.MARKETWS,handleOnOpen,handleOnClose,handleOnMessage,handleOnError);
+   	ws=WSMGR.init('ws://139.196.77.165:5034',handleOnOpen,handleOnClose,handleOnMessage,handleOnError);
+
       return ws;
 
    };

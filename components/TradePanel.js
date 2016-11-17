@@ -1,6 +1,7 @@
 var React = require('react');
 var ReStock =  require("react-stockcharts");
 var d3 = require('d3');
+var MarketMGR=require('./parts/MarketMGR')
 
 /*var CandleStickChartWithUpdatingData = require('./parts/CandleStickChartWithUpdatingData');*/
 var CandleStickStockScaleChart = require("./parts/CandleStickStockScaleChart") 
@@ -24,8 +25,8 @@ var TradePannel = React.createClass({
         }
     },
     componentWillMount:function(){
-        /*MarketMGR.init()
-        MarketMGR.*/
+        MarketMGR.init()
+        //MarketMGR.*/
         d3["tsv"]("//rrag.github.io/react-stockcharts/data/MSFT.tsv", (err, data) => {
             data.forEach((d, i) => {
                 d.date = new Date(d3.timeParse("%Y-%m-%d")(d.date).getTime());
