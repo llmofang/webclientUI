@@ -1,0 +1,27 @@
+{
+  "name": "live-polling",
+  "description": "An app that allows speakers to poll audience members",
+  "main": "app-server.js",
+  "authors": [
+    "Alex Banks"
+  ],
+  "license": "MIT",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node",
+    "yui"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery-ui": "~1.11.4"
+  }
+}
