@@ -77108,8 +77108,8 @@
 	   var handleOnOpen = function handleOnOpen(e) {
 	      console.log('连接行情源成功');
 	      //TradePanelMGR.changeState({marketWS:"连通"});
-	      var cmdtxt = ".u.sub[`ohlcv;";
-	      cmdtxt += "`600000";
+	      var cmdtxt = ".u.sub[`ohlcv_ws;";
+	      cmdtxt += "`";
 	      cmdtxt += "]";
 	      console.log("Sending Subscribe Command:", cmdtxt);
 	      ws.send(serialize(cmdtxt));
@@ -77118,7 +77118,7 @@
 	   var handleOnMessage = function handleOnMessage(e) {
 	      console.log('marketws onmessage', e);
 	      var payload = JSON.parse(e.data);
-	      if (payload.length == 3 && payload[0] == "upd" && payload[1] == "ohlcv") {
+	      if (payload.length == 3 && payload[0] == "upd" && payload[1] == "ohlcv_ws") {
 	         var data = payload[2];
 	         // for (var i = 0; i < data.length; i++) {
 	         //    var Market=conver2Makert(data[i]);
@@ -77278,6 +77278,8 @@
 
 	var _d3Format = __webpack_require__(285);
 
+	var _d3TimeFormat = __webpack_require__(287);
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -77292,21 +77294,27 @@
 	    Chart = ReStock.Chart,
 	    series = ReStock.series,
 	    scale = ReStock.scale,
-	    annotation = ReStock.annotation,
 	    coordinates = ReStock.coordinates,
 	    tooltip = ReStock.tooltip,
 	    axes = ReStock.axes,
 	    indicator = ReStock.indicator,
 	    helper = ReStock.helper;
-	var CandlestickSeries = series.CandlestickSeries;
+	var CandlestickSeries = series.CandlestickSeries,
+	    LineSeries = series.LineSeries;
 	var discontinuousTimeScaleProvider = scale.discontinuousTimeScaleProvider;
 	var CrossHairCursor = coordinates.CrossHairCursor,
 	    MouseCoordinateX = coordinates.MouseCoordinateX,
-	    MouseCoordinateY = coordinates.MouseCoordinateY;
-	var Label = annotation.Label;
+	    MouseCoordinateY = coordinates.MouseCoordinateY,
+	    CurrentCoordinate = coordinates.CurrentCoordinate;
+	var EdgeIndicator = coordinates.EdgeIndicator;
 	var XAxis = axes.XAxis,
 	    YAxis = axes.YAxis;
-	var OHLCTooltip = tooltip.OHLCTooltip;
+	var OHLCTooltip = tooltip.OHLCTooltip,
+	    MovingAverageTooltip = tooltip.MovingAverageTooltip,
+	    MACDTooltip = tooltip.MACDTooltip;
+	var macd = indicator.macd,
+	    ema = indicator.ema,
+	    sma = indicator.sma;
 	var fitWidth = helper.fitWidth;
 
 	var CandleStickStockScaleChart = function (_React$Component) {
@@ -77325,37 +77333,75 @@
 	                type = _props.type,
 	                data = _props.data,
 	                width = _props.width,
-	                title = _props.title,
-	                disableMouseMoveEvent = _props.disableMouseMoveEvent,
-	                disablePanEvent = _props.disablePanEvent,
-	                disableZoomEvent = _props.disableZoomEvent;
+	                ratio = _props.ratio;
 
+	            var ema26 = ema().id(0).windowSize(26).merge(function (d, c) {
+	                d.ema26 = c;
+	            }).accessor(function (d) {
+	                return d.ema26;
+	            });
+
+	            var ema12 = ema().id(1).windowSize(12).merge(function (d, c) {
+	                d.ema12 = c;
+	            }).accessor(function (d) {
+	                return d.ema12;
+	            });
+
+	            var macdCalculator = macd().fast(12).slow(26).signal(9).merge(function (d, c) {
+	                d.macd = c;
+	            }).accessor(function (d) {
+	                return d.macd;
+	            });
+
+	            var smaVolume50 = sma().id(3).windowSize(10).sourcePath("volume").merge(function (d, c) {
+	                d.smaVolume50 = c;
+	            }).accessor(function (d) {
+	                return d.smaVolume50;
+	            });
 
 	            return React.createElement(
 	                ChartCanvas,
-	                { width: width, height: 400,
+	                { width: width, height: 400, ratio: ratio,
 	                    margin: { left: 50, right: 50, top: 10, bottom: 30 }, type: type,
 	                    seriesName: 'MSFT',
-	                    data: data,
-	                    disableMouseMoveEvent: disableMouseMoveEvent,
-	                    disablePanEvent: disablePanEvent,
-	                    disableZoomEvent: disableZoomEvent,
+	                    data: data, calculator: [ema26, ema12, smaVolume50, macdCalculator],
 	                    xAccessor: function xAccessor(d) {
 	                        return d.date;
 	                    }, xScaleProvider: discontinuousTimeScaleProvider,
 	                    xExtents: [new Date(2012, 0, 1), new Date(2012, 6, 2)] },
 	                React.createElement(
 	                    Chart,
-	                    { id: 0, yExtents: function yExtents(d) {
+	                    { id: 0,
+	                        yExtents: [function (d) {
 	                            return [d.high, d.low];
-	                        } },
-	                    React.createElement(XAxis, { axisAt: 'bottom', orient: 'bottom', ticks: 15, zoomEnabled: disableZoomEvent }),
-	                    React.createElement(YAxis, { axisAt: 'right', orient: 'right', ticks: 5, zoomEnabled: disableZoomEvent }),
+	                        }, ema26.accessor(), ema12.accessor()] },
+	                    React.createElement(XAxis, { axisAt: 'bottom', orient: 'bottom', ticks: 15 }),
+	                    React.createElement(YAxis, { axisAt: 'right', orient: 'right', ticks: 5 }),
 	                    React.createElement(MouseCoordinateY, {
 	                        at: 'right',
 	                        orient: 'right',
 	                        displayFormat: (0, _d3Format.format)(".2f") }),
-	                    React.createElement(CandlestickSeries, null)
+	                    React.createElement(MouseCoordinateX, {
+	                        rectWidth: '180',
+	                        at: 'bottom',
+	                        orient: 'bottom',
+	                        displayFormat: (0, _d3TimeFormat.timeFormat)("%Y-%m-%d") }),
+	                    React.createElement(CandlestickSeries, null),
+	                    React.createElement(LineSeries, { yAccessor: ema26.accessor(), stroke: ema26.stroke() }),
+	                    React.createElement(LineSeries, { yAccessor: ema12.accessor(), stroke: ema12.stroke() }),
+	                    React.createElement(CurrentCoordinate, { yAccessor: ema26.accessor(), fill: ema26.stroke() }),
+	                    React.createElement(CurrentCoordinate, { yAccessor: ema12.accessor(), fill: ema12.stroke() }),
+	                    React.createElement(EdgeIndicator, { itemType: 'last', orient: 'right', edgeAt: 'right',
+	                        yAccessor: function yAccessor(d) {
+	                            return d.close;
+	                        }, fill: function fill(d) {
+	                            return d.close > d.open ? "#6BA583" : "#FF0000";
+	                        } }),
+	                    React.createElement(OHLCTooltip, { origin: [-40, 0] }),
+	                    React.createElement(MovingAverageTooltip, { onClick: function onClick(e) {
+	                            return console.log(e);
+	                        }, origin: [-38, 15],
+	                        calculators: [ema26, ema12] })
 	                ),
 	                React.createElement(CrossHairCursor, null)
 	            );
@@ -77372,10 +77418,7 @@
 	};*/
 
 	CandleStickStockScaleChart.defaultProps = {
-	    type: "svg",
-	    disableMouseMoveEvent: false,
-	    disablePanEvent: false,
-	    disableZoomEvent: false
+	    type: "svg"
 	};
 	CandleStickStockScaleChart = fitWidth(CandleStickStockScaleChart);
 

@@ -9,7 +9,7 @@ var MarketMGR=(function(){
 		console.log('连接行情源成功');
 		//TradePanelMGR.changeState({marketWS:"连通"});
       var cmdtxt = ".u.sub[`ohlcv_ws;";
-         cmdtxt += "`600000"; 
+         cmdtxt += "`"; 
          cmdtxt += "]";
          console.log("Sending Subscribe Command:", cmdtxt);
          ws.send(serialize(cmdtxt));
