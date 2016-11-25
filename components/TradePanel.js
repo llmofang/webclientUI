@@ -5,7 +5,9 @@ var { fitWidth,fitDimensions } = helper;
 var d3 = require('d3');
 var CandleStickStockScaleChart = require("./parts/CandleStickStockScaleChart") 
 var MarketMGR = require('./parts/MarketMGR')
-//var resize = require('./parts/resize')
+var TradePanel = require('./TradePanel')
+var SearchInput = require('./search')
+var Code = require('./CodeTable')
 var PubSub = require('pubsub-js')
 
 var TradePannel = React.createClass({
@@ -29,6 +31,7 @@ var TradePannel = React.createClass({
             height: parentHeight,
             stockcode:"",
             SubTopic: 'SubStock',
+            first:true
         }
     },
     componentDidMount:function(){
@@ -36,82 +39,87 @@ var TradePannel = React.createClass({
         PubSub.subscribe('resizeHandler',(topic,data)=>{
           //console.log('resize',data)
           this.setState({height:data})
-        })   
-    
+        }) 
+        var words = Code.stockData()
 
-
-        
-    },
-    wsOnOpen:function(){
-      this.subscribe('600000')
-    },
-
-
-      subHandler: function(topic, data) {
-        var first = true
-        var flag = false
-        var parHeight = document.getElementById("zz_0").clientHeight
-            var parWidth = document.getElementById('zz_0').clientWidth
-            console.log("parHeight",parHeight)
-            this.setState({height:parHeight})
-
-          
-
-          var flag = false
-          console.log("开始receiveData",data) 
-          console.log("stateData",this.state.data)
-
-          var olddata = this.state.data,
-               oldLength = olddata.length,
-               lastMinutes = olddata[oldLength-1].date.getMinutes(),
-               newMinutes = data[0].date.getMinutes(),
-               newdata
-         /* if(flag == false && oldLength > 4){
-               olddata.splice(0,2)
-               flag = true
-          }*/
-            //console.log('first:' + first) 
-          if(first){
-              newdata = [data[0],data[0]]
-              first = false
-          }else{
-               if(newMinutes != lastMinutes){
-                   newdata = olddata.concat(data[0])
-                }else{
-                   console.log()
-                   olddata.splice((oldLength-1) , 1 ,data[0])
-                   newdata = olddata
-                } 
+        $('.search_'+this.props.name).autocomplete({
+          hints: words,
+          onSubmit:(arg)=>{
+             this.unsubscribe(stockcode)
+             this.setState({first:true})
+             this.subscribe(arg)
           }
-          this.setState({data:newdata})
+        })  
+    },
+
+
+    subHandler: function(topic, data) {
+ 
+      var flag = false
+      var parHeight = document.getElementById("zz_0").clientHeight
+          var parWidth = document.getElementById('zz_0').clientWidth
+          console.log("parHeight",parHeight)
+          this.setState({height:parHeight})
+
+        console.log("开始receiveData",data) 
+        console.log("stateData",this.state.data)
+
+        var olddata = this.state.data,
+             oldLength = olddata.length,
+             lastMinutes = olddata[oldLength-1].date.getMinutes(),
+             newMinutes = data[0].date.getMinutes(),
+             newdata 
+        /*if(this.state.first){
+            newdata = [data[0],data[0]]
+            this.setState({first:false})
+        }else{
+             if(newMinutes != lastMinutes){
+                 newdata = olddata.concat(data[0])
+              }else{
+                 console.log()
+                 olddata.splice((oldLength-1) , 1 ,data[0])
+                 newdata = olddata
+              } 
+        }*/
+        newdata = olddata.concat(data[0])
+        this.setState({data:newdata})
+
+    },
+
+     subscribe: function(sym) {
+              MarketMGR.subscribe(sym);
+              var token=PubSub.subscribe(sym, this.subHandler);
+              this.setState({subTopic:token});
+              this.setState({stockcode:sym})
+              console.log('subscribe    ',sym);
+              //console.log('subscribe subtopic',token);
 
       },
 
-       subscribe: function(sym) {
-                MarketMGR.subscribe(sym);
-                var token=PubSub.subscribe(sym, this.subHandler);
-                this.setState({subTopic:token});
-                console.log('subscribe    ',sym);
-                //console.log('subscribe subtopic',token);
+      unsubscribe: function(sym) {
+              console.log('unsubscribe    ',sym);
+              console.log('unsubscribe subtopic',this.state.subTopic);
+              MarketMGR.unsubscribe(sym);
+              if (this.state.subTopic) {
+                  PubSub.unsubscribe(this.state.subTopic);
+              }
+      },
 
-            },
-
-        unsubscribe: function(sym) {
-                console.log('unsubscribe    ',sym);
-                console.log('unsubscribe subtopic',this.state.subTopic);
-                MarketMGR.unsubscribe(sym);
-                if (this.state.subTopic) {
-                    PubSub.unsubscribe(this.state.subTopic);
-                }
-            },
-
-
-    render: function () {
-        var { type,width } = this.props;
-        return (
-            <CandleStickStockScaleChart type={type}  data={this.state.data} height={this.state.height}/>
-        );
-    }
+      render: function () {
+          var { type,width } = this.props;
+          var kk = window.document.body.offsetHeight
+          return (
+            <div>
+              <div className='col-sm-10' style={{height: kk/3}}>
+                <CandleStickStockScaleChart type={type}  data={this.state.data} height={this.state.height}/>
+              </div> 
+              <div className='col-sm-2' style={{height: kk/3}}>十档行情</div> 
+              <SearchInput name={'search_'+this.props.name}/>
+             </div> 
+              
+            
+          );
+      }
 });
 
 TradePannel = fitDimensions(TradePannel)

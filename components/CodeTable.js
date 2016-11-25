@@ -2901,7 +2901,7 @@ var CodeTable=(function(){
 			}
 			data.push(obj);	
 		}
-		console.log('stockData',data)
+		//console.log('stockData',data)
 		return data
 	}
 

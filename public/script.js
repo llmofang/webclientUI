@@ -42,7 +42,7 @@ function winResize(){
 winResize()
 $(window).resize(function(){
   winResize()
-  var xx = document.getElementById("zz_1").offsetHeight
+  var xx = document.getElementById("zz_0").offsetHeight
   PubSub.publish('Resize', xx);
 
 })

@@ -4,18 +4,19 @@ var PubSub = require('pubsub-js');
 var d3 = require('d3');
 
 var MarketMGR=(function(){
-  var onOpenCallBack;
+  //var onOpenCallBack;
 	var ws;
 	var subsyms=[];
+  var isOpen = false;
 
 	var handleOnOpen=function(e) {
 		console.log('连接行情源成功');
     isOpen=true
-    onOpenCallBack()
+    //onOpenCallBack()
 
 
 	};
-
+  
 	var handleOnMessage=function(e) {
 		console.log('marketws onmessage',e);
 		var payload=JSON.parse(e.data);
@@ -23,7 +24,7 @@ var MarketMGR=(function(){
          var data=payload[2];
          for (var i = 0; i < data.length; i++) {
             var Market=formatData(data[i]);
-            PubSub.publish(Market.sym, Market);
+            PubSub.publish(data[i].sym, Market);
             //console.log('postdata',Market)
          }
          //console.log('原始数据',data)	
@@ -46,7 +47,7 @@ var MarketMGR=(function(){
 
 
    var init=function(callback){
-      this.onOpenCallBack=callback;
+      //this.onOpenCallBack=callback;
    	  ws=WSMGR.init('ws://139.196.77.165:5034',handleOnOpen,handleOnClose,handleOnMessage,handleOnError);
       return ws;
    };
@@ -66,7 +67,7 @@ var MarketMGR=(function(){
    			count: 1
    		});
    		
-        subData('Market', subsyms);
+        subData('ohlcv_ws', subsyms);
         console.log('subscribe stockcodes:',subsyms);
      
    		
@@ -78,7 +79,7 @@ var MarketMGR=(function(){
    		if (subsyms[i].key == sym) {
    			if (subsyms[i].count <= 1) {
    				subsyms.splice(i, 1);
-   				subData('Market', subsyms);
+   				subData('ohlcv_ws', subsyms);
    				break;
    			} else {
    				subsyms[i].count--

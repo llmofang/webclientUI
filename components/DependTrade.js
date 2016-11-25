@@ -5,14 +5,16 @@ var Code = require('./CodeTable')
 
 
 class DependTrade extends React.component{
-  componentWillMount(){
 
-  }
   componentDidMount(){
     var words = Code.stockData()
 
     $('.search').autocomplete({
       hints: words,
+      onSubmit:function(arg){
+         TradePanel.unsubscribe('600000')
+         TradePanel.subscribe(arg)
+      }
     });
   }
   render(){
@@ -23,8 +25,9 @@ class DependTrade extends React.component{
             <TradePanel />
         </div> 
         <div className='col-sm-2' style={{height: kk/3}}>十档行情</div> 
-        <SearchInput />
       </div>
     )
   }
 }
+
+module.exports = DependTrade
