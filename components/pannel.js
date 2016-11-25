@@ -9,7 +9,7 @@ var Pannel = React.createClass({
    
    componentDidMount:function(){
       window.onresize = function () {
-        var xx = document.getElementById("zz_1").clientHeight
+        var xx = document.getElementById("zz_0").clientHeight
         PubSub.publish('resizeHandler', xx);
       }
       var words = Code.stockData()
@@ -32,15 +32,15 @@ var Pannel = React.createClass({
 
       return (
          <div id='stockcharts'>
-            <div className="chart col-xs-4 col-sm-4" id="zz_1" style={{height: kk/3}}> <TradePanel /> <SearchInput /> </div>
-            <div className="chart col-xs-4 col-sm-4" id="zz_2" style={{height: kk/3}}> <TradePanel /> <SearchInput /> </div>
-            <div className="chart col-xs-4 col-sm-4" id="zz_3" style={{height: kk/3}}> <TradePanel /> <SearchInput /> </div>
-            <div className="chart col-xs-4 col-sm-4" id="zz_4" style={{height: kk/3}}> <TradePanel /> <SearchInput /> </div>
-            <div className="chart col-xs-4 col-sm-4" id="zz_5" style={{height: kk/3}}> <TradePanel /> <SearchInput /> </div>
-            <div className="chart col-xs-4 col-sm-4" id="zz_6" style={{height: kk/3}}> <TradePanel /> <SearchInput /> </div>
-            <div className="chart col-xs-4 col-sm-4" id="zz_7" style={{height: kk/3}}> <TradePanel /> <SearchInput /> </div>
-            <div className="chart col-xs-4 col-sm-4" id="zz_8" style={{height: kk/3}}> <TradePanel /> <SearchInput /> </div>
-            <div className="chart col-xs-4 col-sm-4" id="zz_9" style={{height: kk/3}}> <TradePanel /> <SearchInput /></div>
+            <div className="chart col-xs-4 col-sm-4" id="zz_0" style={{height: kk/3}}> <div id="zz_1" className='col-sm-10' style={{height: kk/3}}><TradePanel /></div> <div className='col-sm-2' style={{height: kk/3}}>十档行情</div> <SearchInput /> </div>
+            <div className="chart col-xs-4 col-sm-4" style={{height: kk/3}}> <div id="zz_2" className='col-sm-10' style={{height: kk/3}}><TradePanel /></div>  <div className='col-sm-2' style={{height: kk/3}}>十档行情</div><SearchInput /></div>
+            <div className="chart col-xs-4 col-sm-4" style={{height: kk/3}}> <div id="zz_3" className='col-sm-10' style={{height: kk/3}}><TradePanel /></div>  <div className='col-sm-2' style={{height: kk/3}}>十档行情</div><SearchInput /> </div>
+            <div className="chart col-xs-4 col-sm-4" style={{height: kk/3}}> <div id="zz_4" className='col-sm-10' style={{height: kk/3}}><TradePanel /></div>  <div className='col-sm-2' style={{height: kk/3}}>十档行情</div><SearchInput /> </div>
+            <div className="chart col-xs-4 col-sm-4" style={{height: kk/3}}> <div id="zz_5" className='col-sm-10' style={{height: kk/3}}><TradePanel /></div>  <div className='col-sm-2' style={{height: kk/3}}>十档行情</div><SearchInput /></div>
+            <div className="chart col-xs-4 col-sm-4" style={{height: kk/3}}> <div id="zz_6" className='col-sm-10' style={{height: kk/3}}><TradePanel /></div>  <div className='col-sm-2' style={{height: kk/3}}>十档行情</div><SearchInput /> </div>
+            <div className="chart col-xs-4 col-sm-4" style={{height: kk/3}}> <div id="zz_7" className='col-sm-10' style={{height: kk/3}}><TradePanel /></div> <div className='col-sm-2' style={{height: kk/3}}>十档行情</div> <SearchInput /> </div>
+            <div className="chart col-xs-4 col-sm-4" style={{height: kk/3}}> <div id="zz_8" className='col-sm-10' style={{height: kk/3}}><TradePanel /></div>  <div className='col-sm-2' style={{height: kk/3}}>十档行情</div><SearchInput /> </div>
+            <div className="chart col-xs-4 col-sm-4" style={{height: kk/3}}> <div id="zz_9" className='col-sm-10' style={{height: kk/3}}><TradePanel /></div>  <div className='col-sm-2' style={{height: kk/3}}>十档行情</div><SearchInput /></div>
          </div>
         )
    }

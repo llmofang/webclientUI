@@ -51,6 +51,8 @@ $(".chart").hover(function(){
   $(this).find('.search').css('display','block')
 },function(){
   $(this).find('.search').css('display','none')
+  $(this).find('.autocomplete-input').val('')
+  $(this).find('.proposal-list').empty()
 })
 $('.chart').on('click',function(){
   $(this).find('.search input').focus()

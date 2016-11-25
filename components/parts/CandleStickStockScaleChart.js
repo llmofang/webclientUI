@@ -54,7 +54,7 @@ class CandleStickStockScaleChart extends React.Component{
             .accessor(d => d.smaVolume50);
         return (
             <ChartCanvas ref='ChartCanvas' width={width} height={height} ratio={ratio}
-                    margin={{left: 70, right: 100, top:20, bottom: 10}} type={type}
+                    margin={{left: 50, right: 100, top:20, bottom: 10}} type={type}
                     seriesName="MSFT"
                     data={data}    calculator={[sma5,sma10 ,sma20,sma60, smaVolume50]}
                     xAccessor={d => d.date} xScaleProvider={discontinuousTimeScaleProvider} >  

@@ -10,7 +10,8 @@ var PubSub = require('pubsub-js')
 
 var TradePannel = React.createClass({
     getInitialState:function() {
-        var parentHeight = document.getElementById("zz_1").offsetHeight
+        var parentHeight = document.getElementById("zz_0").offsetHeight
+        var parentWidth = document.getElementById('zz_0').offsetWidth
         //console.log(document.getElementById("zz_1").offsetHeight)
         var arr=[]
         for(var i=0; i<2;i++){
@@ -25,7 +26,8 @@ var TradePannel = React.createClass({
         }
         return {
             data: arr,
-            height: parentHeight
+            height: parentHeight,
+
         }
     },
     componentWillMount:function(){
@@ -43,10 +45,10 @@ var TradePannel = React.createClass({
         var flag = false
         PubSub.subscribe('receiveData',(topic,data)=>{
           
-            var parHeight = document.getElementById("zz_1").clientHeight
-            var parWidth = document.getElementById('zz_1').clientWidth
+            var parHeight = document.getElementById("zz_0").clientHeight
+            var parWidth = document.getElementById('zz_0').clientWidth
             console.log("parHeight",parHeight)
-            this.setState({height:parHeight,width:parWidth})
+            this.setState({height:parHeight})
 
           
 
