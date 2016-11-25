@@ -11,7 +11,11 @@ var MarketMGR=(function(){
 		console.log('连接行情源成功');
 		//TradePanelMGR.changeState({marketWS:"连通"});
       var cmdtxt = ".u.sub[`ohlcv_ws;";
+<<<<<<< HEAD
          cmdtxt += "`603598"; 
+=======
+         cmdtxt += "`"; 
+>>>>>>> 542f0995297ce442b5b671f7f5ea6282584300a4
          cmdtxt += "]";
          console.log("Sending Subscribe Command:", cmdtxt);
          ws.send(serialize(cmdtxt));
