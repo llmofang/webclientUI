@@ -25,11 +25,13 @@ var TradePannel = React.createClass({
         }
         return {
             data: arr,
-            height: parentHeight
+            height: parentHeight,
+            stockcode:"",
+            SubTopic: 'SubStock',
         }
     },
     componentWillMount:function(){
-        MarketMGR.init()
+        MarketMGR.init(this.wsOnOpen)
     },
     componentDidMount:function(){
 
@@ -41,9 +43,15 @@ var TradePannel = React.createClass({
 
         var first = true
         var flag = false
-        PubSub.subscribe('receiveData',(topic,data)=>{
-          
-            var parHeight = document.getElementById("zz_1").clientHeight
+        
+    },
+    wsOnOpen:function(){
+      this.subscribe('600000')
+    },
+
+
+      subHandler: function(topic, data) {
+        var parHeight = document.getElementById("zz_1").clientHeight
             var parWidth = document.getElementById('zz_1').clientWidth
             console.log("parHeight",parHeight)
             this.setState({height:parHeight,width:parWidth})
@@ -77,8 +85,28 @@ var TradePannel = React.createClass({
                 } 
           }
           this.setState({data:newdata})
-        }) 
-    },
+
+      },
+
+       subscribe: function(sym) {
+                MarketMGR.subscribe(sym);
+                var token=PubSub.subscribe(sym, this.subHandler);
+                this.setState({subTopic:token});
+                console.log('subscribe    ',sym);
+                //console.log('subscribe subtopic',token);
+
+            },
+
+        unsubscribe: function(sym) {
+                console.log('unsubscribe    ',sym);
+                console.log('unsubscribe subtopic',this.state.subTopic);
+                MarketMGR.unsubscribe(sym);
+                if (this.state.subTopic) {
+                    PubSub.unsubscribe(this.state.subTopic);
+                }
+            },
+
+
     render: function () {
         var { type,width } = this.props;
         return (

@@ -48,14 +48,14 @@
 
 	var React = __webpack_require__(1);
 	var ReactDom = __webpack_require__(32);
-	var Router = __webpack_require__(183);
+	var Router = __webpack_require__(178);
 	var Route = Router.Route;
 	var DefaultRoute = Router.DefaultRoute;
 	var NotFoundRoute = Router.NotFoundRoute;
 
-	var APP = __webpack_require__(225);
+	var APP = __webpack_require__(220);
 	var Panel = __webpack_require__(276);
-	var Whoops404 = __webpack_require__(430);
+	var Whoops404 = __webpack_require__(426);
 
 	// <Route name="user" path="user" handler={User}></Route>
 	// <Route name="conf" path="conf" handler={Conf}></Route>
@@ -4137,16 +4137,16 @@
 	'use strict';
 
 	var ReactDOMComponentTree = __webpack_require__(34);
-	var ReactDefaultInjection = __webpack_require__(39);
-	var ReactMount = __webpack_require__(171);
-	var ReactReconciler = __webpack_require__(63);
-	var ReactUpdates = __webpack_require__(60);
-	var ReactVersion = __webpack_require__(176);
+	var ReactDefaultInjection = __webpack_require__(38);
+	var ReactMount = __webpack_require__(166);
+	var ReactReconciler = __webpack_require__(59);
+	var ReactUpdates = __webpack_require__(56);
+	var ReactVersion = __webpack_require__(171);
 
-	var findDOMNode = __webpack_require__(177);
-	var getHostComponentFromComposite = __webpack_require__(178);
-	var renderSubtreeIntoContainer = __webpack_require__(179);
-	var warning = __webpack_require__(47);
+	var findDOMNode = __webpack_require__(172);
+	var getHostComponentFromComposite = __webpack_require__(173);
+	var renderSubtreeIntoContainer = __webpack_require__(174);
+	var warning = __webpack_require__(11);
 
 	ReactDefaultInjection.inject();
 
@@ -4185,7 +4185,7 @@
 	}
 
 	if (process.env.NODE_ENV !== 'production') {
-	  var ExecutionEnvironment = __webpack_require__(51);
+	  var ExecutionEnvironment = __webpack_require__(48);
 	  if (ExecutionEnvironment.canUseDOM && window.top === window.self) {
 
 	    // First check if devtools is not installed
@@ -4221,10 +4221,10 @@
 	}
 
 	if (process.env.NODE_ENV !== 'production') {
-	  var ReactInstrumentation = __webpack_require__(66);
-	  var ReactDOMUnknownPropertyHook = __webpack_require__(180);
-	  var ReactDOMNullInputValuePropHook = __webpack_require__(181);
-	  var ReactDOMInvalidARIAHook = __webpack_require__(182);
+	  var ReactInstrumentation = __webpack_require__(62);
+	  var ReactDOMUnknownPropertyHook = __webpack_require__(175);
+	  var ReactDOMNullInputValuePropHook = __webpack_require__(176);
+	  var ReactDOMInvalidARIAHook = __webpack_require__(177);
 
 	  ReactInstrumentation.debugTool.addHook(ReactDOMUnknownPropertyHook);
 	  ReactInstrumentation.debugTool.addHook(ReactDOMNullInputValuePropHook);
@@ -4253,9 +4253,9 @@
 	var _prodInvariant = __webpack_require__(35);
 
 	var DOMProperty = __webpack_require__(36);
-	var ReactDOMComponentFlags = __webpack_require__(38);
+	var ReactDOMComponentFlags = __webpack_require__(37);
 
-	var invariant = __webpack_require__(37);
+	var invariant = __webpack_require__(8);
 
 	var ATTR_NAME = DOMProperty.ID_ATTRIBUTE_NAME;
 	var Flags = ReactDOMComponentFlags;
@@ -4488,7 +4488,7 @@
 
 	var _prodInvariant = __webpack_require__(35);
 
-	var invariant = __webpack_require__(37);
+	var invariant = __webpack_require__(8);
 
 	function checkMask(value, bitmask) {
 	  return (value & bitmask) === bitmask;
@@ -4687,61 +4687,6 @@
 
 /***/ },
 /* 37 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 */
-
-	'use strict';
-
-	/**
-	 * Use invariant() to assert state which your program assumes to be true.
-	 *
-	 * Provide sprintf-style format (only %s is supported) and arguments
-	 * to provide information about what broke and what you were
-	 * expecting.
-	 *
-	 * The invariant message will be stripped in production, but the invariant
-	 * will remain to ensure logic does not differ in production.
-	 */
-
-	function invariant(condition, format, a, b, c, d, e, f) {
-	  if (process.env.NODE_ENV !== 'production') {
-	    if (format === undefined) {
-	      throw new Error('invariant requires an error message argument');
-	    }
-	  }
-
-	  if (!condition) {
-	    var error;
-	    if (format === undefined) {
-	      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
-	    } else {
-	      var args = [a, b, c, d, e, f];
-	      var argIndex = 0;
-	      error = new Error(format.replace(/%s/g, function () {
-	        return args[argIndex++];
-	      }));
-	      error.name = 'Invariant Violation';
-	    }
-
-	    error.framesToPop = 1; // we don't care about invariant's own frame
-	    throw error;
-	  }
-	}
-
-	module.exports = invariant;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
-
-/***/ },
-/* 38 */
 /***/ function(module, exports) {
 
 	/**
@@ -4763,7 +4708,7 @@
 	module.exports = ReactDOMComponentFlags;
 
 /***/ },
-/* 39 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4778,25 +4723,25 @@
 
 	'use strict';
 
-	var ARIADOMPropertyConfig = __webpack_require__(40);
-	var BeforeInputEventPlugin = __webpack_require__(41);
-	var ChangeEventPlugin = __webpack_require__(59);
-	var DefaultEventPluginOrder = __webpack_require__(76);
-	var EnterLeaveEventPlugin = __webpack_require__(77);
-	var HTMLDOMPropertyConfig = __webpack_require__(82);
-	var ReactComponentBrowserEnvironment = __webpack_require__(83);
-	var ReactDOMComponent = __webpack_require__(96);
+	var ARIADOMPropertyConfig = __webpack_require__(39);
+	var BeforeInputEventPlugin = __webpack_require__(40);
+	var ChangeEventPlugin = __webpack_require__(55);
+	var DefaultEventPluginOrder = __webpack_require__(72);
+	var EnterLeaveEventPlugin = __webpack_require__(73);
+	var HTMLDOMPropertyConfig = __webpack_require__(78);
+	var ReactComponentBrowserEnvironment = __webpack_require__(79);
+	var ReactDOMComponent = __webpack_require__(92);
 	var ReactDOMComponentTree = __webpack_require__(34);
-	var ReactDOMEmptyComponent = __webpack_require__(142);
-	var ReactDOMTreeTraversal = __webpack_require__(143);
-	var ReactDOMTextComponent = __webpack_require__(144);
-	var ReactDefaultBatchingStrategy = __webpack_require__(145);
-	var ReactEventListener = __webpack_require__(146);
-	var ReactInjection = __webpack_require__(149);
-	var ReactReconcileTransaction = __webpack_require__(150);
-	var SVGDOMPropertyConfig = __webpack_require__(158);
-	var SelectEventPlugin = __webpack_require__(159);
-	var SimpleEventPlugin = __webpack_require__(160);
+	var ReactDOMEmptyComponent = __webpack_require__(137);
+	var ReactDOMTreeTraversal = __webpack_require__(138);
+	var ReactDOMTextComponent = __webpack_require__(139);
+	var ReactDefaultBatchingStrategy = __webpack_require__(140);
+	var ReactEventListener = __webpack_require__(141);
+	var ReactInjection = __webpack_require__(144);
+	var ReactReconcileTransaction = __webpack_require__(145);
+	var SVGDOMPropertyConfig = __webpack_require__(153);
+	var SelectEventPlugin = __webpack_require__(154);
+	var SimpleEventPlugin = __webpack_require__(155);
 
 	var alreadyInjected = false;
 
@@ -4853,7 +4798,7 @@
 	};
 
 /***/ },
-/* 40 */
+/* 39 */
 /***/ function(module, exports) {
 
 	/**
@@ -4931,7 +4876,7 @@
 	module.exports = ARIADOMPropertyConfig;
 
 /***/ },
-/* 41 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4946,11 +4891,11 @@
 
 	'use strict';
 
-	var EventPropagators = __webpack_require__(42);
-	var ExecutionEnvironment = __webpack_require__(51);
-	var FallbackCompositionState = __webpack_require__(52);
-	var SyntheticCompositionEvent = __webpack_require__(56);
-	var SyntheticInputEvent = __webpack_require__(58);
+	var EventPropagators = __webpack_require__(41);
+	var ExecutionEnvironment = __webpack_require__(48);
+	var FallbackCompositionState = __webpack_require__(49);
+	var SyntheticCompositionEvent = __webpack_require__(52);
+	var SyntheticInputEvent = __webpack_require__(54);
 
 	var END_KEYCODES = [9, 13, 27, 32]; // Tab, Return, Esc, Space
 	var START_KEYCODE = 229;
@@ -5320,7 +5265,7 @@
 	module.exports = BeforeInputEventPlugin;
 
 /***/ },
-/* 42 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -5335,12 +5280,12 @@
 
 	'use strict';
 
-	var EventPluginHub = __webpack_require__(43);
-	var EventPluginUtils = __webpack_require__(45);
+	var EventPluginHub = __webpack_require__(42);
+	var EventPluginUtils = __webpack_require__(44);
 
-	var accumulateInto = __webpack_require__(49);
-	var forEachAccumulated = __webpack_require__(50);
-	var warning = __webpack_require__(47);
+	var accumulateInto = __webpack_require__(46);
+	var forEachAccumulated = __webpack_require__(47);
+	var warning = __webpack_require__(11);
 
 	var getListener = EventPluginHub.getListener;
 
@@ -5459,7 +5404,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 43 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -5476,13 +5421,13 @@
 
 	var _prodInvariant = __webpack_require__(35);
 
-	var EventPluginRegistry = __webpack_require__(44);
-	var EventPluginUtils = __webpack_require__(45);
-	var ReactErrorUtils = __webpack_require__(46);
+	var EventPluginRegistry = __webpack_require__(43);
+	var EventPluginUtils = __webpack_require__(44);
+	var ReactErrorUtils = __webpack_require__(45);
 
-	var accumulateInto = __webpack_require__(49);
-	var forEachAccumulated = __webpack_require__(50);
-	var invariant = __webpack_require__(37);
+	var accumulateInto = __webpack_require__(46);
+	var forEachAccumulated = __webpack_require__(47);
+	var invariant = __webpack_require__(8);
 
 	/**
 	 * Internal store for event listeners
@@ -5715,7 +5660,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 44 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -5733,7 +5678,7 @@
 
 	var _prodInvariant = __webpack_require__(35);
 
-	var invariant = __webpack_require__(37);
+	var invariant = __webpack_require__(8);
 
 	/**
 	 * Injectable ordering of event plugins.
@@ -5975,7 +5920,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 45 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -5992,10 +5937,10 @@
 
 	var _prodInvariant = __webpack_require__(35);
 
-	var ReactErrorUtils = __webpack_require__(46);
+	var ReactErrorUtils = __webpack_require__(45);
 
-	var invariant = __webpack_require__(37);
-	var warning = __webpack_require__(47);
+	var invariant = __webpack_require__(8);
+	var warning = __webpack_require__(11);
 
 	/**
 	 * Injected dependencies:
@@ -6206,7 +6151,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 46 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -6288,122 +6233,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 47 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2014-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 */
-
-	'use strict';
-
-	var emptyFunction = __webpack_require__(48);
-
-	/**
-	 * Similar to invariant but only logs a warning if the condition is not met.
-	 * This can be used to log issues in development environments in critical
-	 * paths. Removing the logging code for production environments will keep the
-	 * same logic and follow the same code paths.
-	 */
-
-	var warning = emptyFunction;
-
-	if (process.env.NODE_ENV !== 'production') {
-	  (function () {
-	    var printWarning = function printWarning(format) {
-	      for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-	        args[_key - 1] = arguments[_key];
-	      }
-
-	      var argIndex = 0;
-	      var message = 'Warning: ' + format.replace(/%s/g, function () {
-	        return args[argIndex++];
-	      });
-	      if (typeof console !== 'undefined') {
-	        console.error(message);
-	      }
-	      try {
-	        // --- Welcome to debugging React ---
-	        // This error was thrown as a convenience so that you can use this stack
-	        // to find the callsite that caused this warning to fire.
-	        throw new Error(message);
-	      } catch (x) {}
-	    };
-
-	    warning = function warning(condition, format) {
-	      if (format === undefined) {
-	        throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
-	      }
-
-	      if (format.indexOf('Failed Composite propType: ') === 0) {
-	        return; // Ignore CompositeComponent proptype check.
-	      }
-
-	      if (!condition) {
-	        for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
-	          args[_key2 - 2] = arguments[_key2];
-	        }
-
-	        printWarning.apply(undefined, [format].concat(args));
-	      }
-	    };
-	  })();
-	}
-
-	module.exports = warning;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
-
-/***/ },
-/* 48 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	/**
-	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * 
-	 */
-
-	function makeEmptyFunction(arg) {
-	  return function () {
-	    return arg;
-	  };
-	}
-
-	/**
-	 * This function accepts and discards inputs; it has no side effects. This is
-	 * primarily useful idiomatically for overridable function endpoints which
-	 * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
-	 */
-	var emptyFunction = function emptyFunction() {};
-
-	emptyFunction.thatReturns = makeEmptyFunction;
-	emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
-	emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
-	emptyFunction.thatReturnsNull = makeEmptyFunction(null);
-	emptyFunction.thatReturnsThis = function () {
-	  return this;
-	};
-	emptyFunction.thatReturnsArgument = function (arg) {
-	  return arg;
-	};
-
-	module.exports = emptyFunction;
-
-/***/ },
-/* 49 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -6421,7 +6251,7 @@
 
 	var _prodInvariant = __webpack_require__(35);
 
-	var invariant = __webpack_require__(37);
+	var invariant = __webpack_require__(8);
 
 	/**
 	 * Accumulates items that must not be null or undefined into the first one. This
@@ -6466,7 +6296,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 50 */
+/* 47 */
 /***/ function(module, exports) {
 
 	/**
@@ -6501,7 +6331,7 @@
 	module.exports = forEachAccumulated;
 
 /***/ },
-/* 51 */
+/* 48 */
 /***/ function(module, exports) {
 
 	/**
@@ -6541,7 +6371,7 @@
 	module.exports = ExecutionEnvironment;
 
 /***/ },
-/* 52 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -6556,11 +6386,11 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(53);
+	var _assign = __webpack_require__(4);
 
-	var PooledClass = __webpack_require__(54);
+	var PooledClass = __webpack_require__(50);
 
-	var getTextContentAccessor = __webpack_require__(55);
+	var getTextContentAccessor = __webpack_require__(51);
 
 	/**
 	 * This helper class stores information about text content of a target node,
@@ -6640,96 +6470,7 @@
 	module.exports = FallbackCompositionState;
 
 /***/ },
-/* 53 */
-/***/ function(module, exports) {
-
-	'use strict';
-	/* eslint-disable no-unused-vars */
-	var hasOwnProperty = Object.prototype.hasOwnProperty;
-	var propIsEnumerable = Object.prototype.propertyIsEnumerable;
-
-	function toObject(val) {
-		if (val === null || val === undefined) {
-			throw new TypeError('Object.assign cannot be called with null or undefined');
-		}
-
-		return Object(val);
-	}
-
-	function shouldUseNative() {
-		try {
-			if (!Object.assign) {
-				return false;
-			}
-
-			// Detect buggy property enumeration order in older V8 versions.
-
-			// https://bugs.chromium.org/p/v8/issues/detail?id=4118
-			var test1 = new String('abc');  // eslint-disable-line
-			test1[5] = 'de';
-			if (Object.getOwnPropertyNames(test1)[0] === '5') {
-				return false;
-			}
-
-			// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-			var test2 = {};
-			for (var i = 0; i < 10; i++) {
-				test2['_' + String.fromCharCode(i)] = i;
-			}
-			var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
-				return test2[n];
-			});
-			if (order2.join('') !== '0123456789') {
-				return false;
-			}
-
-			// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-			var test3 = {};
-			'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
-				test3[letter] = letter;
-			});
-			if (Object.keys(Object.assign({}, test3)).join('') !==
-					'abcdefghijklmnopqrst') {
-				return false;
-			}
-
-			return true;
-		} catch (e) {
-			// We don't expect any of the above to throw, but better to be safe.
-			return false;
-		}
-	}
-
-	module.exports = shouldUseNative() ? Object.assign : function (target, source) {
-		var from;
-		var to = toObject(target);
-		var symbols;
-
-		for (var s = 1; s < arguments.length; s++) {
-			from = Object(arguments[s]);
-
-			for (var key in from) {
-				if (hasOwnProperty.call(from, key)) {
-					to[key] = from[key];
-				}
-			}
-
-			if (Object.getOwnPropertySymbols) {
-				symbols = Object.getOwnPropertySymbols(from);
-				for (var i = 0; i < symbols.length; i++) {
-					if (propIsEnumerable.call(from, symbols[i])) {
-						to[symbols[i]] = from[symbols[i]];
-					}
-				}
-			}
-		}
-
-		return to;
-	};
-
-
-/***/ },
-/* 54 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -6747,7 +6488,7 @@
 
 	var _prodInvariant = __webpack_require__(35);
 
-	var invariant = __webpack_require__(37);
+	var invariant = __webpack_require__(8);
 
 	/**
 	 * Static poolers. Several custom versions for each potential number of
@@ -6858,7 +6599,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 55 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -6873,7 +6614,7 @@
 
 	'use strict';
 
-	var ExecutionEnvironment = __webpack_require__(51);
+	var ExecutionEnvironment = __webpack_require__(48);
 
 	var contentKey = null;
 
@@ -6895,7 +6636,7 @@
 	module.exports = getTextContentAccessor;
 
 /***/ },
-/* 56 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -6910,7 +6651,7 @@
 
 	'use strict';
 
-	var SyntheticEvent = __webpack_require__(57);
+	var SyntheticEvent = __webpack_require__(53);
 
 	/**
 	 * @interface Event
@@ -6935,7 +6676,7 @@
 	module.exports = SyntheticCompositionEvent;
 
 /***/ },
-/* 57 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -6950,12 +6691,12 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(53);
+	var _assign = __webpack_require__(4);
 
-	var PooledClass = __webpack_require__(54);
+	var PooledClass = __webpack_require__(50);
 
-	var emptyFunction = __webpack_require__(48);
-	var warning = __webpack_require__(47);
+	var emptyFunction = __webpack_require__(12);
+	var warning = __webpack_require__(11);
 
 	var didWarnForAddedNewProperty = false;
 	var isProxySupported = typeof Proxy === 'function';
@@ -7208,7 +6949,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 58 */
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -7223,7 +6964,7 @@
 
 	'use strict';
 
-	var SyntheticEvent = __webpack_require__(57);
+	var SyntheticEvent = __webpack_require__(53);
 
 	/**
 	 * @interface Event
@@ -7249,7 +6990,7 @@
 	module.exports = SyntheticInputEvent;
 
 /***/ },
-/* 59 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -7264,16 +7005,16 @@
 
 	'use strict';
 
-	var EventPluginHub = __webpack_require__(43);
-	var EventPropagators = __webpack_require__(42);
-	var ExecutionEnvironment = __webpack_require__(51);
+	var EventPluginHub = __webpack_require__(42);
+	var EventPropagators = __webpack_require__(41);
+	var ExecutionEnvironment = __webpack_require__(48);
 	var ReactDOMComponentTree = __webpack_require__(34);
-	var ReactUpdates = __webpack_require__(60);
-	var SyntheticEvent = __webpack_require__(57);
+	var ReactUpdates = __webpack_require__(56);
+	var SyntheticEvent = __webpack_require__(53);
 
-	var getEventTarget = __webpack_require__(73);
-	var isEventSupported = __webpack_require__(74);
-	var isTextInputElement = __webpack_require__(75);
+	var getEventTarget = __webpack_require__(69);
+	var isEventSupported = __webpack_require__(70);
+	var isTextInputElement = __webpack_require__(71);
 
 	var eventTypes = {
 	  change: {
@@ -7574,7 +7315,7 @@
 	module.exports = ChangeEventPlugin;
 
 /***/ },
-/* 60 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -7590,15 +7331,15 @@
 	'use strict';
 
 	var _prodInvariant = __webpack_require__(35),
-	    _assign = __webpack_require__(53);
+	    _assign = __webpack_require__(4);
 
-	var CallbackQueue = __webpack_require__(61);
-	var PooledClass = __webpack_require__(54);
-	var ReactFeatureFlags = __webpack_require__(62);
-	var ReactReconciler = __webpack_require__(63);
-	var Transaction = __webpack_require__(72);
+	var CallbackQueue = __webpack_require__(57);
+	var PooledClass = __webpack_require__(50);
+	var ReactFeatureFlags = __webpack_require__(58);
+	var ReactReconciler = __webpack_require__(59);
+	var Transaction = __webpack_require__(68);
 
-	var invariant = __webpack_require__(37);
+	var invariant = __webpack_require__(8);
 
 	var dirtyComponents = [];
 	var updateBatchNumber = 0;
@@ -7830,7 +7571,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 61 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -7850,9 +7591,9 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var PooledClass = __webpack_require__(54);
+	var PooledClass = __webpack_require__(50);
 
-	var invariant = __webpack_require__(37);
+	var invariant = __webpack_require__(8);
 
 	/**
 	 * A specialized pseudo-event module to help keep track of components waiting to
@@ -7954,7 +7695,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 62 */
+/* 58 */
 /***/ function(module, exports) {
 
 	/**
@@ -7980,7 +7721,7 @@
 	module.exports = ReactFeatureFlags;
 
 /***/ },
-/* 63 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -7995,10 +7736,10 @@
 
 	'use strict';
 
-	var ReactRef = __webpack_require__(64);
-	var ReactInstrumentation = __webpack_require__(66);
+	var ReactRef = __webpack_require__(60);
+	var ReactInstrumentation = __webpack_require__(62);
 
-	var warning = __webpack_require__(47);
+	var warning = __webpack_require__(11);
 
 	/**
 	 * Helper to call ReactRef.attachRefs with this composite component, split out
@@ -8153,7 +7894,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 64 */
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -8169,7 +7910,7 @@
 
 	'use strict';
 
-	var ReactOwner = __webpack_require__(65);
+	var ReactOwner = __webpack_require__(61);
 
 	var ReactRef = {};
 
@@ -8246,7 +7987,7 @@
 	module.exports = ReactRef;
 
 /***/ },
-/* 65 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -8264,7 +8005,7 @@
 
 	var _prodInvariant = __webpack_require__(35);
 
-	var invariant = __webpack_require__(37);
+	var invariant = __webpack_require__(8);
 
 	/**
 	 * @param {?object} object
@@ -8345,7 +8086,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 66 */
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -8366,7 +8107,7 @@
 	var debugTool = null;
 
 	if (process.env.NODE_ENV !== 'production') {
-	  var ReactDebugTool = __webpack_require__(67);
+	  var ReactDebugTool = __webpack_require__(63);
 	  debugTool = ReactDebugTool;
 	}
 
@@ -8374,7 +8115,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 67 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -8390,13 +8131,13 @@
 
 	'use strict';
 
-	var ReactInvalidSetStateWarningHook = __webpack_require__(68);
-	var ReactHostOperationHistoryHook = __webpack_require__(69);
+	var ReactInvalidSetStateWarningHook = __webpack_require__(64);
+	var ReactHostOperationHistoryHook = __webpack_require__(65);
 	var ReactComponentTreeHook = __webpack_require__(26);
-	var ExecutionEnvironment = __webpack_require__(51);
+	var ExecutionEnvironment = __webpack_require__(48);
 
-	var performanceNow = __webpack_require__(70);
-	var warning = __webpack_require__(47);
+	var performanceNow = __webpack_require__(66);
+	var warning = __webpack_require__(11);
 
 	var hooks = [];
 	var didHookThrowForEvent = {};
@@ -8740,7 +8481,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 68 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -8756,7 +8497,7 @@
 
 	'use strict';
 
-	var warning = __webpack_require__(47);
+	var warning = __webpack_require__(11);
 
 	if (process.env.NODE_ENV !== 'production') {
 	  var processingChildContext = false;
@@ -8782,7 +8523,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 69 */
+/* 65 */
 /***/ function(module, exports) {
 
 	/**
@@ -8820,7 +8561,7 @@
 	module.exports = ReactHostOperationHistoryHook;
 
 /***/ },
-/* 70 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8836,7 +8577,7 @@
 	 * @typechecks
 	 */
 
-	var performance = __webpack_require__(71);
+	var performance = __webpack_require__(67);
 
 	var performanceNow;
 
@@ -8858,7 +8599,7 @@
 	module.exports = performanceNow;
 
 /***/ },
-/* 71 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -8874,7 +8615,7 @@
 
 	'use strict';
 
-	var ExecutionEnvironment = __webpack_require__(51);
+	var ExecutionEnvironment = __webpack_require__(48);
 
 	var performance;
 
@@ -8885,7 +8626,7 @@
 	module.exports = performance || {};
 
 /***/ },
-/* 72 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -8903,7 +8644,7 @@
 
 	var _prodInvariant = __webpack_require__(35);
 
-	var invariant = __webpack_require__(37);
+	var invariant = __webpack_require__(8);
 
 	var OBSERVED_ERROR = {};
 
@@ -9115,7 +8856,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 73 */
+/* 69 */
 /***/ function(module, exports) {
 
 	/**
@@ -9154,7 +8895,7 @@
 	module.exports = getEventTarget;
 
 /***/ },
-/* 74 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -9169,7 +8910,7 @@
 
 	'use strict';
 
-	var ExecutionEnvironment = __webpack_require__(51);
+	var ExecutionEnvironment = __webpack_require__(48);
 
 	var useHasFeature;
 	if (ExecutionEnvironment.canUseDOM) {
@@ -9218,7 +8959,7 @@
 	module.exports = isEventSupported;
 
 /***/ },
-/* 75 */
+/* 71 */
 /***/ function(module, exports) {
 
 	/**
@@ -9273,7 +9014,7 @@
 	module.exports = isTextInputElement;
 
 /***/ },
-/* 76 */
+/* 72 */
 /***/ function(module, exports) {
 
 	/**
@@ -9303,7 +9044,7 @@
 	module.exports = DefaultEventPluginOrder;
 
 /***/ },
-/* 77 */
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -9318,9 +9059,9 @@
 
 	'use strict';
 
-	var EventPropagators = __webpack_require__(42);
+	var EventPropagators = __webpack_require__(41);
 	var ReactDOMComponentTree = __webpack_require__(34);
-	var SyntheticMouseEvent = __webpack_require__(78);
+	var SyntheticMouseEvent = __webpack_require__(74);
 
 	var eventTypes = {
 	  mouseEnter: {
@@ -9407,7 +9148,7 @@
 	module.exports = EnterLeaveEventPlugin;
 
 /***/ },
-/* 78 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -9422,10 +9163,10 @@
 
 	'use strict';
 
-	var SyntheticUIEvent = __webpack_require__(79);
-	var ViewportMetrics = __webpack_require__(80);
+	var SyntheticUIEvent = __webpack_require__(75);
+	var ViewportMetrics = __webpack_require__(76);
 
-	var getEventModifierState = __webpack_require__(81);
+	var getEventModifierState = __webpack_require__(77);
 
 	/**
 	 * @interface MouseEvent
@@ -9483,7 +9224,7 @@
 	module.exports = SyntheticMouseEvent;
 
 /***/ },
-/* 79 */
+/* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -9498,9 +9239,9 @@
 
 	'use strict';
 
-	var SyntheticEvent = __webpack_require__(57);
+	var SyntheticEvent = __webpack_require__(53);
 
-	var getEventTarget = __webpack_require__(73);
+	var getEventTarget = __webpack_require__(69);
 
 	/**
 	 * @interface UIEvent
@@ -9546,7 +9287,7 @@
 	module.exports = SyntheticUIEvent;
 
 /***/ },
-/* 80 */
+/* 76 */
 /***/ function(module, exports) {
 
 	/**
@@ -9577,7 +9318,7 @@
 	module.exports = ViewportMetrics;
 
 /***/ },
-/* 81 */
+/* 77 */
 /***/ function(module, exports) {
 
 	/**
@@ -9624,7 +9365,7 @@
 	module.exports = getEventModifierState;
 
 /***/ },
-/* 82 */
+/* 78 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -9840,7 +9581,7 @@
 	module.exports = HTMLDOMPropertyConfig;
 
 /***/ },
-/* 83 */
+/* 79 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -9855,8 +9596,8 @@
 
 	'use strict';
 
-	var DOMChildrenOperations = __webpack_require__(84);
-	var ReactDOMIDOperations = __webpack_require__(95);
+	var DOMChildrenOperations = __webpack_require__(80);
+	var ReactDOMIDOperations = __webpack_require__(91);
 
 	/**
 	 * Abstracts away all functionality of the reconciler that requires knowledge of
@@ -9874,7 +9615,7 @@
 	module.exports = ReactComponentBrowserEnvironment;
 
 /***/ },
-/* 84 */
+/* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -9889,14 +9630,14 @@
 
 	'use strict';
 
-	var DOMLazyTree = __webpack_require__(85);
-	var Danger = __webpack_require__(91);
+	var DOMLazyTree = __webpack_require__(81);
+	var Danger = __webpack_require__(87);
 	var ReactDOMComponentTree = __webpack_require__(34);
-	var ReactInstrumentation = __webpack_require__(66);
+	var ReactInstrumentation = __webpack_require__(62);
 
-	var createMicrosoftUnsafeLocalFunction = __webpack_require__(88);
-	var setInnerHTML = __webpack_require__(87);
-	var setTextContent = __webpack_require__(89);
+	var createMicrosoftUnsafeLocalFunction = __webpack_require__(84);
+	var setInnerHTML = __webpack_require__(83);
+	var setTextContent = __webpack_require__(85);
 
 	function getNodeAfter(parentNode, node) {
 	  // Special case for text components, which return [open, close] comments
@@ -10104,7 +9845,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 85 */
+/* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -10119,11 +9860,11 @@
 
 	'use strict';
 
-	var DOMNamespaces = __webpack_require__(86);
-	var setInnerHTML = __webpack_require__(87);
+	var DOMNamespaces = __webpack_require__(82);
+	var setInnerHTML = __webpack_require__(83);
 
-	var createMicrosoftUnsafeLocalFunction = __webpack_require__(88);
-	var setTextContent = __webpack_require__(89);
+	var createMicrosoftUnsafeLocalFunction = __webpack_require__(84);
+	var setTextContent = __webpack_require__(85);
 
 	var ELEMENT_NODE_TYPE = 1;
 	var DOCUMENT_FRAGMENT_NODE_TYPE = 11;
@@ -10226,7 +9967,7 @@
 	module.exports = DOMLazyTree;
 
 /***/ },
-/* 86 */
+/* 82 */
 /***/ function(module, exports) {
 
 	/**
@@ -10250,7 +9991,7 @@
 	module.exports = DOMNamespaces;
 
 /***/ },
-/* 87 */
+/* 83 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -10265,13 +10006,13 @@
 
 	'use strict';
 
-	var ExecutionEnvironment = __webpack_require__(51);
-	var DOMNamespaces = __webpack_require__(86);
+	var ExecutionEnvironment = __webpack_require__(48);
+	var DOMNamespaces = __webpack_require__(82);
 
 	var WHITESPACE_TEST = /^[ \r\n\t\f]/;
 	var NONVISIBLE_TEST = /<(!--|link|noscript|meta|script|style)[ \r\n\t\f\/>]/;
 
-	var createMicrosoftUnsafeLocalFunction = __webpack_require__(88);
+	var createMicrosoftUnsafeLocalFunction = __webpack_require__(84);
 
 	// SVG temp container for IE lacking innerHTML
 	var reusableSVGContainer;
@@ -10352,7 +10093,7 @@
 	module.exports = setInnerHTML;
 
 /***/ },
-/* 88 */
+/* 84 */
 /***/ function(module, exports) {
 
 	/**
@@ -10388,7 +10129,7 @@
 	module.exports = createMicrosoftUnsafeLocalFunction;
 
 /***/ },
-/* 89 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -10403,9 +10144,9 @@
 
 	'use strict';
 
-	var ExecutionEnvironment = __webpack_require__(51);
-	var escapeTextContentForBrowser = __webpack_require__(90);
-	var setInnerHTML = __webpack_require__(87);
+	var ExecutionEnvironment = __webpack_require__(48);
+	var escapeTextContentForBrowser = __webpack_require__(86);
+	var setInnerHTML = __webpack_require__(83);
 
 	/**
 	 * Set the textContent property of a node, ensuring that whitespace is preserved
@@ -10444,7 +10185,7 @@
 	module.exports = setTextContent;
 
 /***/ },
-/* 90 */
+/* 86 */
 /***/ function(module, exports) {
 
 	/**
@@ -10571,7 +10312,7 @@
 	module.exports = escapeTextContentForBrowser;
 
 /***/ },
-/* 91 */
+/* 87 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -10588,12 +10329,12 @@
 
 	var _prodInvariant = __webpack_require__(35);
 
-	var DOMLazyTree = __webpack_require__(85);
-	var ExecutionEnvironment = __webpack_require__(51);
+	var DOMLazyTree = __webpack_require__(81);
+	var ExecutionEnvironment = __webpack_require__(48);
 
-	var createNodesFromMarkup = __webpack_require__(92);
-	var emptyFunction = __webpack_require__(48);
-	var invariant = __webpack_require__(37);
+	var createNodesFromMarkup = __webpack_require__(88);
+	var emptyFunction = __webpack_require__(12);
+	var invariant = __webpack_require__(8);
 
 	var Danger = {
 
@@ -10624,7 +10365,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 92 */
+/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -10642,11 +10383,11 @@
 
 	/*eslint-disable fb-www/unsafe-html*/
 
-	var ExecutionEnvironment = __webpack_require__(51);
+	var ExecutionEnvironment = __webpack_require__(48);
 
-	var createArrayFromMixed = __webpack_require__(93);
-	var getMarkupWrap = __webpack_require__(94);
-	var invariant = __webpack_require__(37);
+	var createArrayFromMixed = __webpack_require__(89);
+	var getMarkupWrap = __webpack_require__(90);
+	var invariant = __webpack_require__(8);
 
 	/**
 	 * Dummy container used to render all markup.
@@ -10713,7 +10454,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 93 */
+/* 89 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -10729,7 +10470,7 @@
 	 * @typechecks
 	 */
 
-	var invariant = __webpack_require__(37);
+	var invariant = __webpack_require__(8);
 
 	/**
 	 * Convert array-like objects to arrays.
@@ -10845,7 +10586,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 94 */
+/* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -10862,9 +10603,9 @@
 
 	/*eslint-disable fb-www/unsafe-html */
 
-	var ExecutionEnvironment = __webpack_require__(51);
+	var ExecutionEnvironment = __webpack_require__(48);
 
-	var invariant = __webpack_require__(37);
+	var invariant = __webpack_require__(8);
 
 	/**
 	 * Dummy container used to detect which wraps are necessary.
@@ -10945,7 +10686,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 95 */
+/* 91 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -10960,7 +10701,7 @@
 
 	'use strict';
 
-	var DOMChildrenOperations = __webpack_require__(84);
+	var DOMChildrenOperations = __webpack_require__(80);
 	var ReactDOMComponentTree = __webpack_require__(34);
 
 	/**
@@ -10983,7 +10724,7 @@
 	module.exports = ReactDOMIDOperations;
 
 /***/ },
-/* 96 */
+/* 92 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -11001,34 +10742,34 @@
 	'use strict';
 
 	var _prodInvariant = __webpack_require__(35),
-	    _assign = __webpack_require__(53);
+	    _assign = __webpack_require__(4);
 
-	var AutoFocusUtils = __webpack_require__(97);
-	var CSSPropertyOperations = __webpack_require__(99);
-	var DOMLazyTree = __webpack_require__(85);
-	var DOMNamespaces = __webpack_require__(86);
+	var AutoFocusUtils = __webpack_require__(93);
+	var CSSPropertyOperations = __webpack_require__(95);
+	var DOMLazyTree = __webpack_require__(81);
+	var DOMNamespaces = __webpack_require__(82);
 	var DOMProperty = __webpack_require__(36);
-	var DOMPropertyOperations = __webpack_require__(107);
-	var EventPluginHub = __webpack_require__(43);
-	var EventPluginRegistry = __webpack_require__(44);
-	var ReactBrowserEventEmitter = __webpack_require__(109);
-	var ReactDOMComponentFlags = __webpack_require__(38);
+	var DOMPropertyOperations = __webpack_require__(103);
+	var EventPluginHub = __webpack_require__(42);
+	var EventPluginRegistry = __webpack_require__(43);
+	var ReactBrowserEventEmitter = __webpack_require__(105);
+	var ReactDOMComponentFlags = __webpack_require__(37);
 	var ReactDOMComponentTree = __webpack_require__(34);
-	var ReactDOMInput = __webpack_require__(112);
-	var ReactDOMOption = __webpack_require__(115);
-	var ReactDOMSelect = __webpack_require__(116);
-	var ReactDOMTextarea = __webpack_require__(117);
-	var ReactInstrumentation = __webpack_require__(66);
-	var ReactMultiChild = __webpack_require__(118);
-	var ReactServerRenderingTransaction = __webpack_require__(138);
+	var ReactDOMInput = __webpack_require__(108);
+	var ReactDOMOption = __webpack_require__(111);
+	var ReactDOMSelect = __webpack_require__(112);
+	var ReactDOMTextarea = __webpack_require__(113);
+	var ReactInstrumentation = __webpack_require__(62);
+	var ReactMultiChild = __webpack_require__(114);
+	var ReactServerRenderingTransaction = __webpack_require__(133);
 
-	var emptyFunction = __webpack_require__(48);
-	var escapeTextContentForBrowser = __webpack_require__(90);
-	var invariant = __webpack_require__(37);
-	var isEventSupported = __webpack_require__(74);
-	var shallowEqual = __webpack_require__(128);
-	var validateDOMNesting = __webpack_require__(141);
-	var warning = __webpack_require__(47);
+	var emptyFunction = __webpack_require__(12);
+	var escapeTextContentForBrowser = __webpack_require__(86);
+	var invariant = __webpack_require__(8);
+	var isEventSupported = __webpack_require__(70);
+	var shallowEqual = __webpack_require__(123);
+	var validateDOMNesting = __webpack_require__(136);
+	var warning = __webpack_require__(11);
 
 	var Flags = ReactDOMComponentFlags;
 	var deleteListener = EventPluginHub.deleteListener;
@@ -11983,7 +11724,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 97 */
+/* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -12000,7 +11741,7 @@
 
 	var ReactDOMComponentTree = __webpack_require__(34);
 
-	var focusNode = __webpack_require__(98);
+	var focusNode = __webpack_require__(94);
 
 	var AutoFocusUtils = {
 	  focusDOMComponent: function () {
@@ -12011,7 +11752,7 @@
 	module.exports = AutoFocusUtils;
 
 /***/ },
-/* 98 */
+/* 94 */
 /***/ function(module, exports) {
 
 	/**
@@ -12042,7 +11783,7 @@
 	module.exports = focusNode;
 
 /***/ },
-/* 99 */
+/* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -12057,15 +11798,15 @@
 
 	'use strict';
 
-	var CSSProperty = __webpack_require__(100);
-	var ExecutionEnvironment = __webpack_require__(51);
-	var ReactInstrumentation = __webpack_require__(66);
+	var CSSProperty = __webpack_require__(96);
+	var ExecutionEnvironment = __webpack_require__(48);
+	var ReactInstrumentation = __webpack_require__(62);
 
-	var camelizeStyleName = __webpack_require__(101);
-	var dangerousStyleValue = __webpack_require__(103);
-	var hyphenateStyleName = __webpack_require__(104);
-	var memoizeStringOnly = __webpack_require__(106);
-	var warning = __webpack_require__(47);
+	var camelizeStyleName = __webpack_require__(97);
+	var dangerousStyleValue = __webpack_require__(99);
+	var hyphenateStyleName = __webpack_require__(100);
+	var memoizeStringOnly = __webpack_require__(102);
+	var warning = __webpack_require__(11);
 
 	var processStyleName = memoizeStringOnly(function (styleName) {
 	  return hyphenateStyleName(styleName);
@@ -12256,7 +11997,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 100 */
+/* 96 */
 /***/ function(module, exports) {
 
 	/**
@@ -12408,7 +12149,7 @@
 	module.exports = CSSProperty;
 
 /***/ },
-/* 101 */
+/* 97 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -12424,7 +12165,7 @@
 
 	'use strict';
 
-	var camelize = __webpack_require__(102);
+	var camelize = __webpack_require__(98);
 
 	var msPattern = /^-ms-/;
 
@@ -12452,7 +12193,7 @@
 	module.exports = camelizeStyleName;
 
 /***/ },
-/* 102 */
+/* 98 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -12488,7 +12229,7 @@
 	module.exports = camelize;
 
 /***/ },
-/* 103 */
+/* 99 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -12503,8 +12244,8 @@
 
 	'use strict';
 
-	var CSSProperty = __webpack_require__(100);
-	var warning = __webpack_require__(47);
+	var CSSProperty = __webpack_require__(96);
+	var warning = __webpack_require__(11);
 
 	var isUnitlessNumber = CSSProperty.isUnitlessNumber;
 	var styleWarnings = {};
@@ -12572,7 +12313,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 104 */
+/* 100 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -12588,7 +12329,7 @@
 
 	'use strict';
 
-	var hyphenate = __webpack_require__(105);
+	var hyphenate = __webpack_require__(101);
 
 	var msPattern = /^ms-/;
 
@@ -12615,7 +12356,7 @@
 	module.exports = hyphenateStyleName;
 
 /***/ },
-/* 105 */
+/* 101 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -12652,7 +12393,7 @@
 	module.exports = hyphenate;
 
 /***/ },
-/* 106 */
+/* 102 */
 /***/ function(module, exports) {
 
 	/**
@@ -12686,7 +12427,7 @@
 	module.exports = memoizeStringOnly;
 
 /***/ },
-/* 107 */
+/* 103 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -12703,10 +12444,10 @@
 
 	var DOMProperty = __webpack_require__(36);
 	var ReactDOMComponentTree = __webpack_require__(34);
-	var ReactInstrumentation = __webpack_require__(66);
+	var ReactInstrumentation = __webpack_require__(62);
 
-	var quoteAttributeValueForBrowser = __webpack_require__(108);
-	var warning = __webpack_require__(47);
+	var quoteAttributeValueForBrowser = __webpack_require__(104);
+	var warning = __webpack_require__(11);
 
 	var VALID_ATTRIBUTE_NAME_REGEX = new RegExp('^[' + DOMProperty.ATTRIBUTE_NAME_START_CHAR + '][' + DOMProperty.ATTRIBUTE_NAME_CHAR + ']*$');
 	var illegalAttributeNameCache = {};
@@ -12928,7 +12669,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 108 */
+/* 104 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -12943,7 +12684,7 @@
 
 	'use strict';
 
-	var escapeTextContentForBrowser = __webpack_require__(90);
+	var escapeTextContentForBrowser = __webpack_require__(86);
 
 	/**
 	 * Escapes attribute value to prevent scripting attacks.
@@ -12958,7 +12699,7 @@
 	module.exports = quoteAttributeValueForBrowser;
 
 /***/ },
-/* 109 */
+/* 105 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -12973,14 +12714,14 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(53);
+	var _assign = __webpack_require__(4);
 
-	var EventPluginRegistry = __webpack_require__(44);
-	var ReactEventEmitterMixin = __webpack_require__(110);
-	var ViewportMetrics = __webpack_require__(80);
+	var EventPluginRegistry = __webpack_require__(43);
+	var ReactEventEmitterMixin = __webpack_require__(106);
+	var ViewportMetrics = __webpack_require__(76);
 
-	var getVendorPrefixedEventName = __webpack_require__(111);
-	var isEventSupported = __webpack_require__(74);
+	var getVendorPrefixedEventName = __webpack_require__(107);
+	var isEventSupported = __webpack_require__(70);
 
 	/**
 	 * Summary of `ReactBrowserEventEmitter` event handling:
@@ -13290,7 +13031,7 @@
 	module.exports = ReactBrowserEventEmitter;
 
 /***/ },
-/* 110 */
+/* 106 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -13305,7 +13046,7 @@
 
 	'use strict';
 
-	var EventPluginHub = __webpack_require__(43);
+	var EventPluginHub = __webpack_require__(42);
 
 	function runEventQueueInBatch(events) {
 	  EventPluginHub.enqueueEvents(events);
@@ -13327,7 +13068,7 @@
 	module.exports = ReactEventEmitterMixin;
 
 /***/ },
-/* 111 */
+/* 107 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -13342,7 +13083,7 @@
 
 	'use strict';
 
-	var ExecutionEnvironment = __webpack_require__(51);
+	var ExecutionEnvironment = __webpack_require__(48);
 
 	/**
 	 * Generate a mapping of standard vendor prefixes using the defined style property and event name.
@@ -13432,7 +13173,7 @@
 	module.exports = getVendorPrefixedEventName;
 
 /***/ },
-/* 112 */
+/* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -13448,15 +13189,15 @@
 	'use strict';
 
 	var _prodInvariant = __webpack_require__(35),
-	    _assign = __webpack_require__(53);
+	    _assign = __webpack_require__(4);
 
-	var DOMPropertyOperations = __webpack_require__(107);
-	var LinkedValueUtils = __webpack_require__(113);
+	var DOMPropertyOperations = __webpack_require__(103);
+	var LinkedValueUtils = __webpack_require__(109);
 	var ReactDOMComponentTree = __webpack_require__(34);
-	var ReactUpdates = __webpack_require__(60);
+	var ReactUpdates = __webpack_require__(56);
 
-	var invariant = __webpack_require__(37);
-	var warning = __webpack_require__(47);
+	var invariant = __webpack_require__(8);
+	var warning = __webpack_require__(11);
 
 	var didWarnValueLink = false;
 	var didWarnCheckedLink = false;
@@ -13705,7 +13446,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 113 */
+/* 109 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -13723,10 +13464,10 @@
 	var _prodInvariant = __webpack_require__(35);
 
 	var React = __webpack_require__(2);
-	var ReactPropTypesSecret = __webpack_require__(114);
+	var ReactPropTypesSecret = __webpack_require__(110);
 
-	var invariant = __webpack_require__(37);
-	var warning = __webpack_require__(47);
+	var invariant = __webpack_require__(8);
+	var warning = __webpack_require__(11);
 
 	var hasReadOnlyValue = {
 	  'button': true,
@@ -13845,7 +13586,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 114 */
+/* 110 */
 /***/ function(module, exports) {
 
 	/**
@@ -13866,7 +13607,7 @@
 	module.exports = ReactPropTypesSecret;
 
 /***/ },
-/* 115 */
+/* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -13881,13 +13622,13 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(53);
+	var _assign = __webpack_require__(4);
 
 	var React = __webpack_require__(2);
 	var ReactDOMComponentTree = __webpack_require__(34);
-	var ReactDOMSelect = __webpack_require__(116);
+	var ReactDOMSelect = __webpack_require__(112);
 
-	var warning = __webpack_require__(47);
+	var warning = __webpack_require__(11);
 	var didWarnInvalidOptionChildren = false;
 
 	function flattenChildren(children) {
@@ -13994,7 +13735,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 116 */
+/* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -14009,13 +13750,13 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(53);
+	var _assign = __webpack_require__(4);
 
-	var LinkedValueUtils = __webpack_require__(113);
+	var LinkedValueUtils = __webpack_require__(109);
 	var ReactDOMComponentTree = __webpack_require__(34);
-	var ReactUpdates = __webpack_require__(60);
+	var ReactUpdates = __webpack_require__(56);
 
-	var warning = __webpack_require__(47);
+	var warning = __webpack_require__(11);
 
 	var didWarnValueLink = false;
 	var didWarnValueDefaultValue = false;
@@ -14199,7 +13940,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 117 */
+/* 113 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -14215,14 +13956,14 @@
 	'use strict';
 
 	var _prodInvariant = __webpack_require__(35),
-	    _assign = __webpack_require__(53);
+	    _assign = __webpack_require__(4);
 
-	var LinkedValueUtils = __webpack_require__(113);
+	var LinkedValueUtils = __webpack_require__(109);
 	var ReactDOMComponentTree = __webpack_require__(34);
-	var ReactUpdates = __webpack_require__(60);
+	var ReactUpdates = __webpack_require__(56);
 
-	var invariant = __webpack_require__(37);
-	var warning = __webpack_require__(47);
+	var invariant = __webpack_require__(8);
+	var warning = __webpack_require__(11);
 
 	var didWarnValueLink = false;
 	var didWarnValDefaultVal = false;
@@ -14358,7 +14099,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 118 */
+/* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -14375,17 +14116,17 @@
 
 	var _prodInvariant = __webpack_require__(35);
 
-	var ReactComponentEnvironment = __webpack_require__(119);
-	var ReactInstanceMap = __webpack_require__(120);
-	var ReactInstrumentation = __webpack_require__(66);
+	var ReactComponentEnvironment = __webpack_require__(115);
+	var ReactInstanceMap = __webpack_require__(116);
+	var ReactInstrumentation = __webpack_require__(62);
 
 	var ReactCurrentOwner = __webpack_require__(10);
-	var ReactReconciler = __webpack_require__(63);
-	var ReactChildReconciler = __webpack_require__(121);
+	var ReactReconciler = __webpack_require__(59);
+	var ReactChildReconciler = __webpack_require__(117);
 
-	var emptyFunction = __webpack_require__(48);
-	var flattenChildren = __webpack_require__(137);
-	var invariant = __webpack_require__(37);
+	var emptyFunction = __webpack_require__(12);
+	var flattenChildren = __webpack_require__(132);
+	var invariant = __webpack_require__(8);
 
 	/**
 	 * Make an update for markup to be rendered and inserted at a supplied index.
@@ -14813,7 +14554,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 119 */
+/* 115 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -14831,7 +14572,7 @@
 
 	var _prodInvariant = __webpack_require__(35);
 
-	var invariant = __webpack_require__(37);
+	var invariant = __webpack_require__(8);
 
 	var injected = false;
 
@@ -14864,7 +14605,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 120 */
+/* 116 */
 /***/ function(module, exports) {
 
 	/**
@@ -14916,7 +14657,7 @@
 	module.exports = ReactInstanceMap;
 
 /***/ },
-/* 121 */
+/* 117 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -14931,13 +14672,13 @@
 
 	'use strict';
 
-	var ReactReconciler = __webpack_require__(63);
+	var ReactReconciler = __webpack_require__(59);
 
-	var instantiateReactComponent = __webpack_require__(122);
-	var KeyEscapeUtils = __webpack_require__(133);
-	var shouldUpdateReactComponent = __webpack_require__(129);
-	var traverseAllChildren = __webpack_require__(134);
-	var warning = __webpack_require__(47);
+	var instantiateReactComponent = __webpack_require__(118);
+	var KeyEscapeUtils = __webpack_require__(128);
+	var shouldUpdateReactComponent = __webpack_require__(124);
+	var traverseAllChildren = __webpack_require__(129);
+	var warning = __webpack_require__(11);
 
 	var ReactComponentTreeHook;
 
@@ -15075,7 +14816,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 122 */
+/* 118 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -15091,15 +14832,15 @@
 	'use strict';
 
 	var _prodInvariant = __webpack_require__(35),
-	    _assign = __webpack_require__(53);
+	    _assign = __webpack_require__(4);
 
-	var ReactCompositeComponent = __webpack_require__(123);
-	var ReactEmptyComponent = __webpack_require__(130);
-	var ReactHostComponent = __webpack_require__(131);
+	var ReactCompositeComponent = __webpack_require__(119);
+	var ReactEmptyComponent = __webpack_require__(125);
+	var ReactHostComponent = __webpack_require__(126);
 
-	var getNextDebugID = __webpack_require__(132);
-	var invariant = __webpack_require__(37);
-	var warning = __webpack_require__(47);
+	var getNextDebugID = __webpack_require__(127);
+	var invariant = __webpack_require__(8);
+	var warning = __webpack_require__(11);
 
 	// To avoid a cyclic dependency, we create the final class in this module
 	var ReactCompositeComponentWrapper = function (element) {
@@ -15198,7 +14939,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 123 */
+/* 119 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -15214,26 +14955,26 @@
 	'use strict';
 
 	var _prodInvariant = __webpack_require__(35),
-	    _assign = __webpack_require__(53);
+	    _assign = __webpack_require__(4);
 
 	var React = __webpack_require__(2);
-	var ReactComponentEnvironment = __webpack_require__(119);
+	var ReactComponentEnvironment = __webpack_require__(115);
 	var ReactCurrentOwner = __webpack_require__(10);
-	var ReactErrorUtils = __webpack_require__(46);
-	var ReactInstanceMap = __webpack_require__(120);
-	var ReactInstrumentation = __webpack_require__(66);
-	var ReactNodeTypes = __webpack_require__(124);
-	var ReactReconciler = __webpack_require__(63);
+	var ReactErrorUtils = __webpack_require__(45);
+	var ReactInstanceMap = __webpack_require__(116);
+	var ReactInstrumentation = __webpack_require__(62);
+	var ReactNodeTypes = __webpack_require__(120);
+	var ReactReconciler = __webpack_require__(59);
 
 	if (process.env.NODE_ENV !== 'production') {
-	  var checkReactTypeSpec = __webpack_require__(125);
+	  var checkReactTypeSpec = __webpack_require__(121);
 	}
 
-	var emptyObject = __webpack_require__(127);
-	var invariant = __webpack_require__(37);
-	var shallowEqual = __webpack_require__(128);
-	var shouldUpdateReactComponent = __webpack_require__(129);
-	var warning = __webpack_require__(47);
+	var emptyObject = __webpack_require__(20);
+	var invariant = __webpack_require__(8);
+	var shallowEqual = __webpack_require__(123);
+	var shouldUpdateReactComponent = __webpack_require__(124);
+	var warning = __webpack_require__(11);
 
 	var CompositeTypes = {
 	  ImpureClass: 0,
@@ -16105,7 +15846,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 124 */
+/* 120 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -16125,7 +15866,7 @@
 
 	var React = __webpack_require__(2);
 
-	var invariant = __webpack_require__(37);
+	var invariant = __webpack_require__(8);
 
 	var ReactNodeTypes = {
 	  HOST: 0,
@@ -16150,7 +15891,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 125 */
+/* 121 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -16167,11 +15908,11 @@
 
 	var _prodInvariant = __webpack_require__(35);
 
-	var ReactPropTypeLocationNames = __webpack_require__(126);
-	var ReactPropTypesSecret = __webpack_require__(114);
+	var ReactPropTypeLocationNames = __webpack_require__(122);
+	var ReactPropTypesSecret = __webpack_require__(110);
 
-	var invariant = __webpack_require__(37);
-	var warning = __webpack_require__(47);
+	var invariant = __webpack_require__(8);
+	var warning = __webpack_require__(11);
 
 	var ReactComponentTreeHook;
 
@@ -16242,7 +15983,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 126 */
+/* 122 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -16272,32 +16013,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 127 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 */
-
-	'use strict';
-
-	var emptyObject = {};
-
-	if (process.env.NODE_ENV !== 'production') {
-	  Object.freeze(emptyObject);
-	}
-
-	module.exports = emptyObject;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
-
-/***/ },
-/* 128 */
+/* 123 */
 /***/ function(module, exports) {
 
 	/**
@@ -16369,7 +16085,7 @@
 	module.exports = shallowEqual;
 
 /***/ },
-/* 129 */
+/* 124 */
 /***/ function(module, exports) {
 
 	/**
@@ -16415,7 +16131,7 @@
 	module.exports = shouldUpdateReactComponent;
 
 /***/ },
-/* 130 */
+/* 125 */
 /***/ function(module, exports) {
 
 	/**
@@ -16449,7 +16165,7 @@
 	module.exports = ReactEmptyComponent;
 
 /***/ },
-/* 131 */
+/* 126 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -16465,9 +16181,9 @@
 	'use strict';
 
 	var _prodInvariant = __webpack_require__(35),
-	    _assign = __webpack_require__(53);
+	    _assign = __webpack_require__(4);
 
-	var invariant = __webpack_require__(37);
+	var invariant = __webpack_require__(8);
 
 	var genericComponentClass = null;
 	// This registry keeps track of wrapper classes around host tags.
@@ -16530,7 +16246,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 132 */
+/* 127 */
 /***/ function(module, exports) {
 
 	/**
@@ -16555,7 +16271,7 @@
 	module.exports = getNextDebugID;
 
 /***/ },
-/* 133 */
+/* 128 */
 /***/ function(module, exports) {
 
 	/**
@@ -16618,7 +16334,7 @@
 	module.exports = KeyEscapeUtils;
 
 /***/ },
-/* 134 */
+/* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -16636,12 +16352,12 @@
 	var _prodInvariant = __webpack_require__(35);
 
 	var ReactCurrentOwner = __webpack_require__(10);
-	var REACT_ELEMENT_TYPE = __webpack_require__(135);
+	var REACT_ELEMENT_TYPE = __webpack_require__(130);
 
-	var getIteratorFn = __webpack_require__(136);
-	var invariant = __webpack_require__(37);
-	var KeyEscapeUtils = __webpack_require__(133);
-	var warning = __webpack_require__(47);
+	var getIteratorFn = __webpack_require__(131);
+	var invariant = __webpack_require__(8);
+	var KeyEscapeUtils = __webpack_require__(128);
+	var warning = __webpack_require__(11);
 
 	var SEPARATOR = '.';
 	var SUBSEPARATOR = ':';
@@ -16799,7 +16515,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 135 */
+/* 130 */
 /***/ function(module, exports) {
 
 	/**
@@ -16823,7 +16539,7 @@
 	module.exports = REACT_ELEMENT_TYPE;
 
 /***/ },
-/* 136 */
+/* 131 */
 /***/ function(module, exports) {
 
 	/**
@@ -16868,7 +16584,7 @@
 	module.exports = getIteratorFn;
 
 /***/ },
-/* 137 */
+/* 132 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -16884,9 +16600,9 @@
 
 	'use strict';
 
-	var KeyEscapeUtils = __webpack_require__(133);
-	var traverseAllChildren = __webpack_require__(134);
-	var warning = __webpack_require__(47);
+	var KeyEscapeUtils = __webpack_require__(128);
+	var traverseAllChildren = __webpack_require__(129);
+	var warning = __webpack_require__(11);
 
 	var ReactComponentTreeHook;
 
@@ -16949,7 +16665,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 138 */
+/* 133 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -16964,12 +16680,12 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(53);
+	var _assign = __webpack_require__(4);
 
-	var PooledClass = __webpack_require__(54);
-	var Transaction = __webpack_require__(72);
-	var ReactInstrumentation = __webpack_require__(66);
-	var ReactServerUpdateQueue = __webpack_require__(139);
+	var PooledClass = __webpack_require__(50);
+	var Transaction = __webpack_require__(68);
+	var ReactInstrumentation = __webpack_require__(62);
+	var ReactServerUpdateQueue = __webpack_require__(134);
 
 	/**
 	 * Executed within the scope of the `Transaction` instance. Consider these as
@@ -17044,7 +16760,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 139 */
+/* 134 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -17062,9 +16778,9 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var ReactUpdateQueue = __webpack_require__(140);
+	var ReactUpdateQueue = __webpack_require__(135);
 
-	var warning = __webpack_require__(47);
+	var warning = __webpack_require__(11);
 
 	function warnNoop(publicInstance, callerName) {
 	  if (process.env.NODE_ENV !== 'production') {
@@ -17188,7 +16904,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 140 */
+/* 135 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -17206,12 +16922,12 @@
 	var _prodInvariant = __webpack_require__(35);
 
 	var ReactCurrentOwner = __webpack_require__(10);
-	var ReactInstanceMap = __webpack_require__(120);
-	var ReactInstrumentation = __webpack_require__(66);
-	var ReactUpdates = __webpack_require__(60);
+	var ReactInstanceMap = __webpack_require__(116);
+	var ReactInstrumentation = __webpack_require__(62);
+	var ReactUpdates = __webpack_require__(56);
 
-	var invariant = __webpack_require__(37);
-	var warning = __webpack_require__(47);
+	var invariant = __webpack_require__(8);
+	var warning = __webpack_require__(11);
 
 	function enqueueUpdate(internalInstance) {
 	  ReactUpdates.enqueueUpdate(internalInstance);
@@ -17419,7 +17135,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 141 */
+/* 136 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -17434,10 +17150,10 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(53);
+	var _assign = __webpack_require__(4);
 
-	var emptyFunction = __webpack_require__(48);
-	var warning = __webpack_require__(47);
+	var emptyFunction = __webpack_require__(12);
+	var warning = __webpack_require__(11);
 
 	var validateDOMNesting = emptyFunction;
 
@@ -17806,7 +17522,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 142 */
+/* 137 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -17821,9 +17537,9 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(53);
+	var _assign = __webpack_require__(4);
 
-	var DOMLazyTree = __webpack_require__(85);
+	var DOMLazyTree = __webpack_require__(81);
 	var ReactDOMComponentTree = __webpack_require__(34);
 
 	var ReactDOMEmptyComponent = function (instantiate) {
@@ -17870,7 +17586,7 @@
 	module.exports = ReactDOMEmptyComponent;
 
 /***/ },
-/* 143 */
+/* 138 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -17887,7 +17603,7 @@
 
 	var _prodInvariant = __webpack_require__(35);
 
-	var invariant = __webpack_require__(37);
+	var invariant = __webpack_require__(8);
 
 	/**
 	 * Return the lowest common ancestor of A and B, or null if they are in
@@ -18011,7 +17727,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 144 */
+/* 139 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -18027,15 +17743,15 @@
 	'use strict';
 
 	var _prodInvariant = __webpack_require__(35),
-	    _assign = __webpack_require__(53);
+	    _assign = __webpack_require__(4);
 
-	var DOMChildrenOperations = __webpack_require__(84);
-	var DOMLazyTree = __webpack_require__(85);
+	var DOMChildrenOperations = __webpack_require__(80);
+	var DOMLazyTree = __webpack_require__(81);
 	var ReactDOMComponentTree = __webpack_require__(34);
 
-	var escapeTextContentForBrowser = __webpack_require__(90);
-	var invariant = __webpack_require__(37);
-	var validateDOMNesting = __webpack_require__(141);
+	var escapeTextContentForBrowser = __webpack_require__(86);
+	var invariant = __webpack_require__(8);
+	var validateDOMNesting = __webpack_require__(136);
 
 	/**
 	 * Text nodes violate a couple assumptions that React makes about components:
@@ -18180,7 +17896,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 145 */
+/* 140 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -18195,12 +17911,12 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(53);
+	var _assign = __webpack_require__(4);
 
-	var ReactUpdates = __webpack_require__(60);
-	var Transaction = __webpack_require__(72);
+	var ReactUpdates = __webpack_require__(56);
+	var Transaction = __webpack_require__(68);
 
-	var emptyFunction = __webpack_require__(48);
+	var emptyFunction = __webpack_require__(12);
 
 	var RESET_BATCHED_UPDATES = {
 	  initialize: emptyFunction,
@@ -18252,7 +17968,7 @@
 	module.exports = ReactDefaultBatchingStrategy;
 
 /***/ },
-/* 146 */
+/* 141 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -18267,16 +17983,16 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(53);
+	var _assign = __webpack_require__(4);
 
-	var EventListener = __webpack_require__(147);
-	var ExecutionEnvironment = __webpack_require__(51);
-	var PooledClass = __webpack_require__(54);
+	var EventListener = __webpack_require__(142);
+	var ExecutionEnvironment = __webpack_require__(48);
+	var PooledClass = __webpack_require__(50);
 	var ReactDOMComponentTree = __webpack_require__(34);
-	var ReactUpdates = __webpack_require__(60);
+	var ReactUpdates = __webpack_require__(56);
 
-	var getEventTarget = __webpack_require__(73);
-	var getUnboundedScrollPosition = __webpack_require__(148);
+	var getEventTarget = __webpack_require__(69);
+	var getUnboundedScrollPosition = __webpack_require__(143);
 
 	/**
 	 * Find the deepest React component completely containing the root of the
@@ -18411,7 +18127,7 @@
 	module.exports = ReactEventListener;
 
 /***/ },
-/* 147 */
+/* 142 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -18434,7 +18150,7 @@
 	 * @typechecks
 	 */
 
-	var emptyFunction = __webpack_require__(48);
+	var emptyFunction = __webpack_require__(12);
 
 	/**
 	 * Upstream version of event listener. Does not take into account specific
@@ -18500,7 +18216,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 148 */
+/* 143 */
 /***/ function(module, exports) {
 
 	/**
@@ -18543,7 +18259,7 @@
 	module.exports = getUnboundedScrollPosition;
 
 /***/ },
-/* 149 */
+/* 144 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -18559,13 +18275,13 @@
 	'use strict';
 
 	var DOMProperty = __webpack_require__(36);
-	var EventPluginHub = __webpack_require__(43);
-	var EventPluginUtils = __webpack_require__(45);
-	var ReactComponentEnvironment = __webpack_require__(119);
-	var ReactEmptyComponent = __webpack_require__(130);
-	var ReactBrowserEventEmitter = __webpack_require__(109);
-	var ReactHostComponent = __webpack_require__(131);
-	var ReactUpdates = __webpack_require__(60);
+	var EventPluginHub = __webpack_require__(42);
+	var EventPluginUtils = __webpack_require__(44);
+	var ReactComponentEnvironment = __webpack_require__(115);
+	var ReactEmptyComponent = __webpack_require__(125);
+	var ReactBrowserEventEmitter = __webpack_require__(105);
+	var ReactHostComponent = __webpack_require__(126);
+	var ReactUpdates = __webpack_require__(56);
 
 	var ReactInjection = {
 	  Component: ReactComponentEnvironment.injection,
@@ -18581,7 +18297,7 @@
 	module.exports = ReactInjection;
 
 /***/ },
-/* 150 */
+/* 145 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -18596,15 +18312,15 @@
 
 	'use strict';
 
-	var _assign = __webpack_require__(53);
+	var _assign = __webpack_require__(4);
 
-	var CallbackQueue = __webpack_require__(61);
-	var PooledClass = __webpack_require__(54);
-	var ReactBrowserEventEmitter = __webpack_require__(109);
-	var ReactInputSelection = __webpack_require__(151);
-	var ReactInstrumentation = __webpack_require__(66);
-	var Transaction = __webpack_require__(72);
-	var ReactUpdateQueue = __webpack_require__(140);
+	var CallbackQueue = __webpack_require__(57);
+	var PooledClass = __webpack_require__(50);
+	var ReactBrowserEventEmitter = __webpack_require__(105);
+	var ReactInputSelection = __webpack_require__(146);
+	var ReactInstrumentation = __webpack_require__(62);
+	var Transaction = __webpack_require__(68);
+	var ReactUpdateQueue = __webpack_require__(135);
 
 	/**
 	 * Ensures that, when possible, the selection range (currently selected text
@@ -18764,7 +18480,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 151 */
+/* 146 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -18779,11 +18495,11 @@
 
 	'use strict';
 
-	var ReactDOMSelection = __webpack_require__(152);
+	var ReactDOMSelection = __webpack_require__(147);
 
-	var containsNode = __webpack_require__(154);
-	var focusNode = __webpack_require__(98);
-	var getActiveElement = __webpack_require__(157);
+	var containsNode = __webpack_require__(149);
+	var focusNode = __webpack_require__(94);
+	var getActiveElement = __webpack_require__(152);
 
 	function isInDocument(node) {
 	  return containsNode(document.documentElement, node);
@@ -18892,7 +18608,7 @@
 	module.exports = ReactInputSelection;
 
 /***/ },
-/* 152 */
+/* 147 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -18907,10 +18623,10 @@
 
 	'use strict';
 
-	var ExecutionEnvironment = __webpack_require__(51);
+	var ExecutionEnvironment = __webpack_require__(48);
 
-	var getNodeForCharacterOffset = __webpack_require__(153);
-	var getTextContentAccessor = __webpack_require__(55);
+	var getNodeForCharacterOffset = __webpack_require__(148);
+	var getTextContentAccessor = __webpack_require__(51);
 
 	/**
 	 * While `isCollapsed` is available on the Selection object and `collapsed`
@@ -19108,7 +18824,7 @@
 	module.exports = ReactDOMSelection;
 
 /***/ },
-/* 153 */
+/* 148 */
 /***/ function(module, exports) {
 
 	/**
@@ -19186,7 +18902,7 @@
 	module.exports = getNodeForCharacterOffset;
 
 /***/ },
-/* 154 */
+/* 149 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19202,7 +18918,7 @@
 	 * 
 	 */
 
-	var isTextNode = __webpack_require__(155);
+	var isTextNode = __webpack_require__(150);
 
 	/*eslint-disable no-bitwise */
 
@@ -19230,7 +18946,7 @@
 	module.exports = containsNode;
 
 /***/ },
-/* 155 */
+/* 150 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19246,7 +18962,7 @@
 	 * @typechecks
 	 */
 
-	var isNode = __webpack_require__(156);
+	var isNode = __webpack_require__(151);
 
 	/**
 	 * @param {*} object The object to check.
@@ -19259,7 +18975,7 @@
 	module.exports = isTextNode;
 
 /***/ },
-/* 156 */
+/* 151 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -19286,7 +19002,7 @@
 	module.exports = isNode;
 
 /***/ },
-/* 157 */
+/* 152 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -19325,7 +19041,7 @@
 	module.exports = getActiveElement;
 
 /***/ },
-/* 158 */
+/* 153 */
 /***/ function(module, exports) {
 
 	/**
@@ -19631,7 +19347,7 @@
 	module.exports = SVGDOMPropertyConfig;
 
 /***/ },
-/* 159 */
+/* 154 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -19646,15 +19362,15 @@
 
 	'use strict';
 
-	var EventPropagators = __webpack_require__(42);
-	var ExecutionEnvironment = __webpack_require__(51);
+	var EventPropagators = __webpack_require__(41);
+	var ExecutionEnvironment = __webpack_require__(48);
 	var ReactDOMComponentTree = __webpack_require__(34);
-	var ReactInputSelection = __webpack_require__(151);
-	var SyntheticEvent = __webpack_require__(57);
+	var ReactInputSelection = __webpack_require__(146);
+	var SyntheticEvent = __webpack_require__(53);
 
-	var getActiveElement = __webpack_require__(157);
-	var isTextInputElement = __webpack_require__(75);
-	var shallowEqual = __webpack_require__(128);
+	var getActiveElement = __webpack_require__(152);
+	var isTextInputElement = __webpack_require__(71);
+	var shallowEqual = __webpack_require__(123);
 
 	var skipSelectionChangeEvent = ExecutionEnvironment.canUseDOM && 'documentMode' in document && document.documentMode <= 11;
 
@@ -19826,7 +19542,7 @@
 	module.exports = SelectEventPlugin;
 
 /***/ },
-/* 160 */
+/* 155 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -19844,24 +19560,24 @@
 
 	var _prodInvariant = __webpack_require__(35);
 
-	var EventListener = __webpack_require__(147);
-	var EventPropagators = __webpack_require__(42);
+	var EventListener = __webpack_require__(142);
+	var EventPropagators = __webpack_require__(41);
 	var ReactDOMComponentTree = __webpack_require__(34);
-	var SyntheticAnimationEvent = __webpack_require__(161);
-	var SyntheticClipboardEvent = __webpack_require__(162);
-	var SyntheticEvent = __webpack_require__(57);
-	var SyntheticFocusEvent = __webpack_require__(163);
-	var SyntheticKeyboardEvent = __webpack_require__(164);
-	var SyntheticMouseEvent = __webpack_require__(78);
-	var SyntheticDragEvent = __webpack_require__(167);
-	var SyntheticTouchEvent = __webpack_require__(168);
-	var SyntheticTransitionEvent = __webpack_require__(169);
-	var SyntheticUIEvent = __webpack_require__(79);
-	var SyntheticWheelEvent = __webpack_require__(170);
+	var SyntheticAnimationEvent = __webpack_require__(156);
+	var SyntheticClipboardEvent = __webpack_require__(157);
+	var SyntheticEvent = __webpack_require__(53);
+	var SyntheticFocusEvent = __webpack_require__(158);
+	var SyntheticKeyboardEvent = __webpack_require__(159);
+	var SyntheticMouseEvent = __webpack_require__(74);
+	var SyntheticDragEvent = __webpack_require__(162);
+	var SyntheticTouchEvent = __webpack_require__(163);
+	var SyntheticTransitionEvent = __webpack_require__(164);
+	var SyntheticUIEvent = __webpack_require__(75);
+	var SyntheticWheelEvent = __webpack_require__(165);
 
-	var emptyFunction = __webpack_require__(48);
-	var getEventCharCode = __webpack_require__(165);
-	var invariant = __webpack_require__(37);
+	var emptyFunction = __webpack_require__(12);
+	var getEventCharCode = __webpack_require__(160);
+	var invariant = __webpack_require__(8);
 
 	/**
 	 * Turns
@@ -20074,7 +19790,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 161 */
+/* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20089,7 +19805,7 @@
 
 	'use strict';
 
-	var SyntheticEvent = __webpack_require__(57);
+	var SyntheticEvent = __webpack_require__(53);
 
 	/**
 	 * @interface Event
@@ -20117,7 +19833,7 @@
 	module.exports = SyntheticAnimationEvent;
 
 /***/ },
-/* 162 */
+/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20132,7 +19848,7 @@
 
 	'use strict';
 
-	var SyntheticEvent = __webpack_require__(57);
+	var SyntheticEvent = __webpack_require__(53);
 
 	/**
 	 * @interface Event
@@ -20159,7 +19875,7 @@
 	module.exports = SyntheticClipboardEvent;
 
 /***/ },
-/* 163 */
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20174,7 +19890,7 @@
 
 	'use strict';
 
-	var SyntheticUIEvent = __webpack_require__(79);
+	var SyntheticUIEvent = __webpack_require__(75);
 
 	/**
 	 * @interface FocusEvent
@@ -20199,7 +19915,7 @@
 	module.exports = SyntheticFocusEvent;
 
 /***/ },
-/* 164 */
+/* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20214,11 +19930,11 @@
 
 	'use strict';
 
-	var SyntheticUIEvent = __webpack_require__(79);
+	var SyntheticUIEvent = __webpack_require__(75);
 
-	var getEventCharCode = __webpack_require__(165);
-	var getEventKey = __webpack_require__(166);
-	var getEventModifierState = __webpack_require__(81);
+	var getEventCharCode = __webpack_require__(160);
+	var getEventKey = __webpack_require__(161);
+	var getEventModifierState = __webpack_require__(77);
 
 	/**
 	 * @interface KeyboardEvent
@@ -20287,7 +20003,7 @@
 	module.exports = SyntheticKeyboardEvent;
 
 /***/ },
-/* 165 */
+/* 160 */
 /***/ function(module, exports) {
 
 	/**
@@ -20341,7 +20057,7 @@
 	module.exports = getEventCharCode;
 
 /***/ },
-/* 166 */
+/* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20356,7 +20072,7 @@
 
 	'use strict';
 
-	var getEventCharCode = __webpack_require__(165);
+	var getEventCharCode = __webpack_require__(160);
 
 	/**
 	 * Normalization of deprecated HTML5 `key` values
@@ -20447,7 +20163,7 @@
 	module.exports = getEventKey;
 
 /***/ },
-/* 167 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20462,7 +20178,7 @@
 
 	'use strict';
 
-	var SyntheticMouseEvent = __webpack_require__(78);
+	var SyntheticMouseEvent = __webpack_require__(74);
 
 	/**
 	 * @interface DragEvent
@@ -20487,7 +20203,7 @@
 	module.exports = SyntheticDragEvent;
 
 /***/ },
-/* 168 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20502,9 +20218,9 @@
 
 	'use strict';
 
-	var SyntheticUIEvent = __webpack_require__(79);
+	var SyntheticUIEvent = __webpack_require__(75);
 
-	var getEventModifierState = __webpack_require__(81);
+	var getEventModifierState = __webpack_require__(77);
 
 	/**
 	 * @interface TouchEvent
@@ -20536,7 +20252,7 @@
 	module.exports = SyntheticTouchEvent;
 
 /***/ },
-/* 169 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20551,7 +20267,7 @@
 
 	'use strict';
 
-	var SyntheticEvent = __webpack_require__(57);
+	var SyntheticEvent = __webpack_require__(53);
 
 	/**
 	 * @interface Event
@@ -20579,7 +20295,7 @@
 	module.exports = SyntheticTransitionEvent;
 
 /***/ },
-/* 170 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20594,7 +20310,7 @@
 
 	'use strict';
 
-	var SyntheticMouseEvent = __webpack_require__(78);
+	var SyntheticMouseEvent = __webpack_require__(74);
 
 	/**
 	 * @interface WheelEvent
@@ -20637,7 +20353,7 @@
 	module.exports = SyntheticWheelEvent;
 
 /***/ },
-/* 171 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -20654,28 +20370,28 @@
 
 	var _prodInvariant = __webpack_require__(35);
 
-	var DOMLazyTree = __webpack_require__(85);
+	var DOMLazyTree = __webpack_require__(81);
 	var DOMProperty = __webpack_require__(36);
 	var React = __webpack_require__(2);
-	var ReactBrowserEventEmitter = __webpack_require__(109);
+	var ReactBrowserEventEmitter = __webpack_require__(105);
 	var ReactCurrentOwner = __webpack_require__(10);
 	var ReactDOMComponentTree = __webpack_require__(34);
-	var ReactDOMContainerInfo = __webpack_require__(172);
-	var ReactDOMFeatureFlags = __webpack_require__(173);
-	var ReactFeatureFlags = __webpack_require__(62);
-	var ReactInstanceMap = __webpack_require__(120);
-	var ReactInstrumentation = __webpack_require__(66);
-	var ReactMarkupChecksum = __webpack_require__(174);
-	var ReactReconciler = __webpack_require__(63);
-	var ReactUpdateQueue = __webpack_require__(140);
-	var ReactUpdates = __webpack_require__(60);
+	var ReactDOMContainerInfo = __webpack_require__(167);
+	var ReactDOMFeatureFlags = __webpack_require__(168);
+	var ReactFeatureFlags = __webpack_require__(58);
+	var ReactInstanceMap = __webpack_require__(116);
+	var ReactInstrumentation = __webpack_require__(62);
+	var ReactMarkupChecksum = __webpack_require__(169);
+	var ReactReconciler = __webpack_require__(59);
+	var ReactUpdateQueue = __webpack_require__(135);
+	var ReactUpdates = __webpack_require__(56);
 
-	var emptyObject = __webpack_require__(127);
-	var instantiateReactComponent = __webpack_require__(122);
-	var invariant = __webpack_require__(37);
-	var setInnerHTML = __webpack_require__(87);
-	var shouldUpdateReactComponent = __webpack_require__(129);
-	var warning = __webpack_require__(47);
+	var emptyObject = __webpack_require__(20);
+	var instantiateReactComponent = __webpack_require__(118);
+	var invariant = __webpack_require__(8);
+	var setInnerHTML = __webpack_require__(83);
+	var shouldUpdateReactComponent = __webpack_require__(124);
+	var warning = __webpack_require__(11);
 
 	var ATTR_NAME = DOMProperty.ID_ATTRIBUTE_NAME;
 	var ROOT_ATTR_NAME = DOMProperty.ROOT_ATTRIBUTE_NAME;
@@ -21180,7 +20896,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 172 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -21195,7 +20911,7 @@
 
 	'use strict';
 
-	var validateDOMNesting = __webpack_require__(141);
+	var validateDOMNesting = __webpack_require__(136);
 
 	var DOC_NODE_TYPE = 9;
 
@@ -21218,7 +20934,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 173 */
+/* 168 */
 /***/ function(module, exports) {
 
 	/**
@@ -21241,7 +20957,7 @@
 	module.exports = ReactDOMFeatureFlags;
 
 /***/ },
-/* 174 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21256,7 +20972,7 @@
 
 	'use strict';
 
-	var adler32 = __webpack_require__(175);
+	var adler32 = __webpack_require__(170);
 
 	var TAG_END = /\/?>/;
 	var COMMENT_START = /^<\!\-\-/;
@@ -21295,7 +21011,7 @@
 	module.exports = ReactMarkupChecksum;
 
 /***/ },
-/* 175 */
+/* 170 */
 /***/ function(module, exports) {
 
 	/**
@@ -21343,7 +21059,7 @@
 	module.exports = adler32;
 
 /***/ },
-/* 176 */
+/* 171 */
 /***/ function(module, exports) {
 
 	/**
@@ -21361,7 +21077,7 @@
 	module.exports = '15.4.0';
 
 /***/ },
-/* 177 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -21380,11 +21096,11 @@
 
 	var ReactCurrentOwner = __webpack_require__(10);
 	var ReactDOMComponentTree = __webpack_require__(34);
-	var ReactInstanceMap = __webpack_require__(120);
+	var ReactInstanceMap = __webpack_require__(116);
 
-	var getHostComponentFromComposite = __webpack_require__(178);
-	var invariant = __webpack_require__(37);
-	var warning = __webpack_require__(47);
+	var getHostComponentFromComposite = __webpack_require__(173);
+	var invariant = __webpack_require__(8);
+	var warning = __webpack_require__(11);
 
 	/**
 	 * Returns the DOM node rendered by this element.
@@ -21426,7 +21142,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 178 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21441,7 +21157,7 @@
 
 	'use strict';
 
-	var ReactNodeTypes = __webpack_require__(124);
+	var ReactNodeTypes = __webpack_require__(120);
 
 	function getHostComponentFromComposite(inst) {
 	  var type;
@@ -21460,7 +21176,7 @@
 	module.exports = getHostComponentFromComposite;
 
 /***/ },
-/* 179 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21475,12 +21191,12 @@
 
 	'use strict';
 
-	var ReactMount = __webpack_require__(171);
+	var ReactMount = __webpack_require__(166);
 
 	module.exports = ReactMount.renderSubtreeIntoContainer;
 
 /***/ },
-/* 180 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -21496,10 +21212,10 @@
 	'use strict';
 
 	var DOMProperty = __webpack_require__(36);
-	var EventPluginRegistry = __webpack_require__(44);
+	var EventPluginRegistry = __webpack_require__(43);
 	var ReactComponentTreeHook = __webpack_require__(26);
 
-	var warning = __webpack_require__(47);
+	var warning = __webpack_require__(11);
 
 	if (process.env.NODE_ENV !== 'production') {
 	  var reactProps = {
@@ -21597,7 +21313,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 181 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -21614,7 +21330,7 @@
 
 	var ReactComponentTreeHook = __webpack_require__(26);
 
-	var warning = __webpack_require__(47);
+	var warning = __webpack_require__(11);
 
 	var didWarnValueNull = false;
 
@@ -21645,7 +21361,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 182 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -21663,7 +21379,7 @@
 	var DOMProperty = __webpack_require__(36);
 	var ReactComponentTreeHook = __webpack_require__(26);
 
-	var warning = __webpack_require__(47);
+	var warning = __webpack_require__(11);
 
 	var warnedProperties = {};
 	var rARIA = new RegExp('^(aria)-[' + DOMProperty.ATTRIBUTE_NAME_CHAR + ']*$');
@@ -21743,43 +21459,43 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 183 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	exports.DefaultRoute = __webpack_require__(184);
-	exports.Link = __webpack_require__(199);
-	exports.NotFoundRoute = __webpack_require__(200);
-	exports.Redirect = __webpack_require__(201);
-	exports.Route = __webpack_require__(198);
-	exports.ActiveHandler = __webpack_require__(196);
+	exports.DefaultRoute = __webpack_require__(179);
+	exports.Link = __webpack_require__(194);
+	exports.NotFoundRoute = __webpack_require__(195);
+	exports.Redirect = __webpack_require__(196);
+	exports.Route = __webpack_require__(193);
+	exports.ActiveHandler = __webpack_require__(191);
 	exports.RouteHandler = exports.ActiveHandler;
 
-	exports.HashLocation = __webpack_require__(202);
-	exports.HistoryLocation = __webpack_require__(206);
-	exports.RefreshLocation = __webpack_require__(207);
-	exports.StaticLocation = __webpack_require__(208);
-	exports.TestLocation = __webpack_require__(209);
+	exports.HashLocation = __webpack_require__(197);
+	exports.HistoryLocation = __webpack_require__(201);
+	exports.RefreshLocation = __webpack_require__(202);
+	exports.StaticLocation = __webpack_require__(203);
+	exports.TestLocation = __webpack_require__(204);
 
-	exports.ImitateBrowserBehavior = __webpack_require__(210);
-	exports.ScrollToTopBehavior = __webpack_require__(211);
+	exports.ImitateBrowserBehavior = __webpack_require__(205);
+	exports.ScrollToTopBehavior = __webpack_require__(206);
 
-	exports.History = __webpack_require__(204);
-	exports.Navigation = __webpack_require__(212);
-	exports.State = __webpack_require__(213);
+	exports.History = __webpack_require__(199);
+	exports.Navigation = __webpack_require__(207);
+	exports.State = __webpack_require__(208);
 
-	exports.createRoute = __webpack_require__(187).createRoute;
-	exports.createDefaultRoute = __webpack_require__(187).createDefaultRoute;
-	exports.createNotFoundRoute = __webpack_require__(187).createNotFoundRoute;
-	exports.createRedirect = __webpack_require__(187).createRedirect;
-	exports.createRoutesFromReactChildren = __webpack_require__(214);
+	exports.createRoute = __webpack_require__(182).createRoute;
+	exports.createDefaultRoute = __webpack_require__(182).createDefaultRoute;
+	exports.createNotFoundRoute = __webpack_require__(182).createNotFoundRoute;
+	exports.createRedirect = __webpack_require__(182).createRedirect;
+	exports.createRoutesFromReactChildren = __webpack_require__(209);
 
-	exports.create = __webpack_require__(215);
-	exports.run = __webpack_require__(224);
+	exports.create = __webpack_require__(210);
+	exports.run = __webpack_require__(219);
 
 /***/ },
-/* 184 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21790,9 +21506,9 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var PropTypes = __webpack_require__(185);
-	var RouteHandler = __webpack_require__(196);
-	var Route = __webpack_require__(198);
+	var PropTypes = __webpack_require__(180);
+	var RouteHandler = __webpack_require__(191);
+	var Route = __webpack_require__(193);
 
 	/**
 	 * A <DefaultRoute> component is a special kind of <Route> that
@@ -21831,14 +21547,14 @@
 	module.exports = DefaultRoute;
 
 /***/ },
-/* 185 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var assign = __webpack_require__(186);
+	var assign = __webpack_require__(181);
 	var ReactPropTypes = __webpack_require__(1).PropTypes;
-	var Route = __webpack_require__(187);
+	var Route = __webpack_require__(182);
 
 	var PropTypes = assign({}, ReactPropTypes, {
 
@@ -21865,7 +21581,7 @@
 	module.exports = PropTypes;
 
 /***/ },
-/* 186 */
+/* 181 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -21897,7 +21613,7 @@
 
 
 /***/ },
-/* 187 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21906,10 +21622,10 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var assign = __webpack_require__(186);
-	var invariant = __webpack_require__(188);
-	var warning = __webpack_require__(189);
-	var PathUtils = __webpack_require__(190);
+	var assign = __webpack_require__(181);
+	var invariant = __webpack_require__(183);
+	var warning = __webpack_require__(184);
+	var PathUtils = __webpack_require__(185);
 
 	var _currentRoute;
 
@@ -22104,7 +21820,7 @@
 	module.exports = Route;
 
 /***/ },
-/* 188 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -22162,7 +21878,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 189 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -22227,14 +21943,14 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 190 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var invariant = __webpack_require__(188);
-	var assign = __webpack_require__(186);
-	var qs = __webpack_require__(191);
+	var invariant = __webpack_require__(183);
+	var assign = __webpack_require__(181);
+	var qs = __webpack_require__(186);
 
 	var paramCompileMatcher = /:([a-zA-Z_$][a-zA-Z0-9_$]*)|[*.()\[\]\\+|{}^$]/g;
 	var paramInjectMatcher = /:([a-zA-Z_$][a-zA-Z0-9_$?]*[?]?)|[*]/g;
@@ -22385,20 +22101,20 @@
 	module.exports = PathUtils;
 
 /***/ },
-/* 191 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(192);
+	module.exports = __webpack_require__(187);
 
 
 /***/ },
-/* 192 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Load modules
 
-	var Stringify = __webpack_require__(193);
-	var Parse = __webpack_require__(195);
+	var Stringify = __webpack_require__(188);
+	var Parse = __webpack_require__(190);
 
 
 	// Declare internals
@@ -22413,12 +22129,12 @@
 
 
 /***/ },
-/* 193 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Load modules
 
-	var Utils = __webpack_require__(194);
+	var Utils = __webpack_require__(189);
 
 
 	// Declare internals
@@ -22516,7 +22232,7 @@
 
 
 /***/ },
-/* 194 */
+/* 189 */
 /***/ function(module, exports) {
 
 	// Load modules
@@ -22654,12 +22370,12 @@
 
 
 /***/ },
-/* 195 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Load modules
 
-	var Utils = __webpack_require__(194);
+	var Utils = __webpack_require__(189);
 
 
 	// Declare internals
@@ -22821,7 +22537,7 @@
 
 
 /***/ },
-/* 196 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22835,9 +22551,9 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(1);
-	var ContextWrapper = __webpack_require__(197);
-	var assign = __webpack_require__(186);
-	var PropTypes = __webpack_require__(185);
+	var ContextWrapper = __webpack_require__(192);
+	var assign = __webpack_require__(181);
+	var PropTypes = __webpack_require__(180);
 
 	var REF_NAME = '__routeHandler__';
 
@@ -22934,7 +22650,7 @@
 	module.exports = RouteHandler;
 
 /***/ },
-/* 197 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22977,7 +22693,7 @@
 	module.exports = ContextWrapper;
 
 /***/ },
-/* 198 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22991,9 +22707,9 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(1);
-	var invariant = __webpack_require__(188);
-	var PropTypes = __webpack_require__(185);
-	var RouteHandler = __webpack_require__(196);
+	var invariant = __webpack_require__(183);
+	var PropTypes = __webpack_require__(180);
+	var RouteHandler = __webpack_require__(191);
 
 	/**
 	 * <Route> components specify components that are rendered to the page when the
@@ -23073,7 +22789,7 @@
 	module.exports = Route;
 
 /***/ },
-/* 199 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23087,8 +22803,8 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(1);
-	var assign = __webpack_require__(186);
-	var PropTypes = __webpack_require__(185);
+	var assign = __webpack_require__(181);
+	var PropTypes = __webpack_require__(180);
 
 	function isLeftClickEvent(event) {
 	  return event.button === 0;
@@ -23219,7 +22935,7 @@
 	module.exports = Link;
 
 /***/ },
-/* 200 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23230,9 +22946,9 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var PropTypes = __webpack_require__(185);
-	var RouteHandler = __webpack_require__(196);
-	var Route = __webpack_require__(198);
+	var PropTypes = __webpack_require__(180);
+	var RouteHandler = __webpack_require__(191);
+	var Route = __webpack_require__(193);
 
 	/**
 	 * A <NotFoundRoute> is a special kind of <Route> that
@@ -23272,7 +22988,7 @@
 	module.exports = NotFoundRoute;
 
 /***/ },
-/* 201 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23283,8 +22999,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var PropTypes = __webpack_require__(185);
-	var Route = __webpack_require__(198);
+	var PropTypes = __webpack_require__(180);
+	var Route = __webpack_require__(193);
 
 	/**
 	 * A <Redirect> component is a special kind of <Route> that always
@@ -23320,13 +23036,13 @@
 	module.exports = Redirect;
 
 /***/ },
-/* 202 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var LocationActions = __webpack_require__(203);
-	var History = __webpack_require__(204);
+	var LocationActions = __webpack_require__(198);
+	var History = __webpack_require__(199);
 
 	var _listeners = [];
 	var _isListening = false;
@@ -23436,7 +23152,7 @@
 	module.exports = HashLocation;
 
 /***/ },
-/* 203 */
+/* 198 */
 /***/ function(module, exports) {
 
 	/**
@@ -23466,13 +23182,13 @@
 	module.exports = LocationActions;
 
 /***/ },
-/* 204 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var invariant = __webpack_require__(188);
-	var canUseDOM = __webpack_require__(205);
+	var invariant = __webpack_require__(183);
+	var canUseDOM = __webpack_require__(200);
 
 	var History = {
 
@@ -23501,7 +23217,7 @@
 	module.exports = History;
 
 /***/ },
-/* 205 */
+/* 200 */
 /***/ function(module, exports) {
 
 	var canUseDOM = !!(
@@ -23513,13 +23229,13 @@
 	module.exports = canUseDOM;
 
 /***/ },
-/* 206 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var LocationActions = __webpack_require__(203);
-	var History = __webpack_require__(204);
+	var LocationActions = __webpack_require__(198);
+	var History = __webpack_require__(199);
 
 	var _listeners = [];
 	var _isListening = false;
@@ -23602,13 +23318,13 @@
 	module.exports = HistoryLocation;
 
 /***/ },
-/* 207 */
+/* 202 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var HistoryLocation = __webpack_require__(206);
-	var History = __webpack_require__(204);
+	var HistoryLocation = __webpack_require__(201);
+	var History = __webpack_require__(199);
 
 	/**
 	 * A Location that uses full page refreshes. This is used as
@@ -23638,7 +23354,7 @@
 	module.exports = RefreshLocation;
 
 /***/ },
-/* 208 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23647,7 +23363,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var invariant = __webpack_require__(188);
+	var invariant = __webpack_require__(183);
 
 	function throwCannotModify() {
 	  invariant(false, 'You cannot modify a static location');
@@ -23692,7 +23408,7 @@
 	module.exports = StaticLocation;
 
 /***/ },
-/* 209 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23701,9 +23417,9 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var invariant = __webpack_require__(188);
-	var LocationActions = __webpack_require__(203);
-	var History = __webpack_require__(204);
+	var invariant = __webpack_require__(183);
+	var LocationActions = __webpack_require__(198);
+	var History = __webpack_require__(199);
 
 	/**
 	 * A location that is convenient for testing and does not require a DOM.
@@ -23787,12 +23503,12 @@
 	module.exports = TestLocation;
 
 /***/ },
-/* 210 */
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var LocationActions = __webpack_require__(203);
+	var LocationActions = __webpack_require__(198);
 
 	/**
 	 * A scroll behavior that attempts to imitate the default behavior
@@ -23821,7 +23537,7 @@
 	module.exports = ImitateBrowserBehavior;
 
 /***/ },
-/* 211 */
+/* 206 */
 /***/ function(module, exports) {
 
 	/**
@@ -23841,12 +23557,12 @@
 	module.exports = ScrollToTopBehavior;
 
 /***/ },
-/* 212 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var PropTypes = __webpack_require__(185);
+	var PropTypes = __webpack_require__(180);
 
 	/**
 	 * A mixin for components that modify the URL.
@@ -23916,12 +23632,12 @@
 	module.exports = Navigation;
 
 /***/ },
-/* 213 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var PropTypes = __webpack_require__(185);
+	var PropTypes = __webpack_require__(180);
 
 	/**
 	 * A mixin for components that need to know the path, routes, URL
@@ -23995,19 +23711,19 @@
 	module.exports = State;
 
 /***/ },
-/* 214 */
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint -W084 */
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var assign = __webpack_require__(186);
-	var warning = __webpack_require__(189);
-	var DefaultRoute = __webpack_require__(184);
-	var NotFoundRoute = __webpack_require__(200);
-	var Redirect = __webpack_require__(201);
-	var Route = __webpack_require__(187);
+	var assign = __webpack_require__(181);
+	var warning = __webpack_require__(184);
+	var DefaultRoute = __webpack_require__(179);
+	var NotFoundRoute = __webpack_require__(195);
+	var Redirect = __webpack_require__(196);
+	var Route = __webpack_require__(182);
 
 	function checkPropTypes(componentName, propTypes, props) {
 	  componentName = componentName || 'UnknownComponent';
@@ -24081,34 +23797,34 @@
 	module.exports = createRoutesFromReactChildren;
 
 /***/ },
-/* 215 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/* jshint -W058 */
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var warning = __webpack_require__(189);
-	var invariant = __webpack_require__(188);
-	var canUseDOM = __webpack_require__(205);
-	var LocationActions = __webpack_require__(203);
-	var ImitateBrowserBehavior = __webpack_require__(210);
-	var HashLocation = __webpack_require__(202);
-	var HistoryLocation = __webpack_require__(206);
-	var RefreshLocation = __webpack_require__(207);
-	var StaticLocation = __webpack_require__(208);
-	var ScrollHistory = __webpack_require__(216);
-	var createRoutesFromReactChildren = __webpack_require__(214);
-	var isReactChildren = __webpack_require__(218);
-	var Transition = __webpack_require__(219);
-	var PropTypes = __webpack_require__(185);
-	var Redirect = __webpack_require__(221);
-	var History = __webpack_require__(204);
-	var Cancellation = __webpack_require__(220);
-	var Match = __webpack_require__(222);
-	var Route = __webpack_require__(187);
-	var supportsHistory = __webpack_require__(223);
-	var PathUtils = __webpack_require__(190);
+	var warning = __webpack_require__(184);
+	var invariant = __webpack_require__(183);
+	var canUseDOM = __webpack_require__(200);
+	var LocationActions = __webpack_require__(198);
+	var ImitateBrowserBehavior = __webpack_require__(205);
+	var HashLocation = __webpack_require__(197);
+	var HistoryLocation = __webpack_require__(201);
+	var RefreshLocation = __webpack_require__(202);
+	var StaticLocation = __webpack_require__(203);
+	var ScrollHistory = __webpack_require__(211);
+	var createRoutesFromReactChildren = __webpack_require__(209);
+	var isReactChildren = __webpack_require__(213);
+	var Transition = __webpack_require__(214);
+	var PropTypes = __webpack_require__(180);
+	var Redirect = __webpack_require__(216);
+	var History = __webpack_require__(199);
+	var Cancellation = __webpack_require__(215);
+	var Match = __webpack_require__(217);
+	var Route = __webpack_require__(182);
+	var supportsHistory = __webpack_require__(218);
+	var PathUtils = __webpack_require__(185);
 
 	/**
 	 * The default location for new routers.
@@ -24599,14 +24315,14 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 216 */
+/* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var invariant = __webpack_require__(188);
-	var canUseDOM = __webpack_require__(205);
-	var getWindowScrollPosition = __webpack_require__(217);
+	var invariant = __webpack_require__(183);
+	var canUseDOM = __webpack_require__(200);
+	var getWindowScrollPosition = __webpack_require__(212);
 
 	function shouldUpdateScroll(state, prevState) {
 	  if (!prevState) return true;
@@ -24679,13 +24395,13 @@
 	module.exports = ScrollHistory;
 
 /***/ },
-/* 217 */
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var invariant = __webpack_require__(188);
-	var canUseDOM = __webpack_require__(205);
+	var invariant = __webpack_require__(183);
+	var canUseDOM = __webpack_require__(200);
 
 	/**
 	 * Returns the current scroll position of the window as { x, y }.
@@ -24702,7 +24418,7 @@
 	module.exports = getWindowScrollPosition;
 
 /***/ },
-/* 218 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24720,15 +24436,15 @@
 	module.exports = isReactChildren;
 
 /***/ },
-/* 219 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint -W058 */
 
 	'use strict';
 
-	var Cancellation = __webpack_require__(220);
-	var Redirect = __webpack_require__(221);
+	var Cancellation = __webpack_require__(215);
+	var Redirect = __webpack_require__(216);
 
 	/**
 	 * Encapsulates a transition to a given path.
@@ -24800,7 +24516,7 @@
 	module.exports = Transition;
 
 /***/ },
-/* 220 */
+/* 215 */
 /***/ function(module, exports) {
 
 	/**
@@ -24814,7 +24530,7 @@
 	module.exports = Cancellation;
 
 /***/ },
-/* 221 */
+/* 216 */
 /***/ function(module, exports) {
 
 	/**
@@ -24831,7 +24547,7 @@
 	module.exports = Redirect;
 
 /***/ },
-/* 222 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint -W084 */
@@ -24841,7 +24557,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var PathUtils = __webpack_require__(190);
+	var PathUtils = __webpack_require__(185);
 
 	function deepSearch(route, pathname, query) {
 	  // Check the subtree first to find the most deeply-nested match.
@@ -24911,7 +24627,7 @@
 	module.exports = Match;
 
 /***/ },
-/* 223 */
+/* 218 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -24932,12 +24648,12 @@
 	module.exports = supportsHistory;
 
 /***/ },
-/* 224 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var createRouter = __webpack_require__(215);
+	var createRouter = __webpack_require__(210);
 
 	/**
 	 * A high-level convenience method that creates, configures, and
@@ -24987,7 +24703,7 @@
 	module.exports = runRouter;
 
 /***/ },
-/* 225 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24995,10 +24711,10 @@
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var React = __webpack_require__(1);
-	var Router = __webpack_require__(183);
+	var Router = __webpack_require__(178);
 	var RouteHandler = Router.RouteHandler;
 
-	var io = __webpack_require__(226);
+	var io = __webpack_require__(221);
 
 	var APP = React.createClass({
 	    displayName: 'APP',
@@ -25086,7 +24802,7 @@
 	module.exports = APP;
 
 /***/ },
-/* 226 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -25094,10 +24810,10 @@
 	 * Module dependencies.
 	 */
 
-	var url = __webpack_require__(227);
-	var parser = __webpack_require__(232);
-	var Manager = __webpack_require__(240);
-	var debug = __webpack_require__(229)('socket.io-client');
+	var url = __webpack_require__(222);
+	var parser = __webpack_require__(227);
+	var Manager = __webpack_require__(238);
+	var debug = __webpack_require__(224)('socket.io-client');
 
 	/**
 	 * Module exports.
@@ -25196,12 +24912,12 @@
 	 * @api public
 	 */
 
-	exports.Manager = __webpack_require__(240);
+	exports.Manager = __webpack_require__(238);
 	exports.Socket = __webpack_require__(268);
 
 
 /***/ },
-/* 227 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {
@@ -25209,8 +24925,8 @@
 	 * Module dependencies.
 	 */
 
-	var parseuri = __webpack_require__(228);
-	var debug = __webpack_require__(229)('socket.io-client:url');
+	var parseuri = __webpack_require__(223);
+	var debug = __webpack_require__(224)('socket.io-client:url');
 
 	/**
 	 * Module exports.
@@ -25283,7 +24999,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 228 */
+/* 223 */
 /***/ function(module, exports) {
 
 	/**
@@ -25328,7 +25044,7 @@
 
 
 /***/ },
-/* 229 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -25338,7 +25054,7 @@
 	 * Expose `debug()` as the module.
 	 */
 
-	exports = module.exports = __webpack_require__(230);
+	exports = module.exports = __webpack_require__(225);
 	exports.log = log;
 	exports.formatArgs = formatArgs;
 	exports.save = save;
@@ -25502,7 +25218,7 @@
 
 
 /***/ },
-/* 230 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -25518,7 +25234,7 @@
 	exports.disable = disable;
 	exports.enable = enable;
 	exports.enabled = enabled;
-	exports.humanize = __webpack_require__(231);
+	exports.humanize = __webpack_require__(226);
 
 	/**
 	 * The currently active debug mode names, and names to skip.
@@ -25705,7 +25421,7 @@
 
 
 /***/ },
-/* 231 */
+/* 226 */
 /***/ function(module, exports) {
 
 	/**
@@ -25836,7 +25552,7 @@
 
 
 /***/ },
-/* 232 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -25844,11 +25560,11 @@
 	 * Module dependencies.
 	 */
 
-	var debug = __webpack_require__(229)('socket.io-parser');
-	var json = __webpack_require__(233);
-	var Emitter = __webpack_require__(236);
-	var binary = __webpack_require__(237);
-	var isBuf = __webpack_require__(239);
+	var debug = __webpack_require__(228)('socket.io-parser');
+	var json = __webpack_require__(231);
+	var Emitter = __webpack_require__(234);
+	var binary = __webpack_require__(235);
+	var isBuf = __webpack_require__(237);
 
 	/**
 	 * Protocol version.
@@ -26246,14 +25962,522 @@
 
 
 /***/ },
-/* 233 */
+/* 228 */
+/***/ function(module, exports, __webpack_require__) {
+
+	
+	/**
+	 * This is the web browser implementation of `debug()`.
+	 *
+	 * Expose `debug()` as the module.
+	 */
+
+	exports = module.exports = __webpack_require__(229);
+	exports.log = log;
+	exports.formatArgs = formatArgs;
+	exports.save = save;
+	exports.load = load;
+	exports.useColors = useColors;
+	exports.storage = 'undefined' != typeof chrome
+	               && 'undefined' != typeof chrome.storage
+	                  ? chrome.storage.local
+	                  : localstorage();
+
+	/**
+	 * Colors.
+	 */
+
+	exports.colors = [
+	  'lightseagreen',
+	  'forestgreen',
+	  'goldenrod',
+	  'dodgerblue',
+	  'darkorchid',
+	  'crimson'
+	];
+
+	/**
+	 * Currently only WebKit-based Web Inspectors, Firefox >= v31,
+	 * and the Firebug extension (any Firefox version) are known
+	 * to support "%c" CSS customizations.
+	 *
+	 * TODO: add a `localStorage` variable to explicitly enable/disable colors
+	 */
+
+	function useColors() {
+	  // is webkit? http://stackoverflow.com/a/16459606/376773
+	  return ('WebkitAppearance' in document.documentElement.style) ||
+	    // is firebug? http://stackoverflow.com/a/398120/376773
+	    (window.console && (console.firebug || (console.exception && console.table))) ||
+	    // is firefox >= v31?
+	    // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
+	    (navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31);
+	}
+
+	/**
+	 * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
+	 */
+
+	exports.formatters.j = function(v) {
+	  return JSON.stringify(v);
+	};
+
+
+	/**
+	 * Colorize log arguments if enabled.
+	 *
+	 * @api public
+	 */
+
+	function formatArgs() {
+	  var args = arguments;
+	  var useColors = this.useColors;
+
+	  args[0] = (useColors ? '%c' : '')
+	    + this.namespace
+	    + (useColors ? ' %c' : ' ')
+	    + args[0]
+	    + (useColors ? '%c ' : ' ')
+	    + '+' + exports.humanize(this.diff);
+
+	  if (!useColors) return args;
+
+	  var c = 'color: ' + this.color;
+	  args = [args[0], c, 'color: inherit'].concat(Array.prototype.slice.call(args, 1));
+
+	  // the final "%c" is somewhat tricky, because there could be other
+	  // arguments passed either before or after the %c, so we need to
+	  // figure out the correct index to insert the CSS into
+	  var index = 0;
+	  var lastC = 0;
+	  args[0].replace(/%[a-z%]/g, function(match) {
+	    if ('%%' === match) return;
+	    index++;
+	    if ('%c' === match) {
+	      // we only are interested in the *last* %c
+	      // (the user may have provided their own)
+	      lastC = index;
+	    }
+	  });
+
+	  args.splice(lastC, 0, c);
+	  return args;
+	}
+
+	/**
+	 * Invokes `console.log()` when available.
+	 * No-op when `console.log` is not a "function".
+	 *
+	 * @api public
+	 */
+
+	function log() {
+	  // this hackery is required for IE8/9, where
+	  // the `console.log` function doesn't have 'apply'
+	  return 'object' === typeof console
+	    && console.log
+	    && Function.prototype.apply.call(console.log, console, arguments);
+	}
+
+	/**
+	 * Save `namespaces`.
+	 *
+	 * @param {String} namespaces
+	 * @api private
+	 */
+
+	function save(namespaces) {
+	  try {
+	    if (null == namespaces) {
+	      exports.storage.removeItem('debug');
+	    } else {
+	      exports.storage.debug = namespaces;
+	    }
+	  } catch(e) {}
+	}
+
+	/**
+	 * Load `namespaces`.
+	 *
+	 * @return {String} returns the previously persisted debug modes
+	 * @api private
+	 */
+
+	function load() {
+	  var r;
+	  try {
+	    r = exports.storage.debug;
+	  } catch(e) {}
+	  return r;
+	}
+
+	/**
+	 * Enable namespaces listed in `localStorage.debug` initially.
+	 */
+
+	exports.enable(load());
+
+	/**
+	 * Localstorage attempts to return the localstorage.
+	 *
+	 * This is necessary because safari throws
+	 * when a user disables cookies/localstorage
+	 * and you attempt to access it.
+	 *
+	 * @return {LocalStorage}
+	 * @api private
+	 */
+
+	function localstorage(){
+	  try {
+	    return window.localStorage;
+	  } catch (e) {}
+	}
+
+
+/***/ },
+/* 229 */
+/***/ function(module, exports, __webpack_require__) {
+
+	
+	/**
+	 * This is the common logic for both the Node.js and web browser
+	 * implementations of `debug()`.
+	 *
+	 * Expose `debug()` as the module.
+	 */
+
+	exports = module.exports = debug;
+	exports.coerce = coerce;
+	exports.disable = disable;
+	exports.enable = enable;
+	exports.enabled = enabled;
+	exports.humanize = __webpack_require__(230);
+
+	/**
+	 * The currently active debug mode names, and names to skip.
+	 */
+
+	exports.names = [];
+	exports.skips = [];
+
+	/**
+	 * Map of special "%n" handling functions, for the debug "format" argument.
+	 *
+	 * Valid key names are a single, lowercased letter, i.e. "n".
+	 */
+
+	exports.formatters = {};
+
+	/**
+	 * Previously assigned color.
+	 */
+
+	var prevColor = 0;
+
+	/**
+	 * Previous log timestamp.
+	 */
+
+	var prevTime;
+
+	/**
+	 * Select a color.
+	 *
+	 * @return {Number}
+	 * @api private
+	 */
+
+	function selectColor() {
+	  return exports.colors[prevColor++ % exports.colors.length];
+	}
+
+	/**
+	 * Create a debugger with the given `namespace`.
+	 *
+	 * @param {String} namespace
+	 * @return {Function}
+	 * @api public
+	 */
+
+	function debug(namespace) {
+
+	  // define the `disabled` version
+	  function disabled() {
+	  }
+	  disabled.enabled = false;
+
+	  // define the `enabled` version
+	  function enabled() {
+
+	    var self = enabled;
+
+	    // set `diff` timestamp
+	    var curr = +new Date();
+	    var ms = curr - (prevTime || curr);
+	    self.diff = ms;
+	    self.prev = prevTime;
+	    self.curr = curr;
+	    prevTime = curr;
+
+	    // add the `color` if not set
+	    if (null == self.useColors) self.useColors = exports.useColors();
+	    if (null == self.color && self.useColors) self.color = selectColor();
+
+	    var args = Array.prototype.slice.call(arguments);
+
+	    args[0] = exports.coerce(args[0]);
+
+	    if ('string' !== typeof args[0]) {
+	      // anything else let's inspect with %o
+	      args = ['%o'].concat(args);
+	    }
+
+	    // apply any `formatters` transformations
+	    var index = 0;
+	    args[0] = args[0].replace(/%([a-z%])/g, function(match, format) {
+	      // if we encounter an escaped % then don't increase the array index
+	      if (match === '%%') return match;
+	      index++;
+	      var formatter = exports.formatters[format];
+	      if ('function' === typeof formatter) {
+	        var val = args[index];
+	        match = formatter.call(self, val);
+
+	        // now we need to remove `args[index]` since it's inlined in the `format`
+	        args.splice(index, 1);
+	        index--;
+	      }
+	      return match;
+	    });
+
+	    if ('function' === typeof exports.formatArgs) {
+	      args = exports.formatArgs.apply(self, args);
+	    }
+	    var logFn = enabled.log || exports.log || console.log.bind(console);
+	    logFn.apply(self, args);
+	  }
+	  enabled.enabled = true;
+
+	  var fn = exports.enabled(namespace) ? enabled : disabled;
+
+	  fn.namespace = namespace;
+
+	  return fn;
+	}
+
+	/**
+	 * Enables a debug mode by namespaces. This can include modes
+	 * separated by a colon and wildcards.
+	 *
+	 * @param {String} namespaces
+	 * @api public
+	 */
+
+	function enable(namespaces) {
+	  exports.save(namespaces);
+
+	  var split = (namespaces || '').split(/[\s,]+/);
+	  var len = split.length;
+
+	  for (var i = 0; i < len; i++) {
+	    if (!split[i]) continue; // ignore empty strings
+	    namespaces = split[i].replace(/\*/g, '.*?');
+	    if (namespaces[0] === '-') {
+	      exports.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
+	    } else {
+	      exports.names.push(new RegExp('^' + namespaces + '$'));
+	    }
+	  }
+	}
+
+	/**
+	 * Disable debug output.
+	 *
+	 * @api public
+	 */
+
+	function disable() {
+	  exports.enable('');
+	}
+
+	/**
+	 * Returns true if the given mode name is enabled, false otherwise.
+	 *
+	 * @param {String} name
+	 * @return {Boolean}
+	 * @api public
+	 */
+
+	function enabled(name) {
+	  var i, len;
+	  for (i = 0, len = exports.skips.length; i < len; i++) {
+	    if (exports.skips[i].test(name)) {
+	      return false;
+	    }
+	  }
+	  for (i = 0, len = exports.names.length; i < len; i++) {
+	    if (exports.names[i].test(name)) {
+	      return true;
+	    }
+	  }
+	  return false;
+	}
+
+	/**
+	 * Coerce `val`.
+	 *
+	 * @param {Mixed} val
+	 * @return {Mixed}
+	 * @api private
+	 */
+
+	function coerce(val) {
+	  if (val instanceof Error) return val.stack || val.message;
+	  return val;
+	}
+
+
+/***/ },
+/* 230 */
+/***/ function(module, exports) {
+
+	/**
+	 * Helpers.
+	 */
+
+	var s = 1000;
+	var m = s * 60;
+	var h = m * 60;
+	var d = h * 24;
+	var y = d * 365.25;
+
+	/**
+	 * Parse or format the given `val`.
+	 *
+	 * Options:
+	 *
+	 *  - `long` verbose formatting [false]
+	 *
+	 * @param {String|Number} val
+	 * @param {Object} options
+	 * @return {String|Number}
+	 * @api public
+	 */
+
+	module.exports = function(val, options){
+	  options = options || {};
+	  if ('string' == typeof val) return parse(val);
+	  return options.long
+	    ? long(val)
+	    : short(val);
+	};
+
+	/**
+	 * Parse the given `str` and return milliseconds.
+	 *
+	 * @param {String} str
+	 * @return {Number}
+	 * @api private
+	 */
+
+	function parse(str) {
+	  str = '' + str;
+	  if (str.length > 10000) return;
+	  var match = /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(str);
+	  if (!match) return;
+	  var n = parseFloat(match[1]);
+	  var type = (match[2] || 'ms').toLowerCase();
+	  switch (type) {
+	    case 'years':
+	    case 'year':
+	    case 'yrs':
+	    case 'yr':
+	    case 'y':
+	      return n * y;
+	    case 'days':
+	    case 'day':
+	    case 'd':
+	      return n * d;
+	    case 'hours':
+	    case 'hour':
+	    case 'hrs':
+	    case 'hr':
+	    case 'h':
+	      return n * h;
+	    case 'minutes':
+	    case 'minute':
+	    case 'mins':
+	    case 'min':
+	    case 'm':
+	      return n * m;
+	    case 'seconds':
+	    case 'second':
+	    case 'secs':
+	    case 'sec':
+	    case 's':
+	      return n * s;
+	    case 'milliseconds':
+	    case 'millisecond':
+	    case 'msecs':
+	    case 'msec':
+	    case 'ms':
+	      return n;
+	  }
+	}
+
+	/**
+	 * Short format for `ms`.
+	 *
+	 * @param {Number} ms
+	 * @return {String}
+	 * @api private
+	 */
+
+	function short(ms) {
+	  if (ms >= d) return Math.round(ms / d) + 'd';
+	  if (ms >= h) return Math.round(ms / h) + 'h';
+	  if (ms >= m) return Math.round(ms / m) + 'm';
+	  if (ms >= s) return Math.round(ms / s) + 's';
+	  return ms + 'ms';
+	}
+
+	/**
+	 * Long format for `ms`.
+	 *
+	 * @param {Number} ms
+	 * @return {String}
+	 * @api private
+	 */
+
+	function long(ms) {
+	  return plural(ms, d, 'day')
+	    || plural(ms, h, 'hour')
+	    || plural(ms, m, 'minute')
+	    || plural(ms, s, 'second')
+	    || ms + ' ms';
+	}
+
+	/**
+	 * Pluralization helper.
+	 */
+
+	function plural(ms, n, name) {
+	  if (ms < n) return;
+	  if (ms < n * 1.5) return Math.floor(ms / n) + ' ' + name;
+	  return Math.ceil(ms / n) + ' ' + name + 's';
+	}
+
+
+/***/ },
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global) {/*! JSON v3.3.2 | http://bestiejs.github.io/json3 | Copyright 2012-2014, Kit Cambridge | http://kit.mit-license.org */
 	;(function () {
 	  // Detect the `define` function exposed by asynchronous module loaders. The
 	  // strict `define` check is necessary for compatibility with `r.js`.
-	  var isLoader = "function" === "function" && __webpack_require__(235);
+	  var isLoader = "function" === "function" && __webpack_require__(233);
 
 	  // A set of types used to distinguish objects from primitives.
 	  var objectTypes = {
@@ -27152,10 +27376,10 @@
 	  }
 	}).call(this);
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(234)(module), (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(232)(module), (function() { return this; }())))
 
 /***/ },
-/* 234 */
+/* 232 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -27171,7 +27395,7 @@
 
 
 /***/ },
-/* 235 */
+/* 233 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
@@ -27179,7 +27403,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ },
-/* 236 */
+/* 234 */
 /***/ function(module, exports) {
 
 	
@@ -27349,7 +27573,7 @@
 
 
 /***/ },
-/* 237 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/*global Blob,File*/
@@ -27358,8 +27582,8 @@
 	 * Module requirements
 	 */
 
-	var isArray = __webpack_require__(238);
-	var isBuf = __webpack_require__(239);
+	var isArray = __webpack_require__(236);
+	var isBuf = __webpack_require__(237);
 
 	/**
 	 * Replaces every Buffer | ArrayBuffer in packet with a numbered placeholder.
@@ -27497,7 +27721,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 238 */
+/* 236 */
 /***/ function(module, exports) {
 
 	module.exports = Array.isArray || function (arr) {
@@ -27506,7 +27730,7 @@
 
 
 /***/ },
-/* 239 */
+/* 237 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {
@@ -27526,7 +27750,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 240 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -27534,13 +27758,13 @@
 	 * Module dependencies.
 	 */
 
-	var eio = __webpack_require__(241);
+	var eio = __webpack_require__(239);
 	var Socket = __webpack_require__(268);
 	var Emitter = __webpack_require__(269);
-	var parser = __webpack_require__(232);
+	var parser = __webpack_require__(227);
 	var on = __webpack_require__(271);
 	var bind = __webpack_require__(272);
-	var debug = __webpack_require__(229)('socket.io-client:manager');
+	var debug = __webpack_require__(224)('socket.io-client:manager');
 	var indexOf = __webpack_require__(266);
 	var Backoff = __webpack_require__(275);
 
@@ -28092,19 +28316,19 @@
 
 
 /***/ },
-/* 241 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	module.exports = __webpack_require__(242);
+	module.exports = __webpack_require__(240);
 
 
 /***/ },
-/* 242 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	module.exports = __webpack_require__(243);
+	module.exports = __webpack_require__(241);
 
 	/**
 	 * Exports parser
@@ -28112,25 +28336,25 @@
 	 * @api public
 	 *
 	 */
-	module.exports.parser = __webpack_require__(250);
+	module.exports.parser = __webpack_require__(248);
 
 
 /***/ },
-/* 243 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
 	 * Module dependencies.
 	 */
 
-	var transports = __webpack_require__(244);
-	var Emitter = __webpack_require__(259);
-	var debug = __webpack_require__(229)('engine.io-client:socket');
+	var transports = __webpack_require__(242);
+	var Emitter = __webpack_require__(234);
+	var debug = __webpack_require__(260)('engine.io-client:socket');
 	var index = __webpack_require__(266);
-	var parser = __webpack_require__(250);
-	var parseuri = __webpack_require__(228);
+	var parser = __webpack_require__(248);
+	var parseuri = __webpack_require__(223);
 	var parsejson = __webpack_require__(267);
-	var parseqs = __webpack_require__(260);
+	var parseqs = __webpack_require__(257);
 
 	/**
 	 * Module exports.
@@ -28257,9 +28481,9 @@
 	 */
 
 	Socket.Socket = Socket;
-	Socket.Transport = __webpack_require__(249);
-	Socket.transports = __webpack_require__(244);
-	Socket.parser = __webpack_require__(250);
+	Socket.Transport = __webpack_require__(247);
+	Socket.transports = __webpack_require__(242);
+	Socket.parser = __webpack_require__(248);
 
 	/**
 	 * Creates transport of the given type.
@@ -28854,15 +29078,15 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 244 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
 	 * Module dependencies
 	 */
 
-	var XMLHttpRequest = __webpack_require__(245);
-	var XHR = __webpack_require__(247);
+	var XMLHttpRequest = __webpack_require__(243);
+	var XHR = __webpack_require__(245);
 	var JSONP = __webpack_require__(263);
 	var websocket = __webpack_require__(264);
 
@@ -28914,12 +29138,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 245 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {// browser shim for xmlhttprequest module
 
-	var hasCORS = __webpack_require__(246);
+	var hasCORS = __webpack_require__(244);
 
 	module.exports = function (opts) {
 	  var xdomain = opts.xdomain;
@@ -28958,7 +29182,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 246 */
+/* 244 */
 /***/ function(module, exports) {
 
 	
@@ -28981,18 +29205,18 @@
 
 
 /***/ },
-/* 247 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
 	 * Module requirements.
 	 */
 
-	var XMLHttpRequest = __webpack_require__(245);
-	var Polling = __webpack_require__(248);
-	var Emitter = __webpack_require__(259);
-	var inherit = __webpack_require__(261);
-	var debug = __webpack_require__(229)('engine.io-client:polling-xhr');
+	var XMLHttpRequest = __webpack_require__(243);
+	var Polling = __webpack_require__(246);
+	var Emitter = __webpack_require__(234);
+	var inherit = __webpack_require__(258);
+	var debug = __webpack_require__(260)('engine.io-client:polling-xhr');
 
 	/**
 	 * Module exports.
@@ -29405,19 +29629,19 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 248 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Module dependencies.
 	 */
 
-	var Transport = __webpack_require__(249);
-	var parseqs = __webpack_require__(260);
-	var parser = __webpack_require__(250);
-	var inherit = __webpack_require__(261);
-	var yeast = __webpack_require__(262);
-	var debug = __webpack_require__(229)('engine.io-client:polling');
+	var Transport = __webpack_require__(247);
+	var parseqs = __webpack_require__(257);
+	var parser = __webpack_require__(248);
+	var inherit = __webpack_require__(258);
+	var yeast = __webpack_require__(259);
+	var debug = __webpack_require__(260)('engine.io-client:polling');
 
 	/**
 	 * Module exports.
@@ -29430,7 +29654,7 @@
 	 */
 
 	var hasXHR2 = (function () {
-	  var XMLHttpRequest = __webpack_require__(245);
+	  var XMLHttpRequest = __webpack_require__(243);
 	  var xhr = new XMLHttpRequest({ xdomain: false });
 	  return null != xhr.responseType;
 	})();
@@ -29656,15 +29880,15 @@
 
 
 /***/ },
-/* 249 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Module dependencies.
 	 */
 
-	var parser = __webpack_require__(250);
-	var Emitter = __webpack_require__(259);
+	var parser = __webpack_require__(248);
+	var Emitter = __webpack_require__(234);
 
 	/**
 	 * Module exports.
@@ -29817,22 +30041,22 @@
 
 
 /***/ },
-/* 250 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
 	 * Module dependencies.
 	 */
 
-	var keys = __webpack_require__(251);
-	var hasBinary = __webpack_require__(252);
-	var sliceBuffer = __webpack_require__(254);
-	var after = __webpack_require__(255);
-	var utf8 = __webpack_require__(256);
+	var keys = __webpack_require__(249);
+	var hasBinary = __webpack_require__(250);
+	var sliceBuffer = __webpack_require__(252);
+	var after = __webpack_require__(253);
+	var utf8 = __webpack_require__(254);
 
 	var base64encoder;
 	if (global && global.ArrayBuffer) {
-	  base64encoder = __webpack_require__(257);
+	  base64encoder = __webpack_require__(255);
 	}
 
 	/**
@@ -29890,7 +30114,7 @@
 	 * Create a blob api even for blob builder when vendor prefixes exist
 	 */
 
-	var Blob = __webpack_require__(258);
+	var Blob = __webpack_require__(256);
 
 	/**
 	 * Encodes a packet.
@@ -30433,7 +30657,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 251 */
+/* 249 */
 /***/ function(module, exports) {
 
 	
@@ -30458,7 +30682,7 @@
 
 
 /***/ },
-/* 252 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {
@@ -30466,7 +30690,7 @@
 	 * Module requirements.
 	 */
 
-	var isArray = __webpack_require__(253);
+	var isArray = __webpack_require__(251);
 
 	/**
 	 * Module exports.
@@ -30523,7 +30747,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 253 */
+/* 251 */
 /***/ function(module, exports) {
 
 	module.exports = Array.isArray || function (arr) {
@@ -30532,7 +30756,7 @@
 
 
 /***/ },
-/* 254 */
+/* 252 */
 /***/ function(module, exports) {
 
 	/**
@@ -30567,7 +30791,7 @@
 
 
 /***/ },
-/* 255 */
+/* 253 */
 /***/ function(module, exports) {
 
 	module.exports = after
@@ -30601,7 +30825,7 @@
 
 
 /***/ },
-/* 256 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global) {/*! https://mths.be/wtf8 v1.0.0 by @mathias */
@@ -30837,10 +31061,10 @@
 
 	}(this));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(234)(module), (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(232)(module), (function() { return this; }())))
 
 /***/ },
-/* 257 */
+/* 255 */
 /***/ function(module, exports) {
 
 	/*
@@ -30913,7 +31137,7 @@
 
 
 /***/ },
-/* 258 */
+/* 256 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -31016,177 +31240,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 259 */
-/***/ function(module, exports) {
-
-	
-	/**
-	 * Expose `Emitter`.
-	 */
-
-	module.exports = Emitter;
-
-	/**
-	 * Initialize a new `Emitter`.
-	 *
-	 * @api public
-	 */
-
-	function Emitter(obj) {
-	  if (obj) return mixin(obj);
-	};
-
-	/**
-	 * Mixin the emitter properties.
-	 *
-	 * @param {Object} obj
-	 * @return {Object}
-	 * @api private
-	 */
-
-	function mixin(obj) {
-	  for (var key in Emitter.prototype) {
-	    obj[key] = Emitter.prototype[key];
-	  }
-	  return obj;
-	}
-
-	/**
-	 * Listen on the given `event` with `fn`.
-	 *
-	 * @param {String} event
-	 * @param {Function} fn
-	 * @return {Emitter}
-	 * @api public
-	 */
-
-	Emitter.prototype.on =
-	Emitter.prototype.addEventListener = function(event, fn){
-	  this._callbacks = this._callbacks || {};
-	  (this._callbacks[event] = this._callbacks[event] || [])
-	    .push(fn);
-	  return this;
-	};
-
-	/**
-	 * Adds an `event` listener that will be invoked a single
-	 * time then automatically removed.
-	 *
-	 * @param {String} event
-	 * @param {Function} fn
-	 * @return {Emitter}
-	 * @api public
-	 */
-
-	Emitter.prototype.once = function(event, fn){
-	  var self = this;
-	  this._callbacks = this._callbacks || {};
-
-	  function on() {
-	    self.off(event, on);
-	    fn.apply(this, arguments);
-	  }
-
-	  on.fn = fn;
-	  this.on(event, on);
-	  return this;
-	};
-
-	/**
-	 * Remove the given callback for `event` or all
-	 * registered callbacks.
-	 *
-	 * @param {String} event
-	 * @param {Function} fn
-	 * @return {Emitter}
-	 * @api public
-	 */
-
-	Emitter.prototype.off =
-	Emitter.prototype.removeListener =
-	Emitter.prototype.removeAllListeners =
-	Emitter.prototype.removeEventListener = function(event, fn){
-	  this._callbacks = this._callbacks || {};
-
-	  // all
-	  if (0 == arguments.length) {
-	    this._callbacks = {};
-	    return this;
-	  }
-
-	  // specific event
-	  var callbacks = this._callbacks[event];
-	  if (!callbacks) return this;
-
-	  // remove all handlers
-	  if (1 == arguments.length) {
-	    delete this._callbacks[event];
-	    return this;
-	  }
-
-	  // remove specific handler
-	  var cb;
-	  for (var i = 0; i < callbacks.length; i++) {
-	    cb = callbacks[i];
-	    if (cb === fn || cb.fn === fn) {
-	      callbacks.splice(i, 1);
-	      break;
-	    }
-	  }
-	  return this;
-	};
-
-	/**
-	 * Emit `event` with the given args.
-	 *
-	 * @param {String} event
-	 * @param {Mixed} ...
-	 * @return {Emitter}
-	 */
-
-	Emitter.prototype.emit = function(event){
-	  this._callbacks = this._callbacks || {};
-	  var args = [].slice.call(arguments, 1)
-	    , callbacks = this._callbacks[event];
-
-	  if (callbacks) {
-	    callbacks = callbacks.slice(0);
-	    for (var i = 0, len = callbacks.length; i < len; ++i) {
-	      callbacks[i].apply(this, args);
-	    }
-	  }
-
-	  return this;
-	};
-
-	/**
-	 * Return array of callbacks for `event`.
-	 *
-	 * @param {String} event
-	 * @return {Array}
-	 * @api public
-	 */
-
-	Emitter.prototype.listeners = function(event){
-	  this._callbacks = this._callbacks || {};
-	  return this._callbacks[event] || [];
-	};
-
-	/**
-	 * Check if this emitter has `event` handlers.
-	 *
-	 * @param {String} event
-	 * @return {Boolean}
-	 * @api public
-	 */
-
-	Emitter.prototype.hasListeners = function(event){
-	  return !! this.listeners(event).length;
-	};
-
-
-/***/ },
-/* 260 */
+/* 257 */
 /***/ function(module, exports) {
 
 	/**
@@ -31229,7 +31283,7 @@
 
 
 /***/ },
-/* 261 */
+/* 258 */
 /***/ function(module, exports) {
 
 	
@@ -31241,7 +31295,7 @@
 	};
 
 /***/ },
-/* 262 */
+/* 259 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -31315,6 +31369,514 @@
 
 
 /***/ },
+/* 260 */
+/***/ function(module, exports, __webpack_require__) {
+
+	
+	/**
+	 * This is the web browser implementation of `debug()`.
+	 *
+	 * Expose `debug()` as the module.
+	 */
+
+	exports = module.exports = __webpack_require__(261);
+	exports.log = log;
+	exports.formatArgs = formatArgs;
+	exports.save = save;
+	exports.load = load;
+	exports.useColors = useColors;
+	exports.storage = 'undefined' != typeof chrome
+	               && 'undefined' != typeof chrome.storage
+	                  ? chrome.storage.local
+	                  : localstorage();
+
+	/**
+	 * Colors.
+	 */
+
+	exports.colors = [
+	  'lightseagreen',
+	  'forestgreen',
+	  'goldenrod',
+	  'dodgerblue',
+	  'darkorchid',
+	  'crimson'
+	];
+
+	/**
+	 * Currently only WebKit-based Web Inspectors, Firefox >= v31,
+	 * and the Firebug extension (any Firefox version) are known
+	 * to support "%c" CSS customizations.
+	 *
+	 * TODO: add a `localStorage` variable to explicitly enable/disable colors
+	 */
+
+	function useColors() {
+	  // is webkit? http://stackoverflow.com/a/16459606/376773
+	  return ('WebkitAppearance' in document.documentElement.style) ||
+	    // is firebug? http://stackoverflow.com/a/398120/376773
+	    (window.console && (console.firebug || (console.exception && console.table))) ||
+	    // is firefox >= v31?
+	    // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
+	    (navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31);
+	}
+
+	/**
+	 * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
+	 */
+
+	exports.formatters.j = function(v) {
+	  return JSON.stringify(v);
+	};
+
+
+	/**
+	 * Colorize log arguments if enabled.
+	 *
+	 * @api public
+	 */
+
+	function formatArgs() {
+	  var args = arguments;
+	  var useColors = this.useColors;
+
+	  args[0] = (useColors ? '%c' : '')
+	    + this.namespace
+	    + (useColors ? ' %c' : ' ')
+	    + args[0]
+	    + (useColors ? '%c ' : ' ')
+	    + '+' + exports.humanize(this.diff);
+
+	  if (!useColors) return args;
+
+	  var c = 'color: ' + this.color;
+	  args = [args[0], c, 'color: inherit'].concat(Array.prototype.slice.call(args, 1));
+
+	  // the final "%c" is somewhat tricky, because there could be other
+	  // arguments passed either before or after the %c, so we need to
+	  // figure out the correct index to insert the CSS into
+	  var index = 0;
+	  var lastC = 0;
+	  args[0].replace(/%[a-z%]/g, function(match) {
+	    if ('%%' === match) return;
+	    index++;
+	    if ('%c' === match) {
+	      // we only are interested in the *last* %c
+	      // (the user may have provided their own)
+	      lastC = index;
+	    }
+	  });
+
+	  args.splice(lastC, 0, c);
+	  return args;
+	}
+
+	/**
+	 * Invokes `console.log()` when available.
+	 * No-op when `console.log` is not a "function".
+	 *
+	 * @api public
+	 */
+
+	function log() {
+	  // this hackery is required for IE8/9, where
+	  // the `console.log` function doesn't have 'apply'
+	  return 'object' === typeof console
+	    && console.log
+	    && Function.prototype.apply.call(console.log, console, arguments);
+	}
+
+	/**
+	 * Save `namespaces`.
+	 *
+	 * @param {String} namespaces
+	 * @api private
+	 */
+
+	function save(namespaces) {
+	  try {
+	    if (null == namespaces) {
+	      exports.storage.removeItem('debug');
+	    } else {
+	      exports.storage.debug = namespaces;
+	    }
+	  } catch(e) {}
+	}
+
+	/**
+	 * Load `namespaces`.
+	 *
+	 * @return {String} returns the previously persisted debug modes
+	 * @api private
+	 */
+
+	function load() {
+	  var r;
+	  try {
+	    r = exports.storage.debug;
+	  } catch(e) {}
+	  return r;
+	}
+
+	/**
+	 * Enable namespaces listed in `localStorage.debug` initially.
+	 */
+
+	exports.enable(load());
+
+	/**
+	 * Localstorage attempts to return the localstorage.
+	 *
+	 * This is necessary because safari throws
+	 * when a user disables cookies/localstorage
+	 * and you attempt to access it.
+	 *
+	 * @return {LocalStorage}
+	 * @api private
+	 */
+
+	function localstorage(){
+	  try {
+	    return window.localStorage;
+	  } catch (e) {}
+	}
+
+
+/***/ },
+/* 261 */
+/***/ function(module, exports, __webpack_require__) {
+
+	
+	/**
+	 * This is the common logic for both the Node.js and web browser
+	 * implementations of `debug()`.
+	 *
+	 * Expose `debug()` as the module.
+	 */
+
+	exports = module.exports = debug;
+	exports.coerce = coerce;
+	exports.disable = disable;
+	exports.enable = enable;
+	exports.enabled = enabled;
+	exports.humanize = __webpack_require__(262);
+
+	/**
+	 * The currently active debug mode names, and names to skip.
+	 */
+
+	exports.names = [];
+	exports.skips = [];
+
+	/**
+	 * Map of special "%n" handling functions, for the debug "format" argument.
+	 *
+	 * Valid key names are a single, lowercased letter, i.e. "n".
+	 */
+
+	exports.formatters = {};
+
+	/**
+	 * Previously assigned color.
+	 */
+
+	var prevColor = 0;
+
+	/**
+	 * Previous log timestamp.
+	 */
+
+	var prevTime;
+
+	/**
+	 * Select a color.
+	 *
+	 * @return {Number}
+	 * @api private
+	 */
+
+	function selectColor() {
+	  return exports.colors[prevColor++ % exports.colors.length];
+	}
+
+	/**
+	 * Create a debugger with the given `namespace`.
+	 *
+	 * @param {String} namespace
+	 * @return {Function}
+	 * @api public
+	 */
+
+	function debug(namespace) {
+
+	  // define the `disabled` version
+	  function disabled() {
+	  }
+	  disabled.enabled = false;
+
+	  // define the `enabled` version
+	  function enabled() {
+
+	    var self = enabled;
+
+	    // set `diff` timestamp
+	    var curr = +new Date();
+	    var ms = curr - (prevTime || curr);
+	    self.diff = ms;
+	    self.prev = prevTime;
+	    self.curr = curr;
+	    prevTime = curr;
+
+	    // add the `color` if not set
+	    if (null == self.useColors) self.useColors = exports.useColors();
+	    if (null == self.color && self.useColors) self.color = selectColor();
+
+	    var args = Array.prototype.slice.call(arguments);
+
+	    args[0] = exports.coerce(args[0]);
+
+	    if ('string' !== typeof args[0]) {
+	      // anything else let's inspect with %o
+	      args = ['%o'].concat(args);
+	    }
+
+	    // apply any `formatters` transformations
+	    var index = 0;
+	    args[0] = args[0].replace(/%([a-z%])/g, function(match, format) {
+	      // if we encounter an escaped % then don't increase the array index
+	      if (match === '%%') return match;
+	      index++;
+	      var formatter = exports.formatters[format];
+	      if ('function' === typeof formatter) {
+	        var val = args[index];
+	        match = formatter.call(self, val);
+
+	        // now we need to remove `args[index]` since it's inlined in the `format`
+	        args.splice(index, 1);
+	        index--;
+	      }
+	      return match;
+	    });
+
+	    if ('function' === typeof exports.formatArgs) {
+	      args = exports.formatArgs.apply(self, args);
+	    }
+	    var logFn = enabled.log || exports.log || console.log.bind(console);
+	    logFn.apply(self, args);
+	  }
+	  enabled.enabled = true;
+
+	  var fn = exports.enabled(namespace) ? enabled : disabled;
+
+	  fn.namespace = namespace;
+
+	  return fn;
+	}
+
+	/**
+	 * Enables a debug mode by namespaces. This can include modes
+	 * separated by a colon and wildcards.
+	 *
+	 * @param {String} namespaces
+	 * @api public
+	 */
+
+	function enable(namespaces) {
+	  exports.save(namespaces);
+
+	  var split = (namespaces || '').split(/[\s,]+/);
+	  var len = split.length;
+
+	  for (var i = 0; i < len; i++) {
+	    if (!split[i]) continue; // ignore empty strings
+	    namespaces = split[i].replace(/\*/g, '.*?');
+	    if (namespaces[0] === '-') {
+	      exports.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
+	    } else {
+	      exports.names.push(new RegExp('^' + namespaces + '$'));
+	    }
+	  }
+	}
+
+	/**
+	 * Disable debug output.
+	 *
+	 * @api public
+	 */
+
+	function disable() {
+	  exports.enable('');
+	}
+
+	/**
+	 * Returns true if the given mode name is enabled, false otherwise.
+	 *
+	 * @param {String} name
+	 * @return {Boolean}
+	 * @api public
+	 */
+
+	function enabled(name) {
+	  var i, len;
+	  for (i = 0, len = exports.skips.length; i < len; i++) {
+	    if (exports.skips[i].test(name)) {
+	      return false;
+	    }
+	  }
+	  for (i = 0, len = exports.names.length; i < len; i++) {
+	    if (exports.names[i].test(name)) {
+	      return true;
+	    }
+	  }
+	  return false;
+	}
+
+	/**
+	 * Coerce `val`.
+	 *
+	 * @param {Mixed} val
+	 * @return {Mixed}
+	 * @api private
+	 */
+
+	function coerce(val) {
+	  if (val instanceof Error) return val.stack || val.message;
+	  return val;
+	}
+
+
+/***/ },
+/* 262 */
+/***/ function(module, exports) {
+
+	/**
+	 * Helpers.
+	 */
+
+	var s = 1000;
+	var m = s * 60;
+	var h = m * 60;
+	var d = h * 24;
+	var y = d * 365.25;
+
+	/**
+	 * Parse or format the given `val`.
+	 *
+	 * Options:
+	 *
+	 *  - `long` verbose formatting [false]
+	 *
+	 * @param {String|Number} val
+	 * @param {Object} options
+	 * @return {String|Number}
+	 * @api public
+	 */
+
+	module.exports = function(val, options){
+	  options = options || {};
+	  if ('string' == typeof val) return parse(val);
+	  return options.long
+	    ? long(val)
+	    : short(val);
+	};
+
+	/**
+	 * Parse the given `str` and return milliseconds.
+	 *
+	 * @param {String} str
+	 * @return {Number}
+	 * @api private
+	 */
+
+	function parse(str) {
+	  str = '' + str;
+	  if (str.length > 10000) return;
+	  var match = /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(str);
+	  if (!match) return;
+	  var n = parseFloat(match[1]);
+	  var type = (match[2] || 'ms').toLowerCase();
+	  switch (type) {
+	    case 'years':
+	    case 'year':
+	    case 'yrs':
+	    case 'yr':
+	    case 'y':
+	      return n * y;
+	    case 'days':
+	    case 'day':
+	    case 'd':
+	      return n * d;
+	    case 'hours':
+	    case 'hour':
+	    case 'hrs':
+	    case 'hr':
+	    case 'h':
+	      return n * h;
+	    case 'minutes':
+	    case 'minute':
+	    case 'mins':
+	    case 'min':
+	    case 'm':
+	      return n * m;
+	    case 'seconds':
+	    case 'second':
+	    case 'secs':
+	    case 'sec':
+	    case 's':
+	      return n * s;
+	    case 'milliseconds':
+	    case 'millisecond':
+	    case 'msecs':
+	    case 'msec':
+	    case 'ms':
+	      return n;
+	  }
+	}
+
+	/**
+	 * Short format for `ms`.
+	 *
+	 * @param {Number} ms
+	 * @return {String}
+	 * @api private
+	 */
+
+	function short(ms) {
+	  if (ms >= d) return Math.round(ms / d) + 'd';
+	  if (ms >= h) return Math.round(ms / h) + 'h';
+	  if (ms >= m) return Math.round(ms / m) + 'm';
+	  if (ms >= s) return Math.round(ms / s) + 's';
+	  return ms + 'ms';
+	}
+
+	/**
+	 * Long format for `ms`.
+	 *
+	 * @param {Number} ms
+	 * @return {String}
+	 * @api private
+	 */
+
+	function long(ms) {
+	  return plural(ms, d, 'day')
+	    || plural(ms, h, 'hour')
+	    || plural(ms, m, 'minute')
+	    || plural(ms, s, 'second')
+	    || ms + ' ms';
+	}
+
+	/**
+	 * Pluralization helper.
+	 */
+
+	function plural(ms, n, name) {
+	  if (ms < n) return;
+	  if (ms < n * 1.5) return Math.floor(ms / n) + ' ' + name;
+	  return Math.ceil(ms / n) + ' ' + name + 's';
+	}
+
+
+/***/ },
 /* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -31323,8 +31885,8 @@
 	 * Module requirements.
 	 */
 
-	var Polling = __webpack_require__(248);
-	var inherit = __webpack_require__(261);
+	var Polling = __webpack_require__(246);
+	var inherit = __webpack_require__(258);
 
 	/**
 	 * Module exports.
@@ -31560,12 +32122,12 @@
 	 * Module dependencies.
 	 */
 
-	var Transport = __webpack_require__(249);
-	var parser = __webpack_require__(250);
-	var parseqs = __webpack_require__(260);
-	var inherit = __webpack_require__(261);
-	var yeast = __webpack_require__(262);
-	var debug = __webpack_require__(229)('engine.io-client:websocket');
+	var Transport = __webpack_require__(247);
+	var parser = __webpack_require__(248);
+	var parseqs = __webpack_require__(257);
+	var inherit = __webpack_require__(258);
+	var yeast = __webpack_require__(259);
+	var debug = __webpack_require__(260)('engine.io-client:websocket');
 	var BrowserWebSocket = global.WebSocket || global.MozWebSocket;
 
 	/**
@@ -31901,12 +32463,12 @@
 	 * Module dependencies.
 	 */
 
-	var parser = __webpack_require__(232);
+	var parser = __webpack_require__(227);
 	var Emitter = __webpack_require__(269);
 	var toArray = __webpack_require__(270);
 	var on = __webpack_require__(271);
 	var bind = __webpack_require__(272);
-	var debug = __webpack_require__(229)('socket.io-client:socket');
+	var debug = __webpack_require__(224)('socket.io-client:socket');
 	var hasBin = __webpack_require__(273);
 
 	/**
@@ -32736,9 +33298,9 @@
 
 	var React = __webpack_require__(1);
 	var TradePanel = __webpack_require__(277);
-	var SearchInput = __webpack_require__(428);
-	var PubSub = __webpack_require__(427);
-	var Code = __webpack_require__(429);
+	var SearchInput = __webpack_require__(424);
+	var PubSub = __webpack_require__(423);
+	var Code = __webpack_require__(425);
 
 	var Pannel = React.createClass({
 	   displayName: 'Pannel',
@@ -32868,11 +33430,11 @@
 	var fitWidth = helper.fitWidth,
 	    fitDimensions = helper.fitDimensions;
 
-	var d3 = __webpack_require__(423);
-	var CandleStickStockScaleChart = __webpack_require__(424);
-	var MarketMGR = __webpack_require__(425);
+	var d3 = __webpack_require__(419);
+	var CandleStickStockScaleChart = __webpack_require__(420);
+	var MarketMGR = __webpack_require__(421);
 	//var resize = require('./parts/resize')
-	var PubSub = __webpack_require__(427);
+	var PubSub = __webpack_require__(423);
 
 	var TradePannel = React.createClass({
 	    displayName: 'TradePannel',
@@ -32893,11 +33455,13 @@
 	        }
 	        return {
 	            data: arr,
-	            height: parentHeight
+	            height: parentHeight,
+	            stockcode: "",
+	            SubTopic: 'SubStock'
 	        };
 	    },
 	    componentWillMount: function componentWillMount() {
-	        MarketMGR.init();
+	        MarketMGR.init(this.wsOnOpen);
 	    },
 	    componentDidMount: function componentDidMount() {
 	        var _this = this;
@@ -32909,42 +33473,63 @@
 
 	        var first = true;
 	        var flag = false;
-	        PubSub.subscribe('receiveData', function (topic, data) {
-
-	            var parHeight = document.getElementById("zz_1").clientHeight;
-	            var parWidth = document.getElementById('zz_1').clientWidth;
-	            console.log("parHeight", parHeight);
-	            _this.setState({ height: parHeight, width: parWidth });
-
-	            var flag = false;
-	            console.log("开始receiveData", data);
-	            console.log("stateData", _this.state.data);
-
-	            var olddata = _this.state.data,
-	                oldLength = olddata.length,
-	                lastMinutes = olddata[oldLength - 1].date.getMinutes(),
-	                newMinutes = data[0].date.getMinutes(),
-	                newdata;
-	            /* if(flag == false && oldLength > 4){
-	                  olddata.splice(0,2)
-	                  flag = true
-	             }*/
-	            //console.log('first:' + first) 
-	            if (first) {
-	                newdata = [data[0], data[0]];
-	                first = false;
-	            } else {
-	                if (newMinutes != lastMinutes) {
-	                    newdata = olddata.concat(data[0]);
-	                } else {
-	                    console.log();
-	                    olddata.splice(oldLength - 1, 1, data[0]);
-	                    newdata = olddata;
-	                }
-	            }
-	            _this.setState({ data: newdata });
-	        });
 	    },
+	    wsOnOpen: function wsOnOpen() {
+	        this.subscribe('600000');
+	    },
+
+	    subHandler: function subHandler(topic, data) {
+	        var parHeight = document.getElementById("zz_1").clientHeight;
+	        var parWidth = document.getElementById('zz_1').clientWidth;
+	        console.log("parHeight", parHeight);
+	        this.setState({ height: parHeight, width: parWidth });
+
+	        var flag = false;
+	        console.log("开始receiveData", data);
+	        console.log("stateData", this.state.data);
+
+	        var olddata = this.state.data,
+	            oldLength = olddata.length,
+	            lastMinutes = olddata[oldLength - 1].date.getMinutes(),
+	            newMinutes = data[0].date.getMinutes(),
+	            newdata;
+	        /* if(flag == false && oldLength > 4){
+	              olddata.splice(0,2)
+	              flag = true
+	         }*/
+	        //console.log('first:' + first) 
+	        if (first) {
+	            newdata = [data[0], data[0]];
+	            first = false;
+	        } else {
+	            if (newMinutes != lastMinutes) {
+	                newdata = olddata.concat(data[0]);
+	            } else {
+	                console.log();
+	                olddata.splice(oldLength - 1, 1, data[0]);
+	                newdata = olddata;
+	            }
+	        }
+	        this.setState({ data: newdata });
+	    },
+
+	    subscribe: function subscribe(sym) {
+	        MarketMGR.subscribe(sym);
+	        var token = PubSub.subscribe(sym, this.subHandler);
+	        this.setState({ subTopic: token });
+	        console.log('subscribe    ', sym);
+	        //console.log('subscribe subtopic',token);
+	    },
+
+	    unsubscribe: function unsubscribe(sym) {
+	        console.log('unsubscribe    ', sym);
+	        console.log('unsubscribe subtopic', this.state.subTopic);
+	        MarketMGR.unsubscribe(sym);
+	        if (this.state.subTopic) {
+	            PubSub.unsubscribe(this.state.subTopic);
+	        }
+	    },
+
 	    render: function render() {
 	        var _props = this.props,
 	            type = _props.type,
@@ -32982,59 +33567,59 @@
 
 	var _ChartCanvas2 = _interopRequireDefault(_ChartCanvas);
 
-	var _Chart = __webpack_require__(301);
+	var _Chart = __webpack_require__(300);
 
 	var _Chart2 = _interopRequireDefault(_Chart);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
-	var _GenericComponent = __webpack_require__(307);
+	var _GenericComponent = __webpack_require__(306);
 
 	var _GenericComponent2 = _interopRequireDefault(_GenericComponent);
 
-	var _BackgroundText = __webpack_require__(308);
+	var _BackgroundText = __webpack_require__(307);
 
 	var _BackgroundText2 = _interopRequireDefault(_BackgroundText);
 
-	var _series = __webpack_require__(309);
+	var _series = __webpack_require__(308);
 
 	var series = _interopRequireWildcard(_series);
 
-	var _scale = __webpack_require__(335);
+	var _scale = __webpack_require__(332);
 
 	var scale = _interopRequireWildcard(_scale);
 
-	var _coordinates = __webpack_require__(338);
+	var _coordinates = __webpack_require__(335);
 
 	var coordinates = _interopRequireWildcard(_coordinates);
 
-	var _indicator = __webpack_require__(345);
+	var _indicator = __webpack_require__(342);
 
 	var indicator = _interopRequireWildcard(_indicator);
 
-	var _algorithm = __webpack_require__(383);
+	var _algorithm = __webpack_require__(379);
 
 	var algorithm = _interopRequireWildcard(_algorithm);
 
-	var _annotation = __webpack_require__(384);
+	var _annotation = __webpack_require__(380);
 
 	var annotation = _interopRequireWildcard(_annotation);
 
-	var _axes = __webpack_require__(389);
+	var _axes = __webpack_require__(385);
 
 	var axes = _interopRequireWildcard(_axes);
 
-	var _tooltip = __webpack_require__(398);
+	var _tooltip = __webpack_require__(394);
 
 	var tooltip = _interopRequireWildcard(_tooltip);
 
-	var _helper = __webpack_require__(409);
+	var _helper = __webpack_require__(405);
 
 	var helper = _interopRequireWildcard(_helper);
 
-	var _interactive = __webpack_require__(415);
+	var _interactive = __webpack_require__(411);
 
 	var interactive = _interopRequireWildcard(_interactive);
 
@@ -33046,7 +33631,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var version = "0.6.0-beta.8";
+	var version = "0.6.0-beta.7";
 
 	// chart types & Series
 	exports.ChartCanvas = _ChartCanvas2.default;
@@ -33092,17 +33677,17 @@
 
 	var _utils = __webpack_require__(281);
 
-	var _ChartDataUtil = __webpack_require__(299);
+	var _ChartDataUtil = __webpack_require__(298);
 
-	var _EventCapture = __webpack_require__(302);
+	var _EventCapture = __webpack_require__(301);
 
 	var _EventCapture2 = _interopRequireDefault(_EventCapture);
 
-	var _CanvasContainer = __webpack_require__(304);
+	var _CanvasContainer = __webpack_require__(303);
 
 	var _CanvasContainer2 = _interopRequireDefault(_CanvasContainer);
 
-	var _evaluator = __webpack_require__(305);
+	var _evaluator = __webpack_require__(304);
 
 	var _evaluator2 = _interopRequireDefault(_evaluator);
 
@@ -33151,16 +33736,15 @@
 	}
 
 	function calculateFullData(props) {
-		var inputData = props.data,
-		    calculator = props.calculator,
-		    plotFull = props.plotFull,
-		    xScaleProp = props.xScale,
-		    clamp = props.clamp;
-		var inputXAccesor = props.xAccessor,
-		    map = props.map,
-		    xScaleProvider = props.xScaleProvider,
-		    indexAccessor = props.indexAccessor,
-		    indexMutator = props.indexMutator;
+		var inputData = props.data;
+		var calculator = props.calculator;
+		var plotFull = props.plotFull;
+		var xScaleProp = props.xScale;
+		var inputXAccesor = props.xAccessor;
+		var map = props.map;
+		var xScaleProvider = props.xScaleProvider;
+		var indexAccessor = props.indexAccessor;
+		var indexMutator = props.indexMutator;
 
 
 		var wholeData = (0, _utils.isDefined)(plotFull) ? plotFull : inputXAccesor === _utils.identity;
@@ -33172,14 +33756,16 @@
 		// .intervalCalculator(intervalCalculator)
 		.xAccessor(inputXAccesor)
 		// .discontinuous(discontinuous)
-		.indexAccessor(indexAccessor).indexMutator(indexMutator).map(map).useWholeData(wholeData).width(dimensions.width).scaleProvider(xScaleProvider).xScale(xScaleProp).clamp(clamp).calculator(calculator);
+		.indexAccessor(indexAccessor).indexMutator(indexMutator).map(map).useWholeData(wholeData).width(dimensions.width).scaleProvider(xScaleProvider).xScale(xScaleProp).calculator(calculator);
 
-		var _evaluate = evaluate(inputData),
-		    xAccessor = _evaluate.xAccessor,
-		    displayXAccessor = _evaluate.displayXAccessor,
-		    xScale = _evaluate.xScale,
-		    fullData = _evaluate.fullData,
-		    filterData = _evaluate.filterData;
+		var _evaluate = evaluate(inputData);
+
+		var xAccessor = _evaluate.xAccessor;
+		var displayXAccessor = _evaluate.displayXAccessor;
+		var xScale = _evaluate.xScale;
+		var fullData = _evaluate.fullData;
+		var filterData = _evaluate.filterData;
+
 
 		return { xAccessor: xAccessor, displayXAccessor: displayXAccessor, xScale: xScale, fullData: fullData, filterData: filterData };
 	}
@@ -33193,10 +33779,10 @@
 		}
 
 		var state = calculateState(props);
-		var initialPlotData = state.plotData,
-		    xScale = state.xScale;
-		var postCalculator = props.postCalculator,
-		    children = props.children;
+		var initialPlotData = state.plotData;
+		var xScale = state.xScale;
+		var postCalculator = props.postCalculator;
+		var children = props.children;
 
 
 		var plotData = postCalculator(initialPlotData);
@@ -33212,18 +33798,21 @@
 	}
 
 	function updateChart(newState, initialXScale, props, lastItemWasVisible) {
-		var fullData = newState.fullData,
-		    xScale = newState.xScale,
-		    xAccessor = newState.xAccessor,
-		    filterData = newState.filterData;
+		var fullData = newState.fullData;
+		var xScale = newState.xScale;
+		var xAccessor = newState.xAccessor;
+		var filterData = newState.filterData;
 
 
 		var lastItem = (0, _utils.last)(fullData);
 
-		var _initialXScale$domain = initialXScale.domain(),
-		    _initialXScale$domain2 = _slicedToArray(_initialXScale$domain, 2),
-		    start = _initialXScale$domain2[0],
-		    end = _initialXScale$domain2[1];
+		var _initialXScale$domain = initialXScale.domain();
+
+		var _initialXScale$domain2 = _slicedToArray(_initialXScale$domain, 2);
+
+		var start = _initialXScale$domain2[0];
+		var end = _initialXScale$domain2[1];
+
 
 		if (debug) {
 			if (process.env.NODE_ENV !== "production") {
@@ -33231,10 +33820,10 @@
 			}
 		}
 
-		var postCalculator = props.postCalculator,
-		    children = props.children,
-		    padding = props.padding,
-		    flipXScale = props.flipXScale;
+		var postCalculator = props.postCalculator;
+		var children = props.children;
+		var padding = props.padding;
+		var flipXScale = props.flipXScale;
 
 		var direction = getXScaleDirection(flipXScale);
 		var dimensions = getDimensions(props);
@@ -33254,10 +33843,13 @@
 
 			var _initialXScale$range$ = initialXScale.range().map(function (x) {
 				return x + dx;
-			}).map(initialXScale.invert),
-			    _initialXScale$range$2 = _slicedToArray(_initialXScale$range$, 2),
-			    newStart = _initialXScale$range$2[0],
-			    newEnd = _initialXScale$range$2[1];
+			}).map(initialXScale.invert);
+
+			var _initialXScale$range$2 = _slicedToArray(_initialXScale$range$, 2);
+
+			var newStart = _initialXScale$range$2[0];
+			var newEnd = _initialXScale$range$2[1];
+
 
 			initialPlotData = filterData(fullData, [newStart, newEnd], xAccessor, updatedXScale).plotData;
 			updatedXScale.domain([newStart, newEnd]);
@@ -33278,11 +33870,11 @@
 	}
 
 	function calculateState(props) {
-		var inputXAccesor = props.xAccessor,
-		    xExtentsProp = props.xExtents,
-		    data = props.data,
-		    padding = props.padding,
-		    flipXScale = props.flipXScale;
+		var inputXAccesor = props.xAccessor;
+		var xExtentsProp = props.xExtents;
+		var data = props.data;
+		var padding = props.padding;
+		var flipXScale = props.flipXScale;
 
 
 		var direction = getXScaleDirection(flipXScale);
@@ -33294,18 +33886,21 @@
 			return each(data, inputXAccesor);
 		}));
 
-		var _calculateFullData = calculateFullData(props),
-		    xAccessor = _calculateFullData.xAccessor,
-		    displayXAccessor = _calculateFullData.displayXAccessor,
-		    xScale = _calculateFullData.xScale,
-		    fullData = _calculateFullData.fullData,
-		    filterData = _calculateFullData.filterData;
+		var _calculateFullData = calculateFullData(props);
+
+		var xAccessor = _calculateFullData.xAccessor;
+		var displayXAccessor = _calculateFullData.displayXAccessor;
+		var xScale = _calculateFullData.xScale;
+		var fullData = _calculateFullData.fullData;
+		var filterData = _calculateFullData.filterData;
 
 		var updatedXScale = setXRange(xScale, dimensions, padding, direction);
 
-		var _filterData = filterData(fullData, extent, inputXAccesor, updatedXScale),
-		    plotData = _filterData.plotData,
-		    domain = _filterData.domain;
+		var _filterData = filterData(fullData, extent, inputXAccesor, updatedXScale);
+
+		var plotData = _filterData.plotData;
+		var domain = _filterData.domain;
+
 
 		return {
 			plotData: plotData,
@@ -33328,9 +33923,10 @@
 			xScale.range([0, dimensions.width]);
 			xScale.padding(padding / 2);
 		} else {
-			var _ref = isNaN(padding) ? padding : { left: padding, right: padding },
-			    left = _ref.left,
-			    right = _ref.right;
+			var _ref = isNaN(padding) ? padding : { left: padding, right: padding };
+
+			var left = _ref.left;
+			var right = _ref.right;
 
 			if (direction > 0) {
 				xScale.range([left, dimensions.width - right]);
@@ -33389,9 +33985,7 @@
 		_createClass(ChartCanvas, [{
 			key: "getDataInfo",
 			value: function getDataInfo() {
-				return _extends({}, this.state, {
-					fullData: this.fullData
-				});
+				return this.state;
 			}
 		}, {
 			key: "getCanvasContexts",
@@ -33451,11 +34045,11 @@
 			value: function handleMouseMove(mouseXY, inputType, e) {
 				var _this2 = this;
 
-				var _state = this.state,
-				    chartConfig = _state.chartConfig,
-				    plotData = _state.plotData,
-				    xScale = _state.xScale,
-				    xAccessor = _state.xAccessor;
+				var _state = this.state;
+				var chartConfig = _state.chartConfig;
+				var plotData = _state.plotData;
+				var xScale = _state.xScale;
+				var xAccessor = _state.xAccessor;
 
 
 				var currentCharts = (0, _ChartDataUtil.getCurrentCharts)(chartConfig, mouseXY);
@@ -33477,11 +34071,11 @@
 		}, {
 			key: "handleContextMenu",
 			value: function handleContextMenu(mouseXY, e) {
-				var _state2 = this.state,
-				    xAccessor = _state2.xAccessor,
-				    chartConfig = _state2.chartConfig,
-				    plotData = _state2.plotData,
-				    xScale = _state2.xScale;
+				var _state2 = this.state;
+				var xAccessor = _state2.xAccessor;
+				var chartConfig = _state2.chartConfig;
+				var plotData = _state2.plotData;
+				var xScale = _state2.xScale;
 
 
 				var currentCharts = (0, _ChartDataUtil.getCurrentCharts)(chartConfig, mouseXY);
@@ -33513,8 +34107,8 @@
 		}, {
 			key: "pinchCoordinates",
 			value: function pinchCoordinates(pinch) {
-				var touch1Pos = pinch.touch1Pos,
-				    touch2Pos = pinch.touch2Pos;
+				var touch1Pos = pinch.touch1Pos;
+				var touch2Pos = pinch.touch2Pos;
 
 
 				return {
@@ -33528,22 +34122,25 @@
 				var _this3 = this;
 
 				var initialPinchXScale = initialPinch.xScale;
-				var _state3 = this.state,
-				    initialXScale = _state3.xScale,
-				    initialChartConfig = _state3.chartConfig,
-				    initialPlotData = _state3.plotData,
-				    xAccessor = _state3.xAccessor;
+				var _state3 = this.state;
+				var initialXScale = _state3.xScale;
+				var initialChartConfig = _state3.chartConfig;
+				var initialPlotData = _state3.plotData;
+				var xAccessor = _state3.xAccessor;
 				var filterData = this.state.filterData;
 				var fullData = this.fullData;
 				var postCalculator = this.props.postCalculator;
 
-				var _pinchCoordinates = this.pinchCoordinates(initialPinch),
-				    iTL = _pinchCoordinates.topLeft,
-				    iBR = _pinchCoordinates.bottomRight;
+				var _pinchCoordinates = this.pinchCoordinates(initialPinch);
 
-				var _pinchCoordinates2 = this.pinchCoordinates(finalPinch),
-				    fTL = _pinchCoordinates2.topLeft,
-				    fBR = _pinchCoordinates2.bottomRight;
+				var iTL = _pinchCoordinates.topLeft;
+				var iBR = _pinchCoordinates.bottomRight;
+
+				var _pinchCoordinates2 = this.pinchCoordinates(finalPinch);
+
+				var fTL = _pinchCoordinates2.topLeft;
+				var fBR = _pinchCoordinates2.bottomRight;
+
 
 				var e = initialPinchXScale.range()[1];
 
@@ -33565,9 +34162,11 @@
 				var newDomain = [x, y].map(initialPinchXScale.invert);
 				// var domainR = initial.right + right;
 
-				var _filterData2 = filterData(fullData, newDomain, xAccessor, initialPinchXScale, initialPlotData, initialXScale.domain()),
-				    plotData = _filterData2.plotData,
-				    domain = _filterData2.domain;
+				var _filterData2 = filterData(fullData, newDomain, xAccessor, initialPinchXScale, initialPlotData, initialXScale.domain());
+
+				var plotData = _filterData2.plotData;
+				var domain = _filterData2.domain;
+
 
 				plotData = postCalculator(plotData);
 				var updatedScale = initialXScale.copy().domain(domain);
@@ -33596,10 +34195,10 @@
 			key: "handleZoom",
 			value: function handleZoom(zoomDirection, mouseXY, e) {
 				// console.log("zoomDirection ", zoomDirection, " mouseXY ", mouseXY);
-				var _state4 = this.state,
-				    xAccessor = _state4.xAccessor,
-				    initialXScale = _state4.xScale,
-				    initialPlotData = _state4.plotData;
+				var _state4 = this.state;
+				var xAccessor = _state4.xAccessor;
+				var initialXScale = _state4.xScale;
+				var initialPlotData = _state4.plotData;
 				var zoomMultiplier = this.props.zoomMultiplier;
 
 
@@ -33610,10 +34209,12 @@
 					return cx + (x - cx) * c;
 				}).map(initialXScale.invert);
 
-				var _calculateStateForDom = this.calculateStateForDomain(newDomain),
-				    xScale = _calculateStateForDom.xScale,
-				    plotData = _calculateStateForDom.plotData,
-				    chartConfig = _calculateStateForDom.chartConfig;
+				var _calculateStateForDom = this.calculateStateForDomain(newDomain);
+
+				var xScale = _calculateStateForDom.xScale;
+				var plotData = _calculateStateForDom.plotData;
+				var chartConfig = _calculateStateForDom.chartConfig;
+
 
 				var currentItem = (0, _ChartDataUtil.getCurrentItem)(xScale, xAccessor, mouseXY, plotData);
 				var currentCharts = (0, _ChartDataUtil.getCurrentCharts)(chartConfig, mouseXY);
@@ -33648,18 +34249,20 @@
 		}, {
 			key: "calculateStateForDomain",
 			value: function calculateStateForDomain(newDomain) {
-				var _state5 = this.state,
-				    xAccessor = _state5.xAccessor,
-				    initialXScale = _state5.xScale,
-				    initialChartConfig = _state5.chartConfig,
-				    initialPlotData = _state5.plotData;
+				var _state5 = this.state;
+				var xAccessor = _state5.xAccessor;
+				var initialXScale = _state5.xScale;
+				var initialChartConfig = _state5.chartConfig;
+				var initialPlotData = _state5.plotData;
 				var filterData = this.state.filterData;
 				var fullData = this.fullData;
 				var postCalculator = this.props.postCalculator;
 
-				var _filterData3 = filterData(fullData, newDomain, xAccessor, initialXScale, initialPlotData, initialXScale.domain()),
-				    plotData = _filterData3.plotData,
-				    domain = _filterData3.domain;
+				var _filterData3 = filterData(fullData, newDomain, xAccessor, initialXScale, initialPlotData, initialXScale.domain());
+
+				var plotData = _filterData3.plotData;
+				var domain = _filterData3.domain;
+
 
 				plotData = postCalculator(plotData);
 				var updatedScale = initialXScale.copy().domain(domain);
@@ -33674,10 +34277,11 @@
 		}, {
 			key: "xAxisZoom",
 			value: function xAxisZoom(newDomain) {
-				var _calculateStateForDom2 = this.calculateStateForDomain(newDomain),
-				    xScale = _calculateStateForDom2.xScale,
-				    plotData = _calculateStateForDom2.plotData,
-				    chartConfig = _calculateStateForDom2.chartConfig;
+				var _calculateStateForDom2 = this.calculateStateForDomain(newDomain);
+
+				var xScale = _calculateStateForDom2.xScale;
+				var plotData = _calculateStateForDom2.plotData;
+				var chartConfig = _calculateStateForDom2.chartConfig;
 
 				this.clearBothCanvas();
 
@@ -33724,9 +34328,9 @@
 		}, {
 			key: "panHelper",
 			value: function panHelper(mouseXY, initialXScale, panOrigin, chartsToPan) {
-				var _state6 = this.state,
-				    xAccessor = _state6.xAccessor,
-				    initialChartConfig = _state6.chartConfig;
+				var _state6 = this.state;
+				var xAccessor = _state6.xAccessor;
+				var initialChartConfig = _state6.chartConfig;
 				var filterData = this.state.filterData;
 				var fullData = this.fullData;
 				var postCalculator = this.props.postCalculator;
@@ -33741,9 +34345,11 @@
 					return x - dx;
 				}).map(initialXScale.invert);
 
-				var _filterData4 = filterData(fullData, newDomain, xAccessor, initialXScale, this.hackyWayToStopPanBeyondBounds__plotData, this.hackyWayToStopPanBeyondBounds__domain),
-				    plotData = _filterData4.plotData,
-				    domain = _filterData4.domain;
+				var _filterData4 = filterData(fullData, newDomain, xAccessor, initialXScale, this.hackyWayToStopPanBeyondBounds__plotData, this.hackyWayToStopPanBeyondBounds__domain);
+
+				var plotData = _filterData4.plotData;
+				var domain = _filterData4.domain;
+
 
 				var updatedScale = initialXScale.copy().domain(domain);
 				plotData = postCalculator(plotData);
@@ -33839,9 +34445,9 @@
 
 				this.triggerEvent("panend", state, e);
 				// console.log("PANEND", panEnd++);
-				var xScale = state.xScale,
-				    plotData = state.plotData,
-				    chartConfig = state.chartConfig;
+				var xScale = state.xScale;
+				var plotData = state.plotData;
+				var chartConfig = state.chartConfig;
 
 
 				requestAnimationFrame(function () {
@@ -33895,9 +34501,11 @@
 		}, {
 			key: "componentWillMount",
 			value: function componentWillMount() {
-				var _resetChart = resetChart(this.props, true),
-				    fullData = _resetChart.fullData,
-				    state = _objectWithoutProperties(_resetChart, ["fullData"]);
+				var _resetChart = resetChart(this.props, true);
+
+				var fullData = _resetChart.fullData;
+
+				var state = _objectWithoutProperties(_resetChart, ["fullData"]);
 
 				this.setState(state);
 				this.fullData = fullData;
@@ -33919,10 +34527,12 @@
 					// do reset
 					newState = resetChart(nextProps);
 				} else {
-					var _state$xScale$domain = this.state.xScale.domain(),
-					    _state$xScale$domain2 = _slicedToArray(_state$xScale$domain, 2),
-					    start = _state$xScale$domain2[0],
-					    end = _state$xScale$domain2[1];
+					var _state$xScale$domain = this.state.xScale.domain();
+
+					var _state$xScale$domain2 = _slicedToArray(_state$xScale$domain, 2);
+
+					var start = _state$xScale$domain2[0];
+					var end = _state$xScale$domain2[1];
 
 					var prevLastItem = (0, _utils.last)(this.fullData);
 
@@ -33939,9 +34549,10 @@
 					newState = updateChart(calculatedState, this.state.xScale, nextProps, lastItemWasVisible);
 				}
 
-				var _newState = newState,
-				    fullData = _newState.fullData,
-				    state = _objectWithoutProperties(_newState, ["fullData"]);
+				var _newState = newState;
+				var fullData = _newState.fullData;
+
+				var state = _objectWithoutProperties(_newState, ["fullData"]);
 
 				var initialChartConfig = this.state.chartConfig;
 
@@ -34002,27 +34613,27 @@
 		}, {
 			key: "render",
 			value: function render() {
-				var _props = this.props,
-				    type = _props.type,
-				    height = _props.height,
-				    width = _props.width,
-				    margin = _props.margin,
-				    className = _props.className,
-				    zIndex = _props.zIndex,
-				    defaultFocus = _props.defaultFocus,
-				    ratio = _props.ratio,
-				    disableMouseMoveEvent = _props.disableMouseMoveEvent,
-				    disablePanEvent = _props.disablePanEvent,
-				    disableZoomEvent = _props.disableZoomEvent;
-				var _props2 = this.props,
-				    useCrossHairStyleCursor = _props2.useCrossHairStyleCursor,
-				    drawMode = _props2.drawMode,
-				    onSelect = _props2.onSelect;
-				var _state7 = this.state,
-				    plotData = _state7.plotData,
-				    xScale = _state7.xScale,
-				    xAccessor = _state7.xAccessor,
-				    chartConfig = _state7.chartConfig;
+				var _props = this.props;
+				var type = _props.type;
+				var height = _props.height;
+				var width = _props.width;
+				var margin = _props.margin;
+				var className = _props.className;
+				var zIndex = _props.zIndex;
+				var defaultFocus = _props.defaultFocus;
+				var ratio = _props.ratio;
+				var disableMouseMoveEvent = _props.disableMouseMoveEvent;
+				var disablePanEvent = _props.disablePanEvent;
+				var disableZoomEvent = _props.disableZoomEvent;
+				var _props2 = this.props;
+				var useCrossHairStyleCursor = _props2.useCrossHairStyleCursor;
+				var drawMode = _props2.drawMode;
+				var onSelect = _props2.onSelect;
+				var _state7 = this.state;
+				var plotData = _state7.plotData;
+				var xScale = _state7.xScale;
+				var xAccessor = _state7.xAccessor;
+				var chartConfig = _state7.chartConfig;
 
 				var dimensions = getDimensions(this.props);
 
@@ -34721,39 +35332,39 @@
 
 	var _d3Array = __webpack_require__(280);
 
-	var _zipper = __webpack_require__(290);
+	var _zipper = __webpack_require__(289);
 
 	var _zipper2 = _interopRequireDefault(_zipper);
 
-	var _merge = __webpack_require__(292);
+	var _merge = __webpack_require__(291);
 
 	var _merge2 = _interopRequireDefault(_merge);
 
-	var _slidingWindow = __webpack_require__(294);
+	var _slidingWindow = __webpack_require__(293);
 
 	var _slidingWindow2 = _interopRequireDefault(_slidingWindow);
 
-	var _identity = __webpack_require__(291);
+	var _identity = __webpack_require__(290);
 
 	var _identity2 = _interopRequireDefault(_identity);
 
-	var _noop = __webpack_require__(293);
+	var _noop = __webpack_require__(292);
 
 	var _noop2 = _interopRequireDefault(_noop);
 
-	var _shallowEqual = __webpack_require__(295);
+	var _shallowEqual = __webpack_require__(294);
 
 	var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
 
-	var _mappedSlidingWindow = __webpack_require__(296);
+	var _mappedSlidingWindow = __webpack_require__(295);
 
 	var _mappedSlidingWindow2 = _interopRequireDefault(_mappedSlidingWindow);
 
-	var _accumulatingWindow = __webpack_require__(297);
+	var _accumulatingWindow = __webpack_require__(296);
 
 	var _accumulatingWindow2 = _interopRequireDefault(_accumulatingWindow);
 
-	var _PureComponent = __webpack_require__(298);
+	var _PureComponent = __webpack_require__(297);
 
 	var _PureComponent2 = _interopRequireDefault(_PureComponent);
 
@@ -34775,8 +35386,6 @@
 		var length = key.length;
 
 		return function (obj, defaultValue) {
-			if (length === 0) return isDefined(obj) ? obj : defaultValue;
-
 			var index = 0;
 			while (obj != null && index < length) {
 				obj = obj[key[index++]];
@@ -34851,9 +35460,11 @@
 	}
 
 	function getClosestItem(array, value, accessor, log) {
-		var _getClosestItemIndexe = getClosestItemIndexes(array, value, accessor, log),
-		    left = _getClosestItemIndexe.left,
-		    right = _getClosestItemIndexe.right;
+		var _getClosestItemIndexe = getClosestItemIndexes(array, value, accessor, log);
+
+		var left = _getClosestItemIndexe.left;
+		var right = _getClosestItemIndexe.right;
+
 
 		if (left === right) {
 			return array[left];
@@ -36643,530 +37254,523 @@
 /* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// https://d3js.org/d3-color/ Version 1.0.2. Copyright 2016 Mike Bostock.
+	// https://d3js.org/d3-color/ Version 1.0.1. Copyright 2016 Mike Bostock.
 	(function (global, factory) {
 	   true ? factory(exports) :
 	  typeof define === 'function' && define.amd ? define(['exports'], factory) :
 	  (factory((global.d3 = global.d3 || {})));
-	}(this, (function (exports) { 'use strict';
+	}(this, function (exports) { 'use strict';
 
-	var define = function(constructor, factory, prototype) {
-	  constructor.prototype = factory.prototype = prototype;
-	  prototype.constructor = constructor;
-	};
-
-	function extend(parent, definition) {
-	  var prototype = Object.create(parent.prototype);
-	  for (var key in definition) prototype[key] = definition[key];
-	  return prototype;
-	}
-
-	function Color() {}
-
-	var darker = 0.7;
-	var brighter = 1 / darker;
-
-	var reI = "\\s*([+-]?\\d+)\\s*";
-	var reN = "\\s*([+-]?\\d*\\.?\\d+(?:[eE][+-]?\\d+)?)\\s*";
-	var reP = "\\s*([+-]?\\d*\\.?\\d+(?:[eE][+-]?\\d+)?)%\\s*";
-	var reHex3 = /^#([0-9a-f]{3})$/;
-	var reHex6 = /^#([0-9a-f]{6})$/;
-	var reRgbInteger = new RegExp("^rgb\\(" + [reI, reI, reI] + "\\)$");
-	var reRgbPercent = new RegExp("^rgb\\(" + [reP, reP, reP] + "\\)$");
-	var reRgbaInteger = new RegExp("^rgba\\(" + [reI, reI, reI, reN] + "\\)$");
-	var reRgbaPercent = new RegExp("^rgba\\(" + [reP, reP, reP, reN] + "\\)$");
-	var reHslPercent = new RegExp("^hsl\\(" + [reN, reP, reP] + "\\)$");
-	var reHslaPercent = new RegExp("^hsla\\(" + [reN, reP, reP, reN] + "\\)$");
-
-	var named = {
-	  aliceblue: 0xf0f8ff,
-	  antiquewhite: 0xfaebd7,
-	  aqua: 0x00ffff,
-	  aquamarine: 0x7fffd4,
-	  azure: 0xf0ffff,
-	  beige: 0xf5f5dc,
-	  bisque: 0xffe4c4,
-	  black: 0x000000,
-	  blanchedalmond: 0xffebcd,
-	  blue: 0x0000ff,
-	  blueviolet: 0x8a2be2,
-	  brown: 0xa52a2a,
-	  burlywood: 0xdeb887,
-	  cadetblue: 0x5f9ea0,
-	  chartreuse: 0x7fff00,
-	  chocolate: 0xd2691e,
-	  coral: 0xff7f50,
-	  cornflowerblue: 0x6495ed,
-	  cornsilk: 0xfff8dc,
-	  crimson: 0xdc143c,
-	  cyan: 0x00ffff,
-	  darkblue: 0x00008b,
-	  darkcyan: 0x008b8b,
-	  darkgoldenrod: 0xb8860b,
-	  darkgray: 0xa9a9a9,
-	  darkgreen: 0x006400,
-	  darkgrey: 0xa9a9a9,
-	  darkkhaki: 0xbdb76b,
-	  darkmagenta: 0x8b008b,
-	  darkolivegreen: 0x556b2f,
-	  darkorange: 0xff8c00,
-	  darkorchid: 0x9932cc,
-	  darkred: 0x8b0000,
-	  darksalmon: 0xe9967a,
-	  darkseagreen: 0x8fbc8f,
-	  darkslateblue: 0x483d8b,
-	  darkslategray: 0x2f4f4f,
-	  darkslategrey: 0x2f4f4f,
-	  darkturquoise: 0x00ced1,
-	  darkviolet: 0x9400d3,
-	  deeppink: 0xff1493,
-	  deepskyblue: 0x00bfff,
-	  dimgray: 0x696969,
-	  dimgrey: 0x696969,
-	  dodgerblue: 0x1e90ff,
-	  firebrick: 0xb22222,
-	  floralwhite: 0xfffaf0,
-	  forestgreen: 0x228b22,
-	  fuchsia: 0xff00ff,
-	  gainsboro: 0xdcdcdc,
-	  ghostwhite: 0xf8f8ff,
-	  gold: 0xffd700,
-	  goldenrod: 0xdaa520,
-	  gray: 0x808080,
-	  green: 0x008000,
-	  greenyellow: 0xadff2f,
-	  grey: 0x808080,
-	  honeydew: 0xf0fff0,
-	  hotpink: 0xff69b4,
-	  indianred: 0xcd5c5c,
-	  indigo: 0x4b0082,
-	  ivory: 0xfffff0,
-	  khaki: 0xf0e68c,
-	  lavender: 0xe6e6fa,
-	  lavenderblush: 0xfff0f5,
-	  lawngreen: 0x7cfc00,
-	  lemonchiffon: 0xfffacd,
-	  lightblue: 0xadd8e6,
-	  lightcoral: 0xf08080,
-	  lightcyan: 0xe0ffff,
-	  lightgoldenrodyellow: 0xfafad2,
-	  lightgray: 0xd3d3d3,
-	  lightgreen: 0x90ee90,
-	  lightgrey: 0xd3d3d3,
-	  lightpink: 0xffb6c1,
-	  lightsalmon: 0xffa07a,
-	  lightseagreen: 0x20b2aa,
-	  lightskyblue: 0x87cefa,
-	  lightslategray: 0x778899,
-	  lightslategrey: 0x778899,
-	  lightsteelblue: 0xb0c4de,
-	  lightyellow: 0xffffe0,
-	  lime: 0x00ff00,
-	  limegreen: 0x32cd32,
-	  linen: 0xfaf0e6,
-	  magenta: 0xff00ff,
-	  maroon: 0x800000,
-	  mediumaquamarine: 0x66cdaa,
-	  mediumblue: 0x0000cd,
-	  mediumorchid: 0xba55d3,
-	  mediumpurple: 0x9370db,
-	  mediumseagreen: 0x3cb371,
-	  mediumslateblue: 0x7b68ee,
-	  mediumspringgreen: 0x00fa9a,
-	  mediumturquoise: 0x48d1cc,
-	  mediumvioletred: 0xc71585,
-	  midnightblue: 0x191970,
-	  mintcream: 0xf5fffa,
-	  mistyrose: 0xffe4e1,
-	  moccasin: 0xffe4b5,
-	  navajowhite: 0xffdead,
-	  navy: 0x000080,
-	  oldlace: 0xfdf5e6,
-	  olive: 0x808000,
-	  olivedrab: 0x6b8e23,
-	  orange: 0xffa500,
-	  orangered: 0xff4500,
-	  orchid: 0xda70d6,
-	  palegoldenrod: 0xeee8aa,
-	  palegreen: 0x98fb98,
-	  paleturquoise: 0xafeeee,
-	  palevioletred: 0xdb7093,
-	  papayawhip: 0xffefd5,
-	  peachpuff: 0xffdab9,
-	  peru: 0xcd853f,
-	  pink: 0xffc0cb,
-	  plum: 0xdda0dd,
-	  powderblue: 0xb0e0e6,
-	  purple: 0x800080,
-	  rebeccapurple: 0x663399,
-	  red: 0xff0000,
-	  rosybrown: 0xbc8f8f,
-	  royalblue: 0x4169e1,
-	  saddlebrown: 0x8b4513,
-	  salmon: 0xfa8072,
-	  sandybrown: 0xf4a460,
-	  seagreen: 0x2e8b57,
-	  seashell: 0xfff5ee,
-	  sienna: 0xa0522d,
-	  silver: 0xc0c0c0,
-	  skyblue: 0x87ceeb,
-	  slateblue: 0x6a5acd,
-	  slategray: 0x708090,
-	  slategrey: 0x708090,
-	  snow: 0xfffafa,
-	  springgreen: 0x00ff7f,
-	  steelblue: 0x4682b4,
-	  tan: 0xd2b48c,
-	  teal: 0x008080,
-	  thistle: 0xd8bfd8,
-	  tomato: 0xff6347,
-	  turquoise: 0x40e0d0,
-	  violet: 0xee82ee,
-	  wheat: 0xf5deb3,
-	  white: 0xffffff,
-	  whitesmoke: 0xf5f5f5,
-	  yellow: 0xffff00,
-	  yellowgreen: 0x9acd32
-	};
-
-	define(Color, color, {
-	  displayable: function() {
-	    return this.rgb().displayable();
-	  },
-	  toString: function() {
-	    return this.rgb() + "";
+	  function define(constructor, factory, prototype) {
+	    constructor.prototype = factory.prototype = prototype;
+	    prototype.constructor = constructor;
 	  }
-	});
 
-	function color(format) {
-	  var m;
-	  format = (format + "").trim().toLowerCase();
-	  return (m = reHex3.exec(format)) ? (m = parseInt(m[1], 16), new Rgb((m >> 8 & 0xf) | (m >> 4 & 0x0f0), (m >> 4 & 0xf) | (m & 0xf0), ((m & 0xf) << 4) | (m & 0xf), 1)) // #f00
-	      : (m = reHex6.exec(format)) ? rgbn(parseInt(m[1], 16)) // #ff0000
-	      : (m = reRgbInteger.exec(format)) ? new Rgb(m[1], m[2], m[3], 1) // rgb(255, 0, 0)
-	      : (m = reRgbPercent.exec(format)) ? new Rgb(m[1] * 255 / 100, m[2] * 255 / 100, m[3] * 255 / 100, 1) // rgb(100%, 0%, 0%)
-	      : (m = reRgbaInteger.exec(format)) ? rgba(m[1], m[2], m[3], m[4]) // rgba(255, 0, 0, 1)
-	      : (m = reRgbaPercent.exec(format)) ? rgba(m[1] * 255 / 100, m[2] * 255 / 100, m[3] * 255 / 100, m[4]) // rgb(100%, 0%, 0%, 1)
-	      : (m = reHslPercent.exec(format)) ? hsla(m[1], m[2] / 100, m[3] / 100, 1) // hsl(120, 50%, 50%)
-	      : (m = reHslaPercent.exec(format)) ? hsla(m[1], m[2] / 100, m[3] / 100, m[4]) // hsla(120, 50%, 50%, 1)
-	      : named.hasOwnProperty(format) ? rgbn(named[format])
-	      : format === "transparent" ? new Rgb(NaN, NaN, NaN, 0)
-	      : null;
-	}
-
-	function rgbn(n) {
-	  return new Rgb(n >> 16 & 0xff, n >> 8 & 0xff, n & 0xff, 1);
-	}
-
-	function rgba(r, g, b, a) {
-	  if (a <= 0) r = g = b = NaN;
-	  return new Rgb(r, g, b, a);
-	}
-
-	function rgbConvert(o) {
-	  if (!(o instanceof Color)) o = color(o);
-	  if (!o) return new Rgb;
-	  o = o.rgb();
-	  return new Rgb(o.r, o.g, o.b, o.opacity);
-	}
-
-	function rgb(r, g, b, opacity) {
-	  return arguments.length === 1 ? rgbConvert(r) : new Rgb(r, g, b, opacity == null ? 1 : opacity);
-	}
-
-	function Rgb(r, g, b, opacity) {
-	  this.r = +r;
-	  this.g = +g;
-	  this.b = +b;
-	  this.opacity = +opacity;
-	}
-
-	define(Rgb, rgb, extend(Color, {
-	  brighter: function(k) {
-	    k = k == null ? brighter : Math.pow(brighter, k);
-	    return new Rgb(this.r * k, this.g * k, this.b * k, this.opacity);
-	  },
-	  darker: function(k) {
-	    k = k == null ? darker : Math.pow(darker, k);
-	    return new Rgb(this.r * k, this.g * k, this.b * k, this.opacity);
-	  },
-	  rgb: function() {
-	    return this;
-	  },
-	  displayable: function() {
-	    return (0 <= this.r && this.r <= 255)
-	        && (0 <= this.g && this.g <= 255)
-	        && (0 <= this.b && this.b <= 255)
-	        && (0 <= this.opacity && this.opacity <= 1);
-	  },
-	  toString: function() {
-	    var a = this.opacity; a = isNaN(a) ? 1 : Math.max(0, Math.min(1, a));
-	    return (a === 1 ? "rgb(" : "rgba(")
-	        + Math.max(0, Math.min(255, Math.round(this.r) || 0)) + ", "
-	        + Math.max(0, Math.min(255, Math.round(this.g) || 0)) + ", "
-	        + Math.max(0, Math.min(255, Math.round(this.b) || 0))
-	        + (a === 1 ? ")" : ", " + a + ")");
+	  function extend(parent, definition) {
+	    var prototype = Object.create(parent.prototype);
+	    for (var key in definition) prototype[key] = definition[key];
+	    return prototype;
 	  }
+
+	  function Color() {}
+
+	  var darker = 0.7;
+	  var brighter = 1 / darker;
+
+	  var reHex3 = /^#([0-9a-f]{3})$/;
+	  var reHex6 = /^#([0-9a-f]{6})$/;
+	  var reRgbInteger = /^rgb\(\s*([-+]?\d+)\s*,\s*([-+]?\d+)\s*,\s*([-+]?\d+)\s*\)$/;
+	  var reRgbPercent = /^rgb\(\s*([-+]?\d+(?:\.\d+)?)%\s*,\s*([-+]?\d+(?:\.\d+)?)%\s*,\s*([-+]?\d+(?:\.\d+)?)%\s*\)$/;
+	  var reRgbaInteger = /^rgba\(\s*([-+]?\d+)\s*,\s*([-+]?\d+)\s*,\s*([-+]?\d+)\s*,\s*([-+]?\d+(?:\.\d+)?)\s*\)$/;
+	  var reRgbaPercent = /^rgba\(\s*([-+]?\d+(?:\.\d+)?)%\s*,\s*([-+]?\d+(?:\.\d+)?)%\s*,\s*([-+]?\d+(?:\.\d+)?)%\s*,\s*([-+]?\d+(?:\.\d+)?)\s*\)$/;
+	  var reHslPercent = /^hsl\(\s*([-+]?\d+(?:\.\d+)?)\s*,\s*([-+]?\d+(?:\.\d+)?)%\s*,\s*([-+]?\d+(?:\.\d+)?)%\s*\)$/;
+	  var reHslaPercent = /^hsla\(\s*([-+]?\d+(?:\.\d+)?)\s*,\s*([-+]?\d+(?:\.\d+)?)%\s*,\s*([-+]?\d+(?:\.\d+)?)%\s*,\s*([-+]?\d+(?:\.\d+)?)\s*\)$/;
+	  var named = {
+	    aliceblue: 0xf0f8ff,
+	    antiquewhite: 0xfaebd7,
+	    aqua: 0x00ffff,
+	    aquamarine: 0x7fffd4,
+	    azure: 0xf0ffff,
+	    beige: 0xf5f5dc,
+	    bisque: 0xffe4c4,
+	    black: 0x000000,
+	    blanchedalmond: 0xffebcd,
+	    blue: 0x0000ff,
+	    blueviolet: 0x8a2be2,
+	    brown: 0xa52a2a,
+	    burlywood: 0xdeb887,
+	    cadetblue: 0x5f9ea0,
+	    chartreuse: 0x7fff00,
+	    chocolate: 0xd2691e,
+	    coral: 0xff7f50,
+	    cornflowerblue: 0x6495ed,
+	    cornsilk: 0xfff8dc,
+	    crimson: 0xdc143c,
+	    cyan: 0x00ffff,
+	    darkblue: 0x00008b,
+	    darkcyan: 0x008b8b,
+	    darkgoldenrod: 0xb8860b,
+	    darkgray: 0xa9a9a9,
+	    darkgreen: 0x006400,
+	    darkgrey: 0xa9a9a9,
+	    darkkhaki: 0xbdb76b,
+	    darkmagenta: 0x8b008b,
+	    darkolivegreen: 0x556b2f,
+	    darkorange: 0xff8c00,
+	    darkorchid: 0x9932cc,
+	    darkred: 0x8b0000,
+	    darksalmon: 0xe9967a,
+	    darkseagreen: 0x8fbc8f,
+	    darkslateblue: 0x483d8b,
+	    darkslategray: 0x2f4f4f,
+	    darkslategrey: 0x2f4f4f,
+	    darkturquoise: 0x00ced1,
+	    darkviolet: 0x9400d3,
+	    deeppink: 0xff1493,
+	    deepskyblue: 0x00bfff,
+	    dimgray: 0x696969,
+	    dimgrey: 0x696969,
+	    dodgerblue: 0x1e90ff,
+	    firebrick: 0xb22222,
+	    floralwhite: 0xfffaf0,
+	    forestgreen: 0x228b22,
+	    fuchsia: 0xff00ff,
+	    gainsboro: 0xdcdcdc,
+	    ghostwhite: 0xf8f8ff,
+	    gold: 0xffd700,
+	    goldenrod: 0xdaa520,
+	    gray: 0x808080,
+	    green: 0x008000,
+	    greenyellow: 0xadff2f,
+	    grey: 0x808080,
+	    honeydew: 0xf0fff0,
+	    hotpink: 0xff69b4,
+	    indianred: 0xcd5c5c,
+	    indigo: 0x4b0082,
+	    ivory: 0xfffff0,
+	    khaki: 0xf0e68c,
+	    lavender: 0xe6e6fa,
+	    lavenderblush: 0xfff0f5,
+	    lawngreen: 0x7cfc00,
+	    lemonchiffon: 0xfffacd,
+	    lightblue: 0xadd8e6,
+	    lightcoral: 0xf08080,
+	    lightcyan: 0xe0ffff,
+	    lightgoldenrodyellow: 0xfafad2,
+	    lightgray: 0xd3d3d3,
+	    lightgreen: 0x90ee90,
+	    lightgrey: 0xd3d3d3,
+	    lightpink: 0xffb6c1,
+	    lightsalmon: 0xffa07a,
+	    lightseagreen: 0x20b2aa,
+	    lightskyblue: 0x87cefa,
+	    lightslategray: 0x778899,
+	    lightslategrey: 0x778899,
+	    lightsteelblue: 0xb0c4de,
+	    lightyellow: 0xffffe0,
+	    lime: 0x00ff00,
+	    limegreen: 0x32cd32,
+	    linen: 0xfaf0e6,
+	    magenta: 0xff00ff,
+	    maroon: 0x800000,
+	    mediumaquamarine: 0x66cdaa,
+	    mediumblue: 0x0000cd,
+	    mediumorchid: 0xba55d3,
+	    mediumpurple: 0x9370db,
+	    mediumseagreen: 0x3cb371,
+	    mediumslateblue: 0x7b68ee,
+	    mediumspringgreen: 0x00fa9a,
+	    mediumturquoise: 0x48d1cc,
+	    mediumvioletred: 0xc71585,
+	    midnightblue: 0x191970,
+	    mintcream: 0xf5fffa,
+	    mistyrose: 0xffe4e1,
+	    moccasin: 0xffe4b5,
+	    navajowhite: 0xffdead,
+	    navy: 0x000080,
+	    oldlace: 0xfdf5e6,
+	    olive: 0x808000,
+	    olivedrab: 0x6b8e23,
+	    orange: 0xffa500,
+	    orangered: 0xff4500,
+	    orchid: 0xda70d6,
+	    palegoldenrod: 0xeee8aa,
+	    palegreen: 0x98fb98,
+	    paleturquoise: 0xafeeee,
+	    palevioletred: 0xdb7093,
+	    papayawhip: 0xffefd5,
+	    peachpuff: 0xffdab9,
+	    peru: 0xcd853f,
+	    pink: 0xffc0cb,
+	    plum: 0xdda0dd,
+	    powderblue: 0xb0e0e6,
+	    purple: 0x800080,
+	    rebeccapurple: 0x663399,
+	    red: 0xff0000,
+	    rosybrown: 0xbc8f8f,
+	    royalblue: 0x4169e1,
+	    saddlebrown: 0x8b4513,
+	    salmon: 0xfa8072,
+	    sandybrown: 0xf4a460,
+	    seagreen: 0x2e8b57,
+	    seashell: 0xfff5ee,
+	    sienna: 0xa0522d,
+	    silver: 0xc0c0c0,
+	    skyblue: 0x87ceeb,
+	    slateblue: 0x6a5acd,
+	    slategray: 0x708090,
+	    slategrey: 0x708090,
+	    snow: 0xfffafa,
+	    springgreen: 0x00ff7f,
+	    steelblue: 0x4682b4,
+	    tan: 0xd2b48c,
+	    teal: 0x008080,
+	    thistle: 0xd8bfd8,
+	    tomato: 0xff6347,
+	    turquoise: 0x40e0d0,
+	    violet: 0xee82ee,
+	    wheat: 0xf5deb3,
+	    white: 0xffffff,
+	    whitesmoke: 0xf5f5f5,
+	    yellow: 0xffff00,
+	    yellowgreen: 0x9acd32
+	  };
+
+	  define(Color, color, {
+	    displayable: function() {
+	      return this.rgb().displayable();
+	    },
+	    toString: function() {
+	      return this.rgb() + "";
+	    }
+	  });
+
+	  function color(format) {
+	    var m;
+	    format = (format + "").trim().toLowerCase();
+	    return (m = reHex3.exec(format)) ? (m = parseInt(m[1], 16), new Rgb((m >> 8 & 0xf) | (m >> 4 & 0x0f0), (m >> 4 & 0xf) | (m & 0xf0), ((m & 0xf) << 4) | (m & 0xf), 1)) // #f00
+	        : (m = reHex6.exec(format)) ? rgbn(parseInt(m[1], 16)) // #ff0000
+	        : (m = reRgbInteger.exec(format)) ? new Rgb(m[1], m[2], m[3], 1) // rgb(255, 0, 0)
+	        : (m = reRgbPercent.exec(format)) ? new Rgb(m[1] * 255 / 100, m[2] * 255 / 100, m[3] * 255 / 100, 1) // rgb(100%, 0%, 0%)
+	        : (m = reRgbaInteger.exec(format)) ? rgba(m[1], m[2], m[3], m[4]) // rgba(255, 0, 0, 1)
+	        : (m = reRgbaPercent.exec(format)) ? rgba(m[1] * 255 / 100, m[2] * 255 / 100, m[3] * 255 / 100, m[4]) // rgb(100%, 0%, 0%, 1)
+	        : (m = reHslPercent.exec(format)) ? hsla(m[1], m[2] / 100, m[3] / 100, 1) // hsl(120, 50%, 50%)
+	        : (m = reHslaPercent.exec(format)) ? hsla(m[1], m[2] / 100, m[3] / 100, m[4]) // hsla(120, 50%, 50%, 1)
+	        : named.hasOwnProperty(format) ? rgbn(named[format])
+	        : format === "transparent" ? new Rgb(NaN, NaN, NaN, 0)
+	        : null;
+	  }
+
+	  function rgbn(n) {
+	    return new Rgb(n >> 16 & 0xff, n >> 8 & 0xff, n & 0xff, 1);
+	  }
+
+	  function rgba(r, g, b, a) {
+	    if (a <= 0) r = g = b = NaN;
+	    return new Rgb(r, g, b, a);
+	  }
+
+	  function rgbConvert(o) {
+	    if (!(o instanceof Color)) o = color(o);
+	    if (!o) return new Rgb;
+	    o = o.rgb();
+	    return new Rgb(o.r, o.g, o.b, o.opacity);
+	  }
+
+	  function rgb(r, g, b, opacity) {
+	    return arguments.length === 1 ? rgbConvert(r) : new Rgb(r, g, b, opacity == null ? 1 : opacity);
+	  }
+
+	  function Rgb(r, g, b, opacity) {
+	    this.r = +r;
+	    this.g = +g;
+	    this.b = +b;
+	    this.opacity = +opacity;
+	  }
+
+	  define(Rgb, rgb, extend(Color, {
+	    brighter: function(k) {
+	      k = k == null ? brighter : Math.pow(brighter, k);
+	      return new Rgb(this.r * k, this.g * k, this.b * k, this.opacity);
+	    },
+	    darker: function(k) {
+	      k = k == null ? darker : Math.pow(darker, k);
+	      return new Rgb(this.r * k, this.g * k, this.b * k, this.opacity);
+	    },
+	    rgb: function() {
+	      return this;
+	    },
+	    displayable: function() {
+	      return (0 <= this.r && this.r <= 255)
+	          && (0 <= this.g && this.g <= 255)
+	          && (0 <= this.b && this.b <= 255)
+	          && (0 <= this.opacity && this.opacity <= 1);
+	    },
+	    toString: function() {
+	      var a = this.opacity; a = isNaN(a) ? 1 : Math.max(0, Math.min(1, a));
+	      return (a === 1 ? "rgb(" : "rgba(")
+	          + Math.max(0, Math.min(255, Math.round(this.r) || 0)) + ", "
+	          + Math.max(0, Math.min(255, Math.round(this.g) || 0)) + ", "
+	          + Math.max(0, Math.min(255, Math.round(this.b) || 0))
+	          + (a === 1 ? ")" : ", " + a + ")");
+	    }
+	  }));
+
+	  function hsla(h, s, l, a) {
+	    if (a <= 0) h = s = l = NaN;
+	    else if (l <= 0 || l >= 1) h = s = NaN;
+	    else if (s <= 0) h = NaN;
+	    return new Hsl(h, s, l, a);
+	  }
+
+	  function hslConvert(o) {
+	    if (o instanceof Hsl) return new Hsl(o.h, o.s, o.l, o.opacity);
+	    if (!(o instanceof Color)) o = color(o);
+	    if (!o) return new Hsl;
+	    if (o instanceof Hsl) return o;
+	    o = o.rgb();
+	    var r = o.r / 255,
+	        g = o.g / 255,
+	        b = o.b / 255,
+	        min = Math.min(r, g, b),
+	        max = Math.max(r, g, b),
+	        h = NaN,
+	        s = max - min,
+	        l = (max + min) / 2;
+	    if (s) {
+	      if (r === max) h = (g - b) / s + (g < b) * 6;
+	      else if (g === max) h = (b - r) / s + 2;
+	      else h = (r - g) / s + 4;
+	      s /= l < 0.5 ? max + min : 2 - max - min;
+	      h *= 60;
+	    } else {
+	      s = l > 0 && l < 1 ? 0 : h;
+	    }
+	    return new Hsl(h, s, l, o.opacity);
+	  }
+
+	  function hsl(h, s, l, opacity) {
+	    return arguments.length === 1 ? hslConvert(h) : new Hsl(h, s, l, opacity == null ? 1 : opacity);
+	  }
+
+	  function Hsl(h, s, l, opacity) {
+	    this.h = +h;
+	    this.s = +s;
+	    this.l = +l;
+	    this.opacity = +opacity;
+	  }
+
+	  define(Hsl, hsl, extend(Color, {
+	    brighter: function(k) {
+	      k = k == null ? brighter : Math.pow(brighter, k);
+	      return new Hsl(this.h, this.s, this.l * k, this.opacity);
+	    },
+	    darker: function(k) {
+	      k = k == null ? darker : Math.pow(darker, k);
+	      return new Hsl(this.h, this.s, this.l * k, this.opacity);
+	    },
+	    rgb: function() {
+	      var h = this.h % 360 + (this.h < 0) * 360,
+	          s = isNaN(h) || isNaN(this.s) ? 0 : this.s,
+	          l = this.l,
+	          m2 = l + (l < 0.5 ? l : 1 - l) * s,
+	          m1 = 2 * l - m2;
+	      return new Rgb(
+	        hsl2rgb(h >= 240 ? h - 240 : h + 120, m1, m2),
+	        hsl2rgb(h, m1, m2),
+	        hsl2rgb(h < 120 ? h + 240 : h - 120, m1, m2),
+	        this.opacity
+	      );
+	    },
+	    displayable: function() {
+	      return (0 <= this.s && this.s <= 1 || isNaN(this.s))
+	          && (0 <= this.l && this.l <= 1)
+	          && (0 <= this.opacity && this.opacity <= 1);
+	    }
+	  }));
+
+	  /* From FvD 13.37, CSS Color Module Level 3 */
+	  function hsl2rgb(h, m1, m2) {
+	    return (h < 60 ? m1 + (m2 - m1) * h / 60
+	        : h < 180 ? m2
+	        : h < 240 ? m1 + (m2 - m1) * (240 - h) / 60
+	        : m1) * 255;
+	  }
+
+	  var deg2rad = Math.PI / 180;
+	  var rad2deg = 180 / Math.PI;
+
+	  var Kn = 18;
+	  var Xn = 0.950470;
+	  var Yn = 1;
+	  var Zn = 1.088830;
+	  var t0 = 4 / 29;
+	  var t1 = 6 / 29;
+	  var t2 = 3 * t1 * t1;
+	  var t3 = t1 * t1 * t1;
+	  function labConvert(o) {
+	    if (o instanceof Lab) return new Lab(o.l, o.a, o.b, o.opacity);
+	    if (o instanceof Hcl) {
+	      var h = o.h * deg2rad;
+	      return new Lab(o.l, Math.cos(h) * o.c, Math.sin(h) * o.c, o.opacity);
+	    }
+	    if (!(o instanceof Rgb)) o = rgbConvert(o);
+	    var b = rgb2xyz(o.r),
+	        a = rgb2xyz(o.g),
+	        l = rgb2xyz(o.b),
+	        x = xyz2lab((0.4124564 * b + 0.3575761 * a + 0.1804375 * l) / Xn),
+	        y = xyz2lab((0.2126729 * b + 0.7151522 * a + 0.0721750 * l) / Yn),
+	        z = xyz2lab((0.0193339 * b + 0.1191920 * a + 0.9503041 * l) / Zn);
+	    return new Lab(116 * y - 16, 500 * (x - y), 200 * (y - z), o.opacity);
+	  }
+
+	  function lab(l, a, b, opacity) {
+	    return arguments.length === 1 ? labConvert(l) : new Lab(l, a, b, opacity == null ? 1 : opacity);
+	  }
+
+	  function Lab(l, a, b, opacity) {
+	    this.l = +l;
+	    this.a = +a;
+	    this.b = +b;
+	    this.opacity = +opacity;
+	  }
+
+	  define(Lab, lab, extend(Color, {
+	    brighter: function(k) {
+	      return new Lab(this.l + Kn * (k == null ? 1 : k), this.a, this.b, this.opacity);
+	    },
+	    darker: function(k) {
+	      return new Lab(this.l - Kn * (k == null ? 1 : k), this.a, this.b, this.opacity);
+	    },
+	    rgb: function() {
+	      var y = (this.l + 16) / 116,
+	          x = isNaN(this.a) ? y : y + this.a / 500,
+	          z = isNaN(this.b) ? y : y - this.b / 200;
+	      y = Yn * lab2xyz(y);
+	      x = Xn * lab2xyz(x);
+	      z = Zn * lab2xyz(z);
+	      return new Rgb(
+	        xyz2rgb( 3.2404542 * x - 1.5371385 * y - 0.4985314 * z), // D65 -> sRGB
+	        xyz2rgb(-0.9692660 * x + 1.8760108 * y + 0.0415560 * z),
+	        xyz2rgb( 0.0556434 * x - 0.2040259 * y + 1.0572252 * z),
+	        this.opacity
+	      );
+	    }
+	  }));
+
+	  function xyz2lab(t) {
+	    return t > t3 ? Math.pow(t, 1 / 3) : t / t2 + t0;
+	  }
+
+	  function lab2xyz(t) {
+	    return t > t1 ? t * t * t : t2 * (t - t0);
+	  }
+
+	  function xyz2rgb(x) {
+	    return 255 * (x <= 0.0031308 ? 12.92 * x : 1.055 * Math.pow(x, 1 / 2.4) - 0.055);
+	  }
+
+	  function rgb2xyz(x) {
+	    return (x /= 255) <= 0.04045 ? x / 12.92 : Math.pow((x + 0.055) / 1.055, 2.4);
+	  }
+
+	  function hclConvert(o) {
+	    if (o instanceof Hcl) return new Hcl(o.h, o.c, o.l, o.opacity);
+	    if (!(o instanceof Lab)) o = labConvert(o);
+	    var h = Math.atan2(o.b, o.a) * rad2deg;
+	    return new Hcl(h < 0 ? h + 360 : h, Math.sqrt(o.a * o.a + o.b * o.b), o.l, o.opacity);
+	  }
+
+	  function hcl(h, c, l, opacity) {
+	    return arguments.length === 1 ? hclConvert(h) : new Hcl(h, c, l, opacity == null ? 1 : opacity);
+	  }
+
+	  function Hcl(h, c, l, opacity) {
+	    this.h = +h;
+	    this.c = +c;
+	    this.l = +l;
+	    this.opacity = +opacity;
+	  }
+
+	  define(Hcl, hcl, extend(Color, {
+	    brighter: function(k) {
+	      return new Hcl(this.h, this.c, this.l + Kn * (k == null ? 1 : k), this.opacity);
+	    },
+	    darker: function(k) {
+	      return new Hcl(this.h, this.c, this.l - Kn * (k == null ? 1 : k), this.opacity);
+	    },
+	    rgb: function() {
+	      return labConvert(this).rgb();
+	    }
+	  }));
+
+	  var A = -0.14861;
+	  var B = +1.78277;
+	  var C = -0.29227;
+	  var D = -0.90649;
+	  var E = +1.97294;
+	  var ED = E * D;
+	  var EB = E * B;
+	  var BC_DA = B * C - D * A;
+	  function cubehelixConvert(o) {
+	    if (o instanceof Cubehelix) return new Cubehelix(o.h, o.s, o.l, o.opacity);
+	    if (!(o instanceof Rgb)) o = rgbConvert(o);
+	    var r = o.r / 255,
+	        g = o.g / 255,
+	        b = o.b / 255,
+	        l = (BC_DA * b + ED * r - EB * g) / (BC_DA + ED - EB),
+	        bl = b - l,
+	        k = (E * (g - l) - C * bl) / D,
+	        s = Math.sqrt(k * k + bl * bl) / (E * l * (1 - l)), // NaN if l=0 or l=1
+	        h = s ? Math.atan2(k, bl) * rad2deg - 120 : NaN;
+	    return new Cubehelix(h < 0 ? h + 360 : h, s, l, o.opacity);
+	  }
+
+	  function cubehelix(h, s, l, opacity) {
+	    return arguments.length === 1 ? cubehelixConvert(h) : new Cubehelix(h, s, l, opacity == null ? 1 : opacity);
+	  }
+
+	  function Cubehelix(h, s, l, opacity) {
+	    this.h = +h;
+	    this.s = +s;
+	    this.l = +l;
+	    this.opacity = +opacity;
+	  }
+
+	  define(Cubehelix, cubehelix, extend(Color, {
+	    brighter: function(k) {
+	      k = k == null ? brighter : Math.pow(brighter, k);
+	      return new Cubehelix(this.h, this.s, this.l * k, this.opacity);
+	    },
+	    darker: function(k) {
+	      k = k == null ? darker : Math.pow(darker, k);
+	      return new Cubehelix(this.h, this.s, this.l * k, this.opacity);
+	    },
+	    rgb: function() {
+	      var h = isNaN(this.h) ? 0 : (this.h + 120) * deg2rad,
+	          l = +this.l,
+	          a = isNaN(this.s) ? 0 : this.s * l * (1 - l),
+	          cosh = Math.cos(h),
+	          sinh = Math.sin(h);
+	      return new Rgb(
+	        255 * (l + a * (A * cosh + B * sinh)),
+	        255 * (l + a * (C * cosh + D * sinh)),
+	        255 * (l + a * (E * cosh)),
+	        this.opacity
+	      );
+	    }
+	  }));
+
+	  exports.color = color;
+	  exports.rgb = rgb;
+	  exports.hsl = hsl;
+	  exports.lab = lab;
+	  exports.hcl = hcl;
+	  exports.cubehelix = cubehelix;
+
+	  Object.defineProperty(exports, '__esModule', { value: true });
+
 	}));
-
-	function hsla(h, s, l, a) {
-	  if (a <= 0) h = s = l = NaN;
-	  else if (l <= 0 || l >= 1) h = s = NaN;
-	  else if (s <= 0) h = NaN;
-	  return new Hsl(h, s, l, a);
-	}
-
-	function hslConvert(o) {
-	  if (o instanceof Hsl) return new Hsl(o.h, o.s, o.l, o.opacity);
-	  if (!(o instanceof Color)) o = color(o);
-	  if (!o) return new Hsl;
-	  if (o instanceof Hsl) return o;
-	  o = o.rgb();
-	  var r = o.r / 255,
-	      g = o.g / 255,
-	      b = o.b / 255,
-	      min = Math.min(r, g, b),
-	      max = Math.max(r, g, b),
-	      h = NaN,
-	      s = max - min,
-	      l = (max + min) / 2;
-	  if (s) {
-	    if (r === max) h = (g - b) / s + (g < b) * 6;
-	    else if (g === max) h = (b - r) / s + 2;
-	    else h = (r - g) / s + 4;
-	    s /= l < 0.5 ? max + min : 2 - max - min;
-	    h *= 60;
-	  } else {
-	    s = l > 0 && l < 1 ? 0 : h;
-	  }
-	  return new Hsl(h, s, l, o.opacity);
-	}
-
-	function hsl(h, s, l, opacity) {
-	  return arguments.length === 1 ? hslConvert(h) : new Hsl(h, s, l, opacity == null ? 1 : opacity);
-	}
-
-	function Hsl(h, s, l, opacity) {
-	  this.h = +h;
-	  this.s = +s;
-	  this.l = +l;
-	  this.opacity = +opacity;
-	}
-
-	define(Hsl, hsl, extend(Color, {
-	  brighter: function(k) {
-	    k = k == null ? brighter : Math.pow(brighter, k);
-	    return new Hsl(this.h, this.s, this.l * k, this.opacity);
-	  },
-	  darker: function(k) {
-	    k = k == null ? darker : Math.pow(darker, k);
-	    return new Hsl(this.h, this.s, this.l * k, this.opacity);
-	  },
-	  rgb: function() {
-	    var h = this.h % 360 + (this.h < 0) * 360,
-	        s = isNaN(h) || isNaN(this.s) ? 0 : this.s,
-	        l = this.l,
-	        m2 = l + (l < 0.5 ? l : 1 - l) * s,
-	        m1 = 2 * l - m2;
-	    return new Rgb(
-	      hsl2rgb(h >= 240 ? h - 240 : h + 120, m1, m2),
-	      hsl2rgb(h, m1, m2),
-	      hsl2rgb(h < 120 ? h + 240 : h - 120, m1, m2),
-	      this.opacity
-	    );
-	  },
-	  displayable: function() {
-	    return (0 <= this.s && this.s <= 1 || isNaN(this.s))
-	        && (0 <= this.l && this.l <= 1)
-	        && (0 <= this.opacity && this.opacity <= 1);
-	  }
-	}));
-
-	/* From FvD 13.37, CSS Color Module Level 3 */
-	function hsl2rgb(h, m1, m2) {
-	  return (h < 60 ? m1 + (m2 - m1) * h / 60
-	      : h < 180 ? m2
-	      : h < 240 ? m1 + (m2 - m1) * (240 - h) / 60
-	      : m1) * 255;
-	}
-
-	var deg2rad = Math.PI / 180;
-	var rad2deg = 180 / Math.PI;
-
-	var Kn = 18;
-	var Xn = 0.950470;
-	var Yn = 1;
-	var Zn = 1.088830;
-	var t0 = 4 / 29;
-	var t1 = 6 / 29;
-	var t2 = 3 * t1 * t1;
-	var t3 = t1 * t1 * t1;
-
-	function labConvert(o) {
-	  if (o instanceof Lab) return new Lab(o.l, o.a, o.b, o.opacity);
-	  if (o instanceof Hcl) {
-	    var h = o.h * deg2rad;
-	    return new Lab(o.l, Math.cos(h) * o.c, Math.sin(h) * o.c, o.opacity);
-	  }
-	  if (!(o instanceof Rgb)) o = rgbConvert(o);
-	  var b = rgb2xyz(o.r),
-	      a = rgb2xyz(o.g),
-	      l = rgb2xyz(o.b),
-	      x = xyz2lab((0.4124564 * b + 0.3575761 * a + 0.1804375 * l) / Xn),
-	      y = xyz2lab((0.2126729 * b + 0.7151522 * a + 0.0721750 * l) / Yn),
-	      z = xyz2lab((0.0193339 * b + 0.1191920 * a + 0.9503041 * l) / Zn);
-	  return new Lab(116 * y - 16, 500 * (x - y), 200 * (y - z), o.opacity);
-	}
-
-	function lab(l, a, b, opacity) {
-	  return arguments.length === 1 ? labConvert(l) : new Lab(l, a, b, opacity == null ? 1 : opacity);
-	}
-
-	function Lab(l, a, b, opacity) {
-	  this.l = +l;
-	  this.a = +a;
-	  this.b = +b;
-	  this.opacity = +opacity;
-	}
-
-	define(Lab, lab, extend(Color, {
-	  brighter: function(k) {
-	    return new Lab(this.l + Kn * (k == null ? 1 : k), this.a, this.b, this.opacity);
-	  },
-	  darker: function(k) {
-	    return new Lab(this.l - Kn * (k == null ? 1 : k), this.a, this.b, this.opacity);
-	  },
-	  rgb: function() {
-	    var y = (this.l + 16) / 116,
-	        x = isNaN(this.a) ? y : y + this.a / 500,
-	        z = isNaN(this.b) ? y : y - this.b / 200;
-	    y = Yn * lab2xyz(y);
-	    x = Xn * lab2xyz(x);
-	    z = Zn * lab2xyz(z);
-	    return new Rgb(
-	      xyz2rgb( 3.2404542 * x - 1.5371385 * y - 0.4985314 * z), // D65 -> sRGB
-	      xyz2rgb(-0.9692660 * x + 1.8760108 * y + 0.0415560 * z),
-	      xyz2rgb( 0.0556434 * x - 0.2040259 * y + 1.0572252 * z),
-	      this.opacity
-	    );
-	  }
-	}));
-
-	function xyz2lab(t) {
-	  return t > t3 ? Math.pow(t, 1 / 3) : t / t2 + t0;
-	}
-
-	function lab2xyz(t) {
-	  return t > t1 ? t * t * t : t2 * (t - t0);
-	}
-
-	function xyz2rgb(x) {
-	  return 255 * (x <= 0.0031308 ? 12.92 * x : 1.055 * Math.pow(x, 1 / 2.4) - 0.055);
-	}
-
-	function rgb2xyz(x) {
-	  return (x /= 255) <= 0.04045 ? x / 12.92 : Math.pow((x + 0.055) / 1.055, 2.4);
-	}
-
-	function hclConvert(o) {
-	  if (o instanceof Hcl) return new Hcl(o.h, o.c, o.l, o.opacity);
-	  if (!(o instanceof Lab)) o = labConvert(o);
-	  var h = Math.atan2(o.b, o.a) * rad2deg;
-	  return new Hcl(h < 0 ? h + 360 : h, Math.sqrt(o.a * o.a + o.b * o.b), o.l, o.opacity);
-	}
-
-	function hcl(h, c, l, opacity) {
-	  return arguments.length === 1 ? hclConvert(h) : new Hcl(h, c, l, opacity == null ? 1 : opacity);
-	}
-
-	function Hcl(h, c, l, opacity) {
-	  this.h = +h;
-	  this.c = +c;
-	  this.l = +l;
-	  this.opacity = +opacity;
-	}
-
-	define(Hcl, hcl, extend(Color, {
-	  brighter: function(k) {
-	    return new Hcl(this.h, this.c, this.l + Kn * (k == null ? 1 : k), this.opacity);
-	  },
-	  darker: function(k) {
-	    return new Hcl(this.h, this.c, this.l - Kn * (k == null ? 1 : k), this.opacity);
-	  },
-	  rgb: function() {
-	    return labConvert(this).rgb();
-	  }
-	}));
-
-	var A = -0.14861;
-	var B = +1.78277;
-	var C = -0.29227;
-	var D = -0.90649;
-	var E = +1.97294;
-	var ED = E * D;
-	var EB = E * B;
-	var BC_DA = B * C - D * A;
-
-	function cubehelixConvert(o) {
-	  if (o instanceof Cubehelix) return new Cubehelix(o.h, o.s, o.l, o.opacity);
-	  if (!(o instanceof Rgb)) o = rgbConvert(o);
-	  var r = o.r / 255,
-	      g = o.g / 255,
-	      b = o.b / 255,
-	      l = (BC_DA * b + ED * r - EB * g) / (BC_DA + ED - EB),
-	      bl = b - l,
-	      k = (E * (g - l) - C * bl) / D,
-	      s = Math.sqrt(k * k + bl * bl) / (E * l * (1 - l)), // NaN if l=0 or l=1
-	      h = s ? Math.atan2(k, bl) * rad2deg - 120 : NaN;
-	  return new Cubehelix(h < 0 ? h + 360 : h, s, l, o.opacity);
-	}
-
-	function cubehelix(h, s, l, opacity) {
-	  return arguments.length === 1 ? cubehelixConvert(h) : new Cubehelix(h, s, l, opacity == null ? 1 : opacity);
-	}
-
-	function Cubehelix(h, s, l, opacity) {
-	  this.h = +h;
-	  this.s = +s;
-	  this.l = +l;
-	  this.opacity = +opacity;
-	}
-
-	define(Cubehelix, cubehelix, extend(Color, {
-	  brighter: function(k) {
-	    k = k == null ? brighter : Math.pow(brighter, k);
-	    return new Cubehelix(this.h, this.s, this.l * k, this.opacity);
-	  },
-	  darker: function(k) {
-	    k = k == null ? darker : Math.pow(darker, k);
-	    return new Cubehelix(this.h, this.s, this.l * k, this.opacity);
-	  },
-	  rgb: function() {
-	    var h = isNaN(this.h) ? 0 : (this.h + 120) * deg2rad,
-	        l = +this.l,
-	        a = isNaN(this.s) ? 0 : this.s * l * (1 - l),
-	        cosh = Math.cos(h),
-	        sinh = Math.sin(h);
-	    return new Rgb(
-	      255 * (l + a * (A * cosh + B * sinh)),
-	      255 * (l + a * (C * cosh + D * sinh)),
-	      255 * (l + a * (E * cosh)),
-	      this.opacity
-	    );
-	  }
-	}));
-
-	exports.color = color;
-	exports.rgb = rgb;
-	exports.hsl = hsl;
-	exports.lab = lab;
-	exports.hcl = hcl;
-	exports.cubehelix = cubehelix;
-
-	Object.defineProperty(exports, '__esModule', { value: true });
-
-	})));
-
 
 /***/ },
 /* 286 */
@@ -37892,7 +38496,7 @@
 
 	// https://d3js.org/d3-time-format/ Version 2.0.2. Copyright 2016 Mike Bostock.
 	(function (global, factory) {
-	   true ? factory(exports, __webpack_require__(289)) :
+	   true ? factory(exports, __webpack_require__(287)) :
 	  typeof define === 'function' && define.amd ? define(['exports', 'd3-time'], factory) :
 	  (factory((global.d3 = global.d3 || {}),global.d3));
 	}(this, function (exports,d3Time) { 'use strict';
@@ -38477,390 +39081,6 @@
 /* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// https://d3js.org/d3-time/ Version 1.0.4. Copyright 2016 Mike Bostock.
-	(function (global, factory) {
-	   true ? factory(exports) :
-	  typeof define === 'function' && define.amd ? define(['exports'], factory) :
-	  (factory((global.d3 = global.d3 || {})));
-	}(this, (function (exports) { 'use strict';
-
-	var t0 = new Date;
-	var t1 = new Date;
-
-	function newInterval(floori, offseti, count, field) {
-
-	  function interval(date) {
-	    return floori(date = new Date(+date)), date;
-	  }
-
-	  interval.floor = interval;
-
-	  interval.ceil = function(date) {
-	    return floori(date = new Date(date - 1)), offseti(date, 1), floori(date), date;
-	  };
-
-	  interval.round = function(date) {
-	    var d0 = interval(date),
-	        d1 = interval.ceil(date);
-	    return date - d0 < d1 - date ? d0 : d1;
-	  };
-
-	  interval.offset = function(date, step) {
-	    return offseti(date = new Date(+date), step == null ? 1 : Math.floor(step)), date;
-	  };
-
-	  interval.range = function(start, stop, step) {
-	    var range = [];
-	    start = interval.ceil(start);
-	    step = step == null ? 1 : Math.floor(step);
-	    if (!(start < stop) || !(step > 0)) return range; // also handles Invalid Date
-	    do range.push(new Date(+start)); while (offseti(start, step), floori(start), start < stop)
-	    return range;
-	  };
-
-	  interval.filter = function(test) {
-	    return newInterval(function(date) {
-	      if (date >= date) while (floori(date), !test(date)) date.setTime(date - 1);
-	    }, function(date, step) {
-	      if (date >= date) while (--step >= 0) while (offseti(date, 1), !test(date)) {} // eslint-disable-line no-empty
-	    });
-	  };
-
-	  if (count) {
-	    interval.count = function(start, end) {
-	      t0.setTime(+start), t1.setTime(+end);
-	      floori(t0), floori(t1);
-	      return Math.floor(count(t0, t1));
-	    };
-
-	    interval.every = function(step) {
-	      step = Math.floor(step);
-	      return !isFinite(step) || !(step > 0) ? null
-	          : !(step > 1) ? interval
-	          : interval.filter(field
-	              ? function(d) { return field(d) % step === 0; }
-	              : function(d) { return interval.count(0, d) % step === 0; });
-	    };
-	  }
-
-	  return interval;
-	}
-
-	var millisecond = newInterval(function() {
-	  // noop
-	}, function(date, step) {
-	  date.setTime(+date + step);
-	}, function(start, end) {
-	  return end - start;
-	});
-
-	// An optimized implementation for this simple case.
-	millisecond.every = function(k) {
-	  k = Math.floor(k);
-	  if (!isFinite(k) || !(k > 0)) return null;
-	  if (!(k > 1)) return millisecond;
-	  return newInterval(function(date) {
-	    date.setTime(Math.floor(date / k) * k);
-	  }, function(date, step) {
-	    date.setTime(+date + step * k);
-	  }, function(start, end) {
-	    return (end - start) / k;
-	  });
-	};
-
-	var milliseconds = millisecond.range;
-
-	var durationSecond = 1e3;
-	var durationMinute = 6e4;
-	var durationHour = 36e5;
-	var durationDay = 864e5;
-	var durationWeek = 6048e5;
-
-	var second = newInterval(function(date) {
-	  date.setTime(Math.floor(date / durationSecond) * durationSecond);
-	}, function(date, step) {
-	  date.setTime(+date + step * durationSecond);
-	}, function(start, end) {
-	  return (end - start) / durationSecond;
-	}, function(date) {
-	  return date.getUTCSeconds();
-	});
-
-	var seconds = second.range;
-
-	var minute = newInterval(function(date) {
-	  date.setTime(Math.floor(date / durationMinute) * durationMinute);
-	}, function(date, step) {
-	  date.setTime(+date + step * durationMinute);
-	}, function(start, end) {
-	  return (end - start) / durationMinute;
-	}, function(date) {
-	  return date.getMinutes();
-	});
-
-	var minutes = minute.range;
-
-	var hour = newInterval(function(date) {
-	  var offset = date.getTimezoneOffset() * durationMinute % durationHour;
-	  if (offset < 0) offset += durationHour;
-	  date.setTime(Math.floor((+date - offset) / durationHour) * durationHour + offset);
-	}, function(date, step) {
-	  date.setTime(+date + step * durationHour);
-	}, function(start, end) {
-	  return (end - start) / durationHour;
-	}, function(date) {
-	  return date.getHours();
-	});
-
-	var hours = hour.range;
-
-	var day = newInterval(function(date) {
-	  date.setHours(0, 0, 0, 0);
-	}, function(date, step) {
-	  date.setDate(date.getDate() + step);
-	}, function(start, end) {
-	  return (end - start - (end.getTimezoneOffset() - start.getTimezoneOffset()) * durationMinute) / durationDay;
-	}, function(date) {
-	  return date.getDate() - 1;
-	});
-
-	var days = day.range;
-
-	function weekday(i) {
-	  return newInterval(function(date) {
-	    date.setDate(date.getDate() - (date.getDay() + 7 - i) % 7);
-	    date.setHours(0, 0, 0, 0);
-	  }, function(date, step) {
-	    date.setDate(date.getDate() + step * 7);
-	  }, function(start, end) {
-	    return (end - start - (end.getTimezoneOffset() - start.getTimezoneOffset()) * durationMinute) / durationWeek;
-	  });
-	}
-
-	var sunday = weekday(0);
-	var monday = weekday(1);
-	var tuesday = weekday(2);
-	var wednesday = weekday(3);
-	var thursday = weekday(4);
-	var friday = weekday(5);
-	var saturday = weekday(6);
-
-	var sundays = sunday.range;
-	var mondays = monday.range;
-	var tuesdays = tuesday.range;
-	var wednesdays = wednesday.range;
-	var thursdays = thursday.range;
-	var fridays = friday.range;
-	var saturdays = saturday.range;
-
-	var month = newInterval(function(date) {
-	  date.setDate(1);
-	  date.setHours(0, 0, 0, 0);
-	}, function(date, step) {
-	  date.setMonth(date.getMonth() + step);
-	}, function(start, end) {
-	  return end.getMonth() - start.getMonth() + (end.getFullYear() - start.getFullYear()) * 12;
-	}, function(date) {
-	  return date.getMonth();
-	});
-
-	var months = month.range;
-
-	var year = newInterval(function(date) {
-	  date.setMonth(0, 1);
-	  date.setHours(0, 0, 0, 0);
-	}, function(date, step) {
-	  date.setFullYear(date.getFullYear() + step);
-	}, function(start, end) {
-	  return end.getFullYear() - start.getFullYear();
-	}, function(date) {
-	  return date.getFullYear();
-	});
-
-	// An optimized implementation for this simple case.
-	year.every = function(k) {
-	  return !isFinite(k = Math.floor(k)) || !(k > 0) ? null : newInterval(function(date) {
-	    date.setFullYear(Math.floor(date.getFullYear() / k) * k);
-	    date.setMonth(0, 1);
-	    date.setHours(0, 0, 0, 0);
-	  }, function(date, step) {
-	    date.setFullYear(date.getFullYear() + step * k);
-	  });
-	};
-
-	var years = year.range;
-
-	var utcMinute = newInterval(function(date) {
-	  date.setUTCSeconds(0, 0);
-	}, function(date, step) {
-	  date.setTime(+date + step * durationMinute);
-	}, function(start, end) {
-	  return (end - start) / durationMinute;
-	}, function(date) {
-	  return date.getUTCMinutes();
-	});
-
-	var utcMinutes = utcMinute.range;
-
-	var utcHour = newInterval(function(date) {
-	  date.setUTCMinutes(0, 0, 0);
-	}, function(date, step) {
-	  date.setTime(+date + step * durationHour);
-	}, function(start, end) {
-	  return (end - start) / durationHour;
-	}, function(date) {
-	  return date.getUTCHours();
-	});
-
-	var utcHours = utcHour.range;
-
-	var utcDay = newInterval(function(date) {
-	  date.setUTCHours(0, 0, 0, 0);
-	}, function(date, step) {
-	  date.setUTCDate(date.getUTCDate() + step);
-	}, function(start, end) {
-	  return (end - start) / durationDay;
-	}, function(date) {
-	  return date.getUTCDate() - 1;
-	});
-
-	var utcDays = utcDay.range;
-
-	function utcWeekday(i) {
-	  return newInterval(function(date) {
-	    date.setUTCDate(date.getUTCDate() - (date.getUTCDay() + 7 - i) % 7);
-	    date.setUTCHours(0, 0, 0, 0);
-	  }, function(date, step) {
-	    date.setUTCDate(date.getUTCDate() + step * 7);
-	  }, function(start, end) {
-	    return (end - start) / durationWeek;
-	  });
-	}
-
-	var utcSunday = utcWeekday(0);
-	var utcMonday = utcWeekday(1);
-	var utcTuesday = utcWeekday(2);
-	var utcWednesday = utcWeekday(3);
-	var utcThursday = utcWeekday(4);
-	var utcFriday = utcWeekday(5);
-	var utcSaturday = utcWeekday(6);
-
-	var utcSundays = utcSunday.range;
-	var utcMondays = utcMonday.range;
-	var utcTuesdays = utcTuesday.range;
-	var utcWednesdays = utcWednesday.range;
-	var utcThursdays = utcThursday.range;
-	var utcFridays = utcFriday.range;
-	var utcSaturdays = utcSaturday.range;
-
-	var utcMonth = newInterval(function(date) {
-	  date.setUTCDate(1);
-	  date.setUTCHours(0, 0, 0, 0);
-	}, function(date, step) {
-	  date.setUTCMonth(date.getUTCMonth() + step);
-	}, function(start, end) {
-	  return end.getUTCMonth() - start.getUTCMonth() + (end.getUTCFullYear() - start.getUTCFullYear()) * 12;
-	}, function(date) {
-	  return date.getUTCMonth();
-	});
-
-	var utcMonths = utcMonth.range;
-
-	var utcYear = newInterval(function(date) {
-	  date.setUTCMonth(0, 1);
-	  date.setUTCHours(0, 0, 0, 0);
-	}, function(date, step) {
-	  date.setUTCFullYear(date.getUTCFullYear() + step);
-	}, function(start, end) {
-	  return end.getUTCFullYear() - start.getUTCFullYear();
-	}, function(date) {
-	  return date.getUTCFullYear();
-	});
-
-	// An optimized implementation for this simple case.
-	utcYear.every = function(k) {
-	  return !isFinite(k = Math.floor(k)) || !(k > 0) ? null : newInterval(function(date) {
-	    date.setUTCFullYear(Math.floor(date.getUTCFullYear() / k) * k);
-	    date.setUTCMonth(0, 1);
-	    date.setUTCHours(0, 0, 0, 0);
-	  }, function(date, step) {
-	    date.setUTCFullYear(date.getUTCFullYear() + step * k);
-	  });
-	};
-
-	var utcYears = utcYear.range;
-
-	exports.timeInterval = newInterval;
-	exports.timeMillisecond = millisecond;
-	exports.timeMilliseconds = milliseconds;
-	exports.utcMillisecond = millisecond;
-	exports.utcMilliseconds = milliseconds;
-	exports.timeSecond = second;
-	exports.timeSeconds = seconds;
-	exports.utcSecond = second;
-	exports.utcSeconds = seconds;
-	exports.timeMinute = minute;
-	exports.timeMinutes = minutes;
-	exports.timeHour = hour;
-	exports.timeHours = hours;
-	exports.timeDay = day;
-	exports.timeDays = days;
-	exports.timeWeek = sunday;
-	exports.timeWeeks = sundays;
-	exports.timeSunday = sunday;
-	exports.timeSundays = sundays;
-	exports.timeMonday = monday;
-	exports.timeMondays = mondays;
-	exports.timeTuesday = tuesday;
-	exports.timeTuesdays = tuesdays;
-	exports.timeWednesday = wednesday;
-	exports.timeWednesdays = wednesdays;
-	exports.timeThursday = thursday;
-	exports.timeThursdays = thursdays;
-	exports.timeFriday = friday;
-	exports.timeFridays = fridays;
-	exports.timeSaturday = saturday;
-	exports.timeSaturdays = saturdays;
-	exports.timeMonth = month;
-	exports.timeMonths = months;
-	exports.timeYear = year;
-	exports.timeYears = years;
-	exports.utcMinute = utcMinute;
-	exports.utcMinutes = utcMinutes;
-	exports.utcHour = utcHour;
-	exports.utcHours = utcHours;
-	exports.utcDay = utcDay;
-	exports.utcDays = utcDays;
-	exports.utcWeek = utcSunday;
-	exports.utcWeeks = utcSundays;
-	exports.utcSunday = utcSunday;
-	exports.utcSundays = utcSundays;
-	exports.utcMonday = utcMonday;
-	exports.utcMondays = utcMondays;
-	exports.utcTuesday = utcTuesday;
-	exports.utcTuesdays = utcTuesdays;
-	exports.utcWednesday = utcWednesday;
-	exports.utcWednesdays = utcWednesdays;
-	exports.utcThursday = utcThursday;
-	exports.utcThursdays = utcThursdays;
-	exports.utcFriday = utcFriday;
-	exports.utcFridays = utcFridays;
-	exports.utcSaturday = utcSaturday;
-	exports.utcSaturdays = utcSaturdays;
-	exports.utcMonth = utcMonth;
-	exports.utcMonths = utcMonths;
-	exports.utcYear = utcYear;
-	exports.utcYears = utcYears;
-
-	Object.defineProperty(exports, '__esModule', { value: true });
-
-	})));
-
-
-/***/ },
-/* 290 */
-/***/ function(module, exports, __webpack_require__) {
-
 	"use strict";
 
 	/* an extension to d3.zip so we call a function instead of an array */
@@ -38872,7 +39092,7 @@
 
 	var _d3Array = __webpack_require__(280);
 
-	var _identity = __webpack_require__(291);
+	var _identity = __webpack_require__(290);
 
 	var _identity2 = _interopRequireDefault(_identity);
 
@@ -38909,7 +39129,7 @@
 	}
 
 /***/ },
-/* 291 */
+/* 290 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -38923,7 +39143,7 @@
 	};
 
 /***/ },
-/* 292 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -38974,15 +39194,15 @@
 		return mergeCompute;
 	};
 
-	var _identity = __webpack_require__(291);
+	var _identity = __webpack_require__(290);
 
 	var _identity2 = _interopRequireDefault(_identity);
 
-	var _zipper = __webpack_require__(290);
+	var _zipper = __webpack_require__(289);
 
 	var _zipper2 = _interopRequireDefault(_zipper);
 
-	var _noop = __webpack_require__(293);
+	var _noop = __webpack_require__(292);
 
 	var _noop2 = _interopRequireDefault(_noop);
 
@@ -38991,7 +39211,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 293 */
+/* 292 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -39003,7 +39223,7 @@
 	exports.default = function () {};
 
 /***/ },
-/* 294 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -39125,7 +39345,7 @@
 		return slidingWindow;
 	};
 
-	var _noop = __webpack_require__(293);
+	var _noop = __webpack_require__(292);
 
 	var _noop2 = _interopRequireDefault(_noop);
 
@@ -39134,7 +39354,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 295 */
+/* 294 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -39202,7 +39422,7 @@
 	}
 
 /***/ },
-/* 296 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -39288,11 +39508,11 @@
 		return mappedSlidingWindow;
 	};
 
-	var _noop = __webpack_require__(293);
+	var _noop = __webpack_require__(292);
 
 	var _noop2 = _interopRequireDefault(_noop);
 
-	var _identity = __webpack_require__(291);
+	var _identity = __webpack_require__(290);
 
 	var _identity2 = _interopRequireDefault(_identity);
 
@@ -39301,7 +39521,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 297 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -39403,11 +39623,11 @@
 		return accumulatingWindow;
 	};
 
-	var _noop = __webpack_require__(293);
+	var _noop = __webpack_require__(292);
 
 	var _noop2 = _interopRequireDefault(_noop);
 
-	var _identity = __webpack_require__(291);
+	var _identity = __webpack_require__(290);
 
 	var _identity2 = _interopRequireDefault(_identity);
 
@@ -39416,7 +39636,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 298 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -39429,7 +39649,7 @@
 
 	var _react = __webpack_require__(1);
 
-	var _shallowEqual = __webpack_require__(295);
+	var _shallowEqual = __webpack_require__(294);
 
 	var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
 
@@ -39463,7 +39683,7 @@
 	exports.default = PureComponent;
 
 /***/ },
-/* 299 */
+/* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -39489,11 +39709,11 @@
 
 	var _d3Collection = __webpack_require__(283);
 
-	var _lodash = __webpack_require__(300);
+	var _lodash = __webpack_require__(299);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _Chart = __webpack_require__(301);
+	var _Chart = __webpack_require__(300);
 
 	var _Chart2 = _interopRequireDefault(_Chart);
 
@@ -39507,8 +39727,8 @@
 	}
 
 	function getDimensions(_ref, chartProps) {
-		var width = _ref.width,
-		    height = _ref.height;
+		var width = _ref.width;
+		var height = _ref.height;
 
 
 		var chartWidth = chartProps.width || width;
@@ -39535,21 +39755,21 @@
 
 		return _react2.default.Children.map(children, function (each) {
 			if (each.type === _Chart2.default) {
-				var _each$props = each.props,
-				    id = _each$props.id,
-				    origin = _each$props.origin,
-				    padding = _each$props.padding,
-				    yExtentsProp = _each$props.yExtents,
-				    yScale = _each$props.yScale,
-				    flipYScale = _each$props.flipYScale,
-				    yExtentsCalculator = _each$props.yExtentsCalculator;
+				var _each$props = each.props;
+				var id = _each$props.id;
+				var origin = _each$props.origin;
+				var padding = _each$props.padding;
+				var yExtentsProp = _each$props.yExtents;
+				var yScale = _each$props.yScale;
+				var flipYScale = _each$props.flipYScale;
+				var yExtentsCalculator = _each$props.yExtentsCalculator;
 
-				var _getDimensions = getDimensions(innerDimension, each.props),
-				    width = _getDimensions.width,
-				    height = _getDimensions.height,
-				    availableWidth = _getDimensions.availableWidth,
-				    availableHeight = _getDimensions.availableHeight;
+				var _getDimensions = getDimensions(innerDimension, each.props);
 
+				var width = _getDimensions.width;
+				var height = _getDimensions.height;
+				var availableWidth = _getDimensions.availableWidth;
+				var availableHeight = _getDimensions.availableHeight;
 				var yPan = each.props.yPan;
 				// var { yMousePointerRectWidth: rectWidth, yMousePointerRectHeight: rectHeight, yMousePointerArrowWidth: arrowWidth } = each.props;
 				// var mouseCoordinates = { at, yDisplayFormat, rectHeight, rectWidth, arrowWidth };
@@ -39592,9 +39812,11 @@
 			if (isNaN(padding)) throw new Error("padding has to be a number for ordinal scale");
 			scale.rangeRoundPoints(flipYScale ? [0, height] : [height, 0], padding);
 		} else {
-			var _ref2 = isNaN(padding) ? padding : { top: padding, bottom: padding },
-			    top = _ref2.top,
-			    bottom = _ref2.bottom;
+			var _ref2 = isNaN(padding) ? padding : { top: padding, bottom: padding };
+
+			var top = _ref2.top;
+			var bottom = _ref2.bottom;
+
 
 			scale.range(flipYScale ? [top, height - bottom] : [height - bottom, top]);
 		}
@@ -39616,9 +39838,9 @@
 	function getChartConfigWithUpdatedYScales(chartConfig, plotData, xDomain, dy, chartsToPan) {
 
 		var yDomains = chartConfig.map(function (_ref3) {
-			var yExtentsCalculator = _ref3.yExtentsCalculator,
-			    yExtents = _ref3.yExtents,
-			    yScale = _ref3.yScale;
+			var yExtentsCalculator = _ref3.yExtentsCalculator;
+			var yExtents = _ref3.yExtents;
+			var yScale = _ref3.yScale;
 
 
 			var realYDomain = (0, _index.isDefined)(yExtentsCalculator) ? yExtentsCalculator(plotData, xDomain) : yDomainFromYExtents(yExtents, yScale, plotData);
@@ -39634,17 +39856,17 @@
 		});
 
 		var combine = (0, _index.zipper)().combine(function (config, _ref4) {
-			var realYDomain = _ref4.realYDomain,
-			    yDomainDY = _ref4.yDomainDY,
-			    prevYDomain = _ref4.prevYDomain;
-			var id = config.id,
-			    padding = config.padding,
-			    height = config.height,
-			    yScale = config.yScale,
-			    yPan = config.yPan,
-			    flipYScale = config.flipYScale,
-			    _config$yPanEnabled = config.yPanEnabled,
-			    yPanEnabled = _config$yPanEnabled === undefined ? false : _config$yPanEnabled;
+			var realYDomain = _ref4.realYDomain;
+			var yDomainDY = _ref4.yDomainDY;
+			var prevYDomain = _ref4.prevYDomain;
+			var id = config.id;
+			var padding = config.padding;
+			var height = config.height;
+			var yScale = config.yScale;
+			var yPan = config.yPan;
+			var flipYScale = config.flipYScale;
+			var _config$yPanEnabled = config.yPanEnabled;
+			var yPanEnabled = _config$yPanEnabled === undefined ? false : _config$yPanEnabled;
 
 
 			var another = (0, _index.isDefined)(chartsToPan) ? chartsToPan.indexOf(id) > -1 : true;
@@ -39679,7 +39901,7 @@
 	}
 
 /***/ },
-/* 300 */
+/* 299 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -40036,7 +40258,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 301 */
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -40055,7 +40277,7 @@
 
 	var _d3Scale = __webpack_require__(282);
 
-	var _PureComponent2 = __webpack_require__(298);
+	var _PureComponent2 = __webpack_require__(297);
 
 	var _PureComponent3 = _interopRequireDefault(_PureComponent2);
 
@@ -40101,9 +40323,9 @@
 		}, {
 			key: "listener",
 			value: function listener(type, moreProps, e) {
-				var _props = this.props,
-				    id = _props.id,
-				    onContextMenu = _props.onContextMenu;
+				var _props = this.props;
+				var id = _props.id;
+				var onContextMenu = _props.onContextMenu;
 
 
 				if (type === "contextmenu") {
@@ -40129,16 +40351,16 @@
 			key: "getChildContext",
 			value: function getChildContext() {
 				var chartId = this.props.id;
-				var _context = this.context,
-				    ratio = _context.ratio,
-				    margin = _context.margin;
+				var _context = this.context;
+				var ratio = _context.ratio;
+				var margin = _context.margin;
 
 				var chartConfig = this.context.chartConfig.filter(function (each) {
 					return each.id === chartId;
 				})[0];
 
-				var width = chartConfig.width,
-				    height = chartConfig.height;
+				var width = chartConfig.width;
+				var height = chartConfig.height;
 
 				var canvasOriginX = 0.5 * ratio + chartConfig.origin[0] + margin.left;
 				var canvasOriginY = 0.5 * ratio + chartConfig.origin[1] + margin.top;
@@ -40154,9 +40376,11 @@
 					return each.id === _this3.props.id;
 				})[0].origin;
 
-				var _origin = _slicedToArray(origin, 2),
-				    x = _origin[0],
-				    y = _origin[1];
+				var _origin = _slicedToArray(origin, 2);
+
+				var x = _origin[0];
+				var y = _origin[1];
+
 
 				return _react2.default.createElement(
 					"g",
@@ -40223,7 +40447,7 @@
 	exports.default = Chart;
 
 /***/ },
-/* 302 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -40238,11 +40462,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Selection = __webpack_require__(303);
+	var _d3Selection = __webpack_require__(302);
 
 	var _utils = __webpack_require__(281);
 
-	var _ChartDataUtil = __webpack_require__(299);
+	var _ChartDataUtil = __webpack_require__(298);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -40318,9 +40542,9 @@
 		}, {
 			key: "handleWheel",
 			value: function handleWheel(e) {
-				var _props = this.props,
-				    zoom = _props.zoom,
-				    onZoom = _props.onZoom;
+				var _props = this.props;
+				var zoom = _props.zoom;
+				var onZoom = _props.onZoom;
 
 
 				if (zoom && this.focus && e.deltaY !== 0) {
@@ -40335,9 +40559,9 @@
 		}, {
 			key: "handleMouseMove",
 			value: function handleMouseMove(e) {
-				var _props2 = this.props,
-				    onMouseMove = _props2.onMouseMove,
-				    mouseMove = _props2.mouseMove;
+				var _props2 = this.props;
+				var onMouseMove = _props2.onMouseMove;
+				var mouseMove = _props2.mouseMove;
 
 
 				if (this.mouseInteraction && mouseMove && !this.state.panInProgress) {
@@ -40353,18 +40577,18 @@
 				e.stopPropagation();
 				e.preventDefault();
 
-				var _props3 = this.props,
-				    onContextMenu = _props3.onContextMenu,
-				    onPanEnd = _props3.onPanEnd;
+				var _props3 = this.props;
+				var onContextMenu = _props3.onContextMenu;
+				var onPanEnd = _props3.onPanEnd;
 
 
 				var mouseXY = (0, _utils.mousePosition)(e, this.node.getBoundingClientRect());
 
 				if ((0, _utils.isDefined)(this.state.panStart)) {
-					var _state$panStart = this.state.panStart,
-					    panStartXScale = _state$panStart.panStartXScale,
-					    panOrigin = _state$panStart.panOrigin,
-					    chartsToPan = _state$panStart.chartsToPan;
+					var _state$panStart = this.state.panStart;
+					var panStartXScale = _state$panStart.panStartXScale;
+					var panOrigin = _state$panStart.panOrigin;
+					var chartsToPan = _state$panStart.chartsToPan;
 
 					if (this.panHappened) {
 						onPanEnd(mouseXY, panStartXScale, panOrigin, chartsToPan, e);
@@ -40387,11 +40611,11 @@
 			value: function handleMouseDown(e) {
 				var _this2 = this;
 
-				var _props4 = this.props,
-				    pan = _props4.pan,
-				    xScale = _props4.xScale,
-				    chartConfig = _props4.chartConfig,
-				    onMouseDown = _props4.onMouseDown;
+				var _props4 = this.props;
+				var pan = _props4.pan;
+				var xScale = _props4.xScale;
+				var chartConfig = _props4.chartConfig;
+				var onMouseDown = _props4.onMouseDown;
 
 				this.panHappened = false;
 				this.focus = true;
@@ -40436,9 +40660,9 @@
 			key: "handlePan",
 			value: function handlePan() {
 				var e = _d3Selection.event;
-				var _props5 = this.props,
-				    panEnabled = _props5.pan,
-				    onPan = _props5.onPan;
+				var _props5 = this.props;
+				var panEnabled = _props5.pan;
+				var onPan = _props5.onPan;
 
 				// console.log("moved from- ", startXY, " to ", newPos);
 
@@ -40446,10 +40670,10 @@
 
 					this.panHappened = true;
 
-					var _state$panStart2 = this.state.panStart,
-					    panStartXScale = _state$panStart2.panStartXScale,
-					    panOrigin = _state$panStart2.panOrigin,
-					    chartsToPan = _state$panStart2.chartsToPan;
+					var _state$panStart2 = this.state.panStart;
+					var panStartXScale = _state$panStart2.panStartXScale;
+					var panOrigin = _state$panStart2.panOrigin;
+					var chartsToPan = _state$panStart2.chartsToPan;
 
 
 					var rect = this.node.getBoundingClientRect();
@@ -40465,18 +40689,18 @@
 
 				var e = _d3Selection.event;
 
-				var _props6 = this.props,
-				    panEnabled = _props6.pan,
-				    onPanEnd = _props6.onPanEnd,
-				    onClick = _props6.onClick,
-				    onDoubleClick = _props6.onDoubleClick;
+				var _props6 = this.props;
+				var panEnabled = _props6.pan;
+				var onPanEnd = _props6.onPanEnd;
+				var onClick = _props6.onClick;
+				var onDoubleClick = _props6.onDoubleClick;
 
 
 				if ((0, _utils.isDefined)(this.state.panStart)) {
-					var _state$panStart3 = this.state.panStart,
-					    panStartXScale = _state$panStart3.panStartXScale,
-					    panOrigin = _state$panStart3.panOrigin,
-					    chartsToPan = _state$panStart3.chartsToPan;
+					var _state$panStart3 = this.state.panStart;
+					var panStartXScale = _state$panStart3.panStartXScale;
+					var panOrigin = _state$panStart3.panOrigin;
+					var chartsToPan = _state$panStart3.chartsToPan;
 
 
 					var rect = this.node.getBoundingClientRect();
@@ -40514,9 +40738,9 @@
 				this.mouseInteraction = false;
 
 				var panEnabled = this.props.pan;
-				var _props7 = this.props,
-				    xScale = _props7.xScale,
-				    onPanEnd = _props7.onPanEnd;
+				var _props7 = this.props;
+				var xScale = _props7.xScale;
+				var onPanEnd = _props7.onPanEnd;
 
 
 				if (e.touches.length === 1) {
@@ -40541,16 +40765,16 @@
 					// pinch zoom begin
 					// do nothing pinch zoom is handled in handleTouchMove
 					var touch1 = getTouchProps(e.touches[0]);
-					var _state = this.state,
-					    panInProgress = _state.panInProgress,
-					    panStart = _state.panStart;
+					var _state = this.state;
+					var panInProgress = _state.panInProgress;
+					var panStart = _state.panStart;
 
 
 					if (panInProgress && panEnabled && onPanEnd) {
-						var _dx = panStart.dx,
-						    _dy = panStart.dy,
-						    panStartXScale = panStart.panStartXScale,
-						    panOrigin = panStart.panOrigin;
+						var _dx = panStart.dx;
+						var _dy = panStart.dy;
+						var panStartXScale = panStart.panStartXScale;
+						var panOrigin = panStart.panOrigin;
 
 						// end pan first
 
@@ -40573,16 +40797,16 @@
 		}, {
 			key: "handleTouchMove",
 			value: function handleTouchMove(e) {
-				var _props8 = this.props,
-				    panEnabled = _props8.pan,
-				    zoomEnabled = _props8.zoom;
-				var _props9 = this.props,
-				    xScale = _props9.xScale,
-				    onPan = _props9.onPan,
-				    onPinchZoom = _props9.onPinchZoom;
-				var _state2 = this.state,
-				    panInProgress = _state2.panInProgress,
-				    panStart = _state2.panStart;
+				var _props8 = this.props;
+				var panEnabled = _props8.pan;
+				var zoomEnabled = _props8.zoom;
+				var _props9 = this.props;
+				var xScale = _props9.xScale;
+				var onPan = _props9.onPan;
+				var onPinchZoom = _props9.onPinchZoom;
+				var _state2 = this.state;
+				var panInProgress = _state2.panInProgress;
+				var panStart = _state2.panStart;
 
 
 				if (e.touches.length === 1) {
@@ -40590,11 +40814,11 @@
 					var touch = this.lastTouch = getTouchProps(e.touches[0]);
 
 					if (panInProgress && panEnabled && onPan) {
-						var dx = panStart.dx,
-						    dy = panStart.dy,
-						    panStartXScale = panStart.panStartXScale,
-						    panOrigin = panStart.panOrigin,
-						    chartsToPan = panStart.chartsToPan;
+						var dx = panStart.dx;
+						var dy = panStart.dy;
+						var panStartXScale = panStart.panStartXScale;
+						var panOrigin = panStart.panOrigin;
+						var chartsToPan = panStart.chartsToPan;
 
 
 						var newPos = [touch.pageX - dx, touch.pageY - dy];
@@ -40633,20 +40857,20 @@
 			key: "handleTouchEnd",
 			value: function handleTouchEnd(e) {
 				// TODO enableMouseInteraction
-				var _props10 = this.props,
-				    panEnabled = _props10.pan,
-				    onPanEnd = _props10.onPanEnd;
-				var _state3 = this.state,
-				    panInProgress = _state3.panInProgress,
-				    panStart = _state3.panStart;
+				var _props10 = this.props;
+				var panEnabled = _props10.pan;
+				var onPanEnd = _props10.onPanEnd;
+				var _state3 = this.state;
+				var panInProgress = _state3.panInProgress;
+				var panStart = _state3.panStart;
 
 
 				if (this.lastTouch && (0, _utils.isDefined)(panStart)) {
-					var dx = panStart.dx,
-					    dy = panStart.dy,
-					    panStartXScale = panStart.panStartXScale,
-					    panOrigin = panStart.panOrigin,
-					    chartsToPan = panStart.chartsToPan;
+					var dx = panStart.dx;
+					var dy = panStart.dy;
+					var panStartXScale = panStart.panStartXScale;
+					var panOrigin = panStart.panOrigin;
+					var chartsToPan = panStart.chartsToPan;
 
 					var newPos = [this.lastTouch.pageX - dx, this.lastTouch.pageY - dy];
 
@@ -40664,9 +40888,9 @@
 		}, {
 			key: "render",
 			value: function render() {
-				var _props11 = this.props,
-				    height = _props11.height,
-				    width = _props11.width;
+				var _props11 = this.props;
+				var height = _props11.height;
+				var width = _props11.width;
 
 				var className = this.state.panInProgress ? "react-stockcharts-grabbing-cursor" : "react-stockcharts-crosshair-cursor";
 				return _react2.default.createElement("rect", { ref: this.saveNode,
@@ -40726,7 +40950,7 @@
 	exports.default = EventCapture;
 
 /***/ },
-/* 303 */
+/* 302 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// https://d3js.org/d3-selection/ Version 1.0.2. Copyright 2016 Mike Bostock.
@@ -41704,7 +41928,7 @@
 	}));
 
 /***/ },
-/* 304 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -41757,12 +41981,12 @@
 		}, {
 			key: "render",
 			value: function render() {
-				var _props = this.props,
-				    height = _props.height,
-				    width = _props.width,
-				    type = _props.type,
-				    zIndex = _props.zIndex,
-				    ratio = _props.ratio;
+				var _props = this.props;
+				var height = _props.height;
+				var width = _props.width;
+				var type = _props.type;
+				var zIndex = _props.zIndex;
+				var ratio = _props.ratio;
 
 				if (type === "svg") return null;
 				// console.log("using ratio ", ratio);
@@ -41798,7 +42022,7 @@
 	exports.default = CanvasContainer;
 
 /***/ },
-/* 305 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {"use strict";
@@ -41817,8 +42041,7 @@
 		    calculator = [],
 		    scaleProvider,
 		    indexAccessor,
-		    indexMutator,
-		    clamp;
+		    indexMutator;
 
 		function evaluate(data) {
 
@@ -41838,14 +42061,16 @@
 			if ((0, _utils.isDefined)(scaleProvider)) {
 				var scaleProvider2 = scaleProvider.inputDateAccessor(xAccessor).indexAccessor(indexAccessor).indexMutator(indexMutator);
 
-				var _scaleProvider = scaleProvider2(calculatedData),
-				    finalData = _scaleProvider.data,
-				    modifiedXScale = _scaleProvider.xScale,
-				    realXAccessor = _scaleProvider.xAccessor,
-				    displayXAccessor = _scaleProvider.displayXAccessor;
+				var _scaleProvider = scaleProvider2(calculatedData);
+
+				var finalData = _scaleProvider.data;
+				var modifiedXScale = _scaleProvider.xScale;
+				var realXAccessor = _scaleProvider.xAccessor;
+				var displayXAccessor = _scaleProvider.displayXAccessor;
+
 
 				return {
-					filterData: extentsWrapper(xAccessor, realXAccessor, useWholeData || (0, _utils.isNotDefined)(modifiedXScale.invert), clamp),
+					filterData: extentsWrapper(xAccessor, realXAccessor, useWholeData || (0, _utils.isNotDefined)(modifiedXScale.invert)),
 					fullData: finalData,
 					xScale: modifiedXScale,
 					xAccessor: realXAccessor,
@@ -41854,18 +42079,13 @@
 			}
 
 			return {
-				filterData: extentsWrapper(xAccessor, xAccessor, useWholeData || (0, _utils.isNotDefined)(xScale.invert), clamp),
+				filterData: extentsWrapper(xAccessor, xAccessor, useWholeData || (0, _utils.isNotDefined)(xScale.invert)),
 				fullData: calculatedData,
 				xScale: xScale,
 				xAccessor: xAccessor,
 				displayXAccessor: xAccessor
 			};
 		}
-		evaluate.clamp = function (x) {
-			if (!arguments.length) return clamp;
-			clamp = x;
-			return evaluate;
-		};
 		evaluate.xAccessor = function (x) {
 			if (!arguments.length) return xAccessor;
 			xAccessor = x;
@@ -41921,7 +42141,7 @@
 
 	var debug = false;
 
-	function extentsWrapper(inputXAccessor, realXAccessor, useWholeData, clamp) {
+	function extentsWrapper(inputXAccessor, realXAccessor, useWholeData) {
 		function domain(data, inputDomain, xAccessor, initialXScale, currentPlotData, currentDomain) {
 			if (useWholeData) {
 				return { plotData: data, domain: inputDomain };
@@ -41931,9 +42151,8 @@
 			var right = (0, _utils.last)(inputDomain);
 
 			var filteredData = getFilteredResponse(data, left, right, xAccessor);
-			var clampedDomain = [Math.max(left, realXAccessor((0, _utils.first)(data))), Math.min(right, realXAccessor((0, _utils.last)(data)))];
 
-			var realInputDomain = realXAccessor === xAccessor ? clamp ? clampedDomain : inputDomain : [realXAccessor((0, _utils.first)(filteredData)), realXAccessor((0, _utils.last)(filteredData))];
+			var realInputDomain = realXAccessor === xAccessor ? inputDomain : [realXAccessor((0, _utils.first)(filteredData)), realXAccessor((0, _utils.last)(filteredData))];
 
 			var xScale = initialXScale.copy().domain(realInputDomain);
 
@@ -41994,9 +42213,11 @@
 			return funcs[0];
 		}
 
-		var _funcs = _toArray(funcs),
-		    head = _funcs[0],
-		    tail = _funcs.slice(1);
+		var _funcs = _toArray(funcs);
+
+		var head = _funcs[0];
+
+		var tail = _funcs.slice(1);
 
 		return function (args) {
 			return tail.reduce(function (composed, f) {
@@ -42007,7 +42228,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 306 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -42026,7 +42247,7 @@
 
 	var _react = __webpack_require__(1);
 
-	var _GenericComponent2 = __webpack_require__(307);
+	var _GenericComponent2 = __webpack_require__(306);
 
 	var _GenericComponent3 = _interopRequireDefault(_GenericComponent2);
 
@@ -42056,16 +42277,16 @@
 			key: "preCanvasDraw",
 			value: function preCanvasDraw(ctx) {
 				ctx.save();
-				var _context = this.context,
-				    canvasOriginX = _context.canvasOriginX,
-				    canvasOriginY = _context.canvasOriginY,
-				    width = _context.width,
-				    height = _context.height,
-				    margin = _context.margin,
-				    ratio = _context.ratio;
-				var _props = this.props,
-				    clip = _props.clip,
-				    edgeClip = _props.edgeClip;
+				var _context = this.context;
+				var canvasOriginX = _context.canvasOriginX;
+				var canvasOriginY = _context.canvasOriginY;
+				var width = _context.width;
+				var height = _context.height;
+				var margin = _context.margin;
+				var ratio = _context.ratio;
+				var _props = this.props;
+				var clip = _props.clip;
+				var edgeClip = _props.edgeClip;
 
 
 				ctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -42129,7 +42350,7 @@
 	}
 
 /***/ },
-/* 307 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -42345,9 +42566,9 @@
 		}, {
 			key: "componentWillReceiveProps",
 			value: function componentWillReceiveProps(nextProps, nextContext) {
-				var xScale = nextContext.xScale,
-				    plotData = nextContext.plotData,
-				    chartConfig = nextContext.chartConfig;
+				var xScale = nextContext.xScale;
+				var plotData = nextContext.plotData;
+				var chartConfig = nextContext.chartConfig;
 
 				if (this.props.debug) console.log(nextContext);
 				this.moreProps = _extends({}, this.moreProps, {
@@ -42357,15 +42578,15 @@
 		}, {
 			key: "getMoreProps",
 			value: function getMoreProps() {
-				var _context = this.context,
-				    xScale = _context.xScale,
-				    plotData = _context.plotData,
-				    chartConfig = _context.chartConfig,
-				    morePropsDecorator = _context.morePropsDecorator,
-				    xAccessor = _context.xAccessor,
-				    displayXAccessor = _context.displayXAccessor,
-				    width = _context.width,
-				    height = _context.height;
+				var _context = this.context;
+				var xScale = _context.xScale;
+				var plotData = _context.plotData;
+				var chartConfig = _context.chartConfig;
+				var morePropsDecorator = _context.morePropsDecorator;
+				var xAccessor = _context.xAccessor;
+				var displayXAccessor = _context.displayXAccessor;
+				var width = _context.width;
+				var height = _context.height;
 				var chartId = this.context.chartId;
 
 
@@ -42396,10 +42617,10 @@
 		}, {
 			key: "drawOnCanvas",
 			value: function drawOnCanvas() {
-				var _props = this.props,
-				    canvasDraw = _props.canvasDraw,
-				    canvasToDraw = _props.canvasToDraw,
-				    hoverCanvasToDraw = _props.hoverCanvasToDraw;
+				var _props = this.props;
+				var canvasDraw = _props.canvasDraw;
+				var canvasToDraw = _props.canvasToDraw;
+				var hoverCanvasToDraw = _props.hoverCanvasToDraw;
 				var getCanvasContexts = this.context.getCanvasContexts;
 
 
@@ -42417,13 +42638,13 @@
 		}, {
 			key: "render",
 			value: function render() {
-				var _context2 = this.context,
-				    chartCanvasType = _context2.chartCanvasType,
-				    chartId = _context2.chartId;
-				var _props2 = this.props,
-				    canvasDraw = _props2.canvasDraw,
-				    clip = _props2.clip,
-				    svgDraw = _props2.svgDraw;
+				var _context2 = this.context;
+				var chartCanvasType = _context2.chartCanvasType;
+				var chartId = _context2.chartId;
+				var _props2 = this.props;
+				var canvasDraw = _props2.canvasDraw;
+				var clip = _props2.clip;
+				var svgDraw = _props2.svgDraw;
 
 
 				if ((0, _utils.isDefined)(canvasDraw) && chartCanvasType !== "svg") return null;
@@ -42511,7 +42732,7 @@
 	exports.default = GenericComponent;
 
 /***/ },
-/* 308 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -42526,7 +42747,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _PureComponent2 = __webpack_require__(298);
+	var _PureComponent2 = __webpack_require__(297);
 
 	var _PureComponent3 = _interopRequireDefault(_PureComponent2);
 
@@ -42570,16 +42791,16 @@
 
 				if (chartCanvasType !== "svg") return null;
 
-				var _props = this.props,
-				    x = _props.x,
-				    y = _props.y,
-				    fill = _props.fill,
-				    opacity = _props.opacity,
-				    stroke = _props.stroke,
-				    strokeOpacity = _props.strokeOpacity,
-				    fontFamily = _props.fontFamily,
-				    fontSize = _props.fontSize,
-				    textAnchor = _props.textAnchor;
+				var _props = this.props;
+				var x = _props.x;
+				var y = _props.y;
+				var fill = _props.fill;
+				var opacity = _props.opacity;
+				var stroke = _props.stroke;
+				var strokeOpacity = _props.strokeOpacity;
+				var fontFamily = _props.fontFamily;
+				var fontSize = _props.fontSize;
+				var textAnchor = _props.textAnchor;
 
 				var props = { x: x, y: y, fill: fill, opacity: opacity, stroke: stroke, strokeOpacity: strokeOpacity, fontFamily: fontFamily, fontSize: fontSize, textAnchor: textAnchor };
 				return _react2.default.createElement(
@@ -42602,15 +42823,15 @@
 		ctx.setTransform(1, 0, 0, 1, 0, 0);
 		ctx.translate(0.5, 0.5);
 
-		var x = props.x,
-		    y = props.y,
-		    fill = props.fill,
-		    opacity = props.opacity,
-		    stroke = props.stroke,
-		    strokeOpacity = props.strokeOpacity,
-		    fontFamily = props.fontFamily,
-		    fontSize = props.fontSize,
-		    textAnchor = props.textAnchor;
+		var x = props.x;
+		var y = props.y;
+		var fill = props.fill;
+		var opacity = props.opacity;
+		var stroke = props.stroke;
+		var strokeOpacity = props.strokeOpacity;
+		var fontFamily = props.fontFamily;
+		var fontSize = props.fontSize;
+		var textAnchor = props.textAnchor;
 
 
 		var text = getText(interval);
@@ -42659,7 +42880,7 @@
 	exports.default = BackgroundText;
 
 /***/ },
-/* 309 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -42667,93 +42888,85 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.StraightLine = exports.VolumeProfileSeries = exports.ElderRaySeries = exports.StochasticSeries = exports.RSISeries = exports.BollingerSeries = exports.MACDSeries = exports.RenkoSeries = exports.PointAndFigureSeries = exports.KagiSeries = exports.GroupedBarSeries = exports.StackedBarSeries = exports.BarSeries = exports.OHLCSeries = exports.CandlestickSeries = exports.LineSeries = exports.AreaOnlySeries = exports.AreaSeries = exports.SquareMarker = exports.TriangleMarker = exports.CircleMarker = exports.ScatterSeries = undefined;
+	exports.StraightLine = exports.VolumeProfileSeries = exports.ElderRaySeries = exports.StochasticSeries = exports.RSISeries = exports.BollingerSeries = exports.MACDSeries = exports.RenkoSeries = exports.PointAndFigureSeries = exports.KagiSeries = exports.GroupedBarSeries = exports.StackedBarSeries = exports.BarSeries = exports.OHLCSeries = exports.CandlestickSeries = exports.LineSeries = exports.AreaOnlySeries = exports.AreaSeries = exports.CircleMarker = exports.ScatterSeries = undefined;
 
-	var _AreaSeries = __webpack_require__(310);
+	var _AreaSeries = __webpack_require__(309);
 
 	var _AreaSeries2 = _interopRequireDefault(_AreaSeries);
 
-	var _AreaOnlySeries = __webpack_require__(314);
+	var _AreaOnlySeries = __webpack_require__(313);
 
 	var _AreaOnlySeries2 = _interopRequireDefault(_AreaOnlySeries);
 
-	var _ScatterSeries = __webpack_require__(315);
+	var _ScatterSeries = __webpack_require__(314);
 
 	var _ScatterSeries2 = _interopRequireDefault(_ScatterSeries);
 
-	var _CircleMarker = __webpack_require__(316);
+	var _CircleMarker = __webpack_require__(315);
 
 	var _CircleMarker2 = _interopRequireDefault(_CircleMarker);
 
-	var _TriangleMarker = __webpack_require__(317);
-
-	var _TriangleMarker2 = _interopRequireDefault(_TriangleMarker);
-
-	var _SquareMarker = __webpack_require__(318);
-
-	var _SquareMarker2 = _interopRequireDefault(_SquareMarker);
-
-	var _LineSeries = __webpack_require__(311);
+	var _LineSeries = __webpack_require__(310);
 
 	var _LineSeries2 = _interopRequireDefault(_LineSeries);
 
-	var _CandlestickSeries = __webpack_require__(319);
+	var _CandlestickSeries = __webpack_require__(316);
 
 	var _CandlestickSeries2 = _interopRequireDefault(_CandlestickSeries);
 
-	var _OHLCSeries = __webpack_require__(320);
+	var _OHLCSeries = __webpack_require__(317);
 
 	var _OHLCSeries2 = _interopRequireDefault(_OHLCSeries);
 
-	var _BarSeries = __webpack_require__(321);
+	var _BarSeries = __webpack_require__(318);
 
 	var _BarSeries2 = _interopRequireDefault(_BarSeries);
 
-	var _StackedBarSeries = __webpack_require__(322);
+	var _StackedBarSeries = __webpack_require__(319);
 
 	var _StackedBarSeries2 = _interopRequireDefault(_StackedBarSeries);
 
-	var _GroupedBarSeries = __webpack_require__(323);
+	var _GroupedBarSeries = __webpack_require__(320);
 
 	var _GroupedBarSeries2 = _interopRequireDefault(_GroupedBarSeries);
 
-	var _KagiSeries = __webpack_require__(324);
+	var _KagiSeries = __webpack_require__(321);
 
 	var _KagiSeries2 = _interopRequireDefault(_KagiSeries);
 
-	var _PointAndFigureSeries = __webpack_require__(325);
+	var _PointAndFigureSeries = __webpack_require__(322);
 
 	var _PointAndFigureSeries2 = _interopRequireDefault(_PointAndFigureSeries);
 
-	var _RenkoSeries = __webpack_require__(326);
+	var _RenkoSeries = __webpack_require__(323);
 
 	var _RenkoSeries2 = _interopRequireDefault(_RenkoSeries);
 
-	var _MACDSeries = __webpack_require__(327);
+	var _MACDSeries = __webpack_require__(324);
 
 	var _MACDSeries2 = _interopRequireDefault(_MACDSeries);
 
-	var _BollingerSeries = __webpack_require__(329);
+	var _BollingerSeries = __webpack_require__(326);
 
 	var _BollingerSeries2 = _interopRequireDefault(_BollingerSeries);
 
-	var _RSISeries = __webpack_require__(330);
+	var _RSISeries = __webpack_require__(327);
 
 	var _RSISeries2 = _interopRequireDefault(_RSISeries);
 
-	var _StochasticSeries = __webpack_require__(331);
+	var _StochasticSeries = __webpack_require__(328);
 
 	var _StochasticSeries2 = _interopRequireDefault(_StochasticSeries);
 
-	var _ElderRaySeries = __webpack_require__(332);
+	var _ElderRaySeries = __webpack_require__(329);
 
 	var _ElderRaySeries2 = _interopRequireDefault(_ElderRaySeries);
 
-	var _VolumeProfileSeries = __webpack_require__(334);
+	var _VolumeProfileSeries = __webpack_require__(331);
 
 	var _VolumeProfileSeries2 = _interopRequireDefault(_VolumeProfileSeries);
 
-	var _StraightLine = __webpack_require__(328);
+	var _StraightLine = __webpack_require__(325);
 
 	var _StraightLine2 = _interopRequireDefault(_StraightLine);
 
@@ -42761,8 +42974,6 @@
 
 	exports.ScatterSeries = _ScatterSeries2.default;
 	exports.CircleMarker = _CircleMarker2.default;
-	exports.TriangleMarker = _TriangleMarker2.default;
-	exports.SquareMarker = _SquareMarker2.default;
 	exports.AreaSeries = _AreaSeries2.default;
 	exports.AreaOnlySeries = _AreaOnlySeries2.default;
 	exports.LineSeries = _LineSeries2.default;
@@ -42783,7 +42994,7 @@
 	exports.StraightLine = _StraightLine2.default;
 
 /***/ },
-/* 310 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -42796,24 +43007,24 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _LineSeries = __webpack_require__(311);
+	var _LineSeries = __webpack_require__(310);
 
 	var _LineSeries2 = _interopRequireDefault(_LineSeries);
 
-	var _AreaOnlySeries = __webpack_require__(314);
+	var _AreaOnlySeries = __webpack_require__(313);
 
 	var _AreaOnlySeries2 = _interopRequireDefault(_AreaOnlySeries);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function AreaSeries(props) {
-		var yAccessor = props.yAccessor,
-		    baseAt = props.baseAt;
-		var className = props.className,
-		    opacity = props.opacity,
-		    stroke = props.stroke,
-		    strokeWidth = props.strokeWidth,
-		    fill = props.fill;
+		var yAccessor = props.yAccessor;
+		var baseAt = props.baseAt;
+		var className = props.className;
+		var opacity = props.opacity;
+		var stroke = props.stroke;
+		var strokeWidth = props.strokeWidth;
+		var fill = props.fill;
 
 
 		return _react2.default.createElement(
@@ -42853,7 +43064,7 @@
 	exports.default = AreaSeries;
 
 /***/ },
-/* 311 */
+/* 310 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -42870,9 +43081,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Shape = __webpack_require__(312);
+	var _d3Shape = __webpack_require__(311);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
@@ -42904,32 +43115,34 @@
 			key: "isHover",
 			value: function isHover(moreProps) {
 				// console.log("HERE")
-				var _props = this.props,
-				    highlightOnHover = _props.highlightOnHover,
-				    yAccessor = _props.yAccessor,
-				    hoverTolerance = _props.hoverTolerance;
+				var _props = this.props;
+				var highlightOnHover = _props.highlightOnHover;
+				var yAccessor = _props.yAccessor;
+				var hoverTolerance = _props.hoverTolerance;
 
 
 				if (!highlightOnHover) return false;
 
-				var mouseXY = moreProps.mouseXY,
-				    currentItem = moreProps.currentItem,
-				    xScale = moreProps.xScale,
-				    plotData = moreProps.plotData;
-				var _moreProps$chartConfi = moreProps.chartConfig,
-				    yScale = _moreProps$chartConfi.yScale,
-				    origin = _moreProps$chartConfi.origin;
+				var mouseXY = moreProps.mouseXY;
+				var currentItem = moreProps.currentItem;
+				var xScale = moreProps.xScale;
+				var plotData = moreProps.plotData;
+				var _moreProps$chartConfi = moreProps.chartConfig;
+				var yScale = _moreProps$chartConfi.yScale;
+				var origin = _moreProps$chartConfi.origin;
 				var xAccessor = moreProps.xAccessor;
 
-				var _mouseXY = _slicedToArray(mouseXY, 2),
-				    x = _mouseXY[0],
-				    y = _mouseXY[1];
+				var _mouseXY = _slicedToArray(mouseXY, 2);
+
+				var x = _mouseXY[0];
+				var y = _mouseXY[1];
 
 				var radius = hoverTolerance;
 
-				var _getClosestItemIndexe = (0, _utils.getClosestItemIndexes)(plotData, xScale.invert(x), xAccessor),
-				    left = _getClosestItemIndexe.left,
-				    right = _getClosestItemIndexe.right;
+				var _getClosestItemIndexe = (0, _utils.getClosestItemIndexes)(plotData, xScale.invert(x), xAccessor);
+
+				var left = _getClosestItemIndexe.left;
+				var right = _getClosestItemIndexe.right;
 
 				if (left === right) {
 					var cy = yScale(yAccessor(currentItem)) + origin[1];
@@ -42960,17 +43173,17 @@
 		}, {
 			key: "drawOnCanvas",
 			value: function drawOnCanvas(ctx, moreProps) {
-				var _props2 = this.props,
-				    yAccessor = _props2.yAccessor,
-				    stroke = _props2.stroke,
-				    strokeWidth = _props2.strokeWidth,
-				    hoverStrokeWidth = _props2.hoverStrokeWidth,
-				    defined = _props2.defined;
+				var _props2 = this.props;
+				var yAccessor = _props2.yAccessor;
+				var stroke = _props2.stroke;
+				var strokeWidth = _props2.strokeWidth;
+				var hoverStrokeWidth = _props2.hoverStrokeWidth;
+				var defined = _props2.defined;
 				var xAccessor = moreProps.xAccessor;
-				var xScale = moreProps.xScale,
-				    yScale = moreProps.chartConfig.yScale,
-				    plotData = moreProps.plotData,
-				    hovering = moreProps.hovering;
+				var xScale = moreProps.xScale;
+				var yScale = moreProps.chartConfig.yScale;
+				var plotData = moreProps.plotData;
+				var hovering = moreProps.hovering;
 
 
 				ctx.lineWidth = hovering ? hoverStrokeWidth : strokeWidth;
@@ -42981,9 +43194,9 @@
 				for (var i = 0; i < plotData.length; i++) {
 					var d = plotData[i];
 					if (defined(yAccessor(d), i)) {
-						var _ref = [xScale(xAccessor(d)), yScale(yAccessor(d))],
-						    x = _ref[0],
-						    y = _ref[1];
+						var _ref = [xScale(xAccessor(d)), yScale(yAccessor(d))];
+						var x = _ref[0];
+						var y = _ref[1];
 
 
 						points.push([x, y]);
@@ -42998,17 +43211,17 @@
 		}, {
 			key: "renderSVG",
 			value: function renderSVG(moreProps) {
-				var _props3 = this.props,
-				    yAccessor = _props3.yAccessor,
-				    stroke = _props3.stroke,
-				    strokeWidth = _props3.strokeWidth,
-				    hoverStrokeWidth = _props3.hoverStrokeWidth,
-				    defined = _props3.defined;
+				var _props3 = this.props;
+				var yAccessor = _props3.yAccessor;
+				var stroke = _props3.stroke;
+				var strokeWidth = _props3.strokeWidth;
+				var hoverStrokeWidth = _props3.hoverStrokeWidth;
+				var defined = _props3.defined;
 				var xAccessor = moreProps.xAccessor;
-				var xScale = moreProps.xScale,
-				    yScale = moreProps.chartConfig.yScale,
-				    plotData = moreProps.plotData,
-				    hovering = moreProps.hovering;
+				var xScale = moreProps.xScale;
+				var yScale = moreProps.chartConfig.yScale;
+				var plotData = moreProps.plotData;
+				var hovering = moreProps.hovering;
 
 
 				var dataSeries = (0, _d3Shape.line)().defined(function (d) {
@@ -43021,9 +43234,9 @@
 
 				var d = dataSeries(plotData);
 
-				var _props4 = this.props,
-				    fill = _props4.fill,
-				    className = _props4.className;
+				var _props4 = this.props;
+				var fill = _props4.fill;
+				var className = _props4.className;
 
 
 				return _react2.default.createElement("path", { className: className + " " + (stroke ? "" : " line-stroke"),
@@ -43055,16 +43268,19 @@
 	function segment(points, ctx) {
 		ctx.beginPath();
 
-		var _first = (0, _utils.first)(points),
-		    _first2 = _slicedToArray(_first, 2),
-		    x = _first2[0],
-		    y = _first2[1];
+		var _first = (0, _utils.first)(points);
+
+		var _first2 = _slicedToArray(_first, 2);
+
+		var x = _first2[0];
+		var y = _first2[1];
 
 		ctx.moveTo(x, y);
 		for (var i = 1; i < points.length; i++) {
-			var _points$i = _slicedToArray(points[i], 2),
-			    x1 = _points$i[0],
-			    y1 = _points$i[1];
+			var _points$i = _slicedToArray(points[i], 2);
+
+			var x1 = _points$i[0];
+			var y1 = _points$i[1];
 
 			ctx.lineTo(x1, y1);
 		}
@@ -43112,12 +43328,12 @@
 	exports.default = LineSeries;
 
 /***/ },
-/* 312 */
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// https://d3js.org/d3-shape/ Version 1.0.3. Copyright 2016 Mike Bostock.
 	(function (global, factory) {
-	   true ? factory(exports, __webpack_require__(313)) :
+	   true ? factory(exports, __webpack_require__(312)) :
 	  typeof define === 'function' && define.amd ? define(['exports', 'd3-path'], factory) :
 	  (factory((global.d3 = global.d3 || {}),global.d3));
 	}(this, (function (exports,d3Path) { 'use strict';
@@ -44932,7 +45148,7 @@
 	})));
 
 /***/ },
-/* 313 */
+/* 312 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// https://d3js.org/d3-path/ Version 1.0.2. Copyright 2016 Mike Bostock.
@@ -45093,7 +45309,7 @@
 	})));
 
 /***/ },
-/* 314 */
+/* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -45110,9 +45326,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Shape = __webpack_require__(312);
+	var _d3Shape = __webpack_require__(311);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
@@ -45142,18 +45358,18 @@
 		_createClass(AreaOnlySeries, [{
 			key: "drawOnCanvas",
 			value: function drawOnCanvas(ctx, moreProps) {
-				var _props = this.props,
-				    yAccessor = _props.yAccessor,
-				    defined = _props.defined,
-				    base = _props.base;
-				var _props2 = this.props,
-				    fill = _props2.fill,
-				    stroke = _props2.stroke,
-				    opacity = _props2.opacity;
-				var xScale = moreProps.xScale,
-				    yScale = moreProps.chartConfig.yScale,
-				    plotData = moreProps.plotData,
-				    xAccessor = moreProps.xAccessor;
+				var _props = this.props;
+				var yAccessor = _props.yAccessor;
+				var defined = _props.defined;
+				var base = _props.base;
+				var _props2 = this.props;
+				var fill = _props2.fill;
+				var stroke = _props2.stroke;
+				var opacity = _props2.opacity;
+				var xScale = moreProps.xScale;
+				var yScale = moreProps.chartConfig.yScale;
+				var plotData = moreProps.plotData;
+				var xAccessor = moreProps.xAccessor;
 
 
 				var newBase = (0, _utils.functor)(base);
@@ -45167,10 +45383,10 @@
 				for (var i = 0; i < plotData.length; i++) {
 					var d = plotData[i];
 					if (defined(yAccessor(d), i)) {
-						var _ref = [xScale(xAccessor(d)), yScale(yAccessor(d)), newBase(yScale, d)],
-						    x = _ref[0],
-						    y1 = _ref[1],
-						    y0 = _ref[2];
+						var _ref = [xScale(xAccessor(d)), yScale(yAccessor(d)), newBase(yScale, d)];
+						var x = _ref[0];
+						var y1 = _ref[1];
+						var y0 = _ref[2];
 
 
 						points0.push([x, y0]);
@@ -45186,19 +45402,19 @@
 		}, {
 			key: "renderSVG",
 			value: function renderSVG(moreProps) {
-				var _props3 = this.props,
-				    yAccessor = _props3.yAccessor,
-				    defined = _props3.defined,
-				    base = _props3.base;
-				var _props4 = this.props,
-				    stroke = _props4.stroke,
-				    fill = _props4.fill,
-				    className = _props4.className,
-				    opacity = _props4.opacity;
-				var xScale = moreProps.xScale,
-				    yScale = moreProps.chartConfig.yScale,
-				    plotData = moreProps.plotData,
-				    xAccessor = moreProps.xAccessor;
+				var _props3 = this.props;
+				var yAccessor = _props3.yAccessor;
+				var defined = _props3.defined;
+				var base = _props3.base;
+				var _props4 = this.props;
+				var stroke = _props4.stroke;
+				var fill = _props4.fill;
+				var className = _props4.className;
+				var opacity = _props4.opacity;
+				var xScale = moreProps.xScale;
+				var yScale = moreProps.chartConfig.yScale;
+				var plotData = moreProps.plotData;
+				var xAccessor = moreProps.xAccessor;
 
 
 				var newBase = (0, _utils.functor)(base);
@@ -45254,26 +45470,30 @@
 	function segment(points0, points1, ctx) {
 		ctx.beginPath();
 
-		var _first = (0, _utils.first)(points0),
-		    _first2 = _slicedToArray(_first, 2),
-		    x0 = _first2[0],
-		    y0 = _first2[1];
+		var _first = (0, _utils.first)(points0);
+
+		var _first2 = _slicedToArray(_first, 2);
+
+		var x0 = _first2[0];
+		var y0 = _first2[1];
 
 		ctx.moveTo(x0, y0);
 
 		var i;
 		for (i = 0; i < points1.length; i++) {
-			var _points1$i = _slicedToArray(points1[i], 2),
-			    x1 = _points1$i[0],
-			    y1 = _points1$i[1];
+			var _points1$i = _slicedToArray(points1[i], 2);
+
+			var x1 = _points1$i[0];
+			var y1 = _points1$i[1];
 
 			ctx.lineTo(x1, y1);
 		}
 
 		for (i = points0.length - 1; i >= 0; i--) {
-			var _points0$i = _slicedToArray(points0[i], 2),
-			    _x = _points0$i[0],
-			    _y = _points0$i[1];
+			var _points0$i = _slicedToArray(points0[i], 2);
+
+			var _x = _points0$i[0];
+			var _y = _points0$i[1];
 
 			ctx.lineTo(_x, _y);
 		}
@@ -45284,7 +45504,7 @@
 	exports.default = AreaOnlySeries;
 
 /***/ },
-/* 315 */
+/* 314 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -45303,7 +45523,7 @@
 
 	var _d3Collection = __webpack_require__(283);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
@@ -45343,9 +45563,9 @@
 		}, {
 			key: "renderSVG",
 			value: function renderSVG(moreProps) {
-				var _props = this.props,
-				    className = _props.className,
-				    markerProps = _props.markerProps;
+				var _props = this.props;
+				var className = _props.className;
+				var markerProps = _props.markerProps;
 				var xAccessor = moreProps.xAccessor;
 
 
@@ -45389,13 +45609,13 @@
 	};
 
 	function helper(props, moreProps, xAccessor) {
-		var yAccessor = props.yAccessor,
-		    Marker = props.marker,
-		    markerProvider = props.markerProvider,
-		    markerProps = props.markerProps;
-		var xScale = moreProps.xScale,
-		    yScale = moreProps.chartConfig.yScale,
-		    plotData = moreProps.plotData;
+		var yAccessor = props.yAccessor;
+		var Marker = props.marker;
+		var markerProvider = props.markerProvider;
+		var markerProps = props.markerProps;
+		var xScale = moreProps.xScale;
+		var yScale = moreProps.chartConfig.yScale;
+		var plotData = moreProps.plotData;
 
 
 		if (!(markerProvider || Marker)) throw new Error("required prop, either marker or markerProvider missing");
@@ -45431,8 +45651,8 @@
 		}).entries(points);
 
 		nest.forEach(function (fillGroup) {
-			var fillKey = fillGroup.key,
-			    fillValues = fillGroup.values;
+			var fillKey = fillGroup.key;
+			var fillValues = fillGroup.values;
 
 
 			if (fillKey !== "none") {
@@ -45456,7 +45676,7 @@
 	exports.default = ScatterSeries;
 
 /***/ },
-/* 316 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -45474,13 +45694,13 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function Circle(props) {
-		var className = props.className,
-		    stroke = props.stroke,
-		    strokeWidth = props.strokeWidth,
-		    opacity = props.opacity,
-		    fill = props.fill,
-		    point = props.point,
-		    r = props.r;
+		var className = props.className;
+		var stroke = props.stroke;
+		var strokeWidth = props.strokeWidth;
+		var opacity = props.opacity;
+		var fill = props.fill;
+		var point = props.point;
+		var r = props.r;
 
 		var radius = (0, _utils.functor)(r)(point.datum);
 		return _react2.default.createElement("circle", { className: className,
@@ -45512,10 +45732,10 @@
 	};
 
 	Circle.drawOnCanvas = function (props, point, ctx) {
-		var stroke = props.stroke,
-		    fill = props.fill,
-		    opacity = props.opacity,
-		    strokeWidth = props.strokeWidth;
+		var stroke = props.stroke;
+		var fill = props.fill;
+		var opacity = props.opacity;
+		var strokeWidth = props.strokeWidth;
 
 
 		ctx.strokeStyle = stroke;
@@ -45543,203 +45763,7 @@
 	exports.default = Circle;
 
 /***/ },
-/* 317 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _utils = __webpack_require__(281);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function Triangle(props) {
-		var className = props.className,
-		    stroke = props.stroke,
-		    strokeWidth = props.strokeWidth,
-		    opacity = props.opacity,
-		    fill = props.fill,
-		    point = props.point,
-		    width = props.width;
-
-		var w = (0, _utils.functor)(width)(point.datum);
-		var x = point.x,
-		    y = point.y;
-
-		var _getTrianglePoints = getTrianglePoints(w),
-		    innerOpposite = _getTrianglePoints.innerOpposite,
-		    innerHypotenuse = _getTrianglePoints.innerHypotenuse;
-
-		var points = "\n\t\t" + x + " " + (y - innerHypotenuse) + ",\n\t\t" + (x + w / 2) + " " + (y + innerOpposite) + ",\n\t\t" + (x - w / 2) + " " + (y + innerOpposite) + "\n\t";
-		return _react2.default.createElement("polygon", {
-			className: className,
-			points: points,
-			stroke: stroke,
-			strokeWidth: strokeWidth,
-			fillOpacity: opacity,
-			fill: fill
-		});
-	}
-	Triangle.propTypes = {
-		stroke: _react.PropTypes.string,
-		fill: _react.PropTypes.string.isRequired,
-		opacity: _react.PropTypes.number.isRequired,
-		point: _react.PropTypes.shape({
-			x: _react.PropTypes.number.isRequired,
-			y: _react.PropTypes.number.isRequired,
-			datum: _react.PropTypes.object.isRequired
-		}).isRequired,
-		className: _react.PropTypes.string,
-		strokeWidth: _react.PropTypes.number,
-		width: _react.PropTypes.oneOfType([_react.PropTypes.number, _react.PropTypes.func]).isRequired
-	};
-	Triangle.defaultProps = {
-		stroke: "#4682B4",
-		strokeWidth: 1,
-		opacity: 0.5,
-		fill: "#4682B4",
-		className: "react-stockcharts-marker-triangle"
-	};
-	Triangle.drawOnCanvas = function (props, point, ctx) {
-		var stroke = props.stroke,
-		    fill = props.fill,
-		    opacity = props.opacity,
-		    strokeWidth = props.strokeWidth;
-
-		ctx.strokeStyle = stroke;
-		ctx.lineWidth = strokeWidth;
-		if (fill !== "none") {
-			ctx.fillStyle = (0, _utils.hexToRGBA)(fill, opacity);
-		}
-		Triangle.drawOnCanvasWithNoStateChange(props, point, ctx);
-	};
-	Triangle.drawOnCanvasWithNoStateChange = function (props, point, ctx) {
-		var width = props.width;
-
-		var w = (0, _utils.functor)(width)(point.datum);
-		var x = point.x,
-		    y = point.y;
-
-		var _getTrianglePoints2 = getTrianglePoints(w),
-		    innerOpposite = _getTrianglePoints2.innerOpposite,
-		    innerHypotenuse = _getTrianglePoints2.innerHypotenuse;
-
-		ctx.beginPath();
-		ctx.moveTo(x, y - innerHypotenuse);
-		ctx.lineTo(x + w / 2, y + innerOpposite);
-		ctx.lineTo(x - w / 2, y + innerOpposite);
-		ctx.stroke();
-		ctx.fill();
-	};
-	exports.default = Triangle;
-
-
-	function getTrianglePoints(width) {
-		var innerHypotenuse = width / 2 * (1 / Math.cos(30 * Math.PI / 180));
-		var innerOpposite = width / 2 * (1 / Math.tan(60 * Math.PI / 180));
-		return {
-			innerOpposite: innerOpposite,
-			innerHypotenuse: innerHypotenuse
-		};
-	}
-
-/***/ },
-/* 318 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _utils = __webpack_require__(281);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function Square(props) {
-		var className = props.className,
-		    stroke = props.stroke,
-		    strokeWidth = props.strokeWidth,
-		    opacity = props.opacity,
-		    fill = props.fill,
-		    point = props.point,
-		    width = props.width;
-
-		var w = (0, _utils.functor)(width)(point.datum);
-		var x = point.x - w / 2;
-		var y = point.y - w / 2;
-		return _react2.default.createElement("rect", {
-			className: className,
-			x: x,
-			y: y,
-			stroke: stroke,
-			strokeWidth: strokeWidth,
-			fillOpacity: opacity,
-			fill: fill,
-			width: w,
-			height: w
-		});
-	}
-	Square.propTypes = {
-		stroke: _react.PropTypes.string,
-		fill: _react.PropTypes.string.isRequired,
-		opacity: _react.PropTypes.number.isRequired,
-		point: _react.PropTypes.shape({
-			x: _react.PropTypes.number.isRequired,
-			y: _react.PropTypes.number.isRequired,
-			datum: _react.PropTypes.object.isRequired
-		}).isRequired,
-		className: _react.PropTypes.string,
-		strokeWidth: _react.PropTypes.number,
-		width: _react.PropTypes.oneOfType([_react.PropTypes.number, _react.PropTypes.func]).isRequired
-	};
-	Square.defaultProps = {
-		stroke: "#4682B4",
-		strokeWidth: 1,
-		opacity: 0.5,
-		fill: "#4682B4",
-		className: "react-stockcharts-marker-rect"
-	};
-	Square.drawOnCanvas = function (props, point, ctx) {
-		var stroke = props.stroke,
-		    fill = props.fill,
-		    opacity = props.opacity,
-		    strokeWidth = props.strokeWidth;
-
-		ctx.strokeStyle = stroke;
-		ctx.lineWidth = strokeWidth;
-		if (fill !== "none") {
-			ctx.fillStyle = (0, _utils.hexToRGBA)(fill, opacity);
-		}
-		Square.drawOnCanvasWithNoStateChange(props, point, ctx);
-	};
-	Square.drawOnCanvasWithNoStateChange = function (props, point, ctx) {
-		var width = props.width;
-
-		var w = (0, _utils.functor)(width)(point.datum);
-		var x = point.x - w / 2;
-		var y = point.y - w / 2;
-		ctx.beginPath();
-		ctx.rect(x, y, w, w);
-		ctx.stroke();
-		ctx.fill();
-	};
-	exports.default = Square;
-
-/***/ },
-/* 319 */
+/* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -45756,7 +45780,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
@@ -45791,10 +45815,10 @@
 		}, {
 			key: "renderSVG",
 			value: function renderSVG(moreProps) {
-				var _props = this.props,
-				    className = _props.className,
-				    wickClassName = _props.wickClassName,
-				    candleClassName = _props.candleClassName;
+				var _props = this.props;
+				var className = _props.className;
+				var wickClassName = _props.wickClassName;
+				var candleClassName = _props.candleClassName;
 
 
 				return _react2.default.createElement(
@@ -45869,10 +45893,10 @@
 	function getWicksSVG(props, moreProps) {
 
 		/* eslint-disable react/prop-types */
-		var xScale = moreProps.xScale,
-		    yScale = moreProps.chartConfig.yScale,
-		    plotData = moreProps.plotData,
-		    xAccessor = moreProps.xAccessor;
+		var xScale = moreProps.xScale;
+		var yScale = moreProps.chartConfig.yScale;
+		var plotData = moreProps.plotData;
+		var xAccessor = moreProps.xAccessor;
 		/* eslint-enable react/prop-types */
 
 		var wickData = getWickData(props, xAccessor, xScale, yScale, plotData);
@@ -45887,12 +45911,12 @@
 	function getCandlesSVG(props, moreProps) {
 
 		/* eslint-disable react/prop-types */
-		var opacity = props.opacity,
-		    candleStrokeWidth = props.candleStrokeWidth;
-		var xScale = moreProps.xScale,
-		    yScale = moreProps.chartConfig.yScale,
-		    plotData = moreProps.plotData,
-		    xAccessor = moreProps.xAccessor;
+		var opacity = props.opacity;
+		var candleStrokeWidth = props.candleStrokeWidth;
+		var xScale = moreProps.xScale;
+		var yScale = moreProps.chartConfig.yScale;
+		var plotData = moreProps.plotData;
+		var xAccessor = moreProps.xAccessor;
 		/* eslint-enable react/prop-types */
 
 		var candleData = getCandleData(props, xAccessor, xScale, yScale, plotData);
@@ -45911,12 +45935,12 @@
 	}
 
 	function _drawOnCanvas(ctx, props, moreProps) {
-		var opacity = props.opacity,
-		    candleStrokeWidth = props.candleStrokeWidth;
-		var xScale = moreProps.xScale,
-		    yScale = moreProps.chartConfig.yScale,
-		    plotData = moreProps.plotData,
-		    xAccessor = moreProps.xAccessor;
+		var opacity = props.opacity;
+		var candleStrokeWidth = props.candleStrokeWidth;
+		var xScale = moreProps.xScale;
+		var yScale = moreProps.chartConfig.yScale;
+		var plotData = moreProps.plotData;
+		var xAccessor = moreProps.xAccessor;
 
 
 		var wickData = getWickData(props, xAccessor, xScale, yScale, plotData);
@@ -45926,8 +45950,8 @@
 		}).entries(wickData);
 
 		wickNest.forEach(function (outer) {
-			var key = outer.key,
-			    values = outer.values;
+			var key = outer.key;
+			var values = outer.values;
 
 			ctx.strokeStyle = key;
 			values.forEach(function (d) {
@@ -45950,16 +45974,16 @@
 		}).entries(candleData);
 
 		candleNest.forEach(function (outer) {
-			var strokeKey = outer.key,
-			    strokeValues = outer.values;
+			var strokeKey = outer.key;
+			var strokeValues = outer.values;
 
 			if (strokeKey !== "none") {
 				ctx.strokeStyle = strokeKey;
 				ctx.lineWidth = candleStrokeWidth;
 			}
 			strokeValues.forEach(function (inner) {
-				var key = inner.key,
-				    values = inner.values;
+				var key = inner.key;
+				var values = inner.values;
 
 				ctx.fillStyle = (0, _utils.hexToRGBA)(key, opacity);
 
@@ -45989,9 +46013,9 @@
 	}
 
 	function getWickData(props, xAccessor, xScale, yScale, plotData) {
-		var classNameProp = props.classNames,
-		    wickStrokeProp = props.wickStroke,
-		    yAccessor = props.yAccessor;
+		var classNameProp = props.classNames;
+		var wickStrokeProp = props.wickStroke;
+		var yAccessor = props.yAccessor;
 
 		var wickStroke = (0, _utils.functor)(wickStrokeProp);
 		var className = (0, _utils.functor)(classNameProp);
@@ -46022,11 +46046,11 @@
 	}
 
 	function getCandleData(props, xAccessor, xScale, yScale, plotData) {
-		var classNames = props.classNames,
-		    fillProp = props.fill,
-		    strokeProp = props.stroke,
-		    widthRatio = props.widthRatio,
-		    yAccessor = props.yAccessor;
+		var classNames = props.classNames;
+		var fillProp = props.fill;
+		var strokeProp = props.stroke;
+		var widthRatio = props.widthRatio;
+		var yAccessor = props.yAccessor;
 
 		var fill = (0, _utils.functor)(fillProp);
 		var stroke = (0, _utils.functor)(strokeProp);
@@ -46062,7 +46086,7 @@
 	exports.default = CandlestickSeries;
 
 /***/ },
-/* 320 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -46079,7 +46103,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
@@ -46111,9 +46135,9 @@
 			value: function drawOnCanvas(ctx, moreProps) {
 				var yAccessor = this.props.yAccessor;
 				var xAccessor = moreProps.xAccessor;
-				var xScale = moreProps.xScale,
-				    yScale = moreProps.chartConfig.yScale,
-				    plotData = moreProps.plotData;
+				var xScale = moreProps.xScale;
+				var yScale = moreProps.chartConfig.yScale;
+				var plotData = moreProps.plotData;
 
 
 				var barData = getOHLCBars(this.props, xAccessor, yAccessor, xScale, yScale, plotData);
@@ -46132,19 +46156,19 @@
 		}, {
 			key: "renderSVG",
 			value: function renderSVG(moreProps) {
-				var _props = this.props,
-				    className = _props.className,
-				    yAccessor = _props.yAccessor;
+				var _props = this.props;
+				var className = _props.className;
+				var yAccessor = _props.yAccessor;
 				var xAccessor = moreProps.xAccessor;
-				var xScale = moreProps.xScale,
-				    yScale = moreProps.chartConfig.yScale,
-				    plotData = moreProps.plotData;
+				var xScale = moreProps.xScale;
+				var yScale = moreProps.chartConfig.yScale;
+				var plotData = moreProps.plotData;
 
 
 				var barData = getOHLCBars(this.props, xAccessor, yAccessor, xScale, yScale, plotData);
 
-				var strokeWidth = barData.strokeWidth,
-				    bars = barData.bars;
+				var strokeWidth = barData.strokeWidth;
+				var bars = barData.bars;
 
 
 				return _react2.default.createElement(
@@ -46184,8 +46208,8 @@
 	};
 
 	function _drawOnCanvas(ctx, barData) {
-		var strokeWidth = barData.strokeWidth,
-		    bars = barData.bars;
+		var strokeWidth = barData.strokeWidth;
+		var bars = barData.bars;
 
 
 		var wickNest = (0, _d3Collection.nest)().key(function (d) {
@@ -46195,8 +46219,8 @@
 		ctx.lineWidth = strokeWidth;
 
 		wickNest.forEach(function (outer) {
-			var key = outer.key,
-			    values = outer.values;
+			var key = outer.key;
+			var values = outer.values;
 
 			ctx.strokeStyle = key;
 			values.forEach(function (d) {
@@ -46216,8 +46240,8 @@
 	}
 
 	function getOHLCBars(props, xAccessor, yAccessor, xScale, yScale, plotData) {
-		var classNamesProp = props.classNames,
-		    strokeProp = props.stroke;
+		var classNamesProp = props.classNames;
+		var strokeProp = props.stroke;
 
 
 		var strokeFunc = (0, _utils.functor)(strokeProp);
@@ -46252,7 +46276,7 @@
 	exports.default = OHLCSeries;
 
 /***/ },
-/* 321 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -46267,11 +46291,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
-	var _StackedBarSeries = __webpack_require__(322);
+	var _StackedBarSeries = __webpack_require__(319);
 
 	var _StackedBarSeries2 = _interopRequireDefault(_StackedBarSeries);
 
@@ -46346,7 +46370,7 @@
 	exports.default = BarSeries;
 
 /***/ },
-/* 322 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -46375,9 +46399,9 @@
 
 	var _d3Array = __webpack_require__(280);
 
-	var _d3Shape = __webpack_require__(312);
+	var _d3Shape = __webpack_require__(311);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
@@ -46490,9 +46514,9 @@
 	function drawOnCanvasHelper(ctx, props, moreProps, xAccessor, stackFn) {
 		var defaultPostAction = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : _utils.identity;
 		var postRotateAction = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : rotateXY;
-		var xScale = moreProps.xScale,
-		    yScale = moreProps.chartConfig.yScale,
-		    plotData = moreProps.plotData;
+		var xScale = moreProps.xScale;
+		var yScale = moreProps.chartConfig.yScale;
+		var plotData = moreProps.plotData;
 
 
 		var bars = doStuff(props, xAccessor, plotData, xScale, yScale, stackFn, postRotateAction, defaultPostAction);
@@ -46507,17 +46531,17 @@
 	function svgHelper(props, moreProps, xAccessor, stackFn) {
 		var defaultPostAction = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : _utils.identity;
 		var postRotateAction = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : rotateXY;
-		var xScale = moreProps.xScale,
-		    yScale = moreProps.chartConfig.yScale,
-		    plotData = moreProps.plotData;
+		var xScale = moreProps.xScale;
+		var yScale = moreProps.chartConfig.yScale;
+		var plotData = moreProps.plotData;
 
 		var bars = doStuff(props, xAccessor, plotData, xScale, yScale, stackFn, postRotateAction, defaultPostAction);
 		return getBarsSVG2(props, bars);
 	}
 
 	function doStuff(props, xAccessor, plotData, xScale, yScale, stackFn, postRotateAction, defaultPostAction) {
-		var yAccessor = props.yAccessor,
-		    swapScales = props.swapScales;
+		var yAccessor = props.yAccessor;
+		var swapScales = props.swapScales;
 
 
 		var modifiedYAccessor = swapScales ? convertToArray(props.xAccessor) : convertToArray(yAccessor);
@@ -46576,8 +46600,8 @@
 		}).entries(bars);
 
 		nest.forEach(function (outer) {
-			var key = outer.key,
-			    values = outer.values;
+			var key = outer.key;
+			var values = outer.values;
 
 			if (values[0].width <= 1) {
 				ctx.strokeStyle = (0, _utils.hexToRGBA)(key, props.opacity);
@@ -46616,13 +46640,13 @@
 	function getBars(props, xAccessor, yAccessor, xScale, yScale, plotData) {
 		var stack = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : identityStack;
 		var after = arguments.length > 7 && arguments[7] !== undefined ? arguments[7] : _utils.identity;
-		var baseAt = props.baseAt,
-		    className = props.className,
-		    fill = props.fill,
-		    stroke = props.stroke,
-		    widthRatio = props.widthRatio,
-		    _props$spaceBetweenBa = props.spaceBetweenBar,
-		    spaceBetweenBar = _props$spaceBetweenBa === undefined ? 0 : _props$spaceBetweenBa;
+		var baseAt = props.baseAt;
+		var className = props.className;
+		var fill = props.fill;
+		var stroke = props.stroke;
+		var widthRatio = props.widthRatio;
+		var _props$spaceBetweenBa = props.spaceBetweenBar;
+		var spaceBetweenBar = _props$spaceBetweenBa === undefined ? 0 : _props$spaceBetweenBa;
 
 
 		var getClassName = (0, _utils.functor)(className);
@@ -46721,7 +46745,7 @@
 	exports.default = StackedBarSeries;
 
 /***/ },
-/* 323 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -46738,11 +46762,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
-	var _StackedBarSeries = __webpack_require__(322);
+	var _StackedBarSeries = __webpack_require__(319);
 
 	var _StackedBarSeries2 = _interopRequireDefault(_StackedBarSeries);
 
@@ -46834,7 +46858,7 @@
 	exports.default = GroupedBarSeries;
 
 /***/ },
-/* 324 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -46849,9 +46873,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Shape = __webpack_require__(312);
+	var _d3Shape = __webpack_require__(311);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
@@ -46900,14 +46924,14 @@
 			key: "renderSVG",
 			value: function renderSVG(moreProps) {
 				var xAccessor = moreProps.xAccessor;
-				var xScale = moreProps.xScale,
-				    yScale = moreProps.chartConfig.yScale,
-				    plotData = moreProps.plotData;
-				var _props = this.props,
-				    className = _props.className,
-				    stroke = _props.stroke,
-				    fill = _props.fill,
-				    strokeWidth = _props.strokeWidth;
+				var xScale = moreProps.xScale;
+				var yScale = moreProps.chartConfig.yScale;
+				var plotData = moreProps.plotData;
+				var _props = this.props;
+				var className = _props.className;
+				var stroke = _props.stroke;
+				var fill = _props.fill;
+				var strokeWidth = _props.strokeWidth;
 
 
 				var paths = helper(plotData, xAccessor).map(function (each, i) {
@@ -46952,12 +46976,12 @@
 	};
 
 	function _drawOnCanvas(ctx, props, moreProps, xAccessor) {
-		var stroke = props.stroke,
-		    strokeWidth = props.strokeWidth,
-		    currentValueStroke = props.currentValueStroke;
-		var xScale = moreProps.xScale,
-		    yScale = moreProps.chartConfig.yScale,
-		    plotData = moreProps.plotData;
+		var stroke = props.stroke;
+		var strokeWidth = props.strokeWidth;
+		var currentValueStroke = props.currentValueStroke;
+		var xScale = moreProps.xScale;
+		var yScale = moreProps.chartConfig.yScale;
+		var plotData = moreProps.plotData;
 
 
 		var paths = helper(plotData, xAccessor);
@@ -46971,9 +46995,9 @@
 			ctx.beginPath();
 			var prevX;
 			each.plot.forEach(function (d) {
-				var _ref = [xScale(d[0]), yScale(d[1])],
-				    x = _ref[0],
-				    y = _ref[1];
+				var _ref = [xScale(d[0]), yScale(d[1])];
+				var x = _ref[0];
+				var y = _ref[1];
 
 				if (begin) {
 					ctx.moveTo(x, y);
@@ -46995,10 +47019,10 @@
 		// ctx.strokeStyle = "black";
 		ctx.lineWidth = 1;
 
-		var _ref2 = [xScale(last[0]), yScale(last[2]), yScale(last[3])],
-		    x = _ref2[0],
-		    y1 = _ref2[1],
-		    y2 = _ref2[2];
+		var _ref2 = [xScale(last[0]), yScale(last[2]), yScale(last[3])];
+		var x = _ref2[0];
+		var y1 = _ref2[1];
+		var y2 = _ref2[2];
 		// console.log(last, x, y);
 
 		ctx.moveTo(x, y1);
@@ -47055,7 +47079,7 @@
 	exports.default = KagiSeries;
 
 /***/ },
-/* 325 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -47072,7 +47096,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
@@ -47103,9 +47127,9 @@
 			key: "drawOnCanvas",
 			value: function drawOnCanvas(ctx, moreProps) {
 				var xAccessor = moreProps.xAccessor;
-				var xScale = moreProps.xScale,
-				    yScale = moreProps.chartConfig.yScale,
-				    plotData = moreProps.plotData;
+				var xScale = moreProps.xScale;
+				var yScale = moreProps.chartConfig.yScale;
+				var plotData = moreProps.plotData;
 
 
 				var columns = getColumns(xScale, xAccessor, yScale, plotData);
@@ -47126,14 +47150,14 @@
 			key: "renderSVG",
 			value: function renderSVG(moreProps) {
 				var xAccessor = moreProps.xAccessor;
-				var xScale = moreProps.xScale,
-				    yScale = moreProps.chartConfig.yScale,
-				    plotData = moreProps.plotData;
-				var _props = this.props,
-				    stroke = _props.stroke,
-				    fill = _props.fill,
-				    strokeWidth = _props.strokeWidth,
-				    className = _props.className;
+				var xScale = moreProps.xScale;
+				var yScale = moreProps.chartConfig.yScale;
+				var plotData = moreProps.plotData;
+				var _props = this.props;
+				var stroke = _props.stroke;
+				var fill = _props.fill;
+				var strokeWidth = _props.strokeWidth;
+				var className = _props.className;
 
 
 				var columns = getColumns(xScale, xAccessor, yScale, plotData);
@@ -47191,17 +47215,18 @@
 	};
 
 	function _drawOnCanvas(ctx, props, columns) {
-		var stroke = props.stroke,
-		    fill = props.fill,
-		    strokeWidth = props.strokeWidth;
+		var stroke = props.stroke;
+		var fill = props.fill;
+		var strokeWidth = props.strokeWidth;
 
 
 		ctx.lineWidth = strokeWidth;
 
 		columns.forEach(function (col) {
-			var _col$offset = _slicedToArray(col.offset, 2),
-			    offsetX = _col$offset[0],
-			    offsetY = _col$offset[1];
+			var _col$offset = _slicedToArray(col.offset, 2);
+
+			var offsetX = _col$offset[0];
+			var offsetY = _col$offset[1];
 
 			col.boxes.forEach(function (box) {
 				if (col.direction > 0) {
@@ -47222,10 +47247,10 @@
 
 					ctx.beginPath();
 
-					var x = offsetX + box.columnWidth / 2,
-					    y = offsetY + box.open + box.boxHeight / 2;
-					var rx = box.columnWidth / 2,
-					    ry = box.boxHeight / 2;
+					var x = offsetX + box.columnWidth / 2;
+					var y = offsetY + box.open + box.boxHeight / 2;
+					var rx = box.columnWidth / 2;
+					var ry = box.boxHeight / 2;
 
 
 					ctx.ellipse(x, y, rx, ry, 0, 0, 2 * Math.PI);
@@ -47279,7 +47304,7 @@
 	exports.default = PointAndFigureSeries;
 
 /***/ },
-/* 326 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -47294,7 +47319,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
@@ -47325,9 +47350,9 @@
 			key: "drawOnCanvas",
 			value: function drawOnCanvas(ctx, moreProps) {
 				var xAccessor = moreProps.xAccessor;
-				var xScale = moreProps.xScale,
-				    yScale = moreProps.chartConfig.yScale,
-				    plotData = moreProps.plotData;
+				var xScale = moreProps.xScale;
+				var yScale = moreProps.chartConfig.yScale;
+				var plotData = moreProps.plotData;
 				var yAccessor = this.props.yAccessor;
 
 
@@ -47349,9 +47374,9 @@
 			key: "renderSVG",
 			value: function renderSVG(moreProps) {
 				var xAccessor = moreProps.xAccessor;
-				var xScale = moreProps.xScale,
-				    yScale = moreProps.chartConfig.yScale,
-				    plotData = moreProps.plotData;
+				var xScale = moreProps.xScale;
+				var yScale = moreProps.chartConfig.yScale;
+				var plotData = moreProps.plotData;
 				var yAccessor = this.props.yAccessor;
 
 
@@ -47428,8 +47453,8 @@
 	}
 
 	function getRenko(props, plotData, xScale, xAccessor, yScale, yAccessor) {
-		var classNames = props.classNames,
-		    fill = props.fill;
+		var classNames = props.classNames;
+		var fill = props.fill;
 
 		var width = xScale(xAccessor(plotData[plotData.length - 1])) - xScale(xAccessor(plotData[0]));
 
@@ -47462,7 +47487,7 @@
 	exports.default = RenkoSeries;
 
 /***/ },
-/* 327 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -47477,15 +47502,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _BarSeries = __webpack_require__(321);
+	var _BarSeries = __webpack_require__(318);
 
 	var _BarSeries2 = _interopRequireDefault(_BarSeries);
 
-	var _LineSeries = __webpack_require__(311);
+	var _LineSeries = __webpack_require__(310);
 
 	var _LineSeries2 = _interopRequireDefault(_LineSeries);
 
-	var _StraightLine = __webpack_require__(328);
+	var _StraightLine = __webpack_require__(325);
 
 	var _StraightLine2 = _interopRequireDefault(_StraightLine);
 
@@ -47544,12 +47569,12 @@
 		}, {
 			key: "render",
 			value: function render() {
-				var _props = this.props,
-				    className = _props.className,
-				    type = _props.type,
-				    opacity = _props.opacity,
-				    divergenceStroke = _props.divergenceStroke,
-				    calculator = _props.calculator;
+				var _props = this.props;
+				var className = _props.className;
+				var type = _props.type;
+				var opacity = _props.opacity;
+				var divergenceStroke = _props.divergenceStroke;
+				var calculator = _props.calculator;
 
 				var stroke = calculator.stroke();
 				var fill = calculator.fill();
@@ -47581,8 +47606,8 @@
 	function getHorizontalLine(props) {
 
 		/* eslint-disable react/prop-types */
-		var zeroLineStroke = props.zeroLineStroke,
-		    zeroLineOpacity = props.zeroLineOpacity;
+		var zeroLineStroke = props.zeroLineStroke;
+		var zeroLineOpacity = props.zeroLineOpacity;
 		/* eslint-enable react/prop-types */
 
 		return _react2.default.createElement(_StraightLine2.default, {
@@ -47613,7 +47638,7 @@
 	exports.default = MACDSeries;
 
 /***/ },
-/* 328 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -47630,7 +47655,7 @@
 
 	var _utils = __webpack_require__(281);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
@@ -47658,14 +47683,14 @@
 		_createClass(StraightLine, [{
 			key: "drawOnCanvas",
 			value: function drawOnCanvas(ctx, moreProps) {
-				var _props = this.props,
-				    stroke = _props.stroke,
-				    opacity = _props.opacity,
-				    yValue = _props.yValue;
+				var _props = this.props;
+				var stroke = _props.stroke;
+				var opacity = _props.opacity;
+				var yValue = _props.yValue;
 				var xAccessor = moreProps.xAccessor;
-				var xScale = moreProps.xScale,
-				    yScale = moreProps.chartConfig.yScale,
-				    plotData = moreProps.plotData;
+				var xScale = moreProps.xScale;
+				var yScale = moreProps.chartConfig.yScale;
+				var plotData = moreProps.plotData;
 
 
 				var first = xAccessor(plotData[0]);
@@ -47693,14 +47718,14 @@
 			key: "renderSVG",
 			value: function renderSVG(moreProps) {
 				var xAccessor = moreProps.xAccessor;
-				var xScale = moreProps.xScale,
-				    yScale = moreProps.chartConfig.yScale,
-				    plotData = moreProps.plotData;
-				var _props2 = this.props,
-				    stroke = _props2.stroke,
-				    className = _props2.className,
-				    opacity = _props2.opacity,
-				    yValue = _props2.yValue;
+				var xScale = moreProps.xScale;
+				var yScale = moreProps.chartConfig.yScale;
+				var plotData = moreProps.plotData;
+				var _props2 = this.props;
+				var stroke = _props2.stroke;
+				var className = _props2.className;
+				var opacity = _props2.opacity;
+				var yValue = _props2.yValue;
 
 
 				var first = xAccessor(plotData[0]);
@@ -47732,7 +47757,7 @@
 	exports.default = StraightLine;
 
 /***/ },
-/* 329 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -47747,11 +47772,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _LineSeries = __webpack_require__(311);
+	var _LineSeries = __webpack_require__(310);
 
 	var _LineSeries2 = _interopRequireDefault(_LineSeries);
 
-	var _AreaOnlySeries = __webpack_require__(314);
+	var _AreaOnlySeries = __webpack_require__(313);
 
 	var _AreaOnlySeries2 = _interopRequireDefault(_AreaOnlySeries);
 
@@ -47813,11 +47838,11 @@
 		}, {
 			key: "render",
 			value: function render() {
-				var _props = this.props,
-				    calculator = _props.calculator,
-				    areaClassName = _props.areaClassName,
-				    className = _props.className,
-				    opacity = _props.opacity;
+				var _props = this.props;
+				var calculator = _props.calculator;
+				var areaClassName = _props.areaClassName;
+				var className = _props.className;
+				var opacity = _props.opacity;
 
 
 				var stroke = calculator.stroke();
@@ -47865,7 +47890,7 @@
 	exports.default = BollingerSeries;
 
 /***/ },
-/* 330 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -47880,11 +47905,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _LineSeries = __webpack_require__(311);
+	var _LineSeries = __webpack_require__(310);
 
 	var _LineSeries2 = _interopRequireDefault(_LineSeries);
 
-	var _StraightLine = __webpack_require__(328);
+	var _StraightLine = __webpack_require__(325);
 
 	var _StraightLine2 = _interopRequireDefault(_StraightLine);
 
@@ -47908,11 +47933,11 @@
 		_createClass(RSISeries, [{
 			key: "render",
 			value: function render() {
-				var _props = this.props,
-				    className = _props.className,
-				    calculator = _props.calculator,
-				    stroke = _props.stroke,
-				    type = _props.type;
+				var _props = this.props;
+				var className = _props.className;
+				var calculator = _props.calculator;
+				var stroke = _props.stroke;
+				var type = _props.type;
 
 				var yAccessor = calculator.accessor();
 				var overSold = calculator.overSold();
@@ -47969,7 +47994,7 @@
 	exports.default = RSISeries;
 
 /***/ },
-/* 331 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -47984,11 +48009,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _LineSeries = __webpack_require__(311);
+	var _LineSeries = __webpack_require__(310);
 
 	var _LineSeries2 = _interopRequireDefault(_LineSeries);
 
-	var _StraightLine = __webpack_require__(328);
+	var _StraightLine = __webpack_require__(325);
 
 	var _StraightLine2 = _interopRequireDefault(_StraightLine);
 
@@ -48032,11 +48057,11 @@
 		}, {
 			key: "render",
 			value: function render() {
-				var _props = this.props,
-				    className = _props.className,
-				    calculator = _props.calculator,
-				    stroke = _props.stroke,
-				    type = _props.type;
+				var _props = this.props;
+				var className = _props.className;
+				var calculator = _props.calculator;
+				var stroke = _props.stroke;
+				var type = _props.type;
 
 				var seriesStroke = calculator.stroke();
 				return _react2.default.createElement(
@@ -48093,7 +48118,7 @@
 	exports.default = StochasticSeries;
 
 /***/ },
-/* 332 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -48108,11 +48133,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _OverlayBarSeries = __webpack_require__(333);
+	var _OverlayBarSeries = __webpack_require__(330);
 
 	var _OverlayBarSeries2 = _interopRequireDefault(_OverlayBarSeries);
 
-	var _StraightLine = __webpack_require__(328);
+	var _StraightLine = __webpack_require__(325);
 
 	var _StraightLine2 = _interopRequireDefault(_StraightLine);
 
@@ -48189,21 +48214,21 @@
 		}, {
 			key: "fillForEachBar",
 			value: function fillForEachBar(d, yAccessorNumber) {
-				var _props = this.props,
-				    bullPowerFill = _props.bullPowerFill,
-				    bearPowerFill = _props.bearPowerFill;
+				var _props = this.props;
+				var bullPowerFill = _props.bullPowerFill;
+				var bearPowerFill = _props.bearPowerFill;
 
 				return yAccessorNumber % 2 === 0 ? bullPowerFill : bearPowerFill;
 			}
 		}, {
 			key: "render",
 			value: function render() {
-				var _props2 = this.props,
-				    className = _props2.className,
-				    opacity = _props2.opacity,
-				    stroke = _props2.stroke,
-				    straightLineStroke = _props2.straightLineStroke,
-				    widthRatio = _props2.widthRatio;
+				var _props2 = this.props;
+				var className = _props2.className;
+				var opacity = _props2.opacity;
+				var stroke = _props2.stroke;
+				var straightLineStroke = _props2.straightLineStroke;
+				var widthRatio = _props2.widthRatio;
 
 
 				return _react2.default.createElement(
@@ -48253,7 +48278,7 @@
 	exports.default = ElderRaySeries;
 
 /***/ },
-/* 333 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -48270,11 +48295,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
-	var _StackedBarSeries = __webpack_require__(322);
+	var _StackedBarSeries = __webpack_require__(319);
 
 	var _utils = __webpack_require__(281);
 
@@ -48304,9 +48329,9 @@
 			value: function drawOnCanvas(ctx, moreProps) {
 				var yAccessor = this.props.yAccessor;
 				var xAccessor = moreProps.xAccessor;
-				var xScale = moreProps.xScale,
-				    yScale = moreProps.chartConfig.yScale,
-				    plotData = moreProps.plotData;
+				var xScale = moreProps.xScale;
+				var yScale = moreProps.chartConfig.yScale;
+				var plotData = moreProps.plotData;
 
 
 				var bars = getBars(this.props, xAccessor, yAccessor, xScale, yScale, plotData);
@@ -48318,9 +48343,9 @@
 			value: function renderSVG(moreProps) {
 				var yAccessor = this.props.yAccessor;
 				var xAccessor = moreProps.xAccessor;
-				var xScale = moreProps.xScale,
-				    yScale = moreProps.chartConfig.yScale,
-				    plotData = moreProps.plotData;
+				var xScale = moreProps.xScale;
+				var yScale = moreProps.chartConfig.yScale;
+				var plotData = moreProps.plotData;
 
 
 				var bars = getBars(this.props, xAccessor, yAccessor, xScale, yScale, plotData);
@@ -48373,11 +48398,11 @@
 	};
 
 	function getBars(props, xAccessor, yAccessor, xScale, yScale, plotData) {
-		var baseAt = props.baseAt,
-		    className = props.className,
-		    fill = props.fill,
-		    stroke = props.stroke,
-		    widthRatio = props.widthRatio;
+		var baseAt = props.baseAt;
+		var className = props.className;
+		var fill = props.fill;
+		var stroke = props.stroke;
+		var widthRatio = props.widthRatio;
 
 
 		var getClassName = (0, _utils.functor)(className);
@@ -48434,7 +48459,7 @@
 	exports.default = OverlayBarSeries;
 
 /***/ },
-/* 334 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -48459,7 +48484,7 @@
 
 	var _d3Scale = __webpack_require__(282);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
@@ -48489,12 +48514,14 @@
 		_createClass(VolumeProfileSeries, [{
 			key: "drawOnCanvas",
 			value: function drawOnCanvas(ctx, moreProps) {
-				var xAccessor = moreProps.xAccessor,
-				    width = moreProps.width;
+				var xAccessor = moreProps.xAccessor;
+				var width = moreProps.width;
 
-				var _helper = helper(this.props, moreProps, xAccessor, width),
-				    rects = _helper.rects,
-				    sessionBg = _helper.sessionBg;
+				var _helper = helper(this.props, moreProps, xAccessor, width);
+
+				var rects = _helper.rects;
+				var sessionBg = _helper.sessionBg;
+
 
 				_drawOnCanvas(ctx, this.props, rects, sessionBg);
 			}
@@ -48511,19 +48538,21 @@
 		}, {
 			key: "renderSVG",
 			value: function renderSVG(moreProps) {
-				var _props = this.props,
-				    className = _props.className,
-				    opacity = _props.opacity;
-				var _props2 = this.props,
-				    showSessionBackground = _props2.showSessionBackground,
-				    sessionBackGround = _props2.sessionBackGround,
-				    sessionBackGroundOpacity = _props2.sessionBackGroundOpacity;
-				var xAccessor = moreProps.xAccessor,
-				    width = moreProps.width;
+				var _props = this.props;
+				var className = _props.className;
+				var opacity = _props.opacity;
+				var _props2 = this.props;
+				var showSessionBackground = _props2.showSessionBackground;
+				var sessionBackGround = _props2.sessionBackGround;
+				var sessionBackGroundOpacity = _props2.sessionBackGroundOpacity;
+				var xAccessor = moreProps.xAccessor;
+				var width = moreProps.width;
 
-				var _helper2 = helper(this.props, moreProps, xAccessor, width),
-				    rects = _helper2.rects,
-				    sessionBg = _helper2.sessionBg;
+				var _helper2 = helper(this.props, moreProps, xAccessor, width);
+
+				var rects = _helper2.rects;
+				var sessionBg = _helper2.sessionBg;
+
 
 				var sessionBgSvg = showSessionBackground ? sessionBg.map(function (d, idx) {
 					return _react2.default.createElement("rect", _extends({ key: idx }, d, { opacity: sessionBackGroundOpacity, fill: sessionBackGround }));
@@ -48580,9 +48609,9 @@
 		bySession: false,
 		/* eslint-disable no-unused-vars */
 		sessionStart: function sessionStart(_ref) {
-			var d = _ref.d,
-			    i = _ref.i,
-			    plotData = _ref.plotData;
+			var d = _ref.d;
+			var i = _ref.i;
+			var plotData = _ref.plotData;
 			return d.idx.startOfMonth;
 		},
 		/* eslint-enable no-unused-vars */
@@ -48603,21 +48632,21 @@
 	};
 
 	function helper(props, moreProps, xAccessor, width) {
-		var realXScale = moreProps.xScale,
-		    yScale = moreProps.chartConfig.yScale,
-		    plotData = moreProps.plotData;
-		var sessionStart = props.sessionStart,
-		    bySession = props.bySession,
-		    partialStartOK = props.partialStartOK,
-		    partialEndOK = props.partialEndOK;
-		var bins = props.bins,
-		    maxProfileWidthPercent = props.maxProfileWidthPercent,
-		    source = props.source,
-		    volume = props.volume,
-		    absoluteChange = props.absoluteChange,
-		    orient = props.orient,
-		    fill = props.fill,
-		    stroke = props.stroke;
+		var realXScale = moreProps.xScale;
+		var yScale = moreProps.chartConfig.yScale;
+		var plotData = moreProps.plotData;
+		var sessionStart = props.sessionStart;
+		var bySession = props.bySession;
+		var partialStartOK = props.partialStartOK;
+		var partialEndOK = props.partialEndOK;
+		var bins = props.bins;
+		var maxProfileWidthPercent = props.maxProfileWidthPercent;
+		var source = props.source;
+		var volume = props.volume;
+		var absoluteChange = props.absoluteChange;
+		var orient = props.orient;
+		var fill = props.fill;
+		var stroke = props.stroke;
 
 
 		var sessionBuilder = (0, _utils.accumulatingWindow)().discardTillStart(!partialStartOK).discardTillEnd(!partialEndOK).accumulateTill(function (d, i) {
@@ -48677,10 +48706,13 @@
 				return (0, _utils.head)(xScale.range());
 			};
 
-			var _ref3 = orient === "right" ? [begin, begin + sessionWidth * maxProfileWidthPercent / 100] : [finish, finish - sessionWidth * (100 - maxProfileWidthPercent) / 100],
-			    _ref4 = _slicedToArray(_ref3, 2),
-			    start = _ref4[0],
-			    end = _ref4[1];
+			var _ref3 = orient === "right" ? [begin, begin + sessionWidth * maxProfileWidthPercent / 100] : [finish, finish - sessionWidth * (100 - maxProfileWidthPercent) / 100];
+
+			var _ref4 = _slicedToArray(_ref3, 2);
+
+			var start = _ref4[0];
+			var end = _ref4[1];
+
 
 			var xScale = (0, _d3Scale.scaleLinear)().domain([0, (0, _d3Array.max)(volumeValues)]).range([start, end]);
 
@@ -48707,11 +48739,12 @@
 			// console.log("totalVolumes", totalVolumes)
 
 			var rects = (0, _d3Array.zip)(values, totalVolumes).map(function (_ref5) {
-				var _ref6 = _slicedToArray(_ref5, 2),
-				    d = _ref6[0],
-				    _ref6$ = _ref6[1],
-				    x = _ref6$.x,
-				    ws = _ref6$.ws;
+				var _ref6 = _slicedToArray(_ref5, 2);
+
+				var d = _ref6[0];
+				var _ref6$ = _ref6[1];
+				var x = _ref6$.x;
+				var ws = _ref6$.ws;
 
 				var w1 = ws[0] || { type: "up", width: 0 };
 				var w2 = ws[1] || { type: "down", width: 0 };
@@ -48755,10 +48788,10 @@
 	}
 
 	function _drawOnCanvas(ctx, props, rects, sessionBg) {
-		var opacity = props.opacity,
-		    sessionBackGround = props.sessionBackGround,
-		    sessionBackGroundOpacity = props.sessionBackGroundOpacity,
-		    showSessionBackground = props.showSessionBackground;
+		var opacity = props.opacity;
+		var sessionBackGround = props.sessionBackGround;
+		var sessionBackGroundOpacity = props.sessionBackGroundOpacity;
+		var showSessionBackground = props.showSessionBackground;
 
 		// var { rects, sessionBg } = helper(props, xScale, yScale, plotData);
 
@@ -48766,10 +48799,10 @@
 			ctx.fillStyle = (0, _utils.hexToRGBA)(sessionBackGround, sessionBackGroundOpacity);
 
 			sessionBg.forEach(function (each) {
-				var x = each.x,
-				    y = each.y,
-				    height = each.height,
-				    width = each.width;
+				var x = each.x;
+				var y = each.y;
+				var height = each.height;
+				var width = each.width;
 
 
 				ctx.beginPath();
@@ -48780,15 +48813,15 @@
 		}
 
 		rects.forEach(function (each) {
-			var x = each.x,
-			    y = each.y,
-			    height = each.height,
-			    w1 = each.w1,
-			    w2 = each.w2,
-			    stroke1 = each.stroke1,
-			    stroke2 = each.stroke2,
-			    fill1 = each.fill1,
-			    fill2 = each.fill2;
+			var x = each.x;
+			var y = each.y;
+			var height = each.height;
+			var w1 = each.w1;
+			var w2 = each.w2;
+			var stroke1 = each.stroke1;
+			var stroke2 = each.stroke2;
+			var fill1 = each.fill1;
+			var fill2 = each.fill2;
 
 
 			if (w1 > 0) {
@@ -48820,7 +48853,7 @@
 	exports.default = VolumeProfileSeries;
 
 /***/ },
-/* 335 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -48831,11 +48864,11 @@
 	exports.financeDiscontinuousScale = exports.discontinuousTimeScaleProvider = exports.discontinuousTimeScaleProviderBuilder = undefined;
 	exports.defaultScaleProvider = defaultScaleProvider;
 
-	var _discontinuousTimeScaleProvider = __webpack_require__(336);
+	var _discontinuousTimeScaleProvider = __webpack_require__(333);
 
 	var _discontinuousTimeScaleProvider2 = _interopRequireDefault(_discontinuousTimeScaleProvider);
 
-	var _financeDiscontinuousScale = __webpack_require__(337);
+	var _financeDiscontinuousScale = __webpack_require__(334);
 
 	var _financeDiscontinuousScale2 = _interopRequireDefault(_financeDiscontinuousScale);
 
@@ -48851,7 +48884,7 @@
 	}
 
 /***/ },
-/* 336 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -48870,7 +48903,7 @@
 
 	var _d3Collection = __webpack_require__(283);
 
-	var _financeDiscontinuousScale = __webpack_require__(337);
+	var _financeDiscontinuousScale = __webpack_require__(334);
 
 	var _financeDiscontinuousScale2 = _interopRequireDefault(_financeDiscontinuousScale);
 
@@ -48978,9 +49011,10 @@
 	});
 
 	var discontinuousIndexCalculatorLocalTime = discontinuousIndexCalculator.accumulator(function (_ref, i, idx, di) {
-		var _ref2 = _slicedToArray(_ref, 2),
-		    prevDate = _ref2[0],
-		    nowDate = _ref2[1];
+		var _ref2 = _slicedToArray(_ref, 2);
+
+		var prevDate = _ref2[0];
+		var nowDate = _ref2[1];
 
 		var startOf30Seconds = nowDate.getSeconds() % 30 === 0;
 
@@ -49187,7 +49221,7 @@
 	exports.default = discontinuousTimeScaleProviderBuilder();
 
 /***/ },
-/* 337 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -49259,10 +49293,13 @@
 			var backingTicks = backingLinearScale.ticks(m);
 			var ticksMap = (0, _d3Collection.map)();
 
-			var _backingLinearScale$d = backingLinearScale.domain(),
-			    _backingLinearScale$d2 = _slicedToArray(_backingLinearScale$d, 2),
-			    domainStart = _backingLinearScale$d2[0],
-			    domainEnd = _backingLinearScale$d2[1];
+			var _backingLinearScale$d = backingLinearScale.domain();
+
+			var _backingLinearScale$d2 = _slicedToArray(_backingLinearScale$d, 2);
+
+			var domainStart = _backingLinearScale$d2[0];
+			var domainEnd = _backingLinearScale$d2[1];
+
 
 			var start = Math.max(Math.ceil(domainStart), (0, _utils.head)(index).index) + Math.abs((0, _utils.head)(index).index);
 			var end = Math.min(Math.floor(domainEnd), (0, _utils.last)(index).index) + Math.abs((0, _utils.head)(index).index);
@@ -49323,10 +49360,13 @@
 			return ticks;
 		};
 		scale.ticksv1 = function (m) {
-			var _backingLinearScale$d3 = backingLinearScale.domain(),
-			    _backingLinearScale$d4 = _slicedToArray(_backingLinearScale$d3, 2),
-			    domainStart = _backingLinearScale$d4[0],
-			    domainEnd = _backingLinearScale$d4[1];
+			var _backingLinearScale$d3 = backingLinearScale.domain();
+
+			var _backingLinearScale$d4 = _slicedToArray(_backingLinearScale$d3, 2);
+
+			var domainStart = _backingLinearScale$d4[0];
+			var domainEnd = _backingLinearScale$d4[1];
+
 
 			var start = Math.max(Math.ceil(domainStart), (0, _utils.head)(index).index) + Math.abs((0, _utils.head)(index).index);
 			var end = Math.min(Math.floor(domainEnd), (0, _utils.last)(index).index) + Math.abs((0, _utils.head)(index).index);
@@ -49381,9 +49421,9 @@
 			return function (x) {
 				// console.log(x)
 				var d = Math.abs((0, _utils.head)(index).index);
-				var _index = index[x + d],
-				    format = _index.format,
-				    date = _index.date;
+				var _index = index[x + d];
+				var format = _index.format;
+				var date = _index.date;
 
 				return format(date);
 			};
@@ -49399,7 +49439,7 @@
 	}
 
 /***/ },
-/* 338 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -49409,23 +49449,23 @@
 	});
 	exports.CrossHairCursor = exports.MouseCoordinateY = exports.MouseCoordinateX = exports.CurrentCoordinate = exports.EdgeIndicator = undefined;
 
-	var _EdgeIndicator = __webpack_require__(339);
+	var _EdgeIndicator = __webpack_require__(336);
 
 	var _EdgeIndicator2 = _interopRequireDefault(_EdgeIndicator);
 
-	var _CurrentCoordinate = __webpack_require__(341);
+	var _CurrentCoordinate = __webpack_require__(338);
 
 	var _CurrentCoordinate2 = _interopRequireDefault(_CurrentCoordinate);
 
-	var _MouseCoordinateX = __webpack_require__(342);
+	var _MouseCoordinateX = __webpack_require__(339);
 
 	var _MouseCoordinateX2 = _interopRequireDefault(_MouseCoordinateX);
 
-	var _MouseCoordinateY = __webpack_require__(343);
+	var _MouseCoordinateY = __webpack_require__(340);
 
 	var _MouseCoordinateY2 = _interopRequireDefault(_MouseCoordinateY);
 
-	var _CrossHairCursor = __webpack_require__(344);
+	var _CrossHairCursor = __webpack_require__(341);
 
 	var _CrossHairCursor2 = _interopRequireDefault(_CrossHairCursor);
 
@@ -49438,7 +49478,7 @@
 	exports.CrossHairCursor = _CrossHairCursor2.default;
 
 /***/ },
-/* 339 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -49459,9 +49499,9 @@
 
 	var _d3Format = __webpack_require__(286);
 
-	var _EdgeCoordinateV = __webpack_require__(340);
+	var _EdgeCoordinateV = __webpack_require__(337);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
@@ -49558,24 +49598,24 @@
 	};
 
 	function helper(props, moreProps) {
-		var edgeType = props.type,
-		    displayFormat = props.displayFormat,
-		    itemType = props.itemType,
-		    edgeAt = props.edgeAt,
-		    yAxisPad = props.yAxisPad,
-		    orient = props.orient;
-		var yAccessor = props.yAccessor,
-		    fill = props.fill,
-		    textFill = props.textFill,
-		    rectHeight = props.rectHeight,
-		    rectWidth = props.rectWidth,
-		    arrowWidth = props.arrowWidth;
-		var fontFamily = props.fontFamily,
-		    fontSize = props.fontSize;
-		var xScale = moreProps.xScale,
-		    yScale = moreProps.chartConfig.yScale,
-		    plotData = moreProps.plotData,
-		    xAccessor = moreProps.xAccessor;
+		var edgeType = props.type;
+		var displayFormat = props.displayFormat;
+		var itemType = props.itemType;
+		var edgeAt = props.edgeAt;
+		var yAxisPad = props.yAxisPad;
+		var orient = props.orient;
+		var yAccessor = props.yAccessor;
+		var fill = props.fill;
+		var textFill = props.textFill;
+		var rectHeight = props.rectHeight;
+		var rectWidth = props.rectWidth;
+		var arrowWidth = props.arrowWidth;
+		var fontFamily = props.fontFamily;
+		var fontSize = props.fontSize;
+		var xScale = moreProps.xScale;
+		var yScale = moreProps.chartConfig.yScale;
+		var plotData = moreProps.plotData;
+		var xAccessor = moreProps.xAccessor;
 
 		// var currentItem = ChartDataUtil.getCurrentItemForChartNew(currentItems, forChart);
 
@@ -49591,10 +49631,12 @@
 			var x1 = Math.round(xScale(xValue)),
 			    y1 = Math.round(yScale(yValue));
 
-			var _xScale$range = xScale.range(),
-			    _xScale$range2 = _slicedToArray(_xScale$range, 2),
-			    left = _xScale$range2[0],
-			    right = _xScale$range2[1];
+			var _xScale$range = xScale.range();
+
+			var _xScale$range2 = _slicedToArray(_xScale$range, 2);
+
+			var left = _xScale$range2[0];
+			var right = _xScale$range2[1];
 
 			var edgeX = edgeAt === "left" ? left - yAxisPad : right + yAxisPad;
 
@@ -49621,7 +49663,7 @@
 	exports.default = EdgeIndicator;
 
 /***/ },
-/* 340 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -49656,10 +49698,10 @@
 				x2: edge.line.x2, y2: edge.line.y2 });
 		}
 		if ((0, _utils.isDefined)(edge.coordinateBase)) {
-			var _edge$coordinateBase = edge.coordinateBase,
-			    rectWidth = _edge$coordinateBase.rectWidth,
-			    rectHeight = _edge$coordinateBase.rectHeight,
-			    arrowWidth = _edge$coordinateBase.arrowWidth;
+			var _edge$coordinateBase = edge.coordinateBase;
+			var rectWidth = _edge$coordinateBase.rectWidth;
+			var rectHeight = _edge$coordinateBase.rectHeight;
+			var arrowWidth = _edge$coordinateBase.arrowWidth;
 
 
 			var path = edge.orient === "left" ? "M0,0L0," + rectHeight + "L" + rectWidth + "," + rectHeight + "L" + (rectWidth + arrowWidth) + ",10L" + rectWidth + ",0L0,0L0,0" : "M0," + arrowWidth + "L" + arrowWidth + "," + rectHeight + "L" + (rectWidth + arrowWidth) + "," + rectHeight + "L" + (rectWidth + arrowWidth) + ",0L" + arrowWidth + ",0L0," + arrowWidth;
@@ -49698,27 +49740,27 @@
 	/* eslint-enable react/prop-types */
 
 	function helper(props) {
-		var displayCoordinate = props.coordinate,
-		    show = props.show,
-		    type = props.type,
-		    orient = props.orient,
-		    edgeAt = props.edgeAt,
-		    hideLine = props.hideLine;
-		var fill = props.fill,
-		    opacity = props.opacity,
-		    fontFamily = props.fontFamily,
-		    fontSize = props.fontSize,
-		    textFill = props.textFill,
-		    lineStroke = props.lineStroke,
-		    lineOpacity = props.lineOpacity,
-		    arrowWidth = props.arrowWidth;
-		var rectWidth = props.rectWidth,
-		    rectHeight = props.rectHeight;
-		var x1 = props.x1,
-		    y1 = props.y1,
-		    x2 = props.x2,
-		    y2 = props.y2,
-		    dx = props.dx;
+		var displayCoordinate = props.coordinate;
+		var show = props.show;
+		var type = props.type;
+		var orient = props.orient;
+		var edgeAt = props.edgeAt;
+		var hideLine = props.hideLine;
+		var fill = props.fill;
+		var opacity = props.opacity;
+		var fontFamily = props.fontFamily;
+		var fontSize = props.fontSize;
+		var textFill = props.textFill;
+		var lineStroke = props.lineStroke;
+		var lineOpacity = props.lineOpacity;
+		var arrowWidth = props.arrowWidth;
+		var rectWidth = props.rectWidth;
+		var rectHeight = props.rectHeight;
+		var x1 = props.x1;
+		var y1 = props.y1;
+		var x2 = props.x2;
+		var y2 = props.y2;
+		var dx = props.dx;
 
 
 		if (!show) return null;
@@ -49765,10 +49807,10 @@
 		if (edge === null) return;
 
 		if ((0, _utils.isDefined)(edge.coordinateBase)) {
-			var _edge$coordinateBase2 = edge.coordinateBase,
-			    rectWidth = _edge$coordinateBase2.rectWidth,
-			    rectHeight = _edge$coordinateBase2.rectHeight,
-			    arrowWidth = _edge$coordinateBase2.arrowWidth;
+			var _edge$coordinateBase2 = edge.coordinateBase;
+			var rectWidth = _edge$coordinateBase2.rectWidth;
+			var rectHeight = _edge$coordinateBase2.rectHeight;
+			var arrowWidth = _edge$coordinateBase2.arrowWidth;
 
 
 			ctx.fillStyle = (0, _utils.hexToRGBA)(edge.coordinateBase.fill, edge.coordinateBase.opacity);
@@ -49817,7 +49859,7 @@
 	// export default EdgeCoordinate;
 
 /***/ },
-/* 341 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -49832,7 +49874,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
@@ -49909,14 +49951,14 @@
 	};
 
 	function helper(props, moreProps) {
-		var fill = props.fill,
-		    yAccessor = props.yAccessor,
-		    r = props.r;
-		var show = moreProps.show,
-		    xScale = moreProps.xScale,
-		    yScale = moreProps.chartConfig.yScale,
-		    currentItem = moreProps.currentItem,
-		    xAccessor = moreProps.xAccessor;
+		var fill = props.fill;
+		var yAccessor = props.yAccessor;
+		var r = props.r;
+		var show = moreProps.show;
+		var xScale = moreProps.xScale;
+		var yScale = moreProps.chartConfig.yScale;
+		var currentItem = moreProps.currentItem;
+		var xAccessor = moreProps.xAccessor;
 
 		// console.log(show);
 
@@ -49937,7 +49979,7 @@
 	exports.default = CurrentCoordinate;
 
 /***/ },
-/* 342 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -49952,9 +49994,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _EdgeCoordinateV = __webpack_require__(340);
+	var _EdgeCoordinateV = __webpack_require__(337);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
@@ -50034,28 +50076,28 @@
 	};
 
 	function helper(props, moreProps) {
-		var height = moreProps.height,
-		    xAccessor = moreProps.xAccessor,
-		    displayXAccessor = moreProps.displayXAccessor;
-		var show = moreProps.show,
-		    currentItem = moreProps.currentItem,
-		    xScale = moreProps.xScale,
-		    mouseXY = moreProps.mouseXY;
+		var height = moreProps.height;
+		var xAccessor = moreProps.xAccessor;
+		var displayXAccessor = moreProps.displayXAccessor;
+		var show = moreProps.show;
+		var currentItem = moreProps.currentItem;
+		var xScale = moreProps.xScale;
+		var mouseXY = moreProps.mouseXY;
 		// var { chartConfig: { yScale, origin } } = moreProps;
 
 		if ((0, _utils.isNotDefined)(currentItem)) return null;
 
 		var snapX = props.snapX;
-		var orient = props.orient,
-		    at = props.at,
-		    rectWidth = props.rectWidth,
-		    rectHeight = props.rectHeight,
-		    displayFormat = props.displayFormat;
-		var fill = props.fill,
-		    opacity = props.opacity,
-		    fontFamily = props.fontFamily,
-		    fontSize = props.fontSize,
-		    textFill = props.textFill;
+		var orient = props.orient;
+		var at = props.at;
+		var rectWidth = props.rectWidth;
+		var rectHeight = props.rectHeight;
+		var displayFormat = props.displayFormat;
+		var fill = props.fill;
+		var opacity = props.opacity;
+		var fontFamily = props.fontFamily;
+		var fontSize = props.fontSize;
+		var textFill = props.textFill;
 
 
 		var x = snapX ? xScale(xAccessor(currentItem)) : mouseXY[0];
@@ -50089,7 +50131,7 @@
 	exports.default = MouseCoordinateX;
 
 /***/ },
-/* 343 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -50104,9 +50146,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _EdgeCoordinateV = __webpack_require__(340);
+	var _EdgeCoordinateV = __webpack_require__(337);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
@@ -50186,32 +50228,32 @@
 	};
 
 	function helper(props, moreProps) {
-		var chartId = moreProps.chartId,
-		    width = moreProps.width;
-		var show = moreProps.show,
-		    currentCharts = moreProps.currentCharts,
-		    _moreProps$chartConfi = moreProps.chartConfig,
-		    yScale = _moreProps$chartConfi.yScale,
-		    origin = _moreProps$chartConfi.origin,
-		    mouseXY = moreProps.mouseXY;
+		var chartId = moreProps.chartId;
+		var width = moreProps.width;
+		var show = moreProps.show;
+		var currentCharts = moreProps.currentCharts;
+		var _moreProps$chartConfi = moreProps.chartConfig;
+		var yScale = _moreProps$chartConfi.yScale;
+		var origin = _moreProps$chartConfi.origin;
+		var mouseXY = moreProps.mouseXY;
 
 
 		if ((0, _utils.isNotDefined)(mouseXY)) return null;
 
 		if (currentCharts.indexOf(chartId) < 0) return null;
 
-		var orient = props.orient,
-		    at = props.at,
-		    rectWidth = props.rectWidth,
-		    rectHeight = props.rectHeight,
-		    displayFormat = props.displayFormat,
-		    dx = props.dx;
-		var fill = props.fill,
-		    opacity = props.opacity,
-		    fontFamily = props.fontFamily,
-		    fontSize = props.fontSize,
-		    textFill = props.textFill,
-		    arrowWidth = props.arrowWidth;
+		var orient = props.orient;
+		var at = props.at;
+		var rectWidth = props.rectWidth;
+		var rectHeight = props.rectHeight;
+		var displayFormat = props.displayFormat;
+		var dx = props.dx;
+		var fill = props.fill;
+		var opacity = props.opacity;
+		var fontFamily = props.fontFamily;
+		var fontSize = props.fontSize;
+		var textFill = props.textFill;
+		var arrowWidth = props.arrowWidth;
 
 
 		var x1 = 0,
@@ -50246,7 +50288,7 @@
 	exports.default = MouseCoordinateY;
 
 /***/ },
-/* 344 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -50263,11 +50305,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _GenericComponent = __webpack_require__(307);
+	var _GenericComponent = __webpack_require__(306);
 
 	var _GenericComponent2 = _interopRequireDefault(_GenericComponent);
 
-	var _PureComponent2 = __webpack_require__(298);
+	var _PureComponent2 = __webpack_require__(297);
 
 	var _PureComponent3 = _interopRequireDefault(_PureComponent2);
 
@@ -50300,9 +50342,9 @@
 				var lines = helper(this.props, moreProps);
 
 				if ((0, _utils.isDefined)(lines)) {
-					var _context = this.context,
-					    margin = _context.margin,
-					    ratio = _context.ratio;
+					var _context = this.context;
+					var margin = _context.margin;
+					var ratio = _context.ratio;
 
 					var originX = 0.5 * ratio + margin.left;
 					var originY = 0.5 * ratio + margin.top;
@@ -50383,17 +50425,17 @@
 	};
 
 	function helper(props, _ref) {
-		var mouseXY = _ref.mouseXY,
-		    xScale = _ref.xScale,
-		    currentItem = _ref.currentItem,
-		    show = _ref.show,
-		    height = _ref.height,
-		    width = _ref.width,
-		    xAccessor = _ref.xAccessor;
-		var snapX = props.snapX,
-		    stroke = props.stroke,
-		    opacity = props.opacity,
-		    strokeDasharray = props.strokeDasharray;
+		var mouseXY = _ref.mouseXY;
+		var xScale = _ref.xScale;
+		var currentItem = _ref.currentItem;
+		var show = _ref.show;
+		var height = _ref.height;
+		var width = _ref.width;
+		var xAccessor = _ref.xAccessor;
+		var snapX = props.snapX;
+		var stroke = props.stroke;
+		var opacity = props.opacity;
+		var strokeDasharray = props.strokeDasharray;
 
 
 		if (!show || (0, _utils.isNotDefined)(currentItem)) return null;
@@ -50420,7 +50462,7 @@
 	exports.default = CrossHairCursor;
 
 /***/ },
-/* 345 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -50430,75 +50472,75 @@
 	});
 	exports.defaultOptionsForAppearance = exports.defaultOptionsForComputation = exports.compare = exports.elderImpulse = exports.change = exports.elderRay = exports.forceIndex = exports.stochasticOscillator = exports.atr = exports.rsi = exports.macd = exports.renko = exports.pointAndFigure = exports.kagi = exports.heikinAshi = exports.bollingerBand = exports.sma = exports.ema = undefined;
 
-	var _ema = __webpack_require__(346);
+	var _ema = __webpack_require__(343);
 
 	var _ema2 = _interopRequireDefault(_ema);
 
-	var _sma = __webpack_require__(367);
+	var _sma = __webpack_require__(363);
 
 	var _sma2 = _interopRequireDefault(_sma);
 
-	var _bollingerBand = __webpack_require__(368);
+	var _bollingerBand = __webpack_require__(364);
 
 	var _bollingerBand2 = _interopRequireDefault(_bollingerBand);
 
-	var _heikinAshi = __webpack_require__(370);
+	var _heikinAshi = __webpack_require__(366);
 
 	var _heikinAshi2 = _interopRequireDefault(_heikinAshi);
 
-	var _kagi = __webpack_require__(371);
+	var _kagi = __webpack_require__(367);
 
 	var _kagi2 = _interopRequireDefault(_kagi);
 
-	var _pointAndFigure = __webpack_require__(372);
+	var _pointAndFigure = __webpack_require__(368);
 
 	var _pointAndFigure2 = _interopRequireDefault(_pointAndFigure);
 
-	var _renko = __webpack_require__(373);
+	var _renko = __webpack_require__(369);
 
 	var _renko2 = _interopRequireDefault(_renko);
 
-	var _macd = __webpack_require__(374);
+	var _macd = __webpack_require__(370);
 
 	var _macd2 = _interopRequireDefault(_macd);
 
-	var _rsi = __webpack_require__(375);
+	var _rsi = __webpack_require__(371);
 
 	var _rsi2 = _interopRequireDefault(_rsi);
 
-	var _atr = __webpack_require__(376);
+	var _atr = __webpack_require__(372);
 
 	var _atr2 = _interopRequireDefault(_atr);
 
-	var _stochasticOscillator = __webpack_require__(377);
+	var _stochasticOscillator = __webpack_require__(373);
 
 	var _stochasticOscillator2 = _interopRequireDefault(_stochasticOscillator);
 
-	var _forceIndex = __webpack_require__(378);
+	var _forceIndex = __webpack_require__(374);
 
 	var _forceIndex2 = _interopRequireDefault(_forceIndex);
 
-	var _elderRay = __webpack_require__(379);
+	var _elderRay = __webpack_require__(375);
 
 	var _elderRay2 = _interopRequireDefault(_elderRay);
 
-	var _change = __webpack_require__(380);
+	var _change = __webpack_require__(376);
 
 	var _change2 = _interopRequireDefault(_change);
 
-	var _elderImpulse = __webpack_require__(381);
+	var _elderImpulse = __webpack_require__(377);
 
 	var _elderImpulse2 = _interopRequireDefault(_elderImpulse);
 
-	var _compare = __webpack_require__(382);
+	var _compare = __webpack_require__(378);
 
 	var _compare2 = _interopRequireDefault(_compare);
 
-	var _defaultOptionsForComputation = __webpack_require__(350);
+	var _defaultOptionsForComputation = __webpack_require__(347);
 
 	var defaultOptionsForComputation = _interopRequireWildcard(_defaultOptionsForComputation);
 
-	var _defaultOptionsForAppearance = __webpack_require__(369);
+	var _defaultOptionsForAppearance = __webpack_require__(365);
 
 	var defaultOptionsForAppearance = _interopRequireWildcard(_defaultOptionsForAppearance);
 
@@ -50526,7 +50568,7 @@
 	exports.defaultOptionsForAppearance = defaultOptionsForAppearance;
 
 /***/ },
-/* 346 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -50566,13 +50608,13 @@
 		return indicator;
 	};
 
-	var _d3fcRebind = __webpack_require__(347);
+	var _d3fcRebind = __webpack_require__(344);
 
 	var _utils = __webpack_require__(281);
 
-	var _algorithm = __webpack_require__(348);
+	var _algorithm = __webpack_require__(345);
 
-	var _baseIndicator = __webpack_require__(366);
+	var _baseIndicator = __webpack_require__(362);
 
 	var _baseIndicator2 = _interopRequireDefault(_baseIndicator);
 
@@ -50581,7 +50623,7 @@
 	var ALGORITHM_TYPE = "EMA";
 
 /***/ },
-/* 347 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
@@ -50744,7 +50786,7 @@
 
 
 /***/ },
-/* 348 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -50752,77 +50794,70 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.change = exports.compare = exports.elderRay = exports.smoothedForceIndex = exports.forceIndex = exports.atr = exports.sto = exports.rsi = exports.macd = exports.renko = exports.pointAndFigure = exports.kagi = exports.heikinAshi = exports.bollingerband = exports.sma = exports.ema = undefined;
+	exports.change = exports.compare = exports.elderRay = exports.forceIndex = exports.atr = exports.sto = exports.rsi = exports.macd = exports.renko = exports.pointAndFigure = exports.kagi = exports.heikinAshi = exports.bollingerband = exports.sma = exports.ema = undefined;
 
-	var _ema = __webpack_require__(349);
+	var _ema = __webpack_require__(346);
 
 	var _ema2 = _interopRequireDefault(_ema);
 
-	var _sma = __webpack_require__(351);
+	var _sma = __webpack_require__(348);
 
 	var _sma2 = _interopRequireDefault(_sma);
 
-	var _bollingerband = __webpack_require__(352);
+	var _bollingerband = __webpack_require__(349);
 
 	var _bollingerband2 = _interopRequireDefault(_bollingerband);
 
-	var _heikinAshi = __webpack_require__(353);
+	var _heikinAshi = __webpack_require__(350);
 
 	var _heikinAshi2 = _interopRequireDefault(_heikinAshi);
 
-	var _kagi = __webpack_require__(354);
+	var _kagi = __webpack_require__(351);
 
 	var _kagi2 = _interopRequireDefault(_kagi);
 
-	var _pointAndFigure = __webpack_require__(356);
+	var _pointAndFigure = __webpack_require__(353);
 
 	var _pointAndFigure2 = _interopRequireDefault(_pointAndFigure);
 
-	var _renko = __webpack_require__(357);
+	var _renko = __webpack_require__(354);
 
 	var _renko2 = _interopRequireDefault(_renko);
 
-	var _macd = __webpack_require__(358);
+	var _macd = __webpack_require__(355);
 
 	var _macd2 = _interopRequireDefault(_macd);
 
-	var _rsi = __webpack_require__(359);
+	var _rsi = __webpack_require__(356);
 
 	var _rsi2 = _interopRequireDefault(_rsi);
 
-	var _sto = __webpack_require__(360);
+	var _sto = __webpack_require__(357);
 
 	var _sto2 = _interopRequireDefault(_sto);
 
-	var _atr = __webpack_require__(355);
+	var _atr = __webpack_require__(352);
 
 	var _atr2 = _interopRequireDefault(_atr);
 
-	var _forceIndex = __webpack_require__(361);
+	var _forceIndex = __webpack_require__(358);
 
 	var _forceIndex2 = _interopRequireDefault(_forceIndex);
 
-	var _smoothedForceIndex = __webpack_require__(362);
-
-	var _smoothedForceIndex2 = _interopRequireDefault(_smoothedForceIndex);
-
-	var _elderRay = __webpack_require__(363);
+	var _elderRay = __webpack_require__(359);
 
 	var _elderRay2 = _interopRequireDefault(_elderRay);
 
-	var _compare = __webpack_require__(364);
+	var _compare = __webpack_require__(360);
 
 	var _compare2 = _interopRequireDefault(_compare);
 
-	var _change = __webpack_require__(365);
+	var _change = __webpack_require__(361);
 
 	var _change2 = _interopRequireDefault(_change);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// import slidingWindow from "./slidingWindow";
-	// import merge from "./merge";
-	// import zipper from "./zipper";
 	exports.ema = _ema2.default;
 	exports.sma = _sma2.default;
 	exports.bollingerband = _bollingerband2.default;
@@ -50835,13 +50870,14 @@
 	exports.sto = _sto2.default;
 	exports.atr = _atr2.default;
 	exports.forceIndex = _forceIndex2.default;
-	exports.smoothedForceIndex = _smoothedForceIndex2.default;
 	exports.elderRay = _elderRay2.default;
 	exports.compare = _compare2.default;
-	exports.change = _change2.default;
+	exports.change = _change2.default; // import slidingWindow from "./slidingWindow";
+	// import merge from "./merge";
+	// import zipper from "./zipper";
 
 /***/ },
-/* 349 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -50877,8 +50913,8 @@
 	});
 
 	exports.default = function () {
-		var windowSize = _defaultOptionsForComputation.EMA.windowSize,
-		    sourcePath = _defaultOptionsForComputation.EMA.sourcePath;
+		var windowSize = _defaultOptionsForComputation.EMA.windowSize;
+		var sourcePath = _defaultOptionsForComputation.EMA.sourcePath;
 
 
 		function calculator(data) {
@@ -50933,10 +50969,10 @@
 
 	var _utils = __webpack_require__(281);
 
-	var _defaultOptionsForComputation = __webpack_require__(350);
+	var _defaultOptionsForComputation = __webpack_require__(347);
 
 /***/ },
-/* 350 */
+/* 347 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -51018,7 +51054,7 @@
 		sourcePath: "high/low" };
 
 /***/ },
-/* 351 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -51028,8 +51064,8 @@
 	});
 
 	exports.default = function () {
-		var windowSize = _defaultOptionsForComputation.SMA.windowSize,
-		    sourcePath = _defaultOptionsForComputation.SMA.sourcePath;
+		var windowSize = _defaultOptionsForComputation.SMA.windowSize;
+		var sourcePath = _defaultOptionsForComputation.SMA.sourcePath;
 
 
 		function calculator(data) {
@@ -51066,10 +51102,10 @@
 
 	var _utils = __webpack_require__(281);
 
-	var _defaultOptionsForComputation = __webpack_require__(350);
+	var _defaultOptionsForComputation = __webpack_require__(347);
 
 /***/ },
-/* 352 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -51105,10 +51141,10 @@
 	});
 
 	exports.default = function () {
-		var windowSize = _defaultOptionsForComputation.BollingerBand.windowSize,
-		    multiplier = _defaultOptionsForComputation.BollingerBand.multiplier,
-		    movingAverageType = _defaultOptionsForComputation.BollingerBand.movingAverageType,
-		    sourcePath = _defaultOptionsForComputation.BollingerBand.sourcePath;
+		var windowSize = _defaultOptionsForComputation.BollingerBand.windowSize;
+		var multiplier = _defaultOptionsForComputation.BollingerBand.multiplier;
+		var movingAverageType = _defaultOptionsForComputation.BollingerBand.movingAverageType;
+		var sourcePath = _defaultOptionsForComputation.BollingerBand.sourcePath;
 
 
 		function calculator(data) {
@@ -51176,18 +51212,18 @@
 
 	var _d3Array = __webpack_require__(280);
 
-	var _ema = __webpack_require__(349);
+	var _ema = __webpack_require__(346);
 
 	var _ema2 = _interopRequireDefault(_ema);
 
 	var _utils = __webpack_require__(281);
 
-	var _defaultOptionsForComputation = __webpack_require__(350);
+	var _defaultOptionsForComputation = __webpack_require__(347);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 353 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -51204,17 +51240,18 @@
 
 		function calculator(data) {
 			var algorithm = (0, _utils.mappedSlidingWindow)().windowSize(2).undefinedValue(function (_ref) {
-				var open = _ref.open,
-				    high = _ref.high,
-				    low = _ref.low,
-				    close = _ref.close;
+				var open = _ref.open;
+				var high = _ref.high;
+				var low = _ref.low;
+				var close = _ref.close;
 
 				close = (open + high + low + close) / 4;
 				return { open: open, high: high, low: low, close: close };
 			}).accumulator(function (_ref2) {
-				var _ref3 = _slicedToArray(_ref2, 2),
-				    prev = _ref3[0],
-				    now = _ref3[1];
+				var _ref3 = _slicedToArray(_ref2, 2);
+
+				var prev = _ref3[0];
+				var now = _ref3[1];
 
 				// console.log(prev, now);
 				var close = (now.open + now.high + now.low + now.close) / 4;
@@ -51240,7 +51277,7 @@
 	var _utils = __webpack_require__(281);
 
 /***/ },
-/* 354 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -51252,10 +51289,10 @@
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	exports.default = function () {
-		var reversalType = _defaultOptionsForComputation.Kagi.reversalType,
-		    windowSize = _defaultOptionsForComputation.Kagi.windowSize,
-		    reversal = _defaultOptionsForComputation.Kagi.reversal,
-		    sourcePath = _defaultOptionsForComputation.Kagi.sourcePath;
+		var reversalType = _defaultOptionsForComputation.Kagi.reversalType;
+		var windowSize = _defaultOptionsForComputation.Kagi.windowSize;
+		var reversal = _defaultOptionsForComputation.Kagi.reversal;
+		var sourcePath = _defaultOptionsForComputation.Kagi.sourcePath;
 
 		var dateAccessor = function dateAccessor(d) {
 			return d.date;
@@ -51439,16 +51476,16 @@
 
 	var _utils = __webpack_require__(281);
 
-	var _atr = __webpack_require__(355);
+	var _atr = __webpack_require__(352);
 
 	var _atr2 = _interopRequireDefault(_atr);
 
-	var _defaultOptionsForComputation = __webpack_require__(350);
+	var _defaultOptionsForComputation = __webpack_require__(347);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 355 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -51517,7 +51554,7 @@
 	var _utils = __webpack_require__(281);
 
 /***/ },
-/* 356 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -51527,9 +51564,9 @@
 	});
 
 	exports.default = function () {
-		var reversal = _defaultOptionsForComputation.PointAndFigure.reversal,
-		    boxSize = _defaultOptionsForComputation.PointAndFigure.boxSize,
-		    sourcePath = _defaultOptionsForComputation.PointAndFigure.sourcePath;
+		var reversal = _defaultOptionsForComputation.PointAndFigure.reversal;
+		var boxSize = _defaultOptionsForComputation.PointAndFigure.boxSize;
+		var sourcePath = _defaultOptionsForComputation.PointAndFigure.sourcePath;
 
 		var dateAccessor = function dateAccessor(d) {
 			return d.date;
@@ -51693,7 +51730,7 @@
 
 	var _utils = __webpack_require__(281);
 
-	var _defaultOptionsForComputation = __webpack_require__(350);
+	var _defaultOptionsForComputation = __webpack_require__(347);
 
 	function createBox(d, dateAccessor, dateMutator) {
 		var box = {
@@ -51763,7 +51800,7 @@
 	}
 
 /***/ },
-/* 357 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -51773,10 +51810,10 @@
 	});
 
 	exports.default = function () {
-		var reversalType = _defaultOptionsForComputation.Renko.reversalType,
-		    fixedBrickSize = _defaultOptionsForComputation.Renko.fixedBrickSize,
-		    sourcePath = _defaultOptionsForComputation.Renko.sourcePath,
-		    windowSize = _defaultOptionsForComputation.Renko.windowSize;
+		var reversalType = _defaultOptionsForComputation.Renko.reversalType;
+		var fixedBrickSize = _defaultOptionsForComputation.Renko.fixedBrickSize;
+		var sourcePath = _defaultOptionsForComputation.Renko.sourcePath;
+		var windowSize = _defaultOptionsForComputation.Renko.windowSize;
 
 		var dateAccessor = function dateAccessor(d) {
 			return d.date;
@@ -51967,16 +52004,16 @@
 
 	var _utils = __webpack_require__(281);
 
-	var _atr = __webpack_require__(355);
+	var _atr = __webpack_require__(352);
 
 	var _atr2 = _interopRequireDefault(_atr);
 
-	var _defaultOptionsForComputation = __webpack_require__(350);
+	var _defaultOptionsForComputation = __webpack_require__(347);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 358 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52012,10 +52049,10 @@
 	});
 
 	exports.default = function () {
-		var fast = _defaultOptionsForComputation.MACD.fast,
-		    slow = _defaultOptionsForComputation.MACD.slow,
-		    signal = _defaultOptionsForComputation.MACD.signal,
-		    sourcePath = _defaultOptionsForComputation.MACD.sourcePath;
+		var fast = _defaultOptionsForComputation.MACD.fast;
+		var slow = _defaultOptionsForComputation.MACD.slow;
+		var signal = _defaultOptionsForComputation.MACD.signal;
+		var sourcePath = _defaultOptionsForComputation.MACD.sourcePath;
 
 
 		function calculator(data) {
@@ -52097,18 +52134,18 @@
 		return calculator;
 	};
 
-	var _ema = __webpack_require__(349);
+	var _ema = __webpack_require__(346);
 
 	var _ema2 = _interopRequireDefault(_ema);
 
 	var _utils = __webpack_require__(281);
 
-	var _defaultOptionsForComputation = __webpack_require__(350);
+	var _defaultOptionsForComputation = __webpack_require__(347);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 359 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52144,8 +52181,8 @@
 	});
 
 	exports.default = function () {
-		var windowSize = _defaultOptionsForComputation.RSI.windowSize,
-		    sourcePath = _defaultOptionsForComputation.RSI.sourcePath;
+		var windowSize = _defaultOptionsForComputation.RSI.windowSize;
+		var sourcePath = _defaultOptionsForComputation.RSI.sourcePath;
 
 
 		function calculator(data) {
@@ -52214,10 +52251,10 @@
 
 	var _utils = __webpack_require__(281);
 
-	var _defaultOptionsForComputation = __webpack_require__(350);
+	var _defaultOptionsForComputation = __webpack_require__(347);
 
 /***/ },
-/* 360 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52253,9 +52290,9 @@
 	});
 
 	exports.default = function () {
-		var windowSize = _defaultOptionsForComputation.FullStochasticOscillator.windowSize,
-		    kWindowSize = _defaultOptionsForComputation.FullStochasticOscillator.kWindowSize,
-		    dWindowSize = _defaultOptionsForComputation.FullStochasticOscillator.dWindowSize;
+		var windowSize = _defaultOptionsForComputation.FullStochasticOscillator.windowSize;
+		var kWindowSize = _defaultOptionsForComputation.FullStochasticOscillator.kWindowSize;
+		var dWindowSize = _defaultOptionsForComputation.FullStochasticOscillator.dWindowSize;
 
 
 		var source = function source(d) {
@@ -52341,10 +52378,10 @@
 
 	var _utils = __webpack_require__(281);
 
-	var _defaultOptionsForComputation = __webpack_require__(350);
+	var _defaultOptionsForComputation = __webpack_require__(347);
 
 /***/ },
-/* 361 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52366,10 +52403,10 @@
 			var volume = (0, _utils.path)(volumePath);
 
 			var forceIndexCalulator = (0, _utils.slidingWindow)().windowSize(2).accumulator(function (_ref) {
-				var _ref2 = _slicedToArray(_ref, 2),
-				    prev = _ref2[0],
-				    curr = _ref2[1];
+				var _ref2 = _slicedToArray(_ref, 2);
 
+				var prev = _ref2[0];
+				var curr = _ref2[1];
 				return (source(curr) - source(prev)) * volume(curr);
 			});
 
@@ -52401,85 +52438,10 @@
 
 	var _utils = __webpack_require__(281);
 
-	var _defaultOptionsForComputation = __webpack_require__(350);
+	var _defaultOptionsForComputation = __webpack_require__(347);
 
 /***/ },
-/* 362 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	exports.default = function () {
-
-		var underlyingAlgorithm = (0, _forceIndex2.default)();
-		var smoothing, smoothingType, smoothingWindow;
-		var merge = (0, _utils.zipper)().combine(function (force, smoothed) {
-			return { force: force, smoothed: smoothed };
-		});
-
-		function calculator(data) {
-			var force = underlyingAlgorithm(data);
-			var ma = smoothingType === "ema" ? (0, _ema2.default)() : (0, _sma2.default)();
-			var forceMA = ma.windowSize(smoothingWindow).sourcePath(null);
-			var smoothed = forceMA(force);
-
-			return merge(force, smoothed);
-		}
-
-		(0, _d3fcRebind.rebind)(calculator, underlyingAlgorithm, "sourcePath", "volumePath");
-
-		calculator.undefinedLength = function () {
-			return underlyingAlgorithm.undefinedLength() + smoothingWindow;
-		};
-		calculator.smoothing = function (x) {
-			if (!arguments.length) {
-				return smoothing;
-			}
-			smoothing = x;
-			return calculator;
-		};
-		calculator.smoothingType = function (x) {
-			if (!arguments.length) {
-				return smoothingType;
-			}
-			smoothingType = x;
-			return calculator;
-		};
-		calculator.smoothingWindow = function (x) {
-			if (!arguments.length) {
-				return smoothingWindow;
-			}
-			smoothingWindow = x;
-			return calculator;
-		};
-
-		return calculator;
-	};
-
-	var _d3fcRebind = __webpack_require__(347);
-
-	var _forceIndex = __webpack_require__(361);
-
-	var _forceIndex2 = _interopRequireDefault(_forceIndex);
-
-	var _ema = __webpack_require__(349);
-
-	var _ema2 = _interopRequireDefault(_ema);
-
-	var _sma = __webpack_require__(351);
-
-	var _sma2 = _interopRequireDefault(_sma);
-
-	var _utils = __webpack_require__(281);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ },
-/* 363 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52515,9 +52477,9 @@
 	});
 
 	exports.default = function () {
-		var windowSize = _defaultOptionsForComputation.ElderRay.windowSize,
-		    sourcePath = _defaultOptionsForComputation.ElderRay.sourcePath,
-		    movingAverageType = _defaultOptionsForComputation.ElderRay.movingAverageType;
+		var windowSize = _defaultOptionsForComputation.ElderRay.windowSize;
+		var sourcePath = _defaultOptionsForComputation.ElderRay.sourcePath;
+		var movingAverageType = _defaultOptionsForComputation.ElderRay.movingAverageType;
 
 		var ohlc = function ohlc(d) {
 			return { open: d.open, high: d.high, low: d.low, close: d.close };
@@ -52577,18 +52539,18 @@
 
 	var _d3Array = __webpack_require__(280);
 
-	var _ema = __webpack_require__(349);
+	var _ema = __webpack_require__(346);
 
 	var _ema2 = _interopRequireDefault(_ema);
 
-	var _defaultOptionsForComputation = __webpack_require__(350);
+	var _defaultOptionsForComputation = __webpack_require__(347);
 
 	var _utils = __webpack_require__(281);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
-/* 364 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52649,7 +52611,7 @@
 	var _utils = __webpack_require__(281);
 
 /***/ },
-/* 365 */
+/* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52666,9 +52628,10 @@
 		function calculator(data) {
 
 			var algo = (0, _utils.slidingWindow)().windowSize(2).sourcePath(sourcePath).accumulator(function (_ref) {
-				var _ref2 = _slicedToArray(_ref, 2),
-				    prev = _ref2[0],
-				    curr = _ref2[1];
+				var _ref2 = _slicedToArray(_ref, 2);
+
+				var prev = _ref2[0];
+				var curr = _ref2[1];
 
 				var absoluteChange = curr - prev;
 				var percentChange = absoluteChange * 100 / prev;
@@ -52697,7 +52660,7 @@
 	var _utils = __webpack_require__(281);
 
 /***/ },
-/* 366 */
+/* 362 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52776,7 +52739,7 @@
 	var i = 0;
 
 /***/ },
-/* 367 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52817,13 +52780,13 @@
 		return indicator;
 	};
 
-	var _d3fcRebind = __webpack_require__(347);
+	var _d3fcRebind = __webpack_require__(344);
 
 	var _utils = __webpack_require__(281);
 
-	var _algorithm = __webpack_require__(348);
+	var _algorithm = __webpack_require__(345);
 
-	var _baseIndicator = __webpack_require__(366);
+	var _baseIndicator = __webpack_require__(362);
 
 	var _baseIndicator2 = _interopRequireDefault(_baseIndicator);
 
@@ -52832,7 +52795,7 @@
 	var ALGORITHM_TYPE = "SMA";
 
 /***/ },
-/* 368 */
+/* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52871,24 +52834,24 @@
 		return indicator;
 	};
 
-	var _d3fcRebind = __webpack_require__(347);
+	var _d3fcRebind = __webpack_require__(344);
 
 	var _utils = __webpack_require__(281);
 
-	var _defaultOptionsForAppearance = __webpack_require__(369);
+	var _defaultOptionsForAppearance = __webpack_require__(365);
 
-	var _baseIndicator = __webpack_require__(366);
+	var _baseIndicator = __webpack_require__(362);
 
 	var _baseIndicator2 = _interopRequireDefault(_baseIndicator);
 
-	var _algorithm = __webpack_require__(348);
+	var _algorithm = __webpack_require__(345);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var ALGORITHM_TYPE = "BollingerBand";
 
 /***/ },
-/* 369 */
+/* 365 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -52969,7 +52932,7 @@
 	var FullStochasticOscillator = exports.FullStochasticOscillator = themes.light.FullStochasticOscillator;
 
 /***/ },
-/* 370 */
+/* 366 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53004,11 +52967,11 @@
 		return indicator;
 	};
 
-	var _d3fcRebind = __webpack_require__(347);
+	var _d3fcRebind = __webpack_require__(344);
 
-	var _algorithm = __webpack_require__(348);
+	var _algorithm = __webpack_require__(345);
 
-	var _baseIndicator = __webpack_require__(366);
+	var _baseIndicator = __webpack_require__(362);
 
 	var _baseIndicator2 = _interopRequireDefault(_baseIndicator);
 
@@ -53019,7 +52982,7 @@
 	var ALGORITHM_TYPE = "HeikinAshi";
 
 /***/ },
-/* 371 */
+/* 367 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53043,11 +53006,11 @@
 		return indicator;
 	};
 
-	var _d3fcRebind = __webpack_require__(347);
+	var _d3fcRebind = __webpack_require__(344);
 
-	var _algorithm = __webpack_require__(348);
+	var _algorithm = __webpack_require__(345);
 
-	var _baseIndicator = __webpack_require__(366);
+	var _baseIndicator = __webpack_require__(362);
 
 	var _baseIndicator2 = _interopRequireDefault(_baseIndicator);
 
@@ -53056,7 +53019,7 @@
 	var ALGORITHM_TYPE = "Kagi";
 
 /***/ },
-/* 372 */
+/* 368 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53083,11 +53046,11 @@
 		return indicator;
 	};
 
-	var _d3fcRebind = __webpack_require__(347);
+	var _d3fcRebind = __webpack_require__(344);
 
-	var _algorithm = __webpack_require__(348);
+	var _algorithm = __webpack_require__(345);
 
-	var _baseIndicator = __webpack_require__(366);
+	var _baseIndicator = __webpack_require__(362);
 
 	var _baseIndicator2 = _interopRequireDefault(_baseIndicator);
 
@@ -53096,7 +53059,7 @@
 	var ALGORITHM_TYPE = "PointAndFigure";
 
 /***/ },
-/* 373 */
+/* 369 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53122,11 +53085,11 @@
 		return indicator;
 	};
 
-	var _d3fcRebind = __webpack_require__(347);
+	var _d3fcRebind = __webpack_require__(344);
 
-	var _algorithm = __webpack_require__(348);
+	var _algorithm = __webpack_require__(345);
 
-	var _baseIndicator = __webpack_require__(366);
+	var _baseIndicator = __webpack_require__(362);
 
 	var _baseIndicator2 = _interopRequireDefault(_baseIndicator);
 
@@ -53135,7 +53098,7 @@
 	var ALGORITHM_TYPE = "Renko";
 
 /***/ },
-/* 374 */
+/* 370 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53168,24 +53131,24 @@
 		return indicator;
 	};
 
-	var _d3fcRebind = __webpack_require__(347);
+	var _d3fcRebind = __webpack_require__(344);
 
 	var _utils = __webpack_require__(281);
 
-	var _algorithm = __webpack_require__(348);
+	var _algorithm = __webpack_require__(345);
 
-	var _baseIndicator = __webpack_require__(366);
+	var _baseIndicator = __webpack_require__(362);
 
 	var _baseIndicator2 = _interopRequireDefault(_baseIndicator);
 
-	var _defaultOptionsForAppearance = __webpack_require__(369);
+	var _defaultOptionsForAppearance = __webpack_require__(365);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var ALGORITHM_TYPE = "MACD";
 
 /***/ },
-/* 375 */
+/* 371 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53246,13 +53209,13 @@
 		return indicator;
 	};
 
-	var _d3fcRebind = __webpack_require__(347);
+	var _d3fcRebind = __webpack_require__(344);
 
 	var _utils = __webpack_require__(281);
 
-	var _algorithm = __webpack_require__(348);
+	var _algorithm = __webpack_require__(345);
 
-	var _baseIndicator = __webpack_require__(366);
+	var _baseIndicator = __webpack_require__(362);
 
 	var _baseIndicator2 = _interopRequireDefault(_baseIndicator);
 
@@ -53261,7 +53224,7 @@
 	var ALGORITHM_TYPE = "RSI";
 
 /***/ },
-/* 376 */
+/* 372 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53298,24 +53261,24 @@
 		return indicator;
 	};
 
-	var _d3fcRebind = __webpack_require__(347);
+	var _d3fcRebind = __webpack_require__(344);
 
 	var _utils = __webpack_require__(281);
 
-	var _algorithm = __webpack_require__(348);
+	var _algorithm = __webpack_require__(345);
 
-	var _baseIndicator = __webpack_require__(366);
+	var _baseIndicator = __webpack_require__(362);
 
 	var _baseIndicator2 = _interopRequireDefault(_baseIndicator);
 
-	var _defaultOptionsForComputation = __webpack_require__(350);
+	var _defaultOptionsForComputation = __webpack_require__(347);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var ALGORITHM_TYPE = "ATR";
 
 /***/ },
-/* 377 */
+/* 373 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53376,24 +53339,24 @@
 		return indicator;
 	};
 
-	var _d3fcRebind = __webpack_require__(347);
+	var _d3fcRebind = __webpack_require__(344);
 
 	var _utils = __webpack_require__(281);
 
-	var _algorithm = __webpack_require__(348);
+	var _algorithm = __webpack_require__(345);
 
-	var _baseIndicator = __webpack_require__(366);
+	var _baseIndicator = __webpack_require__(362);
 
 	var _baseIndicator2 = _interopRequireDefault(_baseIndicator);
 
-	var _defaultOptionsForAppearance = __webpack_require__(369);
+	var _defaultOptionsForAppearance = __webpack_require__(365);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var ALGORITHM_TYPE = "RSI";
 
 /***/ },
-/* 378 */
+/* 374 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53426,13 +53389,13 @@
 		return indicator;
 	};
 
-	var _d3fcRebind = __webpack_require__(347);
+	var _d3fcRebind = __webpack_require__(344);
 
 	var _utils = __webpack_require__(281);
 
-	var _algorithm = __webpack_require__(348);
+	var _algorithm = __webpack_require__(345);
 
-	var _baseIndicator = __webpack_require__(366);
+	var _baseIndicator = __webpack_require__(362);
 
 	var _baseIndicator2 = _interopRequireDefault(_baseIndicator);
 
@@ -53441,7 +53404,7 @@
 	var ALGORITHM_TYPE = "ForceIndex";
 
 /***/ },
-/* 379 */
+/* 375 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53476,13 +53439,13 @@
 		return indicator;
 	};
 
-	var _d3fcRebind = __webpack_require__(347);
+	var _d3fcRebind = __webpack_require__(344);
 
 	var _utils = __webpack_require__(281);
 
-	var _algorithm = __webpack_require__(348);
+	var _algorithm = __webpack_require__(345);
 
-	var _baseIndicator = __webpack_require__(366);
+	var _baseIndicator = __webpack_require__(362);
 
 	var _baseIndicator2 = _interopRequireDefault(_baseIndicator);
 
@@ -53491,7 +53454,7 @@
 	var ALGORITHM_TYPE = "ElderRay";
 
 /***/ },
-/* 380 */
+/* 376 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53525,13 +53488,13 @@
 		return indicator;
 	};
 
-	var _d3fcRebind = __webpack_require__(347);
+	var _d3fcRebind = __webpack_require__(344);
 
 	var _utils = __webpack_require__(281);
 
-	var _algorithm = __webpack_require__(348);
+	var _algorithm = __webpack_require__(345);
 
-	var _baseIndicator = __webpack_require__(366);
+	var _baseIndicator = __webpack_require__(362);
 
 	var _baseIndicator2 = _interopRequireDefault(_baseIndicator);
 
@@ -53540,7 +53503,7 @@
 	var ALGORITHM_TYPE = "Change";
 
 /***/ },
-/* 381 */
+/* 377 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53560,9 +53523,10 @@
 		.stroke(_defaultOptionsForAppearance.ElderImpulse.stroke).fill(undefined);
 
 		var underlyingAlgorithm = (0, _utils.slidingWindow)().windowSize(2).undefinedValue("neutral").accumulator(function (_ref) {
-			var _ref2 = _slicedToArray(_ref, 2),
-			    prev = _ref2[0],
-			    curr = _ref2[1];
+			var _ref2 = _slicedToArray(_ref, 2);
+
+			var prev = _ref2[0];
+			var curr = _ref2[1];
 
 			if ((0, _utils.isNotDefined)(macdSource)) throw new Error("macdSource not defined for " + ALGORITHM_TYPE + " calculator");
 			if ((0, _utils.isNotDefined)(emaSource)) throw new Error("emaSource not defined for " + ALGORITHM_TYPE + " calculator");
@@ -53606,13 +53570,13 @@
 		return indicator;
 	};
 
-	var _d3fcRebind = __webpack_require__(347);
+	var _d3fcRebind = __webpack_require__(344);
 
 	var _utils = __webpack_require__(281);
 
-	var _defaultOptionsForAppearance = __webpack_require__(369);
+	var _defaultOptionsForAppearance = __webpack_require__(365);
 
-	var _baseIndicator = __webpack_require__(366);
+	var _baseIndicator = __webpack_require__(362);
 
 	var _baseIndicator2 = _interopRequireDefault(_baseIndicator);
 
@@ -53621,7 +53585,7 @@
 	var ALGORITHM_TYPE = "ElderImpulse";
 
 /***/ },
-/* 382 */
+/* 378 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53656,13 +53620,13 @@
 		return indicator;
 	};
 
-	var _d3fcRebind = __webpack_require__(347);
+	var _d3fcRebind = __webpack_require__(344);
 
 	var _utils = __webpack_require__(281);
 
-	var _algorithm = __webpack_require__(348);
+	var _algorithm = __webpack_require__(345);
 
-	var _baseIndicator = __webpack_require__(366);
+	var _baseIndicator = __webpack_require__(362);
 
 	var _baseIndicator2 = _interopRequireDefault(_baseIndicator);
 
@@ -53671,7 +53635,7 @@
 	var ALGORITHM_TYPE = "Compare";
 
 /***/ },
-/* 383 */
+/* 379 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53726,7 +53690,7 @@
 	var _utils = __webpack_require__(281);
 
 /***/ },
-/* 384 */
+/* 380 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53738,19 +53702,19 @@
 	exports.buyPath = buyPath;
 	exports.sellPath = sellPath;
 
-	var _Annotate = __webpack_require__(385);
+	var _Annotate = __webpack_require__(381);
 
 	var _Annotate2 = _interopRequireDefault(_Annotate);
 
-	var _LabelAnnotation = __webpack_require__(386);
+	var _LabelAnnotation = __webpack_require__(382);
 
 	var _LabelAnnotation2 = _interopRequireDefault(_LabelAnnotation);
 
-	var _SvgPathAnnotation = __webpack_require__(387);
+	var _SvgPathAnnotation = __webpack_require__(383);
 
 	var _SvgPathAnnotation2 = _interopRequireDefault(_SvgPathAnnotation);
 
-	var _Label = __webpack_require__(388);
+	var _Label = __webpack_require__(384);
 
 	var _Label2 = _interopRequireDefault(_Label);
 
@@ -53767,21 +53731,21 @@
 	var height = 20;
 
 	function buyPath(_ref) {
-		var x = _ref.x,
-		    y = _ref.y;
+		var x = _ref.x;
+		var y = _ref.y;
 
 		return "M" + x + " " + y + " " + ("L" + (x + halfWidth) + " " + (y + halfWidth) + " ") + ("L" + (x + bottomWidth) + " " + (y + halfWidth) + " ") + ("L" + (x + bottomWidth) + " " + (y + height) + " ") + ("L" + (x - bottomWidth) + " " + (y + height) + " ") + ("L" + (x - bottomWidth) + " " + (y + halfWidth) + " ") + ("L" + (x - halfWidth) + " " + (y + halfWidth) + " ") + "Z";
 	}
 
 	function sellPath(_ref2) {
-		var x = _ref2.x,
-		    y = _ref2.y;
+		var x = _ref2.x;
+		var y = _ref2.y;
 
 		return "M" + x + " " + y + " " + ("L" + (x + halfWidth) + " " + (y - halfWidth) + " ") + ("L" + (x + bottomWidth) + " " + (y - halfWidth) + " ") + ("L" + (x + bottomWidth) + " " + (y - height) + " ") + ("L" + (x - bottomWidth) + " " + (y - height) + " ") + ("L" + (x - bottomWidth) + " " + (y - halfWidth) + " ") + ("L" + (x - halfWidth) + " " + (y - halfWidth) + " ") + "Z";
 	}
 
 /***/ },
-/* 385 */
+/* 381 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53798,7 +53762,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
@@ -53834,13 +53798,13 @@
 			key: "renderSVG",
 			value: function renderSVG(moreProps) {
 				var xAccessor = moreProps.xAccessor;
-				var xScale = moreProps.xScale,
-				    yScale = moreProps.chartConfig.yScale,
-				    plotData = moreProps.plotData;
-				var _props = this.props,
-				    className = _props.className,
-				    usingProps = _props.usingProps,
-				    Annotation = _props.with;
+				var xScale = moreProps.xScale;
+				var yScale = moreProps.chartConfig.yScale;
+				var plotData = moreProps.plotData;
+				var _props = this.props;
+				var className = _props.className;
+				var usingProps = _props.usingProps;
+				var Annotation = _props.with;
 
 				var data = helper(this.props, plotData);
 
@@ -53883,7 +53847,7 @@
 	exports.default = Annotate;
 
 /***/ },
-/* 386 */
+/* 382 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -53932,10 +53896,10 @@
 
 
 				if (onClick) {
-					var _props = this.props,
-					    xScale = _props.xScale,
-					    yScale = _props.yScale,
-					    datum = _props.datum;
+					var _props = this.props;
+					var xScale = _props.xScale;
+					var yScale = _props.yScale;
+					var datum = _props.datum;
 
 					onClick({ xScale: xScale, yScale: yScale, datum: datum }, e);
 				}
@@ -53943,24 +53907,26 @@
 		}, {
 			key: "render",
 			value: function render() {
-				var _props2 = this.props,
-				    className = _props2.className,
-				    textAnchor = _props2.textAnchor,
-				    fontFamily = _props2.fontFamily,
-				    fontSize = _props2.fontSize,
-				    opacity = _props2.opacity,
-				    rotate = _props2.rotate;
-				var _props3 = this.props,
-				    xAccessor = _props3.xAccessor,
-				    xScale = _props3.xScale,
-				    yScale = _props3.yScale;
+				var _props2 = this.props;
+				var className = _props2.className;
+				var textAnchor = _props2.textAnchor;
+				var fontFamily = _props2.fontFamily;
+				var fontSize = _props2.fontSize;
+				var opacity = _props2.opacity;
+				var rotate = _props2.rotate;
+				var _props3 = this.props;
+				var xAccessor = _props3.xAccessor;
+				var xScale = _props3.xScale;
+				var yScale = _props3.yScale;
 
-				var _helper = helper(this.props, xAccessor, xScale, yScale),
-				    xPos = _helper.xPos,
-				    yPos = _helper.yPos,
-				    fill = _helper.fill,
-				    text = _helper.text,
-				    tooltip = _helper.tooltip;
+				var _helper = helper(this.props, xAccessor, xScale, yScale);
+
+				var xPos = _helper.xPos;
+				var yPos = _helper.yPos;
+				var fill = _helper.fill;
+				var text = _helper.text;
+				var tooltip = _helper.tooltip;
+
 
 				return _react2.default.createElement(
 					"g",
@@ -53989,21 +53955,21 @@
 	}(_react.Component);
 
 	function helper(props, xAccessor, xScale, yScale) {
-		var x = props.x,
-		    y = props.y,
-		    datum = props.datum,
-		    fill = props.fill,
-		    text = props.text,
-		    tooltip = props.tooltip,
-		    plotData = props.plotData;
+		var x = props.x;
+		var y = props.y;
+		var datum = props.datum;
+		var fill = props.fill;
+		var text = props.text;
+		var tooltip = props.tooltip;
+		var plotData = props.plotData;
 
 
 		var xFunc = (0, _utils.functor)(x);
 		var yFunc = (0, _utils.functor)(y);
 
-		var _ref = [xFunc({ xScale: xScale, xAccessor: xAccessor, datum: datum, plotData: plotData }), yFunc({ yScale: yScale, datum: datum, plotData: plotData })],
-		    xPos = _ref[0],
-		    yPos = _ref[1];
+		var _ref = [xFunc({ xScale: xScale, xAccessor: xAccessor, datum: datum, plotData: plotData }), yFunc({ yScale: yScale, datum: datum, plotData: plotData })];
+		var xPos = _ref[0];
+		var yPos = _ref[1];
 
 
 		return {
@@ -54040,9 +54006,9 @@
 		opacity: 1,
 		rotate: 0,
 		x: function x(_ref2) {
-			var xScale = _ref2.xScale,
-			    xAccessor = _ref2.xAccessor,
-			    datum = _ref2.datum;
+			var xScale = _ref2.xScale;
+			var xAccessor = _ref2.xAccessor;
+			var datum = _ref2.datum;
 			return xScale(xAccessor(datum));
 		}
 	};
@@ -54054,7 +54020,7 @@
 	exports.default = LabelAnnotation;
 
 /***/ },
-/* 387 */
+/* 383 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54098,10 +54064,10 @@
 
 
 				if (onClick) {
-					var _props = this.props,
-					    xScale = _props.xScale,
-					    yScale = _props.yScale,
-					    datum = _props.datum;
+					var _props = this.props;
+					var xScale = _props.xScale;
+					var yScale = _props.yScale;
+					var datum = _props.datum;
 
 					onClick({ xScale: xScale, yScale: yScale, datum: datum }, e);
 				}
@@ -54109,21 +54075,23 @@
 		}, {
 			key: "render",
 			value: function render() {
-				var _props2 = this.props,
-				    className = _props2.className,
-				    stroke = _props2.stroke,
-				    opacity = _props2.opacity;
-				var _props3 = this.props,
-				    xAccessor = _props3.xAccessor,
-				    xScale = _props3.xScale,
-				    yScale = _props3.yScale,
-				    path = _props3.path;
+				var _props2 = this.props;
+				var className = _props2.className;
+				var stroke = _props2.stroke;
+				var opacity = _props2.opacity;
+				var _props3 = this.props;
+				var xAccessor = _props3.xAccessor;
+				var xScale = _props3.xScale;
+				var yScale = _props3.yScale;
+				var path = _props3.path;
 
-				var _helper = helper(this.props, xAccessor, xScale, yScale),
-				    x = _helper.x,
-				    y = _helper.y,
-				    fill = _helper.fill,
-				    tooltip = _helper.tooltip;
+				var _helper = helper(this.props, xAccessor, xScale, yScale);
+
+				var x = _helper.x;
+				var y = _helper.y;
+				var fill = _helper.fill;
+				var tooltip = _helper.tooltip;
+
 
 				return _react2.default.createElement(
 					"g",
@@ -54142,20 +54110,20 @@
 	}(_react.Component);
 
 	function helper(props, xAccessor, xScale, yScale) {
-		var x = props.x,
-		    y = props.y,
-		    datum = props.datum,
-		    fill = props.fill,
-		    tooltip = props.tooltip,
-		    plotData = props.plotData;
+		var x = props.x;
+		var y = props.y;
+		var datum = props.datum;
+		var fill = props.fill;
+		var tooltip = props.tooltip;
+		var plotData = props.plotData;
 
 
 		var xFunc = (0, _utils.functor)(x);
 		var yFunc = (0, _utils.functor)(y);
 
-		var _ref = [xFunc({ xScale: xScale, xAccessor: xAccessor, datum: datum, plotData: plotData }), yFunc({ yScale: yScale, datum: datum, plotData: plotData })],
-		    xPos = _ref[0],
-		    yPos = _ref[1];
+		var _ref = [xFunc({ xScale: xScale, xAccessor: xAccessor, datum: datum, plotData: plotData }), yFunc({ yScale: yScale, datum: datum, plotData: plotData })];
+		var xPos = _ref[0];
+		var yPos = _ref[1];
 
 
 		return {
@@ -54183,9 +54151,9 @@
 		className: "react-stockcharts-svgpathannotation",
 		opacity: 1,
 		x: function x(_ref2) {
-			var xScale = _ref2.xScale,
-			    xAccessor = _ref2.xAccessor,
-			    datum = _ref2.datum;
+			var xScale = _ref2.xScale;
+			var xAccessor = _ref2.xAccessor;
+			var datum = _ref2.datum;
 			return xScale(xAccessor(datum));
 		}
 	};
@@ -54193,7 +54161,7 @@
 	exports.default = SvgPathAnnotation;
 
 /***/ },
-/* 388 */
+/* 384 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54210,13 +54178,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _GenericComponent = __webpack_require__(307);
+	var _GenericComponent = __webpack_require__(306);
 
 	var _GenericComponent2 = _interopRequireDefault(_GenericComponent);
 
 	var _utils = __webpack_require__(281);
 
-	var _LabelAnnotation = __webpack_require__(386);
+	var _LabelAnnotation = __webpack_require__(382);
 
 	var _LabelAnnotation2 = _interopRequireDefault(_LabelAnnotation);
 
@@ -54299,10 +54267,10 @@
 	function drawOnCanvas2(ctx, props, context, moreProps) {
 		ctx.save();
 
-		var canvasOriginX = context.canvasOriginX,
-		    canvasOriginY = context.canvasOriginY,
-		    margin = context.margin,
-		    ratio = context.ratio;
+		var canvasOriginX = context.canvasOriginX;
+		var canvasOriginY = context.canvasOriginY;
+		var margin = context.margin;
+		var ratio = context.ratio;
 
 		ctx.setTransform(1, 0, 0, 1, 0, 0);
 		ctx.scale(ratio, ratio);
@@ -54315,20 +54283,22 @@
 	}
 
 	function drawOnCanvas(ctx, props, moreProps) {
-		var textAnchor = props.textAnchor,
-		    fontFamily = props.fontFamily,
-		    fontSize = props.fontSize,
-		    opacity = props.opacity,
-		    rotate = props.rotate;
-		var xScale = moreProps.xScale,
-		    chartConfig = moreProps.chartConfig,
-		    xAccessor = moreProps.xAccessor;
+		var textAnchor = props.textAnchor;
+		var fontFamily = props.fontFamily;
+		var fontSize = props.fontSize;
+		var opacity = props.opacity;
+		var rotate = props.rotate;
+		var xScale = moreProps.xScale;
+		var chartConfig = moreProps.chartConfig;
+		var xAccessor = moreProps.xAccessor;
 
-		var _helper = (0, _LabelAnnotation.helper)(props, xAccessor, xScale, getYScale(chartConfig)),
-		    xPos = _helper.xPos,
-		    yPos = _helper.yPos,
-		    fill = _helper.fill,
-		    text = _helper.text;
+		var _helper = (0, _LabelAnnotation.helper)(props, xAccessor, xScale, getYScale(chartConfig));
+
+		var xPos = _helper.xPos;
+		var yPos = _helper.yPos;
+		var fill = _helper.fill;
+		var text = _helper.text;
+
 
 		var radians = rotate / 180 * Math.PI;
 		ctx.save();
@@ -54347,7 +54317,7 @@
 	exports.default = Label;
 
 /***/ },
-/* 389 */
+/* 385 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54357,11 +54327,11 @@
 	});
 	exports.YAxis = exports.XAxis = undefined;
 
-	var _XAxis = __webpack_require__(390);
+	var _XAxis = __webpack_require__(386);
 
 	var _XAxis2 = _interopRequireDefault(_XAxis);
 
-	var _YAxis = __webpack_require__(397);
+	var _YAxis = __webpack_require__(393);
 
 	var _YAxis2 = _interopRequireDefault(_YAxis);
 
@@ -54371,7 +54341,7 @@
 	exports.YAxis = _YAxis2.default;
 
 /***/ },
-/* 390 */
+/* 386 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54388,7 +54358,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Axis = __webpack_require__(391);
+	var _Axis = __webpack_require__(387);
 
 	var _Axis2 = _interopRequireDefault(_Axis);
 
@@ -54485,11 +54455,11 @@
 	};
 
 	function helper(props, context) {
-		var axisAt = props.axisAt,
-		    xZoomHeight = props.xZoomHeight,
-		    orient = props.orient;
-		var width = context.width,
-		    height = context.height;
+		var axisAt = props.axisAt;
+		var xZoomHeight = props.xZoomHeight;
+		var orient = props.orient;
+		var width = context.width;
+		var height = context.height;
 
 
 		var axisLocation,
@@ -54513,7 +54483,7 @@
 	exports.default = XAxis;
 
 /***/ },
-/* 391 */
+/* 387 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54530,13 +54500,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Force = __webpack_require__(392);
+	var _d3Force = __webpack_require__(388);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
-	var _AxisZoomCapture = __webpack_require__(396);
+	var _AxisZoomCapture = __webpack_require__(392);
 
 	var _AxisZoomCapture2 = _interopRequireDefault(_AxisZoomCapture);
 
@@ -54568,12 +54538,12 @@
 		_createClass(Axis, [{
 			key: "drawOnCanvas",
 			value: function drawOnCanvas(ctx, moreProps) {
-				var _props = this.props,
-				    showDomain = _props.showDomain,
-				    showTicks = _props.showTicks,
-				    transform = _props.transform,
-				    range = _props.range,
-				    getScale = _props.getScale;
+				var _props = this.props;
+				var showDomain = _props.showDomain;
+				var showTicks = _props.showTicks;
+				var transform = _props.transform;
+				var range = _props.range;
+				var getScale = _props.getScale;
 
 
 				ctx.save();
@@ -54591,11 +54561,11 @@
 			key: "renderSVG",
 			value: function renderSVG(moreProps) {
 				var className = this.props.className;
-				var _props2 = this.props,
-				    showDomain = _props2.showDomain,
-				    showTicks = _props2.showTicks,
-				    range = _props2.range,
-				    getScale = _props2.getScale;
+				var _props2 = this.props;
+				var showDomain = _props2.showDomain;
+				var showTicks = _props2.showTicks;
+				var range = _props2.range;
+				var getScale = _props2.getScale;
 
 
 				var ticks = showTicks ? axisTicksSVG(this.props, getScale(moreProps)) : null;
@@ -54616,20 +54586,20 @@
 		}, {
 			key: "render",
 			value: function render() {
-				var _props3 = this.props,
-				    bg = _props3.bg,
-				    axisZoomCallback = _props3.axisZoomCallback,
-				    zoomCursorClassName = _props3.zoomCursorClassName,
-				    zoomEnabled = _props3.zoomEnabled,
-				    getScale = _props3.getScale,
-				    inverted = _props3.inverted;
-				var _props4 = this.props,
-				    transform = _props4.transform,
-				    getMouseDelta = _props4.getMouseDelta,
-				    edgeClip = _props4.edgeClip;
-				var _props5 = this.props,
-				    onContextMenu = _props5.onContextMenu,
-				    onDoubleClick = _props5.onDoubleClick;
+				var _props3 = this.props;
+				var bg = _props3.bg;
+				var axisZoomCallback = _props3.axisZoomCallback;
+				var zoomCursorClassName = _props3.zoomCursorClassName;
+				var zoomEnabled = _props3.zoomEnabled;
+				var getScale = _props3.getScale;
+				var inverted = _props3.inverted;
+				var _props4 = this.props;
+				var transform = _props4.transform;
+				var getMouseDelta = _props4.getMouseDelta;
+				var edgeClip = _props4.edgeClip;
+				var _props5 = this.props;
+				var onContextMenu = _props5.onContextMenu;
+				var onDoubleClick = _props5.onDoubleClick;
 
 
 				var zoomCapture = zoomEnabled ? _react2.default.createElement(_AxisZoomCapture2.default, {
@@ -54700,18 +54670,18 @@
 	};
 
 	function tickHelper(props, scale) {
-		var orient = props.orient,
-		    innerTickSize = props.innerTickSize,
-		    tickFormat = props.tickFormat,
-		    tickPadding = props.tickPadding,
-		    fontSize = props.fontSize,
-		    fontFamily = props.fontFamily,
-		    showTicks = props.showTicks,
-		    flexTicks = props.flexTicks;
-		var tickArguments = props.ticks,
-		    tickValuesProp = props.tickValues,
-		    tickStroke = props.tickStroke,
-		    tickStrokeOpacity = props.tickStrokeOpacity;
+		var orient = props.orient;
+		var innerTickSize = props.innerTickSize;
+		var tickFormat = props.tickFormat;
+		var tickPadding = props.tickPadding;
+		var fontSize = props.fontSize;
+		var fontFamily = props.fontFamily;
+		var showTicks = props.showTicks;
+		var flexTicks = props.flexTicks;
+		var tickArguments = props.ticks;
+		var tickValuesProp = props.tickValues;
+		var tickStroke = props.tickStroke;
+		var tickStrokeOpacity = props.tickStrokeOpacity;
 
 		// if (tickArguments) tickArguments = [tickArguments];
 
@@ -54799,13 +54769,13 @@
 
 	/* eslint-disable react/prop-types */
 	function axisLineSVG(props, range) {
-		var orient = props.orient,
-		    outerTickSize = props.outerTickSize;
-		var domainClassName = props.domainClassName,
-		    fill = props.fill,
-		    stroke = props.stroke,
-		    strokeWidth = props.strokeWidth,
-		    opacity = props.opacity;
+		var orient = props.orient;
+		var outerTickSize = props.outerTickSize;
+		var domainClassName = props.domainClassName;
+		var fill = props.fill;
+		var stroke = props.stroke;
+		var strokeWidth = props.strokeWidth;
+		var opacity = props.opacity;
 
 
 		var sign = orient === "top" || orient === "left" ? -1 : 1;
@@ -54831,11 +54801,11 @@
 	function drawAxisLine(ctx, props, range) {
 		// props = { ...AxisLine.defaultProps, ...props };
 
-		var orient = props.orient,
-		    outerTickSize = props.outerTickSize,
-		    stroke = props.stroke,
-		    strokeWidth = props.strokeWidth,
-		    opacity = props.opacity;
+		var orient = props.orient;
+		var outerTickSize = props.outerTickSize;
+		var stroke = props.stroke;
+		var strokeWidth = props.strokeWidth;
+		var opacity = props.opacity;
 
 
 		var sign = orient === "top" || orient === "left" ? -1 : 1;
@@ -54863,18 +54833,18 @@
 	}
 
 	function Tick(props) {
-		var tickStroke = props.tickStroke,
-		    tickStrokeOpacity = props.tickStrokeOpacity,
-		    textAnchor = props.textAnchor,
-		    fontSize = props.fontSize,
-		    fontFamily = props.fontFamily;
-		var x1 = props.x1,
-		    y1 = props.y1,
-		    x2 = props.x2,
-		    y2 = props.y2,
-		    labelX = props.labelX,
-		    labelY = props.labelY,
-		    dy = props.dy;
+		var tickStroke = props.tickStroke;
+		var tickStrokeOpacity = props.tickStrokeOpacity;
+		var textAnchor = props.textAnchor;
+		var fontSize = props.fontSize;
+		var fontFamily = props.fontFamily;
+		var x1 = props.x1;
+		var y1 = props.y1;
+		var x2 = props.x2;
+		var y2 = props.y2;
+		var labelX = props.labelX;
+		var labelY = props.labelY;
+		var dy = props.dy;
 
 		return _react2.default.createElement(
 			"g",
@@ -54914,13 +54884,13 @@
 	function axisTicksSVG(props, scale) {
 		var result = tickHelper(props, scale);
 
-		var tickStroke = result.tickStroke,
-		    tickStrokeOpacity = result.tickStrokeOpacity,
-		    textAnchor = result.textAnchor;
-		var fontSize = result.fontSize,
-		    fontFamily = result.fontFamily,
-		    ticks = result.ticks,
-		    format = result.format;
+		var tickStroke = result.tickStroke;
+		var tickStrokeOpacity = result.tickStrokeOpacity;
+		var textAnchor = result.textAnchor;
+		var fontSize = result.fontSize;
+		var fontFamily = result.fontFamily;
+		var ticks = result.ticks;
+		var format = result.format;
 		var dy = result.dy;
 
 
@@ -54945,12 +54915,12 @@
 	}
 
 	function drawTicks(ctx, result) {
-		var tickStroke = result.tickStroke,
-		    tickStrokeOpacity = result.tickStrokeOpacity,
-		    textAnchor = result.textAnchor,
-		    fontSize = result.fontSize,
-		    fontFamily = result.fontFamily,
-		    ticks = result.ticks;
+		var tickStroke = result.tickStroke;
+		var tickStrokeOpacity = result.tickStrokeOpacity;
+		var textAnchor = result.textAnchor;
+		var fontSize = result.fontSize;
+		var fontFamily = result.fontFamily;
+		var ticks = result.ticks;
 
 
 		ctx.strokeStyle = (0, _utils.hexToRGBA)(tickStroke, tickStrokeOpacity);
@@ -54966,8 +54936,8 @@
 	}
 
 	function drawEachTick(ctx, tick, result) {
-		var canvas_dy = result.canvas_dy,
-		    format = result.format;
+		var canvas_dy = result.canvas_dy;
+		var format = result.format;
 
 
 		ctx.beginPath();
@@ -54982,12 +54952,12 @@
 	exports.default = Axis;
 
 /***/ },
-/* 392 */
+/* 388 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// https://d3js.org/d3-force/ Version 1.0.3. Copyright 2016 Mike Bostock.
 	(function (global, factory) {
-	   true ? factory(exports, __webpack_require__(393), __webpack_require__(283), __webpack_require__(394), __webpack_require__(395)) :
+	   true ? factory(exports, __webpack_require__(389), __webpack_require__(283), __webpack_require__(390), __webpack_require__(391)) :
 	  typeof define === 'function' && define.amd ? define(['exports', 'd3-quadtree', 'd3-collection', 'd3-dispatch', 'd3-timer'], factory) :
 	  (factory((global.d3 = global.d3 || {}),global.d3,global.d3,global.d3,global.d3));
 	}(this, (function (exports,d3Quadtree,d3Collection,d3Dispatch,d3Timer) { 'use strict';
@@ -55594,7 +55564,7 @@
 
 
 /***/ },
-/* 393 */
+/* 389 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// https://d3js.org/d3-quadtree/ Version 1.0.1. Copyright 2016 Mike Bostock.
@@ -56034,7 +56004,7 @@
 	}));
 
 /***/ },
-/* 394 */
+/* 390 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// https://d3js.org/d3-dispatch/ Version 1.0.1. Copyright 2016 Mike Bostock.
@@ -56134,7 +56104,7 @@
 	}));
 
 /***/ },
-/* 395 */
+/* 391 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// https://d3js.org/d3-timer/ Version 1.0.3. Copyright 2016 Mike Bostock.
@@ -56287,7 +56257,7 @@
 	})));
 
 /***/ },
-/* 396 */
+/* 392 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56302,7 +56272,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Selection = __webpack_require__(303);
+	var _d3Selection = __webpack_require__(302);
 
 	var _d3Array = __webpack_require__(280);
 
@@ -56367,9 +56337,9 @@
 		}, {
 			key: "handleDragStart",
 			value: function handleDragStart(e) {
-				var _props = this.props,
-				    getScale = _props.getScale,
-				    getMoreProps = _props.getMoreProps;
+				var _props = this.props;
+				var getScale = _props.getScale;
+				var getMoreProps = _props.getMoreProps;
 
 				var startScale = getScale(getMoreProps());
 				this.dragHappened = false;
@@ -56399,17 +56369,17 @@
 				e.preventDefault();
 
 				var startPosition = this.state.startPosition;
-				var _props2 = this.props,
-				    getMouseDelta = _props2.getMouseDelta,
-				    inverted = _props2.inverted;
+				var _props2 = this.props;
+				var getMouseDelta = _props2.getMouseDelta;
+				var inverted = _props2.inverted;
 
 
 				this.dragHappened = true;
 				if ((0, _utils.isDefined)(startPosition)) {
 					var startScale = startPosition.startScale;
-					var startXY = startPosition.startXY,
-					    leftX = startPosition.leftX,
-					    topY = startPosition.topY;
+					var startXY = startPosition.startXY;
+					var leftX = startPosition.leftX;
+					var topY = startPosition.topY;
 
 
 					var mouseXY = [e.pageX - leftX, e.pageY - topY];
@@ -56461,9 +56431,9 @@
 		}, {
 			key: "render",
 			value: function render() {
-				var _props3 = this.props,
-				    bg = _props3.bg,
-				    zoomCursorClassName = _props3.zoomCursorClassName;
+				var _props3 = this.props;
+				var bg = _props3.bg;
+				var zoomCursorClassName = _props3.zoomCursorClassName;
 
 
 				var cursor = (0, _utils.isDefined)(this.state.startPosition) ? zoomCursorClassName : "react-stockcharts-default-cursor";
@@ -56517,7 +56487,7 @@
 	exports.default = AxisZoomCapture;
 
 /***/ },
-/* 397 */
+/* 393 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56534,7 +56504,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Axis = __webpack_require__(391);
+	var _Axis = __webpack_require__(387);
 
 	var _Axis2 = _interopRequireDefault(_Axis);
 
@@ -56563,18 +56533,20 @@
 		_createClass(YAxis, [{
 			key: "axisZoomCallback",
 			value: function axisZoomCallback(newYDomain) {
-				var _context = this.context,
-				    chartId = _context.chartId,
-				    yAxisZoom = _context.yAxisZoom;
+				var _context = this.context;
+				var chartId = _context.chartId;
+				var yAxisZoom = _context.yAxisZoom;
 
 				yAxisZoom(chartId, newYDomain);
 			}
 		}, {
 			key: "render",
 			value: function render() {
-				var _helper = helper(this.props, this.context),
-				    zoomEnabled = _helper.zoomEnabled,
-				    moreProps = _objectWithoutProperties(_helper, ["zoomEnabled"]);
+				var _helper = helper(this.props, this.context);
+
+				var zoomEnabled = _helper.zoomEnabled;
+
+				var moreProps = _objectWithoutProperties(_helper, ["zoomEnabled"]);
 
 				return _react2.default.createElement(_Axis2.default, _extends({}, this.props, moreProps, {
 					zoomEnabled: this.props.zoomEnabled && zoomEnabled,
@@ -56639,11 +56611,11 @@
 	};
 
 	function helper(props, context) {
-		var axisAt = props.axisAt,
-		    yZoomWidth = props.yZoomWidth,
-		    orient = props.orient;
-		var width = context.width,
-		    height = context.height;
+		var axisAt = props.axisAt;
+		var yZoomWidth = props.yZoomWidth;
+		var orient = props.orient;
+		var width = context.width;
+		var height = context.height;
 
 
 		var axisLocation,
@@ -56676,7 +56648,7 @@
 	exports.default = YAxis;
 
 /***/ },
-/* 398 */
+/* 394 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56686,43 +56658,43 @@
 	});
 	exports.ToolTipTSpanLabel = exports.ToolTipText = exports.HoverTooltip = exports.StochasticTooltip = exports.RSITooltip = exports.BollingerBandTooltip = exports.MovingAverageTooltip = exports.SingleValueTooltip = exports.OHLCTooltip = exports.MACDTooltip = undefined;
 
-	var _MACDTooltip = __webpack_require__(399);
+	var _MACDTooltip = __webpack_require__(395);
 
 	var _MACDTooltip2 = _interopRequireDefault(_MACDTooltip);
 
-	var _OHLCTooltip = __webpack_require__(402);
+	var _OHLCTooltip = __webpack_require__(398);
 
 	var _OHLCTooltip2 = _interopRequireDefault(_OHLCTooltip);
 
-	var _SingleValueTooltip = __webpack_require__(403);
+	var _SingleValueTooltip = __webpack_require__(399);
 
 	var _SingleValueTooltip2 = _interopRequireDefault(_SingleValueTooltip);
 
-	var _MovingAverageTooltip = __webpack_require__(404);
+	var _MovingAverageTooltip = __webpack_require__(400);
 
 	var _MovingAverageTooltip2 = _interopRequireDefault(_MovingAverageTooltip);
 
-	var _BollingerBandTooltip = __webpack_require__(405);
+	var _BollingerBandTooltip = __webpack_require__(401);
 
 	var _BollingerBandTooltip2 = _interopRequireDefault(_BollingerBandTooltip);
 
-	var _RSITooltip = __webpack_require__(406);
+	var _RSITooltip = __webpack_require__(402);
 
 	var _RSITooltip2 = _interopRequireDefault(_RSITooltip);
 
-	var _StochasticTooltip = __webpack_require__(407);
+	var _StochasticTooltip = __webpack_require__(403);
 
 	var _StochasticTooltip2 = _interopRequireDefault(_StochasticTooltip);
 
-	var _HoverTooltip = __webpack_require__(408);
+	var _HoverTooltip = __webpack_require__(404);
 
 	var _HoverTooltip2 = _interopRequireDefault(_HoverTooltip);
 
-	var _ToolTipText = __webpack_require__(400);
+	var _ToolTipText = __webpack_require__(396);
 
 	var _ToolTipText2 = _interopRequireDefault(_ToolTipText);
 
-	var _ToolTipTSpanLabel = __webpack_require__(401);
+	var _ToolTipTSpanLabel = __webpack_require__(397);
 
 	var _ToolTipTSpanLabel2 = _interopRequireDefault(_ToolTipTSpanLabel);
 
@@ -56741,7 +56713,7 @@
 	// import TooltipContainer from "./TooltipContainer";
 
 /***/ },
-/* 399 */
+/* 395 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56760,15 +56732,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
-	var _ToolTipText = __webpack_require__(400);
+	var _ToolTipText = __webpack_require__(396);
 
 	var _ToolTipText2 = _interopRequireDefault(_ToolTipText);
 
-	var _ToolTipTSpanLabel = __webpack_require__(401);
+	var _ToolTipTSpanLabel = __webpack_require__(397);
 
 	var _ToolTipTSpanLabel2 = _interopRequireDefault(_ToolTipTSpanLabel);
 
@@ -56797,15 +56769,15 @@
 		_createClass(MACDTooltip, [{
 			key: "renderSVG",
 			value: function renderSVG(moreProps) {
-				var _props = this.props,
-				    onClick = _props.onClick,
-				    fontFamily = _props.fontFamily,
-				    fontSize = _props.fontSize,
-				    calculator = _props.calculator,
-				    displayFormat = _props.displayFormat,
-				    className = _props.className;
-				var width = moreProps.width,
-				    height = moreProps.height;
+				var _props = this.props;
+				var onClick = _props.onClick;
+				var fontFamily = _props.fontFamily;
+				var fontSize = _props.fontSize;
+				var calculator = _props.calculator;
+				var displayFormat = _props.displayFormat;
+				var className = _props.className;
+				var width = moreProps.width;
+				var height = moreProps.height;
 				var currentItem = moreProps.currentItem;
 
 
@@ -56821,10 +56793,13 @@
 
 				var origin = (0, _utils.functor)(originProp);
 
-				var _origin = origin(width, height),
-				    _origin2 = _slicedToArray(_origin, 2),
-				    x = _origin2[0],
-				    y = _origin2[1];
+				var _origin = origin(width, height);
+
+				var _origin2 = _slicedToArray(_origin, 2);
+
+				var x = _origin2[0];
+				var y = _origin2[1];
+
 
 				return _react2.default.createElement(
 					"g",
@@ -56930,7 +56905,7 @@
 	// export default MACDTooltip;
 
 /***/ },
-/* 400 */
+/* 396 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56996,7 +56971,7 @@
 	exports.default = ToolTipText;
 
 /***/ },
-/* 401 */
+/* 397 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57051,7 +57026,7 @@
 	exports.default = ToolTipTSpanLabel;
 
 /***/ },
-/* 402 */
+/* 398 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57072,17 +57047,17 @@
 
 	var _d3TimeFormat = __webpack_require__(288);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
 	var _utils = __webpack_require__(281);
 
-	var _ToolTipText = __webpack_require__(400);
+	var _ToolTipText = __webpack_require__(396);
 
 	var _ToolTipText2 = _interopRequireDefault(_ToolTipText);
 
-	var _ToolTipTSpanLabel = __webpack_require__(401);
+	var _ToolTipTSpanLabel = __webpack_require__(397);
 
 	var _ToolTipTSpanLabel2 = _interopRequireDefault(_ToolTipTSpanLabel);
 
@@ -57110,17 +57085,17 @@
 			key: "renderSVG",
 			value: function renderSVG(moreProps) {
 				var className = this.props.className;
-				var width = moreProps.width,
-				    height = moreProps.height;
+				var width = moreProps.width;
+				var height = moreProps.height;
 				var currentItem = moreProps.currentItem;
-				var _props = this.props,
-				    onClick = _props.onClick,
-				    xDisplayFormat = _props.xDisplayFormat,
-				    fontFamily = _props.fontFamily,
-				    fontSize = _props.fontSize,
-				    accessor = _props.accessor,
-				    volumeFormat = _props.volumeFormat,
-				    ohlcFormat = _props.ohlcFormat;
+				var _props = this.props;
+				var onClick = _props.onClick;
+				var xDisplayFormat = _props.xDisplayFormat;
+				var fontFamily = _props.fontFamily;
+				var fontSize = _props.fontSize;
+				var accessor = _props.accessor;
+				var volumeFormat = _props.volumeFormat;
+				var ohlcFormat = _props.ohlcFormat;
 
 
 				var displayDate, open, high, low, close, volume;
@@ -57142,10 +57117,13 @@
 
 				var origin = (0, _utils.functor)(originProp);
 
-				var _origin = origin(width, height),
-				    _origin2 = _slicedToArray(_origin, 2),
-				    x = _origin2[0],
-				    y = _origin2[1];
+				var _origin = origin(width, height);
+
+				var _origin2 = _slicedToArray(_origin, 2);
+
+				var x = _origin2[0];
+				var y = _origin2[1];
+
 
 				return _react2.default.createElement(
 					"g",
@@ -57215,7 +57193,8 @@
 							{ key: "value_Vol" },
 							volume
 						)
-					)
+					),
+					_react2.default.createElement("circle", { r: 10, fill: "white" })
 				);
 			}
 		}, {
@@ -57257,7 +57236,7 @@
 	exports.default = OHLCTooltip;
 
 /***/ },
-/* 403 */
+/* 399 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57276,15 +57255,15 @@
 
 	var _d3Format = __webpack_require__(286);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
-	var _ToolTipText = __webpack_require__(400);
+	var _ToolTipText = __webpack_require__(396);
 
 	var _ToolTipText2 = _interopRequireDefault(_ToolTipText);
 
-	var _ToolTipTSpanLabel = __webpack_require__(401);
+	var _ToolTipTSpanLabel = __webpack_require__(397);
 
 	var _ToolTipTSpanLabel2 = _interopRequireDefault(_ToolTipTSpanLabel);
 
@@ -57313,22 +57292,22 @@
 		_createClass(SingleValueTooltip, [{
 			key: "renderSVG",
 			value: function renderSVG(moreProps) {
-				var _props = this.props,
-				    onClick = _props.onClick,
-				    fontFamily = _props.fontFamily,
-				    fontSize = _props.fontSize,
-				    labelStroke = _props.labelStroke,
-				    valueStroke = _props.valueStroke,
-				    className = _props.className;
-				var _props2 = this.props,
-				    xDisplayFormat = _props2.xDisplayFormat,
-				    yDisplayFormat = _props2.yDisplayFormat,
-				    xLabel = _props2.xLabel,
-				    yLabel = _props2.yLabel,
-				    xAccessor = _props2.xAccessor,
-				    yAccessor = _props2.yAccessor;
-				var width = moreProps.width,
-				    height = moreProps.height;
+				var _props = this.props;
+				var onClick = _props.onClick;
+				var fontFamily = _props.fontFamily;
+				var fontSize = _props.fontSize;
+				var labelStroke = _props.labelStroke;
+				var valueStroke = _props.valueStroke;
+				var className = _props.className;
+				var _props2 = this.props;
+				var xDisplayFormat = _props2.xDisplayFormat;
+				var yDisplayFormat = _props2.yDisplayFormat;
+				var xLabel = _props2.xLabel;
+				var yLabel = _props2.yLabel;
+				var xAccessor = _props2.xAccessor;
+				var yAccessor = _props2.yAccessor;
+				var width = moreProps.width;
+				var height = moreProps.height;
 				var currentItem = moreProps.currentItem;
 
 
@@ -57339,10 +57318,13 @@
 
 				var origin = (0, _utils.functor)(originProp);
 
-				var _origin = origin(width, height),
-				    _origin2 = _slicedToArray(_origin, 2),
-				    x = _origin2[0],
-				    y = _origin2[1];
+				var _origin = origin(width, height);
+
+				var _origin2 = _slicedToArray(_origin, 2);
+
+				var x = _origin2[0];
+				var y = _origin2[1];
+
 
 				return _react2.default.createElement(
 					"g",
@@ -57417,7 +57399,7 @@
 	exports.default = SingleValueTooltip;
 
 /***/ },
-/* 404 */
+/* 400 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57438,15 +57420,15 @@
 
 	var _d3Format = __webpack_require__(286);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
-	var _ToolTipText = __webpack_require__(400);
+	var _ToolTipText = __webpack_require__(396);
 
 	var _ToolTipText2 = _interopRequireDefault(_ToolTipText);
 
-	var _ToolTipTSpanLabel = __webpack_require__(401);
+	var _ToolTipTSpanLabel = __webpack_require__(397);
 
 	var _ToolTipTSpanLabel2 = _interopRequireDefault(_ToolTipTSpanLabel);
 
@@ -57475,10 +57457,10 @@
 		_createClass(SingleMAToolTip, [{
 			key: "handleClick",
 			value: function handleClick(e) {
-				var _props = this.props,
-				    onClick = _props.onClick,
-				    forChart = _props.forChart,
-				    options = _props.options;
+				var _props = this.props;
+				var onClick = _props.onClick;
+				var forChart = _props.forChart;
+				var options = _props.options;
 
 				onClick(_extends({ chartId: forChart }, options), e);
 			}
@@ -57542,33 +57524,37 @@
 		_createClass(MovingAverageTooltip, [{
 			key: "renderSVG",
 			value: function renderSVG(moreProps) {
-				var height = moreProps.height,
-				    chartId = moreProps.chartId;
-				var chartConfig = moreProps.chartConfig,
-				    currentItem = moreProps.currentItem;
-				var _props2 = this.props,
-				    className = _props2.className,
-				    onClick = _props2.onClick,
-				    width = _props2.width,
-				    fontFamily = _props2.fontFamily,
-				    fontSize = _props2.fontSize,
-				    originProp = _props2.origin,
-				    calculators = _props2.calculators,
-				    displayFormat = _props2.displayFormat;
+				var height = moreProps.height;
+				var chartId = moreProps.chartId;
+				var chartConfig = moreProps.chartConfig;
+				var currentItem = moreProps.currentItem;
+				var _props2 = this.props;
+				var className = _props2.className;
+				var onClick = _props2.onClick;
+				var width = _props2.width;
+				var fontFamily = _props2.fontFamily;
+				var fontSize = _props2.fontSize;
+				var originProp = _props2.origin;
+				var calculators = _props2.calculators;
+				var displayFormat = _props2.displayFormat;
 
 
 				var config = chartConfig;
 
 				var origin = (0, _utils.functor)(originProp);
 
-				var _origin = origin(width, height),
-				    _origin2 = _slicedToArray(_origin, 2),
-				    x = _origin2[0],
-				    y = _origin2[1];
+				var _origin = origin(width, height);
 
-				var _config$origin = _slicedToArray(config.origin, 2),
-				    ox = _config$origin[0],
-				    oy = _config$origin[1];
+				var _origin2 = _slicedToArray(_origin, 2);
+
+				var x = _origin2[0];
+				var y = _origin2[1];
+
+				var _config$origin = _slicedToArray(config.origin, 2);
+
+				var ox = _config$origin[0];
+				var oy = _config$origin[1];
+
 
 				return _react2.default.createElement(
 					"g",
@@ -57630,7 +57616,7 @@
 	exports.default = MovingAverageTooltip;
 
 /***/ },
-/* 405 */
+/* 401 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57649,17 +57635,17 @@
 
 	var _d3Format = __webpack_require__(286);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
 	var _utils = __webpack_require__(281);
 
-	var _ToolTipText = __webpack_require__(400);
+	var _ToolTipText = __webpack_require__(396);
 
 	var _ToolTipText2 = _interopRequireDefault(_ToolTipText);
 
-	var _ToolTipTSpanLabel = __webpack_require__(401);
+	var _ToolTipTSpanLabel = __webpack_require__(397);
 
 	var _ToolTipTSpanLabel2 = _interopRequireDefault(_ToolTipTSpanLabel);
 
@@ -57686,12 +57672,12 @@
 		_createClass(BollingerBandTooltip, [{
 			key: "renderSVG",
 			value: function renderSVG(moreProps) {
-				var _props = this.props,
-				    onClick = _props.onClick,
-				    displayFormat = _props.displayFormat,
-				    calculator = _props.calculator;
-				var width = moreProps.width,
-				    height = moreProps.height;
+				var _props = this.props;
+				var onClick = _props.onClick;
+				var displayFormat = _props.displayFormat;
+				var calculator = _props.calculator;
+				var width = moreProps.width;
+				var height = moreProps.height;
 				var currentItem = moreProps.currentItem;
 
 
@@ -57710,10 +57696,12 @@
 
 				var origin = (0, _utils.functor)(originProp);
 
-				var _origin = origin(width, height),
-				    _origin2 = _slicedToArray(_origin, 2),
-				    x = _origin2[0],
-				    y = _origin2[1];
+				var _origin = origin(width, height);
+
+				var _origin2 = _slicedToArray(_origin, 2);
+
+				var x = _origin2[0];
+				var y = _origin2[1];
 
 				var tooltipLabel = (0, _utils.functor)(calculator.tooltipLabel());
 
@@ -57772,7 +57760,7 @@
 	exports.default = BollingerBandTooltip;
 
 /***/ },
-/* 406 */
+/* 402 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57791,17 +57779,17 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
 	var _utils = __webpack_require__(281);
 
-	var _ToolTipText = __webpack_require__(400);
+	var _ToolTipText = __webpack_require__(396);
 
 	var _ToolTipText2 = _interopRequireDefault(_ToolTipText);
 
-	var _ToolTipTSpanLabel = __webpack_require__(401);
+	var _ToolTipTSpanLabel = __webpack_require__(397);
 
 	var _ToolTipTSpanLabel2 = _interopRequireDefault(_ToolTipTSpanLabel);
 
@@ -57828,15 +57816,15 @@
 		_createClass(RSITooltip, [{
 			key: "renderSVG",
 			value: function renderSVG(moreProps) {
-				var _props = this.props,
-				    onClick = _props.onClick,
-				    fontFamily = _props.fontFamily,
-				    fontSize = _props.fontSize,
-				    calculator = _props.calculator,
-				    displayFormat = _props.displayFormat,
-				    className = _props.className;
-				var width = moreProps.width,
-				    height = moreProps.height;
+				var _props = this.props;
+				var onClick = _props.onClick;
+				var fontFamily = _props.fontFamily;
+				var fontSize = _props.fontSize;
+				var calculator = _props.calculator;
+				var displayFormat = _props.displayFormat;
+				var className = _props.className;
+				var width = moreProps.width;
+				var height = moreProps.height;
 				var currentItem = moreProps.currentItem;
 
 
@@ -57849,10 +57837,13 @@
 
 				var origin = (0, _utils.functor)(originProp);
 
-				var _origin = origin(width, height),
-				    _origin2 = _slicedToArray(_origin, 2),
-				    x = _origin2[0],
-				    y = _origin2[1];
+				var _origin = origin(width, height);
+
+				var _origin2 = _slicedToArray(_origin, 2);
+
+				var x = _origin2[0];
+				var y = _origin2[1];
+
 
 				return _react2.default.createElement(
 					"g",
@@ -57894,7 +57885,7 @@
 		fontFamily: _react.PropTypes.string,
 		fontSize: _react.PropTypes.number,
 		onClick: _react.PropTypes.func,
-		calculator: _react.PropTypes.oneOfType([_react.PropTypes.func, _react.PropTypes.object]).isRequired,
+		calculator: _react.PropTypes.func.isRequired,
 		displayFormat: _react.PropTypes.func.isRequired
 	};
 
@@ -57907,7 +57898,7 @@
 	exports.default = RSITooltip;
 
 /***/ },
-/* 407 */
+/* 403 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57926,17 +57917,17 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
 	var _utils = __webpack_require__(281);
 
-	var _ToolTipText = __webpack_require__(400);
+	var _ToolTipText = __webpack_require__(396);
 
 	var _ToolTipText2 = _interopRequireDefault(_ToolTipText);
 
-	var _ToolTipTSpanLabel = __webpack_require__(401);
+	var _ToolTipTSpanLabel = __webpack_require__(397);
 
 	var _ToolTipTSpanLabel2 = _interopRequireDefault(_ToolTipTSpanLabel);
 
@@ -57963,16 +57954,16 @@
 		_createClass(StochasticTooltip, [{
 			key: "renderSVG",
 			value: function renderSVG(moreProps) {
-				var _props = this.props,
-				    onClick = _props.onClick,
-				    fontFamily = _props.fontFamily,
-				    fontSize = _props.fontSize,
-				    calculator = _props.calculator,
-				    displayFormat = _props.displayFormat,
-				    children = _props.children;
+				var _props = this.props;
+				var onClick = _props.onClick;
+				var fontFamily = _props.fontFamily;
+				var fontSize = _props.fontSize;
+				var calculator = _props.calculator;
+				var displayFormat = _props.displayFormat;
+				var children = _props.children;
 				var className = this.props.className;
-				var width = moreProps.width,
-				    height = moreProps.height;
+				var width = moreProps.width;
+				var height = moreProps.height;
 				var currentItem = moreProps.currentItem;
 
 
@@ -57988,10 +57979,13 @@
 
 				var origin = (0, _utils.functor)(originProp);
 
-				var _origin = origin(width, height),
-				    _origin2 = _slicedToArray(_origin, 2),
-				    x = _origin2[0],
-				    y = _origin2[1];
+				var _origin = origin(width, height);
+
+				var _origin2 = _slicedToArray(_origin, 2);
+
+				var x = _origin2[0];
+				var y = _origin2[1];
+
 
 				return _react2.default.createElement(
 					"g",
@@ -58076,7 +58070,7 @@
 	exports.default = StochasticTooltip;
 
 /***/ },
-/* 408 */
+/* 404 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58093,7 +58087,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _GenericComponent = __webpack_require__(307);
+	var _GenericComponent = __webpack_require__(306);
 
 	var _GenericComponent2 = _interopRequireDefault(_GenericComponent);
 
@@ -58148,24 +58142,24 @@
 
 				if ((0, _utils.isNotDefined)(pointer)) return null;
 
-				var _props = this.props,
-				    chartId = _props.chartId,
-				    yAccessor = _props.yAccessor,
-				    bgFill = _props.bgFill,
-				    bgOpacity = _props.bgOpacity,
-				    bgwidth = _props.bgwidth,
-				    bgheight = _props.bgheight,
-				    backgroundShapeSVG = _props.backgroundShapeSVG;
-				var height = moreProps.height,
-				    xAccessor = moreProps.xAccessor,
-				    xScale = moreProps.xScale,
-				    chartConfig = moreProps.chartConfig,
-				    currentItem = moreProps.currentItem;
-				var x = pointer.x,
-				    y = pointer.y,
-				    content = pointer.content,
-				    centerX = pointer.centerX,
-				    drawWidth = pointer.drawWidth;
+				var _props = this.props;
+				var chartId = _props.chartId;
+				var yAccessor = _props.yAccessor;
+				var bgFill = _props.bgFill;
+				var bgOpacity = _props.bgOpacity;
+				var bgwidth = _props.bgwidth;
+				var bgheight = _props.bgheight;
+				var backgroundShapeSVG = _props.backgroundShapeSVG;
+				var height = moreProps.height;
+				var xAccessor = moreProps.xAccessor;
+				var xScale = moreProps.xScale;
+				var chartConfig = moreProps.chartConfig;
+				var currentItem = moreProps.currentItem;
+				var x = pointer.x;
+				var y = pointer.y;
+				var content = pointer.content;
+				var centerX = pointer.centerX;
+				var drawWidth = pointer.drawWidth;
 
 
 				if (chartId && yAccessor) {
@@ -58237,24 +58231,22 @@
 	};
 
 	var PADDING = 5;
-	var X = 10;
-	var Y = 10;
 
 	/* eslint-disable react/prop-types */
 	function backgroundShapeSVG(_ref) {
-		var bgheight = _ref.bgheight,
-		    bgwidth = _ref.bgwidth,
-		    fill = _ref.fill,
-		    stroke = _ref.stroke,
-		    opacity = _ref.opacity;
+		var bgheight = _ref.bgheight;
+		var bgwidth = _ref.bgwidth;
+		var fill = _ref.fill;
+		var stroke = _ref.stroke;
+		var opacity = _ref.opacity;
 
 		return _react2.default.createElement("rect", { height: bgheight, width: bgwidth, fill: fill, opacity: opacity, stroke: stroke });
 	}
 
 	function tooltipSVG(_ref2, content) {
-		var fontFamily = _ref2.fontFamily,
-		    fontSize = _ref2.fontSize,
-		    fontFill = _ref2.fontFill;
+		var fontFamily = _ref2.fontFamily;
+		var fontSize = _ref2.fontSize;
+		var fontFill = _ref2.fontFill;
 
 		var tspans = [];
 		for (var i = 0; i < content.y.length; i++) {
@@ -58288,61 +58280,37 @@
 	}
 	/* eslint-enable react/prop-types */
 
-	function calculateTooltipSize(_ref3, content) {
-		var fontFamily = _ref3.fontFamily,
-		    fontSize = _ref3.fontSize,
-		    fontFill = _ref3.fontFill;
-
-		var canvas = document.createElement("canvas");
-		var ctx = canvas.getContext("2d");
-		var width = 0;
-		var height = content.y.length * fontSize + fontSize;
-
-		ctx.font = fontSize + "px " + fontFamily;
-		ctx.fillStyle = fontFill;
-		ctx.textAlign = "left";
-		for (var i = 0; i < content.y.length; i++) {
-			var y = content.y[i];
-			var textWidth = ctx.measureText(y.label + ": " + y.value).width;
-			if (textWidth > width) width = textWidth;
-		}
-		return {
-			width: width + 2 * X,
-			height: height + 2 * Y
-		};
-	}
-
-	function backgroundShapeCanvas(props, content, ctx) {
-		var fill = props.fill,
-		    stroke = props.stroke,
-		    opacity = props.opacity;
-
-		var _calculateTooltipSize = calculateTooltipSize(props, content),
-		    width = _calculateTooltipSize.width,
-		    height = _calculateTooltipSize.height;
+	function backgroundShapeCanvas(_ref3, ctx) {
+		var bgheight = _ref3.bgheight;
+		var bgwidth = _ref3.bgwidth;
+		var fill = _ref3.fill;
+		var stroke = _ref3.stroke;
+		var opacity = _ref3.opacity;
 
 		ctx.fillStyle = (0, _utils.hexToRGBA)(fill, opacity);
 		ctx.strokeStyle = stroke;
 		ctx.beginPath();
-		ctx.rect(0, 0, width, height);
+		ctx.rect(0, 0, bgwidth, bgheight);
 		ctx.fill();
 		ctx.stroke();
 	}
 
 	function tooltipCanvas(_ref4, content, ctx) {
-		var fontFamily = _ref4.fontFamily,
-		    fontSize = _ref4.fontSize,
-		    fontFill = _ref4.fontFill;
+		var fontFamily = _ref4.fontFamily;
+		var fontSize = _ref4.fontSize;
+		var fontFill = _ref4.fontFill;
 
-		var startY = Y + fontSize * 0.9;
 		ctx.font = fontSize + "px " + fontFamily;
 		ctx.fillStyle = fontFill;
 		ctx.textAlign = "left";
-		ctx.fillText(content.x, X, startY);
+
+		var X = 10;
+		var Y = 15;
+		ctx.fillText(content.x, X, Y);
 
 		for (var i = 0; i < content.y.length; i++) {
 			var y = content.y[i];
-			var textY = startY + fontSize * (i + 1);
+			var textY = Y + fontSize * (i + 1);
 			ctx.fillStyle = y.stroke || fontFill;
 			ctx.fillText(y.label, X, textY);
 
@@ -58363,20 +58331,20 @@
 	}
 
 	function _drawOnCanvas(ctx, props, context, pointer, height, moreProps) {
-		var margin = context.margin,
-		    ratio = context.ratio;
-		var bgwidth = props.bgwidth,
-		    bgheight = props.bgheight,
-		    bgFill = props.bgFill,
-		    bgOpacity = props.bgOpacity,
-		    chartId = props.chartId,
-		    yAccessor = props.yAccessor;
-		var backgroundShapeCanvas = props.backgroundShapeCanvas,
-		    tooltipCanvas = props.tooltipCanvas;
-		var xAccessor = moreProps.xAccessor,
-		    xScale = moreProps.xScale,
-		    chartConfig = moreProps.chartConfig,
-		    currentItem = moreProps.currentItem;
+		var margin = context.margin;
+		var ratio = context.ratio;
+		var bgwidth = props.bgwidth;
+		var bgheight = props.bgheight;
+		var bgFill = props.bgFill;
+		var bgOpacity = props.bgOpacity;
+		var chartId = props.chartId;
+		var yAccessor = props.yAccessor;
+		var backgroundShapeCanvas = props.backgroundShapeCanvas;
+		var tooltipCanvas = props.tooltipCanvas;
+		var xAccessor = moreProps.xAccessor;
+		var xScale = moreProps.xScale;
+		var chartConfig = moreProps.chartConfig;
+		var currentItem = moreProps.currentItem;
 
 
 		var originX = 0.5 * ratio + margin.left;
@@ -58389,11 +58357,11 @@
 
 		ctx.translate(originX, originY);
 
-		var x = pointer.x,
-		    y = pointer.y,
-		    content = pointer.content,
-		    centerX = pointer.centerX,
-		    drawWidth = pointer.drawWidth;
+		var x = pointer.x;
+		var y = pointer.y;
+		var content = pointer.content;
+		var centerX = pointer.centerX;
+		var drawWidth = pointer.drawWidth;
 
 
 		if (chartId && yAccessor) {
@@ -58416,24 +58384,24 @@
 		ctx.fill();
 
 		ctx.translate(x, y);
-		backgroundShapeCanvas(props, content, ctx);
+		backgroundShapeCanvas(props, ctx);
 		tooltipCanvas(props, content, ctx);
 
 		ctx.restore();
 	}
 
 	function helper(props, moreProps) {
-		var show = moreProps.show,
-		    xScale = moreProps.xScale,
-		    mouseXY = moreProps.mouseXY,
-		    currentItem = moreProps.currentItem,
-		    plotData = moreProps.plotData;
-		var bgheight = props.bgheight,
-		    bgwidth = props.bgwidth,
-		    origin = props.origin,
-		    tooltipContent = props.tooltipContent;
-		var xAccessor = moreProps.xAccessor,
-		    displayXAccessor = moreProps.displayXAccessor;
+		var show = moreProps.show;
+		var xScale = moreProps.xScale;
+		var mouseXY = moreProps.mouseXY;
+		var currentItem = moreProps.currentItem;
+		var plotData = moreProps.plotData;
+		var bgheight = props.bgheight;
+		var bgwidth = props.bgwidth;
+		var origin = props.origin;
+		var tooltipContent = props.tooltipContent;
+		var xAccessor = moreProps.xAccessor;
+		var displayXAccessor = moreProps.displayXAccessor;
 
 
 		if (!show || (0, _utils.isNotDefined)(currentItem)) return;
@@ -58442,10 +58410,13 @@
 
 		if (!show || (0, _utils.isNotDefined)(xValue)) return;
 
-		var _origin = origin(mouseXY, bgheight, bgwidth, xAccessor, currentItem, xScale),
-		    _origin2 = _slicedToArray(_origin, 2),
-		    x = _origin2[0],
-		    y = _origin2[1];
+		var _origin = origin(mouseXY, bgheight, bgwidth, xAccessor, currentItem, xScale);
+
+		var _origin2 = _slicedToArray(_origin, 2);
+
+		var x = _origin2[0];
+		var y = _origin2[1];
+
 
 		var content = tooltipContent({ currentItem: currentItem, xAccessor: displayXAccessor });
 		var centerX = xScale(xValue);
@@ -58457,7 +58428,7 @@
 	exports.default = HoverTooltip;
 
 /***/ },
-/* 409 */
+/* 405 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58467,19 +58438,19 @@
 	});
 	exports.fitDimensions = exports.fitWidth = exports.SaveChartAsImage = exports.TypeChooser = undefined;
 
-	var _TypeChooser = __webpack_require__(410);
+	var _TypeChooser = __webpack_require__(406);
 
 	var _TypeChooser2 = _interopRequireDefault(_TypeChooser);
 
-	var _SaveChartAsImage = __webpack_require__(411);
+	var _SaveChartAsImage = __webpack_require__(407);
 
 	var _SaveChartAsImage2 = _interopRequireDefault(_SaveChartAsImage);
 
-	var _fitWidth = __webpack_require__(413);
+	var _fitWidth = __webpack_require__(409);
 
 	var _fitWidth2 = _interopRequireDefault(_fitWidth);
 
-	var _fitDimensions = __webpack_require__(414);
+	var _fitDimensions = __webpack_require__(410);
 
 	var _fitDimensions2 = _interopRequireDefault(_fitDimensions);
 
@@ -58491,7 +58462,7 @@
 	exports.fitDimensions = _fitDimensions2.default;
 
 /***/ },
-/* 410 */
+/* 406 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58582,7 +58553,7 @@
 	exports.default = TypeChooser;
 
 /***/ },
-/* 411 */
+/* 407 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58591,7 +58562,7 @@
 		value: true
 	});
 
-	var _saveSvgAsPng = __webpack_require__(412);
+	var _saveSvgAsPng = __webpack_require__(408);
 
 	var _saveSvgAsPng2 = _interopRequireDefault(_saveSvgAsPng);
 
@@ -58657,7 +58628,7 @@
 	exports.default = SaveChartAsImage;
 
 /***/ },
-/* 412 */
+/* 408 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;(function() {
@@ -58939,7 +58910,7 @@
 
 
 /***/ },
-/* 413 */
+/* 409 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -59084,7 +59055,7 @@
 	}
 
 /***/ },
-/* 414 */
+/* 410 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -59124,13 +59095,13 @@
 
 	function fitDimensions(WrappedComponent) {
 		var props = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-		var _props$minWidth = props.minWidth,
-		    minWidth = _props$minWidth === undefined ? 100 : _props$minWidth,
-		    _props$minHeight = props.minHeight,
-		    minHeight = _props$minHeight === undefined ? 100 : _props$minHeight,
-		    ratio = props.ratio,
-		    width = props.width,
-		    height = props.height;
+		var _props$minWidth = props.minWidth;
+		var minWidth = _props$minWidth === undefined ? 100 : _props$minWidth;
+		var _props$minHeight = props.minHeight;
+		var minHeight = _props$minHeight === undefined ? 100 : _props$minHeight;
+		var ratio = props.ratio;
+		var width = props.width;
+		var height = props.height;
 
 
 		function getDimensions(el) {
@@ -59242,7 +59213,7 @@
 	}
 
 /***/ },
-/* 415 */
+/* 411 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -59252,19 +59223,19 @@
 	});
 	exports.Brush = exports.ClickCallback = exports.FibonacciRetracement = exports.TrendLine = undefined;
 
-	var _TrendLine = __webpack_require__(416);
+	var _TrendLine = __webpack_require__(412);
 
 	var _TrendLine2 = _interopRequireDefault(_TrendLine);
 
-	var _FibonacciRetracement = __webpack_require__(420);
+	var _FibonacciRetracement = __webpack_require__(416);
 
 	var _FibonacciRetracement2 = _interopRequireDefault(_FibonacciRetracement);
 
-	var _ClickCallback = __webpack_require__(421);
+	var _ClickCallback = __webpack_require__(417);
 
 	var _ClickCallback2 = _interopRequireDefault(_ClickCallback);
 
-	var _Brush = __webpack_require__(422);
+	var _Brush = __webpack_require__(418);
 
 	var _Brush2 = _interopRequireDefault(_Brush);
 
@@ -59276,7 +59247,7 @@
 	exports.Brush = _Brush2.default;
 
 /***/ },
-/* 416 */
+/* 412 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -59295,13 +59266,13 @@
 
 	var _utils = __webpack_require__(281);
 
-	var _utils2 = __webpack_require__(417);
+	var _utils2 = __webpack_require__(413);
 
-	var _InteractiveLine = __webpack_require__(418);
+	var _InteractiveLine = __webpack_require__(414);
 
 	var _InteractiveLine2 = _interopRequireDefault(_InteractiveLine);
 
-	var _MouseLocationIndicator = __webpack_require__(419);
+	var _MouseLocationIndicator = __webpack_require__(415);
 
 	var _MouseLocationIndicator2 = _interopRequireDefault(_MouseLocationIndicator);
 
@@ -59361,9 +59332,9 @@
 		}, {
 			key: "handleDragLineComplete",
 			value: function handleDragLineComplete() {
-				var _state = this.state,
-				    trends = _state.trends,
-				    override = _state.override;
+				var _state = this.state;
+				var trends = _state.trends;
+				var override = _state.override;
 
 				var newTrends = trends.map(function (each, idx) {
 					return idx === override.index ? {
@@ -59396,9 +59367,9 @@
 			value: function handleStartAndEnd(xyValue) {
 				var _this2 = this;
 
-				var _state2 = this.state,
-				    current = _state2.current,
-				    trends = _state2.trends;
+				var _state2 = this.state;
+				var current = _state2.current;
+				var trends = _state2.trends;
 
 
 				if ((0, _utils.isNotDefined)(current) || (0, _utils.isNotDefined)(current.start)) {
@@ -59424,26 +59395,26 @@
 			value: function render() {
 				var _this3 = this;
 
-				var _props = this.props,
-				    stroke = _props.stroke,
-				    opacity = _props.opacity,
-				    strokeWidth = _props.strokeWidth;
-				var _props2 = this.props,
-				    enabled = _props2.enabled,
-				    snap = _props2.snap,
-				    shouldDisableSnap = _props2.shouldDisableSnap,
-				    snapTo = _props2.snapTo,
-				    type = _props2.type;
-				var _props3 = this.props,
-				    currentPositionRadius = _props3.currentPositionRadius,
-				    currentPositionStroke = _props3.currentPositionStroke;
-				var _props4 = this.props,
-				    currentPositionOpacity = _props4.currentPositionOpacity,
-				    currentPositionStrokeWidth = _props4.currentPositionStrokeWidth;
-				var _state3 = this.state,
-				    trends = _state3.trends,
-				    current = _state3.current,
-				    override = _state3.override;
+				var _props = this.props;
+				var stroke = _props.stroke;
+				var opacity = _props.opacity;
+				var strokeWidth = _props.strokeWidth;
+				var _props2 = this.props;
+				var enabled = _props2.enabled;
+				var snap = _props2.snap;
+				var shouldDisableSnap = _props2.shouldDisableSnap;
+				var snapTo = _props2.snapTo;
+				var type = _props2.type;
+				var _props3 = this.props;
+				var currentPositionRadius = _props3.currentPositionRadius;
+				var currentPositionStroke = _props3.currentPositionStroke;
+				var _props4 = this.props;
+				var currentPositionOpacity = _props4.currentPositionOpacity;
+				var currentPositionStrokeWidth = _props4.currentPositionStrokeWidth;
+				var _state3 = this.state;
+				var trends = _state3.trends;
+				var current = _state3.current;
+				var override = _state3.override;
 
 
 				var tempLine = (0, _utils.isDefined)(current) && (0, _utils.isDefined)(current.end) ? _react2.default.createElement(_InteractiveLine2.default, { type: type,
@@ -59538,7 +59509,7 @@
 	exports.default = TrendLine;
 
 /***/ },
-/* 417 */
+/* 413 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -59556,7 +59527,7 @@
 	}
 
 /***/ },
-/* 418 */
+/* 414 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -59573,15 +59544,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _d3Selection = __webpack_require__(303);
+	var _d3Selection = __webpack_require__(302);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
 	var _utils = __webpack_require__(281);
 
-	var _ChartDataUtil = __webpack_require__(299);
+	var _ChartDataUtil = __webpack_require__(298);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -59621,11 +59592,11 @@
 
 				var mouseXY = [e.pageX, e.pageY];
 
-				var _props = this.props,
-				    x1Value = _props.x1Value,
-				    x2Value = _props.x2Value,
-				    y1Value = _props.y1Value,
-				    y2Value = _props.y2Value;
+				var _props = this.props;
+				var x1Value = _props.x1Value;
+				var x2Value = _props.x2Value;
+				var y1Value = _props.y1Value;
+				var y2Value = _props.y2Value;
 
 
 				this.moveStartPosition = {
@@ -59638,16 +59609,16 @@
 			value: function handleDrag() {
 				var e = _d3Selection.event;
 				var moreProps = this.refs.component.getMoreProps();
-				var xScale = moreProps.xScale,
-				    yScale = moreProps.chartConfig.yScale,
-				    plotData = moreProps.plotData;
+				var xScale = moreProps.xScale;
+				var yScale = moreProps.chartConfig.yScale;
+				var plotData = moreProps.plotData;
 				var xAccessor = moreProps.xAccessor;
-				var _moveStartPosition = this.moveStartPosition,
-				    mouseXY = _moveStartPosition.mouseXY,
-				    x1Value = _moveStartPosition.x1Value,
-				    x2Value = _moveStartPosition.x2Value,
-				    y1Value = _moveStartPosition.y1Value,
-				    y2Value = _moveStartPosition.y2Value;
+				var _moveStartPosition = this.moveStartPosition;
+				var mouseXY = _moveStartPosition.mouseXY;
+				var x1Value = _moveStartPosition.x1Value;
+				var x2Value = _moveStartPosition.x2Value;
+				var y1Value = _moveStartPosition.y1Value;
+				var y2Value = _moveStartPosition.y2Value;
 
 				var x1 = xScale(x1Value);
 				var y1 = yScale(y1Value);
@@ -59692,22 +59663,25 @@
 		}, {
 			key: "handleEdgeDrag1",
 			value: function handleEdgeDrag1(edge, origEdge, e) {
-				var _edge = _slicedToArray(edge, 2),
-				    newCX = _edge[0],
-				    newCY = _edge[1];
+				var _edge = _slicedToArray(edge, 2);
 
-				var _origEdge = _slicedToArray(origEdge, 2),
-				    cx = _origEdge[0],
-				    cy = _origEdge[1];
+				var newCX = _edge[0];
+				var newCY = _edge[1];
+
+				var _origEdge = _slicedToArray(origEdge, 2);
+
+				var cx = _origEdge[0];
+				var cy = _origEdge[1];
+
 
 				var moreProps = this.refs.component.getMoreProps();
-				var xScale = moreProps.xScale,
-				    yScale = moreProps.chartConfig.yScale,
-				    plotData = moreProps.plotData;
+				var xScale = moreProps.xScale;
+				var yScale = moreProps.chartConfig.yScale;
+				var plotData = moreProps.plotData;
 				var xAccessor = moreProps.xAccessor;
-				var _props2 = this.props,
-				    x2Value = _props2.x2Value,
-				    y2Value = _props2.y2Value;
+				var _props2 = this.props;
+				var x2Value = _props2.x2Value;
+				var y2Value = _props2.y2Value;
 
 
 				var newXValue = xAccessor((0, _ChartDataUtil.getCurrentItem)(xScale, xAccessor, [newCX, newCY], plotData));
@@ -59730,22 +59704,25 @@
 		}, {
 			key: "handleEdgeDrag2",
 			value: function handleEdgeDrag2(edge, origEdge, e) {
-				var _edge2 = _slicedToArray(edge, 2),
-				    newCX = _edge2[0],
-				    newCY = _edge2[1];
+				var _edge2 = _slicedToArray(edge, 2);
 
-				var _origEdge2 = _slicedToArray(origEdge, 2),
-				    cx = _origEdge2[0],
-				    cy = _origEdge2[1];
+				var newCX = _edge2[0];
+				var newCY = _edge2[1];
+
+				var _origEdge2 = _slicedToArray(origEdge, 2);
+
+				var cx = _origEdge2[0];
+				var cy = _origEdge2[1];
+
 
 				var moreProps = this.refs.component.getMoreProps();
-				var xScale = moreProps.xScale,
-				    yScale = moreProps.chartConfig.yScale,
-				    plotData = moreProps.plotData;
+				var xScale = moreProps.xScale;
+				var yScale = moreProps.chartConfig.yScale;
+				var plotData = moreProps.plotData;
 				var xAccessor = moreProps.xAccessor;
-				var _props3 = this.props,
-				    x1Value = _props3.x1Value,
-				    y1Value = _props3.y1Value;
+				var _props3 = this.props;
+				var x1Value = _props3.x1Value;
+				var y1Value = _props3.y1Value;
 
 
 				var newXValue = xAccessor((0, _ChartDataUtil.getCurrentItem)(xScale, xAccessor, [newCX, newCY], plotData));
@@ -59773,27 +59750,27 @@
 		}, {
 			key: "renderSVG",
 			value: function renderSVG(moreProps) {
-				var _props4 = this.props,
-				    x1Value = _props4.x1Value,
-				    x2Value = _props4.x2Value,
-				    y1Value = _props4.y1Value,
-				    y2Value = _props4.y2Value,
-				    withEdge = _props4.withEdge,
-				    type = _props4.type;
-				var _props5 = this.props,
-				    defaultClassName = _props5.defaultClassName,
-				    stroke = _props5.stroke,
-				    strokeWidth = _props5.strokeWidth,
-				    opacity = _props5.opacity;
-				var _props6 = this.props,
-				    r = _props6.r,
-				    edgeFill = _props6.edgeFill,
-				    edgeStroke = _props6.edgeStroke,
-				    edgeStrokeWidth = _props6.edgeStrokeWidth,
-				    children = _props6.children;
-				var xScale = moreProps.xScale,
-				    yScale = moreProps.chartConfig.yScale,
-				    plotData = moreProps.plotData;
+				var _props4 = this.props;
+				var x1Value = _props4.x1Value;
+				var x2Value = _props4.x2Value;
+				var y1Value = _props4.y1Value;
+				var y2Value = _props4.y2Value;
+				var withEdge = _props4.withEdge;
+				var type = _props4.type;
+				var _props5 = this.props;
+				var defaultClassName = _props5.defaultClassName;
+				var stroke = _props5.stroke;
+				var strokeWidth = _props5.strokeWidth;
+				var opacity = _props5.opacity;
+				var _props6 = this.props;
+				var r = _props6.r;
+				var edgeFill = _props6.edgeFill;
+				var edgeStroke = _props6.edgeStroke;
+				var edgeStrokeWidth = _props6.edgeStrokeWidth;
+				var children = _props6.children;
+				var xScale = moreProps.xScale;
+				var yScale = moreProps.chartConfig.yScale;
+				var plotData = moreProps.plotData;
 				var xAccessor = moreProps.xAccessor;
 
 
@@ -59948,9 +59925,9 @@
 
 				var mouseXY = [e.pageX, e.pageY];
 
-				var _props7 = this.props,
-				    cx = _props7.cx,
-				    cy = _props7.cy;
+				var _props7 = this.props;
+				var cx = _props7.cx;
+				var cy = _props7.cy;
 
 
 				this.moveStartPosition = {
@@ -59964,10 +59941,10 @@
 				var e = _d3Selection.event;
 				var newPos = [e.pageX, e.pageY];
 
-				var _moveStartPosition2 = this.moveStartPosition,
-				    mouseXY = _moveStartPosition2.mouseXY,
-				    cx = _moveStartPosition2.cx,
-				    cy = _moveStartPosition2.cy;
+				var _moveStartPosition2 = this.moveStartPosition;
+				var mouseXY = _moveStartPosition2.mouseXY;
+				var cx = _moveStartPosition2.cx;
+				var cy = _moveStartPosition2.cy;
 
 
 				var dx = mouseXY[0] - newPos[0];
@@ -59993,15 +59970,15 @@
 		}, {
 			key: "render",
 			value: function render() {
-				var _props8 = this.props,
-				    className = _props8.className,
-				    cx = _props8.cx,
-				    cy = _props8.cy,
-				    r = _props8.r,
-				    fill = _props8.fill,
-				    stroke = _props8.stroke,
-				    strokeWidth = _props8.strokeWidth,
-				    hoverOpacity = _props8.hoverOpacity;
+				var _props8 = this.props;
+				var className = _props8.className;
+				var cx = _props8.cx;
+				var cy = _props8.cy;
+				var r = _props8.r;
+				var fill = _props8.fill;
+				var stroke = _props8.stroke;
+				var strokeWidth = _props8.strokeWidth;
+				var hoverOpacity = _props8.hoverOpacity;
 
 				var opacity = this.state.hover ? hoverOpacity : 0;
 				return _react2.default.createElement("circle", { ref: "edge", className: className,
@@ -60039,7 +60016,7 @@
 	exports.default = InteractiveLine;
 
 /***/ },
-/* 419 */
+/* 415 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -60054,7 +60031,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
@@ -60095,10 +60072,10 @@
 				var moreProps = this.refs.component.getMoreProps();
 				var pos = this.xy(moreProps, e);
 				if ((0, _utils.isDefined)(pos)) {
-					var xValue = pos.xValue,
-					    yValue = pos.yValue,
-					    x = pos.x,
-					    y = pos.y;
+					var xValue = pos.xValue;
+					var yValue = pos.yValue;
+					var x = pos.x;
+					var y = pos.y;
 
 					this.mutableState = { x: x, y: y };
 					this.props.onMouseDown([xValue, yValue], e);
@@ -60110,10 +60087,10 @@
 				var moreProps = this.refs.component.getMoreProps();
 				var pos = this.xy(moreProps, e);
 				if ((0, _utils.isDefined)(pos)) {
-					var xValue = pos.xValue,
-					    yValue = pos.yValue,
-					    x = pos.x,
-					    y = pos.y;
+					var xValue = pos.xValue;
+					var yValue = pos.yValue;
+					var x = pos.x;
+					var y = pos.y;
 
 					this.mutableState = { x: x, y: y };
 					this.props.onClick([xValue, yValue], e);
@@ -60123,15 +60100,15 @@
 			key: "xy",
 			value: function xy(moreProps, e) {
 				var xAccessor = moreProps.xAccessor;
-				var mouseXY = moreProps.mouseXY,
-				    currentItem = moreProps.currentItem,
-				    xScale = moreProps.xScale,
-				    yScale = moreProps.chartConfig.yScale;
-				var _props = this.props,
-				    enabled = _props.enabled,
-				    snap = _props.snap,
-				    shouldDisableSnap = _props.shouldDisableSnap,
-				    snapTo = _props.snapTo;
+				var mouseXY = moreProps.mouseXY;
+				var currentItem = moreProps.currentItem;
+				var xScale = moreProps.xScale;
+				var yScale = moreProps.chartConfig.yScale;
+				var _props = this.props;
+				var enabled = _props.enabled;
+				var snap = _props.snap;
+				var shouldDisableSnap = _props.shouldDisableSnap;
+				var snapTo = _props.snapTo;
 
 
 				if (enabled && (0, _utils.isDefined)(currentItem) && (0, _utils.isDefined)(e)) {
@@ -60156,10 +60133,10 @@
 					var pos = this.xy(moreProps, e);
 					// console.log("HERE11", pos)
 					if ((0, _utils.isDefined)(pos)) {
-						var xValue = pos.xValue,
-						    yValue = pos.yValue,
-						    x = pos.x,
-						    y = pos.y;
+						var xValue = pos.xValue;
+						var yValue = pos.yValue;
+						var x = pos.x;
+						var y = pos.y;
 
 						this.mutableState = { x: x, y: y };
 						this.props.onMouseMove([xValue, yValue], e);
@@ -60170,15 +60147,15 @@
 		}, {
 			key: "renderSVG",
 			value: function renderSVG(moreProps) {
-				var _props2 = this.props,
-				    enabled = _props2.enabled,
-				    r = _props2.r,
-				    stroke = _props2.stroke,
-				    strokeWidth = _props2.strokeWidth,
-				    opacity = _props2.opacity;
-				var _mutableState = this.mutableState,
-				    x = _mutableState.x,
-				    y = _mutableState.y;
+				var _props2 = this.props;
+				var enabled = _props2.enabled;
+				var r = _props2.r;
+				var stroke = _props2.stroke;
+				var strokeWidth = _props2.strokeWidth;
+				var opacity = _props2.opacity;
+				var _mutableState = this.mutableState;
+				var x = _mutableState.x;
+				var y = _mutableState.y;
 				var show = moreProps.show;
 				// console.log("HERE")
 
@@ -60240,7 +60217,7 @@
 	exports.default = MouseLocationIndicator;
 
 /***/ },
-/* 420 */
+/* 416 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -60259,11 +60236,11 @@
 
 	var _utils = __webpack_require__(281);
 
-	var _InteractiveLine = __webpack_require__(418);
+	var _InteractiveLine = __webpack_require__(414);
 
 	var _InteractiveLine2 = _interopRequireDefault(_InteractiveLine);
 
-	var _MouseLocationIndicator = __webpack_require__(419);
+	var _MouseLocationIndicator = __webpack_require__(415);
 
 	var _MouseLocationIndicator2 = _interopRequireDefault(_MouseLocationIndicator);
 
@@ -60322,9 +60299,9 @@
 			value: function handleStartAndEnd(xyValue) {
 				var _this2 = this;
 
-				var _state = this.state,
-				    current = _state.current,
-				    retracements = _state.retracements;
+				var _state = this.state;
+				var current = _state.current;
+				var retracements = _state.retracements;
 
 
 				if ((0, _utils.isNotDefined)(current) || (0, _utils.isNotDefined)(current.x1)) {
@@ -60421,14 +60398,15 @@
 		}, {
 			key: "handleDragComplete",
 			value: function handleDragComplete() {
-				var _state2 = this.state,
-				    retracements = _state2.retracements,
-				    override = _state2.override;
+				var _state2 = this.state;
+				var retracements = _state2.retracements;
+				var override = _state2.override;
 
 
 				if ((0, _utils.isDefined)(override)) {
-					var index = override.index,
-					    rest = _objectWithoutProperties(override, ["index"]);
+					var index = override.index;
+
+					var rest = _objectWithoutProperties(override, ["index"]);
 
 					var newRetracements = retracements.map(function (each, idx) {
 						return idx === index ? rest : each;
@@ -60445,18 +60423,18 @@
 			value: function render() {
 				var _this3 = this;
 
-				var _state3 = this.state,
-				    retracements = _state3.retracements,
-				    current = _state3.current,
-				    override = _state3.override;
-				var _props = this.props,
-				    stroke = _props.stroke,
-				    strokeWidth = _props.strokeWidth,
-				    opacity = _props.opacity,
-				    fontFamily = _props.fontFamily,
-				    fontSize = _props.fontSize,
-				    fontStroke = _props.fontStroke,
-				    type = _props.type;
+				var _state3 = this.state;
+				var retracements = _state3.retracements;
+				var current = _state3.current;
+				var override = _state3.override;
+				var _props = this.props;
+				var stroke = _props.stroke;
+				var strokeWidth = _props.strokeWidth;
+				var opacity = _props.opacity;
+				var fontFamily = _props.fontFamily;
+				var fontSize = _props.fontSize;
+				var fontStroke = _props.fontStroke;
+				var type = _props.type;
 
 
 				var lineType = type === "EXTEND" ? "XLINE" : "LINE";
@@ -60537,17 +60515,17 @@
 	/* eslint-disable react/prop-types */
 
 	function retracementText(_ref, props, modLine) {
-		var xScale = _ref.xScale,
-		    chartConfig = _ref.chartConfig;
-		var _props$childProps = props.childProps,
-		    text = _props$childProps.text,
-		    dir = _props$childProps.dir,
-		    fontStroke = _props$childProps.fontStroke,
-		    fontFamily = _props$childProps.fontFamily,
-		    fontSize = _props$childProps.fontSize;
-		var x1 = modLine.x1,
-		    y1 = modLine.y1,
-		    x2 = modLine.x2;
+		var xScale = _ref.xScale;
+		var chartConfig = _ref.chartConfig;
+		var _props$childProps = props.childProps;
+		var text = _props$childProps.text;
+		var dir = _props$childProps.dir;
+		var fontStroke = _props$childProps.fontStroke;
+		var fontFamily = _props$childProps.fontFamily;
+		var fontSize = _props$childProps.fontSize;
+		var x1 = modLine.x1;
+		var y1 = modLine.y1;
+		var x2 = modLine.x2;
 
 		return _react2.default.createElement(
 			"text",
@@ -60563,10 +60541,10 @@
 	/* eslint-enable react/prop-types */
 
 	function helper(_ref2) {
-		var x1 = _ref2.x1,
-		    y1 = _ref2.y1,
-		    x2 = _ref2.x2,
-		    y2 = _ref2.y2;
+		var x1 = _ref2.x1;
+		var y1 = _ref2.y1;
+		var x2 = _ref2.x2;
+		var y2 = _ref2.y2;
 
 		var dy = y2 - y1;
 		var retracements = [100, 61.8, 50, 38.2, 23.6, 0].map(function (each) {
@@ -60625,7 +60603,7 @@
 	exports.default = FibonacciRetracement;
 
 /***/ },
-/* 421 */
+/* 417 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -60642,7 +60620,7 @@
 
 	var _utils = __webpack_require__(281);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
@@ -60671,10 +60649,10 @@
 			value: function handleClick(e) {
 				var moreProps = this.refs.component.getMoreProps();
 
-				var mouseXY = moreProps.mouseXY,
-				    currentItem = moreProps.currentItem,
-				    chartConfig = moreProps.chartConfig,
-				    displayXAccessor = moreProps.displayXAccessor;
+				var mouseXY = moreProps.mouseXY;
+				var currentItem = moreProps.currentItem;
+				var chartConfig = moreProps.chartConfig;
+				var displayXAccessor = moreProps.displayXAccessor;
 				var yScale = chartConfig.yScale;
 
 
@@ -60716,7 +60694,7 @@
 	exports.default = ClickCallback;
 
 /***/ },
-/* 422 */
+/* 418 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -60735,7 +60713,7 @@
 
 	var _utils = __webpack_require__(281);
 
-	var _GenericChartComponent = __webpack_require__(306);
+	var _GenericChartComponent = __webpack_require__(305);
 
 	var _GenericChartComponent2 = _interopRequireDefault(_GenericChartComponent);
 
@@ -60777,15 +60755,15 @@
 			value: function handleDrawBrush() {
 				var moreProps = this.refs.component.getMoreProps();
 
-				var xScale = moreProps.xScale,
-				    mouseXY = moreProps.mouseXY,
-				    currentItem = moreProps.currentItem,
-				    chartConfig = moreProps.chartConfig,
-				    xAccessor = moreProps.xAccessor;
+				var xScale = moreProps.xScale;
+				var mouseXY = moreProps.mouseXY;
+				var currentItem = moreProps.currentItem;
+				var chartConfig = moreProps.chartConfig;
+				var xAccessor = moreProps.xAccessor;
 				var enabled = this.props.enabled;
-				var _state = this.state,
-				    startClick = _state.startClick,
-				    startItem = _state.startItem;
+				var _state = this.state;
+				var startClick = _state.startClick;
+				var startItem = _state.startItem;
 
 
 				if (enabled && (0, _utils.isDefined)(startItem)) {
@@ -60818,21 +60796,21 @@
 			value: function handleStartAndEnd(e) {
 				var moreProps = this.refs.component.getMoreProps();
 
-				var mouseXY = moreProps.mouseXY,
-				    currentItem = moreProps.currentItem,
-				    chartConfig = moreProps.chartConfig,
-				    displayXAccessor = moreProps.displayXAccessor;
-				var _props = this.props,
-				    enabled = _props.enabled,
-				    onBrush = _props.onBrush;
+				var mouseXY = moreProps.mouseXY;
+				var currentItem = moreProps.currentItem;
+				var chartConfig = moreProps.chartConfig;
+				var displayXAccessor = moreProps.displayXAccessor;
+				var _props = this.props;
+				var enabled = _props.enabled;
+				var onBrush = _props.onBrush;
 
 
 				if (enabled) {
-					var _state2 = this.state,
-					    x1 = _state2.x1,
-					    y1 = _state2.y1,
-					    startItem = _state2.startItem,
-					    startClick = _state2.startClick;
+					var _state2 = this.state;
+					var x1 = _state2.x1;
+					var y1 = _state2.y1;
+					var startItem = _state2.startItem;
+					var startClick = _state2.startClick;
 					var yScale = chartConfig.yScale;
 
 					var xValue = displayXAccessor(currentItem);
@@ -60868,10 +60846,10 @@
 			key: "render",
 			value: function render() {
 				var rect = this.state.rect;
-				var _props2 = this.props,
-				    fill = _props2.fill,
-				    stroke = _props2.stroke,
-				    opacity = _props2.opacity;
+				var _props2 = this.props;
+				var fill = _props2.fill;
+				var stroke = _props2.stroke;
+				var opacity = _props2.opacity;
 
 				var rectProps = { fill: fill, stroke: stroke, opacity: opacity };
 
@@ -60917,7 +60895,7 @@
 	exports.default = Brush;
 
 /***/ },
-/* 423 */
+/* 419 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// https://d3js.org Version 4.3.0. Copyright 2016 Mike Bostock.
@@ -77306,7 +77284,7 @@
 
 
 /***/ },
-/* 424 */
+/* 420 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -77508,31 +77486,27 @@
 	module.exports = CandleStickStockScaleChart;
 
 /***/ },
-/* 425 */
+/* 421 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var WSMGR = __webpack_require__(426);
-	var PubSub = __webpack_require__(427);
-	var d3 = __webpack_require__(423);
+	var WSMGR = __webpack_require__(422);
+	var PubSub = __webpack_require__(423);
+	var d3 = __webpack_require__(419);
 
 	var MarketMGR = function () {
+	   var onOpenCallBack;
 	   var ws;
 	   var subsyms = [];
 
 	   var handleOnOpen = function handleOnOpen(e) {
 	      console.log('连接行情源成功');
+	      isOpen = true;
+	      onOpenCallBack();
 	      //TradePanelMGR.changeState({marketWS:"连通"});
-	      var cmdtxt = ".u.sub[`ohlcv_ws;";
-<<<<<<< HEAD
-	      cmdtxt += "`603598";
-=======
-	      cmdtxt += "`";
->>>>>>> 542f0995297ce442b5b671f7f5ea6282584300a4
-	      cmdtxt += "]";
-	      console.log("Sending Subscribe Command:", cmdtxt);
-	      ws.send(serialize(cmdtxt));
+	      //console.log("Sending Subscribe Command:", cmdtxt);
+	      //ws.send(serialize(cmdtxt));
 	   };
 
 	   var handleOnMessage = function handleOnMessage(e) {
@@ -77542,7 +77516,7 @@
 	         var data = payload[2];
 	         for (var i = 0; i < data.length; i++) {
 	            var Market = formatData(data[i]);
-	            PubSub.publish('receiveData', Market);
+	            PubSub.publish(Market.sym, Market);
 	            //console.log('postdata',Market)
 	         }
 	         //console.log('原始数据',data)	
@@ -77563,9 +77537,9 @@
 	      console.log('marketws onerror', e.data);
 	   };
 
-	   var init = function init() {
+	   var init = function init(callback) {
+	      this.onOpenCallBack = callback;
 	      ws = WSMGR.init('ws://139.196.77.165:5034', handleOnOpen, handleOnClose, handleOnMessage, handleOnError);
-
 	      return ws;
 	   };
 
@@ -77689,7 +77663,7 @@
 	module.exports = MarketMGR;
 
 /***/ },
-/* 426 */
+/* 422 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -77717,7 +77691,7 @@
 	module.exports = WSMGR;
 
 /***/ },
-/* 427 */
+/* 423 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -77968,20 +77942,13 @@
 
 
 /***/ },
-/* 428 */
+/* 424 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-<<<<<<< HEAD
-=======
-	var _d3Format = __webpack_require__(285);
-
-	var _d3TimeFormat = __webpack_require__(287);
-
->>>>>>> 542f0995297ce442b5b671f7f5ea6282584300a4
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -77993,37 +77960,8 @@
 	var SearchInput = function (_React$Component) {
 	  _inherits(SearchInput, _React$Component);
 
-<<<<<<< HEAD
 	  function SearchInput() {
 	    _classCallCheck(this, SearchInput);
-=======
-	var ChartCanvas = ReStock.ChartCanvas,
-	    Chart = ReStock.Chart,
-	    series = ReStock.series,
-	    scale = ReStock.scale,
-	    coordinates = ReStock.coordinates,
-	    tooltip = ReStock.tooltip,
-	    axes = ReStock.axes,
-	    indicator = ReStock.indicator,
-	    helper = ReStock.helper;
-	var CandlestickSeries = series.CandlestickSeries,
-	    LineSeries = series.LineSeries;
-	var discontinuousTimeScaleProvider = scale.discontinuousTimeScaleProvider;
-	var CrossHairCursor = coordinates.CrossHairCursor,
-	    MouseCoordinateX = coordinates.MouseCoordinateX,
-	    MouseCoordinateY = coordinates.MouseCoordinateY,
-	    CurrentCoordinate = coordinates.CurrentCoordinate;
-	var EdgeIndicator = coordinates.EdgeIndicator;
-	var XAxis = axes.XAxis,
-	    YAxis = axes.YAxis;
-	var OHLCTooltip = tooltip.OHLCTooltip,
-	    MovingAverageTooltip = tooltip.MovingAverageTooltip,
-	    MACDTooltip = tooltip.MACDTooltip;
-	var macd = indicator.macd,
-	    ema = indicator.ema,
-	    sma = indicator.sma;
-	var fitWidth = helper.fitWidth;
->>>>>>> 542f0995297ce442b5b671f7f5ea6282584300a4
 
 	    return _possibleConstructorReturn(this, (SearchInput.__proto__ || Object.getPrototypeOf(SearchInput)).apply(this, arguments));
 	  }
@@ -78047,118 +77985,25 @@
 	    }
 	  }]);
 
-<<<<<<< HEAD
 	  return SearchInput;
-=======
-	    _createClass(CandleStickStockScaleChart, [{
-	        key: 'render',
-	        value: function render() {
-	            var _props = this.props,
-	                type = _props.type,
-	                data = _props.data,
-	                width = _props.width,
-	                ratio = _props.ratio;
-
-	            var ema26 = ema().id(0).windowSize(26).merge(function (d, c) {
-	                d.ema26 = c;
-	            }).accessor(function (d) {
-	                return d.ema26;
-	            });
-
-	            var ema12 = ema().id(1).windowSize(12).merge(function (d, c) {
-	                d.ema12 = c;
-	            }).accessor(function (d) {
-	                return d.ema12;
-	            });
-
-	            var macdCalculator = macd().fast(12).slow(26).signal(9).merge(function (d, c) {
-	                d.macd = c;
-	            }).accessor(function (d) {
-	                return d.macd;
-	            });
-
-	            var smaVolume50 = sma().id(3).windowSize(10).sourcePath("volume").merge(function (d, c) {
-	                d.smaVolume50 = c;
-	            }).accessor(function (d) {
-	                return d.smaVolume50;
-	            });
-
-	            return React.createElement(
-	                ChartCanvas,
-	                { width: width, height: 400, ratio: ratio,
-	                    margin: { left: 50, right: 50, top: 10, bottom: 30 }, type: type,
-	                    seriesName: 'MSFT',
-	                    data: data, calculator: [ema26, ema12, smaVolume50, macdCalculator],
-	                    xAccessor: function xAccessor(d) {
-	                        return d.date;
-	                    }, xScaleProvider: discontinuousTimeScaleProvider,
-	                    xExtents: [new Date(2012, 0, 1), new Date(2012, 6, 2)] },
-	                React.createElement(
-	                    Chart,
-	                    { id: 0,
-	                        yExtents: [function (d) {
-	                            return [d.high, d.low];
-	                        }, ema26.accessor(), ema12.accessor()] },
-	                    React.createElement(XAxis, { axisAt: 'bottom', orient: 'bottom', ticks: 15 }),
-	                    React.createElement(YAxis, { axisAt: 'right', orient: 'right', ticks: 5 }),
-	                    React.createElement(MouseCoordinateY, {
-	                        at: 'right',
-	                        orient: 'right',
-	                        displayFormat: (0, _d3Format.format)(".2f") }),
-	                    React.createElement(MouseCoordinateX, {
-	                        rectWidth: '180',
-	                        at: 'bottom',
-	                        orient: 'bottom',
-	                        displayFormat: (0, _d3TimeFormat.timeFormat)("%Y-%m-%d") }),
-	                    React.createElement(CandlestickSeries, null),
-	                    React.createElement(LineSeries, { yAccessor: ema26.accessor(), stroke: ema26.stroke() }),
-	                    React.createElement(LineSeries, { yAccessor: ema12.accessor(), stroke: ema12.stroke() }),
-	                    React.createElement(CurrentCoordinate, { yAccessor: ema26.accessor(), fill: ema26.stroke() }),
-	                    React.createElement(CurrentCoordinate, { yAccessor: ema12.accessor(), fill: ema12.stroke() }),
-	                    React.createElement(EdgeIndicator, { itemType: 'last', orient: 'right', edgeAt: 'right',
-	                        yAccessor: function yAccessor(d) {
-	                            return d.close;
-	                        }, fill: function fill(d) {
-	                            return d.close > d.open ? "#6BA583" : "#FF0000";
-	                        } }),
-	                    React.createElement(OHLCTooltip, { origin: [-40, 0] }),
-	                    React.createElement(MovingAverageTooltip, { onClick: function onClick(e) {
-	                            return console.log(e);
-	                        }, origin: [-38, 15],
-	                        calculators: [ema26, ema12] })
-	                ),
-	                React.createElement(CrossHairCursor, null)
-	            );
-	        }
-	    }]);
-
-	    return CandleStickStockScaleChart;
->>>>>>> 542f0995297ce442b5b671f7f5ea6282584300a4
 	}(React.Component);
 
 	module.exports = SearchInput;
 
-<<<<<<< HEAD
 /***/ },
-/* 429 */
+/* 425 */
 /***/ function(module, exports) {
-=======
-	CandleStickStockScaleChart.defaultProps = {
-	    type: "svg"
-	};
-	CandleStickStockScaleChart = fitWidth(CandleStickStockScaleChart);
->>>>>>> 542f0995297ce442b5b671f7f5ea6282584300a4
 
 	'use strict';var CodeTable=function(){var codeTableMap={'000001':{stockname:'平安银行',py:'payh'},'000002':{stockname:'万科A',py:'wka'},'000004':{stockname:'国农科技',py:'gnkj'},'000005':{stockname:'世纪星源',py:'sjxy'},'000006':{stockname:'深振业A',py:'szya'},'000007':{stockname:'全新好',py:'qxh'},'000008':{stockname:'神州高铁',py:'szgt'},'000009':{stockname:'中国宝安',py:'zgba'},'000010':{stockname:'美丽生态',py:'mlst'},'000011':{stockname:'深物业A',py:'swya'},'000012':{stockname:'南玻A',py:'nba'},'000014':{stockname:'沙河股份',py:'shgf'},'000016':{stockname:'深康佳A',py:'skja'},'000017':{stockname:'深中华A',py:'szha'},'000018':{stockname:'神州长城',py:'szcc'},'000019':{stockname:'深深宝A',py:'ssba'},'000020':{stockname:'深华发A',py:'shfa'},'000021':{stockname:'深科技',py:'skj'},'000022':{stockname:'深赤湾A',py:'scwa'},'000023':{stockname:'深天地A',py:'stda'},'000025':{stockname:'特力A',py:'tla'},'000026':{stockname:'飞亚达A',py:'fyda'},'000027':{stockname:'深圳能源',py:'szny'},'000028':{stockname:'国药一致',py:'gyyz'},'000029':{stockname:'深深房A',py:'ssfa'},'000030':{stockname:'富奥股份',py:'fagf'},'000031':{stockname:'中粮地产',py:'zldc'},'000032':{stockname:'深桑达A',py:'ssda'},'000033':{stockname:'ST新都',py:'stxd'},'000034':{stockname:'神州数码',py:'szsm'},'000035':{stockname:'中国天楹',py:'zgty'},'000036':{stockname:'华联控股',py:'hlkg'},'000037':{stockname:'ST南电A',py:'stnda'},'000038':{stockname:'深大通',py:'sdt'},'000039':{stockname:'中集集团',py:'zjjt'},'000040':{stockname:'宝安地产',py:'badc'},'000042':{stockname:'中洲控股',py:'zzkg'},'000043':{stockname:'中航地产',py:'zhdc'},'000045':{stockname:'深纺织A',py:'sfza'},'000046':{stockname:'泛海控股',py:'fhkg'},'000048':{stockname:'康达尔',py:'kde'},'000049':{stockname:'德赛电池',py:'dsdc'},'000050':{stockname:'深天马A',py:'stma'},'000055':{stockname:'方大集团',py:'fdjt'},'000056':{stockname:'皇庭国际',py:'htgj'},'000058':{stockname:'深赛格',py:'ssg'},'000059':{stockname:'华锦股份',py:'hjgf'},'000060':{stockname:'中金岭南',py:'zjln'},'000061':{stockname:'农产品',py:'ncp'},'000062':{stockname:'深圳华强',py:'szhq'},'000063':{stockname:'中兴通讯',py:'zxtx'},'000065':{stockname:'北方国际',py:'bfgj'},'000066':{stockname:'长城电脑',py:'ccdn'},'000068':{stockname:'华控赛格',py:'hksg'},'000069':{stockname:'华侨城A',py:'hqca'},'000070':{stockname:'特发信息',py:'tfxx'},'000078':{stockname:'海王生物',py:'hwsw'},'000088':{stockname:'盐田港',py:'ytg'},'000089':{stockname:'深圳机场',py:'szjc'},'000090':{stockname:'天健集团',py:'tjjt'},'000096':{stockname:'广聚能源',py:'gjny'},'000099':{stockname:'中信海直',py:'zxhz'},'000100':{stockname:'TCL集团',py:'tcljt'},'000150':{stockname:'宜华健康',py:'yhjk'},'000151':{stockname:'中成股份',py:'zcgf'},'000153':{stockname:'丰原药业',py:'fyyy'},'000155':{stockname:'ST川化',py:'stch'},'000156':{stockname:'华数传媒',py:'hscm'},'000157':{stockname:'中联重科',py:'zlzk'},'000158':{stockname:'常山股份',py:'csgf'},'000159':{stockname:'国际实业',py:'gjsy'},'000166':{stockname:'申万宏源',py:'swhy'},'000301':{stockname:'东方市场',py:'dfsc'},'000333':{stockname:'美的集团',py:'mdjt'},'000338':{stockname:'潍柴动力',py:'wcdl'},'000400':{stockname:'许继电气',py:'xjdq'},'000401':{stockname:'冀东水泥',py:'jdsn'},'000402':{stockname:'金融街',py:'jrj'},'000403':{stockname:'ST生化',py:'stsh'},'000404':{stockname:'华意压缩',py:'hyys'},'000407':{stockname:'胜利股份',py:'slgf'},'000408':{stockname:'ST金源',py:'stjy'},'000409':{stockname:'山东地矿',py:'sddk'},'000410':{stockname:'沈阳机床',py:'syjc'},'000411':{stockname:'英特集团',py:'ytjt'},'000413':{stockname:'东旭光电',py:'dxgd'},'000415':{stockname:'渤海金控',py:'bhjk'},'000416':{stockname:'民生控股',py:'mskg'},'000417':{stockname:'合肥百货',py:'hfbh'},'000418':{stockname:'小天鹅A',py:'xtea'},'000419':{stockname:'通程控股',py:'tckg'},'000420':{stockname:'吉林化纤',py:'jlhx'},'000421':{stockname:'南京中北',py:'njzb'},'000422':{stockname:'湖北宜化',py:'hbyh'},'000423':{stockname:'东阿阿胶',py:'daaj'},'000425':{stockname:'徐工机械',py:'xgjx'},'000426':{stockname:'兴业矿业',py:'xyky'},'000428':{stockname:'华天酒店',py:'htjd'},'000429':{stockname:'粤高速A',py:'ygsa'},'000430':{stockname:'张家界',py:'zjj'},'000488':{stockname:'晨鸣纸业',py:'cmzy'},'000498':{stockname:'山东路桥',py:'sdlq'},'000501':{stockname:'鄂武商A',py:'ewsa'},'000502':{stockname:'绿景控股',py:'ljkg'},'000503':{stockname:'海虹控股',py:'hhkg'},'000504':{stockname:'ST生物',py:'stsw'},'000505':{stockname:'ST珠江',py:'stzj'},'000506':{stockname:'中润资源',py:'zrzy'},'000507':{stockname:'珠海港',py:'zhg'},'000509':{stockname:'华塑控股',py:'hskg'},'000510':{stockname:'金路集团',py:'jljt'},'000511':{stockname:'ST烯碳',py:'stxt'},'000513':{stockname:'丽珠集团',py:'lzjt'},'000514':{stockname:'渝开发',py:'ykf'},'000516':{stockname:'国际医学',py:'gjyx'},'000517':{stockname:'荣安地产',py:'radc'},'000518':{stockname:'四环生物',py:'shsw'},'000519':{stockname:'江南红箭',py:'jnhj'},'000520':{stockname:'长航凤凰',py:'chfh'},'000521':{stockname:'美菱电器',py:'mldq'},'000523':{stockname:'广州浪奇',py:'gzlj'},'000524':{stockname:'岭南控股',py:'lnkg'},'000525':{stockname:'红太阳',py:'hty'},'000526':{stockname:'银润投资',py:'yrtz'},'000528':{stockname:'柳工',py:'lg'},'000529':{stockname:'广弘控股',py:'ghkg'},'000530':{stockname:'大冷股份',py:'dlgf'},'000531':{stockname:'穗恒运A',py:'shya'},'000532':{stockname:'力合股份',py:'lhgf'},'000533':{stockname:'万家乐',py:'wjl'},'000534':{stockname:'万泽股份',py:'wzgf'},'000536':{stockname:'华映科技',py:'hykj'},'000537':{stockname:'广宇发展',py:'gyfz'},'000538':{stockname:'云南白药',py:'ynby'},'000539':{stockname:'粤电力A',py:'ydla'},'000540':{stockname:'中天城投',py:'ztct'},'000541':{stockname:'佛山照明',py:'fszm'},'000543':{stockname:'皖能电力',py:'wndl'},'000544':{stockname:'中原环保',py:'zyhb'},'000545':{stockname:'金浦钛业',py:'jpty'},'000546':{stockname:'金圆股份',py:'jygf'},'000547':{stockname:'航天发展',py:'htfz'},'000548':{stockname:'湖南投资',py:'hntz'},'000550':{stockname:'江铃汽车',py:'jlqc'},'000551':{stockname:'创元科技',py:'cykj'},'000552':{stockname:'靖远煤电',py:'jymd'},'000553':{stockname:'沙隆达A',py:'slda'},'000554':{stockname:'泰山石油',py:'tssy'},'000555':{stockname:'神州信息',py:'szxx'},'000557':{stockname:'西部创业',py:'xbcy'},'000558':{stockname:'莱茵体育',py:'lyty'},'000559':{stockname:'万向钱潮',py:'wxqc'},'000560':{stockname:'昆百大A',py:'kbda'},'000561':{stockname:'烽火电子',py:'fhdz'},'000563':{stockname:'陕国投A',py:'sgta'},'000564':{stockname:'西安民生',py:'xams'},'000565':{stockname:'渝三峡A',py:'ysxa'},'000566':{stockname:'海南海药',py:'hnhy'},'000567':{stockname:'海德股份',py:'hdgf'},'000568':{stockname:'泸州老窖',py:'lzlj'},'000570':{stockname:'苏常柴A',py:'scca'},'000571':{stockname:'新大洲A',py:'xdza'},'000572':{stockname:'海马汽车',py:'hmqc'},'000573':{stockname:'粤宏远A',py:'yhya'},'000576':{stockname:'广东甘化',py:'gdgh'},'000581':{stockname:'威孚高科',py:'wfgk'},'000582':{stockname:'北部湾港',py:'bbwg'},'000584':{stockname:'友利控股',py:'ylkg'},'000585':{stockname:'东北电气',py:'dbdq'},'000586':{stockname:'汇源通信',py:'hytx'},'000587':{stockname:'金洲慈航',py:'jzch'},'000589':{stockname:'黔轮胎A',py:'qlta'},'000590':{stockname:'启迪古汉',py:'qdgh'},'000591':{stockname:'太阳能',py:'tyn'},'000592':{stockname:'平潭发展',py:'ptfz'},'000593':{stockname:'大通燃气',py:'dtrq'},'000595':{stockname:'宝塔实业',py:'btsy'},'000596':{stockname:'古井贡酒',py:'gjgj'},'000597':{stockname:'东北制药',py:'dbzy'},'000598':{stockname:'兴蓉环境',py:'xrhj'},'000599':{stockname:'青岛双星',py:'qdsx'},'000600':{stockname:'建投能源',py:'jtny'},'000601':{stockname:'韶能股份',py:'sngf'},'000603':{stockname:'盛达矿业',py:'sdky'},'000605':{stockname:'渤海股份',py:'bhgf'},'000606':{stockname:'ST明胶',py:'stmj'},'000607':{stockname:'华媒控股',py:'hmkg'},'000608':{stockname:'阳光股份',py:'yggf'},'000609':{stockname:'绵世股份',py:'msgf'},'000610':{stockname:'西安旅游',py:'xaly'},'000611':{stockname:'ST蒙发',py:'stmf'},'000612':{stockname:'焦作万方',py:'jzwf'},'000613':{stockname:'大东海A',py:'ddha'},'000615':{stockname:'京汉股份',py:'jhgf'},'000616':{stockname:'海航投资',py:'hhtz'},'000617':{stockname:'ST济柴',py:'stjc'},'000619':{stockname:'海螺型材',py:'hlxc'},'000620':{stockname:'新华联',py:'xhl'},'000622':{stockname:'ST恒立',py:'sthl'},'000623':{stockname:'吉林敖东',py:'jlad'},'000625':{stockname:'长安汽车',py:'caqc'},'000626':{stockname:'如意集团',py:'ryjt'},'000627':{stockname:'天茂集团',py:'tmjt'},'000628':{stockname:'高新发展',py:'gxfz'},'000629':{stockname:'ST钒钛',py:'stft'},'000630':{stockname:'铜陵有色',py:'tlys'},'000631':{stockname:'顺发恒业',py:'sfhy'},'000632':{stockname:'三木集团',py:'smjt'},'000633':{stockname:'ST合金',py:'sthj'},'000635':{stockname:'英力特',py:'ylt'},'000636':{stockname:'风华高科',py:'fhgk'},'000637':{stockname:'茂化实华',py:'mhsh'},'000638':{stockname:'万方发展',py:'wffz'},'000639':{stockname:'西王食品',py:'xwsp'},'000650':{stockname:'仁和药业',py:'rhyy'},'000651':{stockname:'格力电器',py:'gldq'},'000652':{stockname:'泰达股份',py:'tdgf'},'000655':{stockname:'金岭矿业',py:'jlky'},'000656':{stockname:'金科股份',py:'jkgf'},'000657':{stockname:'中钨高新',py:'zwgx'},'000659':{stockname:'珠海中富',py:'zhzf'},'000661':{stockname:'长春高新',py:'ccgx'},'000662':{stockname:'天夏智慧',py:'txzh'},'000663':{stockname:'永安林业',py:'yaly'},'000665':{stockname:'湖北广电',py:'hbgd'},'000666':{stockname:'经纬纺机',py:'jwfj'},'000667':{stockname:'美好集团',py:'mhjt'},'000668':{stockname:'荣丰控股',py:'rfkg'},'000669':{stockname:'金鸿能源',py:'jhny'},'000670':{stockname:'ST盈方',py:'styf'},'000671':{stockname:'阳光城',py:'ygc'},'000672':{stockname:'上峰水泥',py:'sfsn'},'000673':{stockname:'当代东方',py:'dddf'},'000676':{stockname:'智度投资',py:'zdtz'},'000677':{stockname:'恒天海龙',py:'hthl'},'000678':{stockname:'襄阳轴承',py:'xyzc'},'000679':{stockname:'大连友谊',py:'dlyy'},'000680':{stockname:'山推股份',py:'stgf'},'000681':{stockname:'视觉中国',py:'sjzg'},'000682':{stockname:'东方电子',py:'dfdz'},'000683':{stockname:'远兴能源',py:'yxny'},'000685':{stockname:'中山公用',py:'zsgy'},'000686':{stockname:'东北证券',py:'dbzq'},'000687':{stockname:'华讯方舟',py:'hxfz'},'000688':{stockname:'建新矿业',py:'jxky'},'000690':{stockname:'宝新能源',py:'bxny'},'000691':{stockname:'ST亚太',py:'styt'},'000692':{stockname:'惠天热电',py:'htrd'},'000693':{stockname:'ST华泽',py:'sthz'},'000695':{stockname:'滨海能源',py:'bhny'},'000697':{stockname:'炼石有色',py:'lsys'},'000698':{stockname:'沈阳化工',py:'syhg'},'000700':{stockname:'模塑科技',py:'mskj'},'000701':{stockname:'厦门信达',py:'xmxd'},'000702':{stockname:'正虹科技',py:'zhkj'},'000703':{stockname:'恒逸石化',py:'hysh'},'000705':{stockname:'浙江震元',py:'zjzy'},'000707':{stockname:'双环科技',py:'shkj'},'000708':{stockname:'大冶特钢',py:'dytg'},'000709':{stockname:'河钢股份',py:'hggf'},'000710':{stockname:'天兴仪表',py:'txyb'},'000711':{stockname:'京蓝科技',py:'jlkj'},'000712':{stockname:'锦龙股份',py:'jlgf'},'000713':{stockname:'丰乐种业',py:'flzy'},'000715':{stockname:'中兴商业',py:'zxsy'},'000716':{stockname:'黑芝麻',py:'hzm'},'000717':{stockname:'ST韶钢',py:'stsg'},'000718':{stockname:'苏宁环球',py:'snhq'},'000719':{stockname:'大地传媒',py:'ddcm'},'000720':{stockname:'新能泰山',py:'xnts'},'000721':{stockname:'西安饮食',py:'xays'},'000722':{stockname:'湖南发展',py:'hnfz'},'000723':{stockname:'美锦能源',py:'mjny'},'000725':{stockname:'京东方A',py:'jdfa'},'000726':{stockname:'鲁泰A',py:'lta'},'000727':{stockname:'华东科技',py:'hdkj'},'000728':{stockname:'国元证券',py:'gyzq'},'000729':{stockname:'燕京啤酒',py:'yjpj'},'000731':{stockname:'四川美丰',py:'scmf'},'000732':{stockname:'泰禾集团',py:'thjt'},'000733':{stockname:'振华科技',py:'zhkj'},'000735':{stockname:'罗牛山',py:'lns'},'000736':{stockname:'中房地产',py:'zfdc'},'000737':{stockname:'南风化工',py:'nfhg'},'000738':{stockname:'中航动控',py:'zhdk'},'000739':{stockname:'普洛药业',py:'plyy'},'000748':{stockname:'长城信息',py:'ccxx'},'000750':{stockname:'国海证券',py:'ghzq'},'000751':{stockname:'锌业股份',py:'xygf'},'000752':{stockname:'西藏发展',py:'xzfz'},'000753':{stockname:'漳州发展',py:'zzfz'},'000755':{stockname:'山西三维',py:'sxsw'},'000756':{stockname:'新华制药',py:'xhzy'},'000757':{stockname:'浩物股份',py:'hwgf'},'000758':{stockname:'中色股份',py:'zsgf'},'000759':{stockname:'中百集团',py:'zbjt'},'000760':{stockname:'斯太尔',py:'ste'},'000761':{stockname:'本钢板材',py:'bgbc'},'000762':{stockname:'西藏矿业',py:'xzky'},'000766':{stockname:'通化金马',py:'thjm'},'000767':{stockname:'漳泽电力',py:'zzdl'},'000768':{stockname:'中航飞机',py:'zhfj'},'000776':{stockname:'广发证券',py:'gfzq'},'000777':{stockname:'中核科技',py:'zhkj'},'000778':{stockname:'新兴铸管',py:'xxzg'},'000779':{stockname:'三毛派神',py:'smps'},'000780':{stockname:'平庄能源',py:'pzny'},'000782':{stockname:'美达股份',py:'mdgf'},'000783':{stockname:'长江证券',py:'cjzq'},'000785':{stockname:'武汉中商',py:'whzs'},'000786':{stockname:'北新建材',py:'bxjc'},'000788':{stockname:'北大医药',py:'bdyy'},'000789':{stockname:'万年青',py:'wnq'},'000790':{stockname:'华神集团',py:'hsjt'},'000791':{stockname:'甘肃电投',py:'gsdt'},'000792':{stockname:'盐湖股份',py:'yhgf'},'000793':{stockname:'华闻传媒',py:'hwcm'},'000795':{stockname:'英洛华',py:'ylh'},'000796':{stockname:'凯撒旅游',py:'ksly'},'000797':{stockname:'中国武夷',py:'zgwy'},'000798':{stockname:'中水渔业',py:'zsyy'},'000799':{stockname:'酒鬼酒',py:'jgj'},'000800':{stockname:'一汽轿车',py:'yqjc'},'000801':{stockname:'四川九洲',py:'scjz'},'000802':{stockname:'北京文化',py:'bjwh'},'000803':{stockname:'金宇车城',py:'jycc'},'000806':{stockname:'银河生物',py:'yhsw'},'000807':{stockname:'云铝股份',py:'ylgf'},'000809':{stockname:'铁岭新城',py:'tlxc'},'000810':{stockname:'创维数字',py:'cwsz'},'000811':{stockname:'烟台冰轮',py:'ytbl'},'000812':{stockname:'陕西金叶',py:'sxjy'},'000813':{stockname:'天山纺织',py:'tsfz'},'000815':{stockname:'美利纸业',py:'mlzy'},'000816':{stockname:'智慧农业',py:'zhny'},'000818':{stockname:'方大化工',py:'fdhg'},'000819':{stockname:'岳阳兴长',py:'yyxc'},'000820':{stockname:'金城股份',py:'jcgf'},'000821':{stockname:'京山轻机',py:'jsqj'},'000822':{stockname:'山东海化',py:'sdhh'},'000823':{stockname:'超声电子',py:'csdz'},'000825':{stockname:'太钢不锈',py:'tgbx'},'000826':{stockname:'启迪桑德',py:'qdsd'},'000828':{stockname:'东莞控股',py:'dgkg'},'000829':{stockname:'天音控股',py:'tykg'},'000830':{stockname:'鲁西化工',py:'lxhg'},'000831':{stockname:'ST五稀',py:'stwx'},'000833':{stockname:'贵糖股份',py:'gtgf'},'000835':{stockname:'长城动漫',py:'ccdm'},'000836':{stockname:'鑫茂科技',py:'xmkj'},'000837':{stockname:'秦川机床',py:'qcjc'},'000838':{stockname:'财信发展',py:'cxfz'},'000839':{stockname:'中信国安',py:'zxga'},'000848':{stockname:'承德露露',py:'cdll'},'000850':{stockname:'华茂股份',py:'hmgf'},'000851':{stockname:'高鸿股份',py:'ghgf'},'000852':{stockname:'石化机械',py:'shjx'},'000856':{stockname:'ST冀装',py:'stjz'},'000858':{stockname:'五粮液',py:'wly'},'000859':{stockname:'国风塑业',py:'gfsy'},'000860':{stockname:'顺鑫农业',py:'sxny'},'000861':{stockname:'海印股份',py:'hygf'},'000862':{stockname:'银星能源',py:'yxny'},'000863':{stockname:'三湘股份',py:'sxgf'},'000868':{stockname:'安凯客车',py:'akkc'},'000869':{stockname:'张裕A',py:'zya'},'000875':{stockname:'吉电股份',py:'jdgf'},'000876':{stockname:'新希望',py:'xxw'},'000877':{stockname:'天山股份',py:'tsgf'},'000878':{stockname:'云南铜业',py:'ynty'},'000880':{stockname:'潍柴重机',py:'wczj'},'000881':{stockname:'大连国际',py:'dlgj'},'000882':{stockname:'华联股份',py:'hlgf'},'000883':{stockname:'湖北能源',py:'hbny'},'000885':{stockname:'同力水泥',py:'tlsn'},'000886':{stockname:'海南高速',py:'hngs'},'000887':{stockname:'中鼎股份',py:'zdgf'},'000888':{stockname:'峨眉山A',py:'emsa'},'000889':{stockname:'茂业通信',py:'mytx'},'000890':{stockname:'法尔胜',py:'fes'},'000892':{stockname:'星美联合',py:'xmlh'},'000893':{stockname:'东凌国际',py:'dlgj'},'000895':{stockname:'双汇发展',py:'shfz'},'000897':{stockname:'津滨发展',py:'jbfz'},'000898':{stockname:'鞍钢股份',py:'aggf'},'000899':{stockname:'赣能股份',py:'gngf'},'000900':{stockname:'现代投资',py:'xdtz'},'000901':{stockname:'航天科技',py:'htkj'},'000902':{stockname:'新洋丰',py:'xyf'},'000903':{stockname:'云内动力',py:'yndl'},'000905':{stockname:'厦门港务',py:'xmgw'},'000906':{stockname:'物产中拓',py:'wczt'},'000908':{stockname:'景峰医药',py:'jfyy'},'000909':{stockname:'数源科技',py:'sykj'},'000910':{stockname:'大亚科技',py:'dykj'},'000911':{stockname:'南宁糖业',py:'nnty'},'000912':{stockname:'泸天化',py:'lth'},'000913':{stockname:'ST钱江',py:'stqj'},'000915':{stockname:'山大华特',py:'sdht'},'000916':{stockname:'华北高速',py:'hbgs'},'000917':{stockname:'电广传媒',py:'dgcm'},'000918':{stockname:'嘉凯城',py:'jkc'},'000919':{stockname:'金陵药业',py:'jlyy'},'000920':{stockname:'南方汇通',py:'nfht'},'000921':{stockname:'海信科龙',py:'hxkl'},'000922':{stockname:'佳电股份',py:'jdgf'},'000923':{stockname:'河北宣工',py:'hbxg'},'000925':{stockname:'众合科技',py:'zhkj'},'000926':{stockname:'福星股份',py:'fxgf'},'000927':{stockname:'一汽夏利',py:'yqxl'},'000928':{stockname:'中钢国际',py:'zggj'},'000929':{stockname:'兰州黄河',py:'lzhh'},'000930':{stockname:'中粮生化',py:'zlsh'},'000931':{stockname:'中关村',py:'zgc'},'000932':{stockname:'华菱钢铁',py:'hlgt'},'000933':{stockname:'ST神火',py:'stsh'},'000935':{stockname:'四川双马',py:'scsm'},'000936':{stockname:'华西股份',py:'hxgf'},'000937':{stockname:'冀中能源',py:'jzny'},'000938':{stockname:'紫光股份',py:'zggf'},'000939':{stockname:'凯迪生态',py:'kdst'},'000948':{stockname:'南天信息',py:'ntxx'},'000949':{stockname:'新乡化纤',py:'xxhq'},'000950':{stockname:'ST建峰',py:'stjf'},'000951':{stockname:'中国重汽',py:'zgzq'},'000952':{stockname:'广济药业',py:'gjyy'},'000953':{stockname:'河池化工',py:'hchg'},'000955':{stockname:'欣龙控股',py:'xlkg'},'000957':{stockname:'中通客车',py:'ztkc'},'000958':{stockname:'东方能源',py:'dfny'},'000959':{stockname:'首钢股份',py:'sggf'},'000960':{stockname:'锡业股份',py:'xygf'},'000961':{stockname:'中南建设',py:'znjs'},'000962':{stockname:'ST东钽',py:'stdt'},'000963':{stockname:'华东医药',py:'hdyy'},'000965':{stockname:'天保基建',py:'tbjj'},'000966':{stockname:'长源电力',py:'cydl'},'000967':{stockname:'盈峰环境',py:'yfhj'},'000968':{stockname:'ST煤气',py:'stmq'},'000969':{stockname:'安泰科技',py:'atkj'},'000970':{stockname:'中科三环',py:'zksh'},'000971':{stockname:'高升控股',py:'gskg'},'000972':{stockname:'中基健康',py:'zjjk'},'000973':{stockname:'佛塑科技',py:'fskj'},'000975':{stockname:'银泰资源',py:'ytzy'},'000976':{stockname:'春晖股份',py:'chgf'},'000977':{stockname:'浪潮信息',py:'lcxx'},'000978':{stockname:'桂林旅游',py:'glly'},'000979':{stockname:'中弘股份',py:'zhgf'},'000980':{stockname:'金马股份',py:'jmgf'},'000981':{stockname:'银亿股份',py:'yygf'},'000982':{stockname:'中银绒业',py:'zyry'},'000983':{stockname:'西山煤电',py:'xsmd'},'000985':{stockname:'大庆华科',py:'dqhk'},'000987':{stockname:'广州友谊',py:'gzyy'},'000988':{stockname:'华工科技',py:'hgkj'},'000989':{stockname:'九芝堂',py:'jzt'},'000990':{stockname:'诚志股份',py:'czgf'},'000993':{stockname:'闽东电力',py:'mddl'},'000995':{stockname:'ST皇台',py:'stht'},'000996':{stockname:'中国中期',py:'zgzq'},'000997':{stockname:'新大陆',py:'xdl'},'000998':{stockname:'隆平高科',py:'lpgk'},'000999':{stockname:'华润三九',py:'hrsj'},'001696':{stockname:'宗申动力',py:'zsdl'},'001896':{stockname:'豫能控股',py:'ynkg'},'001979':{stockname:'招商蛇口',py:'zssk'},'002001':{stockname:'新和成',py:'xhc'},'002002':{stockname:'鸿达兴业',py:'hdxy'},'002003':{stockname:'伟星股份',py:'wxgf'},'002004':{stockname:'华邦健康',py:'hbjk'},'002005':{stockname:'德豪润达',py:'dhrd'},'002006':{stockname:'精功科技',py:'jgkj'},'002007':{stockname:'华兰生物',py:'hlsw'},'002008':{stockname:'大族激光',py:'dzjg'},'002009':{stockname:'天奇股份',py:'tqgf'},'002010':{stockname:'传化股份',py:'chgf'},'002011':{stockname:'盾安环境',py:'dahj'},'002012':{stockname:'凯恩股份',py:'kegf'},'002013':{stockname:'中航机电',py:'zhjd'},'002014':{stockname:'永新股份',py:'yxgf'},'002015':{stockname:'霞客环保',py:'xkhb'},'002016':{stockname:'世荣兆业',py:'srzy'},'002017':{stockname:'东信和平',py:'dxhp'},'002018':{stockname:'华信国际',py:'hxgj'},'002019':{stockname:'亿帆鑫富',py:'yfxf'},'002020':{stockname:'京新药业',py:'jxyy'},'002021':{stockname:'中捷资源',py:'zjzy'},'002022':{stockname:'科华生物',py:'khsw'},'002023':{stockname:'海特高新',py:'htgx'},'002024':{stockname:'苏宁云商',py:'snys'},'002025':{stockname:'航天电器',py:'htdq'},'002026':{stockname:'山东威达',py:'sdwd'},'002027':{stockname:'分众传媒',py:'fzcm'},'002028':{stockname:'思源电气',py:'sydq'},'002029':{stockname:'七匹狼',py:'qpl'},'002030':{stockname:'达安基因',py:'dajy'},'002031':{stockname:'巨轮智能',py:'jlzn'},'002032':{stockname:'苏泊尔',py:'sbe'},'002033':{stockname:'丽江旅游',py:'ljly'},'002034':{stockname:'美欣达',py:'mxd'},'002035':{stockname:'华帝股份',py:'hdgf'},'002036':{stockname:'联创电子',py:'lcdz'},'002037':{stockname:'久联发展',py:'jlfz'},'002038':{stockname:'双鹭药业',py:'slyy'},'002039':{stockname:'黔源电力',py:'qydl'},'002040':{stockname:'南京港',py:'njg'},'002041':{stockname:'登海种业',py:'dhzy'},'002042':{stockname:'华孚色纺',py:'hfsf'},'002043':{stockname:'兔宝宝',py:'tbb'},'002044':{stockname:'美年健康',py:'mnjk'},'002045':{stockname:'国光电器',py:'ggdq'},'002046':{stockname:'轴研科技',py:'zykj'},'002047':{stockname:'宝鹰股份',py:'bygf'},'002048':{stockname:'宁波华翔',py:'nbhx'},'002049':{stockname:'同方国芯',py:'tfgx'},'002050':{stockname:'三花股份',py:'shgf'},'002051':{stockname:'中工国际',py:'zggj'},'002052':{stockname:'同洲电子',py:'tzdz'},'002053':{stockname:'云南盐化',py:'ynyh'},'002054':{stockname:'德美化工',py:'dmhg'},'002055':{stockname:'得润电子',py:'drdz'},'002056':{stockname:'横店东磁',py:'hddc'},'002057':{stockname:'中钢天源',py:'zgty'},'002058':{stockname:'威尔泰',py:'wet'},'002059':{stockname:'云南旅游',py:'ynly'},'002060':{stockname:'粤水电',py:'ysd'},'002061':{stockname:'ST江化',py:'stjh'},'002062':{stockname:'宏润建设',py:'hrjs'},'002063':{stockname:'远光软件',py:'ygrj'},'002064':{stockname:'华峰氨纶',py:'hfal'},'002065':{stockname:'东华软件',py:'dhrj'},'002066':{stockname:'瑞泰科技',py:'rtkj'},'002067':{stockname:'景兴纸业',py:'jxzy'},'002068':{stockname:'黑猫股份',py:'hmgf'},'002069':{stockname:'ST獐岛',py:'stzd'},'002070':{stockname:'众和股份',py:'zhgf'},'002071':{stockname:'长城影视',py:'ccys'},'002072':{stockname:'凯瑞德',py:'krd'},'002073':{stockname:'软控股份',py:'rkgf'},'002074':{stockname:'国轩高科',py:'gxgk'},'002075':{stockname:'沙钢股份',py:'sggf'},'002076':{stockname:'雪莱特',py:'xlt'},'002077':{stockname:'大港股份',py:'dggf'},'002078':{stockname:'太阳纸业',py:'tyzy'},'002079':{stockname:'苏州固锝',py:'szgd'},'002080':{stockname:'中材科技',py:'zckj'},'002081':{stockname:'金螳螂',py:'jtl'},'002082':{stockname:'栋梁新材',py:'dlxc'},'002083':{stockname:'孚日股份',py:'frgf'},'002084':{stockname:'海鸥卫浴',py:'howy'},'002085':{stockname:'万丰奥威',py:'wfaw'},'002086':{stockname:'东方海洋',py:'dfhy'},'002087':{stockname:'新野纺织',py:'xyfz'},'002088':{stockname:'鲁阳节能',py:'lyjn'},'002089':{stockname:'新海宜',py:'xhy'},'002090':{stockname:'金智科技',py:'jzkj'},'002091':{stockname:'江苏国泰',py:'jsgt'},'002092':{stockname:'中泰化学',py:'zthx'},'002093':{stockname:'国脉科技',py:'gmkj'},'002094':{stockname:'青岛金王',py:'qdjw'},'002095':{stockname:'生意宝',py:'syb'},'002096':{stockname:'南岭民爆',py:'nlmb'},'002097':{stockname:'山河智能',py:'shzn'},'002098':{stockname:'浔兴股份',py:'xxgf'},'002099':{stockname:'海翔药业',py:'hxyy'},'002100':{stockname:'天康生物',py:'tksw'},'002101':{stockname:'广东鸿图',py:'gdht'},'002102':{stockname:'冠福股份',py:'gfgf'},'002103':{stockname:'广博股份',py:'gbgf'},'002104':{stockname:'恒宝股份',py:'hbgf'},'002105':{stockname:'信隆实业',py:'xlsy'},'002106':{stockname:'莱宝高科',py:'lbgk'},'002107':{stockname:'沃华医药',py:'whyy'},'002108':{stockname:'沧州明珠',py:'czmz'},'002109':{stockname:'ST兴化',py:'stxh'},'002110':{stockname:'三钢闽光',py:'sgmg'},'002111':{stockname:'威海广泰',py:'whgt'},'002112':{stockname:'三变科技',py:'sbkj'},'002113':{stockname:'天润控股',py:'trkg'},'002114':{stockname:'罗平锌电',py:'lpxd'},'002115':{stockname:'三维通信',py:'swtx'},'002116':{stockname:'中国海诚',py:'zghc'},'002117':{stockname:'东港股份',py:'dggf'},'002118':{stockname:'紫鑫药业',py:'zxyy'},'002119':{stockname:'康强电子',py:'kqdz'},'002120':{stockname:'新海股份',py:'xhgf'},'002121':{stockname:'科陆电子',py:'kldz'},'002122':{stockname:'天马股份',py:'tmgf'},'002123':{stockname:'荣信股份',py:'rxgf'},'002124':{stockname:'天邦股份',py:'tbgf'},'002125':{stockname:'湘潭电化',py:'xtdh'},'002126':{stockname:'银轮股份',py:'ylgf'},'002127':{stockname:'南极电商',py:'njds'},'002128':{stockname:'露天煤业',py:'ltmy'},'002129':{stockname:'中环股份',py:'zhgf'},'002130':{stockname:'沃尔核材',py:'wehc'},'002131':{stockname:'利欧股份',py:'logf'},'002132':{stockname:'恒星科技',py:'hxkj'},'002133':{stockname:'广宇集团',py:'gyjt'},'002134':{stockname:'天津普林',py:'tjpl'},'002135':{stockname:'东南网架',py:'dnwj'},'002136':{stockname:'安纳达',py:'and'},'002137':{stockname:'麦达数字',py:'mdsz'},'002138':{stockname:'顺络电子',py:'sldz'},'002139':{stockname:'拓邦股份',py:'tbgf'},'002140':{stockname:'东华科技',py:'dhkj'},'002141':{stockname:'蓉胜超微',py:'rscw'},'002142':{stockname:'宁波银行',py:'nbyh'},'002143':{stockname:'印纪传媒',py:'yjcm'},'002144':{stockname:'宏达高科',py:'hdgk'},'002145':{stockname:'中核钛白',py:'zhtb'},'002146':{stockname:'荣盛发展',py:'rsfz'},'002147':{stockname:'新光圆成',py:'xgyc'},'002148':{stockname:'北纬通信',py:'bwtx'},'002149':{stockname:'西部材料',py:'xbcl'},'002150':{stockname:'通润装备',py:'trzb'},'002151':{stockname:'北斗星通',py:'bdxt'},'002152':{stockname:'广电运通',py:'gdyt'},'002153':{stockname:'石基信息',py:'sjxx'},'002154':{stockname:'报喜鸟',py:'bxn'},'002155':{stockname:'湖南黄金',py:'hnhj'},'002156':{stockname:'通富微电',py:'tfwd'},'002157':{stockname:'正邦科技',py:'zbkj'},'002158':{stockname:'汉钟精机',py:'hzjj'},'002159':{stockname:'三特索道',py:'stsd'},'002160':{stockname:'常铝股份',py:'clgf'},'002161':{stockname:'远望谷',py:'ywg'},'002162':{stockname:'悦心健康',py:'yxjk'},'002163':{stockname:'中航三鑫',py:'zhsx'},'002164':{stockname:'宁波东力',py:'nbdl'},'002165':{stockname:'红宝丽',py:'hbl'},'002166':{stockname:'莱茵生物',py:'lysw'},'002167':{stockname:'东方锆业',py:'dfgy'},'002168':{stockname:'深圳惠程',py:'szhc'},'002169':{stockname:'智光电气',py:'zgdq'},'002170':{stockname:'芭田股份',py:'btgf'},'002171':{stockname:'楚江新材',py:'cjxc'},'002172':{stockname:'澳洋科技',py:'aykj'},'002173':{stockname:'ST千足',py:'stqz'},'002174':{stockname:'游族网络',py:'yzwl'},'002175':{stockname:'东方网络',py:'dfwl'},'002176':{stockname:'江特电机',py:'jtdj'},'002177':{stockname:'御银股份',py:'yygf'},'002178':{stockname:'延华智能',py:'yhzn'},'002179':{stockname:'中航光电',py:'zhgd'},'002180':{stockname:'艾派克',py:'apk'},'002181':{stockname:'粤传媒',py:'ycm'},'002182':{stockname:'云海金属',py:'yhjs'},'002183':{stockname:'怡亚通',py:'yyt'},'002184':{stockname:'海得控制',py:'hdkz'},'002185':{stockname:'华天科技',py:'htkj'},'002186':{stockname:'全聚德',py:'qjd'},'002187':{stockname:'广百股份',py:'gbgf'},'002188':{stockname:'巴士在线',py:'bszx'},'002189':{stockname:'利达光电',py:'ldgd'},'002190':{stockname:'成飞集成',py:'cfjc'},'002191':{stockname:'劲嘉股份',py:'jjgf'},'002192':{stockname:'融捷股份',py:'rjgf'},'002193':{stockname:'山东如意',py:'sdry'},'002194':{stockname:'武汉凡谷',py:'whfg'},'002195':{stockname:'二三四五',py:'essw'},'002196':{stockname:'方正电机',py:'fzdj'},'002197':{stockname:'证通电子',py:'ztdz'},'002198':{stockname:'嘉应制药',py:'jyzy'},'002199':{stockname:'ST东晶',py:'stdj'},'002200':{stockname:'云投生态',py:'ytst'},'002201':{stockname:'九鼎新材',py:'jdxc'},'002202':{stockname:'金风科技',py:'jfkj'},'002203':{stockname:'海亮股份',py:'hlgf'},'002204':{stockname:'大连重工',py:'dlzg'},'002205':{stockname:'国统股份',py:'gtgf'},'002206':{stockname:'海利得',py:'hld'},'002207':{stockname:'准油股份',py:'zygf'},'002208':{stockname:'合肥城建',py:'hfcj'},'002209':{stockname:'达意隆',py:'dyl'},'002210':{stockname:'飞马国际',py:'fmgj'},'002211':{stockname:'宏达新材',py:'hdxc'},'002212':{stockname:'南洋股份',py:'nygf'},'002213':{stockname:'特尔佳',py:'tej'},'002214':{stockname:'大立科技',py:'dlkj'},'002215':{stockname:'诺普信',py:'npx'},'002216':{stockname:'三全食品',py:'sqsp'},'002217':{stockname:'合力泰',py:'glt'},'002218':{stockname:'拓日新能',py:'trxn'},'002219':{stockname:'恒康医疗',py:'hkyl'},'002220':{stockname:'天宝股份',py:'tbgf'},'002221':{stockname:'东华能源',py:'dhny'},'002222':{stockname:'福晶科技',py:'fjkj'},'002223':{stockname:'鱼跃医疗',py:'yyyl'},'002224':{stockname:'三力士',py:'sls'},'002225':{stockname:'濮耐股份',py:'pngf'},'002226':{stockname:'江南化工',py:'jnhg'},'002227':{stockname:'奥特迅',py:'atx'},'002228':{stockname:'合兴包装',py:'hxbz'},'002229':{stockname:'鸿博股份',py:'hbgf'},'002230':{stockname:'科大讯飞',py:'kdxf'},'002231':{stockname:'奥维通信',py:'awtx'},'002232':{stockname:'启明信息',py:'qmxx'},'002233':{stockname:'塔牌集团',py:'tpjt'},'002234':{stockname:'民和股份',py:'mhgf'},'002235':{stockname:'安妮股份',py:'angf'},'002236':{stockname:'大华股份',py:'dhgf'},'002237':{stockname:'恒邦股份',py:'hbgf'},'002238':{stockname:'天威视讯',py:'twsx'},'002239':{stockname:'奥特佳',py:'atj'},'002240':{stockname:'威华股份',py:'whgf'},'002241':{stockname:'歌尔声学',py:'gesx'},'002242':{stockname:'九阳股份',py:'jygf'},'002243':{stockname:'通产丽星',py:'tclx'},'002244':{stockname:'滨江集团',py:'bjjt'},'002245':{stockname:'澳洋顺昌',py:'aysc'},'002246':{stockname:'北化股份',py:'bhgf'},'002247':{stockname:'帝龙新材',py:'dlxc'},'002248':{stockname:'华东数控',py:'hdsk'},'002249':{stockname:'大洋电机',py:'dydj'},'002250':{stockname:'联化科技',py:'lhkj'},'002251':{stockname:'步步高',py:'bbg'},'002252':{stockname:'上海莱士',py:'shls'},'002253':{stockname:'川大智胜',py:'cdzs'},'002254':{stockname:'泰和新材',py:'thxc'},'002255':{stockname:'海陆重工',py:'hlzg'},'002256':{stockname:'彩虹精化',py:'chjh'},'002258':{stockname:'利尔化学',py:'lehx'},'002259':{stockname:'升达林业',py:'sdly'},'002260':{stockname:'德奥通航',py:'dath'},'002261':{stockname:'拓维信息',py:'twxx'},'002262':{stockname:'恩华药业',py:'ehyy'},'002263':{stockname:'大东南',py:'ddn'},'002264':{stockname:'新华都',py:'xhd'},'002265':{stockname:'西仪股份',py:'xygf'},'002266':{stockname:'浙富控股',py:'zfkg'},'002267':{stockname:'陕天然气',py:'strq'},'002268':{stockname:'卫士通',py:'wst'},'002269':{stockname:'美邦服饰',py:'mbfs'},'002270':{stockname:'法因数控',py:'fysk'},'002271':{stockname:'东方雨虹',py:'dfyh'},'002272':{stockname:'川润股份',py:'crgf'},'002273':{stockname:'水晶光电',py:'sjgd'},'002274':{stockname:'华昌化工',py:'hchg'},'002275':{stockname:'桂林三金',py:'glsj'},'002276':{stockname:'万马股份',py:'wmgf'},'002277':{stockname:'友阿股份',py:'yegf'},'002278':{stockname:'神开股份',py:'skgf'},'002279':{stockname:'久其软件',py:'jqrj'},'002280':{stockname:'联络互动',py:'llhd'},'002281':{stockname:'光迅科技',py:'gxkj'},'002282':{stockname:'博深工具',py:'bsgj'},'002283':{stockname:'天润曲轴',py:'trqz'},'002284':{stockname:'亚太股份',py:'ytgf'},'002285':{stockname:'世联行',py:'slh'},'002286':{stockname:'保龄宝',py:'blb'},'002287':{stockname:'奇正藏药',py:'qzzy'},'002288':{stockname:'超华科技',py:'chkj'},'002289':{stockname:'ST宇顺',py:'stys'},'002290':{stockname:'禾盛新材',py:'hsxc'},'002291':{stockname:'星期六',py:'xql'},'002292':{stockname:'奥飞娱乐',py:'afyl'},'002293':{stockname:'罗莱生活',py:'llsh'},'002294':{stockname:'信立泰',py:'xlt'},'002295':{stockname:'精艺股份',py:'jygf'},'002296':{stockname:'辉煌科技',py:'hhkj'},'002297':{stockname:'博云新材',py:'byxc'},'002298':{stockname:'中电鑫龙',py:'zdxl'},'002299':{stockname:'圣农发展',py:'snfz'},'002300':{stockname:'太阳电缆',py:'tydl'},'002301':{stockname:'齐心集团',py:'qxjt'},'002302':{stockname:'西部建设',py:'xbjs'},'002303':{stockname:'美盈森',py:'mys'},'002304':{stockname:'洋河股份',py:'yhgf'},'002305':{stockname:'南国置业',py:'ngzy'},'002306':{stockname:'中科云网',py:'zkyw'},'002307':{stockname:'北新路桥',py:'bxlq'},'002308':{stockname:'威创股份',py:'wcgf'},'002309':{stockname:'中利科技',py:'zlkj'},'002310':{stockname:'东方园林',py:'dfyl'},'002311':{stockname:'海大集团',py:'hdjt'},'002312':{stockname:'三泰控股',py:'stkg'},'002313':{stockname:'日海通讯',py:'rhtx'},'002314':{stockname:'南山控股',py:'nskg'},'002315':{stockname:'焦点科技',py:'jdkj'},'002316':{stockname:'键桥通讯',py:'jqtx'},'002317':{stockname:'众生药业',py:'zsyy'},'002318':{stockname:'久立特材',py:'jltc'},'002319':{stockname:'乐通股份',py:'ltgf'},'002320':{stockname:'海峡股份',py:'hxgf'},'002321':{stockname:'华英农业',py:'hyny'},'002322':{stockname:'理工环科',py:'lghk'},'002323':{stockname:'雅百特',py:'ybt'},'002324':{stockname:'普利特',py:'plt'},'002325':{stockname:'洪涛股份',py:'htgf'},'002326':{stockname:'永太科技',py:'ytkj'},'002327':{stockname:'富安娜',py:'fan'},'002328':{stockname:'新朋股份',py:'xpgf'},'002329':{stockname:'皇氏集团',py:'hsjt]'},'002330':{stockname:'得利斯',py:'dls'},'002331':{stockname:'皖通科技',py:'wtkj'},'002332':{stockname:'仙琚制药',py:'xjzy'},'002333':{stockname:'罗普斯金',py:'lpsj'},'002334':{stockname:'英威腾',py:'ywt'},'002335':{stockname:'科华恒盛',py:'khhs'},'002336':{stockname:'ST人乐',py:'strl'},'002337':{stockname:'赛象科技',py:'sxkj'},'002338':{stockname:'奥普光电',py:'apgd'},'002339':{stockname:'积成电子',py:'jcdz'},'002340':{stockname:'格林美',py:'glm'},'002341':{stockname:'新纶科技',py:'xlkj'},'002342':{stockname:'巨力索具',py:'jlsj'},'002343':{stockname:'慈文传媒',py:'cwcm'},'002344':{stockname:'海宁皮城',py:'hnpc'},'002345':{stockname:'潮宏基',py:'chj'},'002346':{stockname:'柘中股份',py:'zzgf'},'002347':{stockname:'泰尔重工',py:'tezg'},'002348':{stockname:'高乐股份',py:'glgf'},'002349':{stockname:'精华制药',py:'jhzy'},'002350':{stockname:'北京科锐',py:'bjkr'},'002351':{stockname:'漫步者',py:'mbz'},'002352':{stockname:'鼎泰新材',py:'dtxc'},'002353':{stockname:'杰瑞股份',py:'jrgf'},'002354':{stockname:'天神娱乐',py:'tsyl'},'002355':{stockname:'兴民钢圈',py:'xmgq'},'002356':{stockname:'赫美集团',py:'hmjt'},'002357':{stockname:'富临运业',py:'flyy'},'002358':{stockname:'森源电气',py:'sydq'},'002359':{stockname:'齐星铁塔',py:'qxtt'},'002360':{stockname:'同德化工',py:'tdhg'},'002361':{stockname:'神剑股份',py:'sjgf'},'002362':{stockname:'汉王科技',py:'hwkj'},'002363':{stockname:'隆基机械',py:'ljjx'},'002364':{stockname:'中恒电气',py:'zhdq'},'002365':{stockname:'永安药业',py:'yayy'},'002366':{stockname:'台海核电',py:'thhd'},'002367':{stockname:'康力电梯',py:'kldt'},'002368':{stockname:'太极股份',py:'tjgf'},'002369':{stockname:'卓翼科技',py:'zykj'},'002370':{stockname:'亚太药业',py:'ytyy'},'002371':{stockname:'七星电子',py:'qxdz'},'002372':{stockname:'伟星新材',py:'wxxc'},'002373':{stockname:'千方科技',py:'qfkj'},'002374':{stockname:'丽鹏股份',py:'lpgf'},'002375':{stockname:'亚厦股份',py:'yxgf'},'002376':{stockname:'新北洋',py:'xby'},'002377':{stockname:'国创高新',py:'gcgx'},'002378':{stockname:'章源钨业',py:'zywy'},'002379':{stockname:'ST鲁丰',py:'stlf'},'002380':{stockname:'科远股份',py:'kygf'},'002381':{stockname:'双箭股份',py:'sjgf'},'002382':{stockname:'蓝帆医疗',py:'lfyl'},'002383':{stockname:'合众思壮',py:'hzsz'},'002384':{stockname:'东山精密',py:'dsjm'},'002385':{stockname:'大北农',py:'dbn'},'002386':{stockname:'天原集团',py:'tyjt'},'002387':{stockname:'黑牛食品',py:'hnsp'},'002388':{stockname:'新亚制程',py:'xyzc'},'002389':{stockname:'南洋科技',py:'nykj'},'002390':{stockname:'信邦制药',py:'xbzy'},'002391':{stockname:'长青股份',py:'cqgf'},'002392':{stockname:'北京利尔',py:'bjle'},'002393':{stockname:'力生制药',py:'lszy'},'002394':{stockname:'联发股份',py:'lfgf'},'002395':{stockname:'双象股份',py:'sxgf'},'002396':{stockname:'星网锐捷',py:'xwrj'},'002397':{stockname:'梦洁家纺',py:'mjjf'},'002398':{stockname:'建研集团',py:'jyjt'},'002399':{stockname:'海普瑞',py:'hpr'},'002400':{stockname:'省广股份',py:'sggf'},'002401':{stockname:'中海科技',py:'zhkj'},'002402':{stockname:'和而泰',py:'het'},'002403':{stockname:'爱仕达',py:'asd'},'002404':{stockname:'嘉欣丝绸',py:'jxsc'},'002405':{stockname:'四维图新',py:'swtx'},'002406':{stockname:'远东传动',py:'ydcd'},'002407':{stockname:'多氟多',py:'dfd'},'002408':{stockname:'齐翔腾达',py:'qxtd'},'002409':{stockname:'雅克科技',py:'ykkj'},'002410':{stockname:'广联达',py:'gld'},'002411':{stockname:'必康股份',py:'bkgf'},'002412':{stockname:'汉森制药',py:'hszy'},'002413':{stockname:'雷科防务',py:'lkfw'},'002414':{stockname:'高德红外',py:'gdhw'},'002415':{stockname:'海康威视',py:'hkws'},'002416':{stockname:'爱施德',py:'asd'},'002417':{stockname:'三元达',py:'syd'},'002418':{stockname:'康盛股份',py:'ksgf'},'002419':{stockname:'天虹商场',py:'thsc'},'002420':{stockname:'毅昌股份',py:'ycgf'},'002421':{stockname:'达实智能',py:'dszn'},'002422':{stockname:'科伦药业',py:'klyy'},'002423':{stockname:'ST中特',py:'stzt'},'002424':{stockname:'贵州百灵',py:'gzbl'},'002425':{stockname:'凯撒股份',py:'ksgf'},'002426':{stockname:'胜利精密',py:'sljm'},'002427':{stockname:'尤夫股份',py:'yfgf'},'002428':{stockname:'云南锗业',py:'ynzy'},'002429':{stockname:'兆驰股份',py:'zcgf'},'002430':{stockname:'杭氧股份',py:'hygf'},'002431':{stockname:'棕榈股份',py:'zlgf'},'002432':{stockname:'九安医疗',py:'jayl'},'002433':{stockname:'太安堂',py:'tat'},'002434':{stockname:'万里扬',py:'wly'},'002435':{stockname:'长江润发',py:'cjrf'},'002436':{stockname:'兴森科技',py:'xskj'},'002437':{stockname:'誉衡药业',py:'yhyy'},'002438':{stockname:'江苏神通',py:'jsst'},'002439':{stockname:'启明星辰',py:'qmxc'},'002440':{stockname:'闰土股份',py:'rtgf'},'002441':{stockname:'众业达',py:'zyd'},'002442':{stockname:'龙星化工',py:'lxhg'},'002443':{stockname:'金洲管道',py:'jzgd'},'002444':{stockname:'巨星科技',py:'jxkj'},'002445':{stockname:'中南重工',py:'znzg'},'002446':{stockname:'盛路通信',py:'sltx'},'002447':{stockname:'壹桥海参',py:'yqhs'},'002448':{stockname:'中原内配',py:'zynp'},'002449':{stockname:'国星光电',py:'gxgd'},'002450':{stockname:'康得新',py:'kdx'},'002451':{stockname:'摩恩电气',py:'medq'},'002452':{stockname:'长高集团',py:'cgjt'},'002453':{stockname:'天马精化',py:'tmjh'},'002454':{stockname:'松芝股份',py:'szgf'},'002455':{stockname:'百川股份',py:'bcgf'},'002456':{stockname:'欧菲光',py:'ofg'},'002457':{stockname:'青龙管业',py:'qlgy'},'002458':{stockname:'益生股份',py:'ysgf'},'002459':{stockname:'天业通联',py:'tytl'},'002460':{stockname:'赣锋锂业',py:'gfly'},'002461':{stockname:'珠江啤酒',py:'zjpj'},'002462':{stockname:'嘉事堂',py:'jst'},'002463':{stockname:'沪电股份',py:'hdgf'},'002464':{stockname:'金利科技',py:'jlkj'},'002465':{stockname:'海格通信',py:'hgtx'},'002466':{stockname:'天齐锂业',py:'tqly'},'002467':{stockname:'二六三',py:'els'},'002468':{stockname:'艾迪西',py:'adx'},'002469':{stockname:'三维工程',py:'swgc'},'002470':{stockname:'金正大',py:'jzd'},'002471':{stockname:'中超控股',py:'zckg'},'002472':{stockname:'双环传动',py:'shcd'},'002473':{stockname:'圣莱达',py:'sld'},'002474':{stockname:'榕基软件',py:'rjrj'},'002475':{stockname:'立讯精密',py:'lxjm'},'002476':{stockname:'宝莫股份',py:'bmgf'},'002477':{stockname:'雏鹰农牧',py:'cynm'},'002478':{stockname:'常宝股份',py:'cbgf'},'002479':{stockname:'富春环保',py:'fchb'},'002480':{stockname:'新筑股份',py:'xzgf'},'002481':{stockname:'双塔食品',py:'stsp'},'002482':{stockname:'广田股份',py:'gtgf'},'002483':{stockname:'润邦股份',py:'rbgf'},'002484':{stockname:'江海股份',py:'jhgf'},'002485':{stockname:'希努尔',py:'xne'},'002486':{stockname:'嘉麟杰',py:'jlj'},'002487':{stockname:'大金重工',py:'djzg'},'002488':{stockname:'金固股份',py:'jggf'},'002489':{stockname:'浙江永强',py:'zjyq'},'002490':{stockname:'山东墨龙',py:'sdml'},'002491':{stockname:'通鼎互联',py:'tdhl'},'002492':{stockname:'恒基达鑫',py:'hjdx'},'002493':{stockname:'荣盛石化',py:'rssh'},'002494':{stockname:'华斯股份',py:'hsgf'},'002495':{stockname:'佳隆股份',py:'jlgf'},'002496':{stockname:'辉丰股份',py:'hfgf'},'002497':{stockname:'雅化集团',py:'yhjt'},'002498':{stockname:'汉缆股份',py:'hlgf'},'002499':{stockname:'科林环保',py:'klhb'},'002500':{stockname:'山西证券',py:'sxzq'},'002501':{stockname:'利源精制',py:'lyjz'},'002502':{stockname:'骅威文化',py:'hwwh'},'002503':{stockname:'搜于特',py:'syt'},'002504':{stockname:'弘高创意',py:'hgcy'},'002505':{stockname:'大康牧业',py:'dkmy'},'002506':{stockname:'协鑫集成',py:'xxjc'},'002507':{stockname:'涪陵榨菜',py:'flzc'},'002508':{stockname:'老板电器',py:'lbdq'},'002509':{stockname:'天广消防',py:'tgxf'},'002510':{stockname:'天汽模',py:'tqm'},'002511':{stockname:'中顺洁柔',py:'zsjr'},'002512':{stockname:'达华智能',py:'dhzn'},'002513':{stockname:'ST蓝丰',py:'stlf'},'002514':{stockname:'宝馨科技',py:'bxkj'},'002515':{stockname:'金字火腿',py:'jzht'},'002516':{stockname:'旷达科技',py:'kdkj'},'002517':{stockname:'恺英网络',py:'kywl'},'002518':{stockname:'科士达',py:'ksd'},'002519':{stockname:'银河电子',py:'yhdz'},'002520':{stockname:'日发精机',py:'rfjj'},'002521':{stockname:'齐峰新材',py:'qfxc'},'002522':{stockname:'浙江众成',py:'zjzc'},'002523':{stockname:'天桥起重',py:'tqqz'},'002524':{stockname:'光正集团',py:'gzjt'},'002526':{stockname:'山东矿机',py:'sdkj'},'002527':{stockname:'新时达',py:'xsd'},'002528':{stockname:'英飞拓',py:'yft'},'002529':{stockname:'海源机械',py:'hyjx'},'002530':{stockname:'丰东股份',py:'fdgf'},'002531':{stockname:'天顺风能',py:'tsfn'},'002532':{stockname:'新界泵业',py:'xjby'},'002533':{stockname:'金杯电工',py:'jbdg'},'002534':{stockname:'杭锅股份',py:'hggf'},'002535':{stockname:'林州重机',py:'lzzj'},'002536':{stockname:'西泵股份',py:'xbgf'},'002537':{stockname:'海立美达',py:'hlmd'},'002538':{stockname:'司尔特',py:'set'},'002539':{stockname:'新都化工',py:'xdhg'},'002540':{stockname:'亚太科技',py:'ytkj'},'002541':{stockname:'鸿路钢构',py:'hlgg'},'002542':{stockname:'中化岩土',py:'zhyt'},'002543':{stockname:'万和电气',py:'whdq'},'002544':{stockname:'杰赛科技',py:'jskj'},'002545':{stockname:'东方铁塔',py:'dftt'},'002546':{stockname:'新联电子',py:'xldz'},'002547':{stockname:'春兴精工',py:'cxjg'},'002548':{stockname:'金新农',py:'jxn'},'002549':{stockname:'凯美特气',py:'kmtq'},'002550':{stockname:'千红制药',py:'qhzy'},'002551':{stockname:'尚荣医疗',py:'sryl'},'002552':{stockname:'宝鼎科技',py:'bdkj'},'002553':{stockname:'南方轴承',py:'nfzc'},'002554':{stockname:'惠博普',py:'hbp'},'002555':{stockname:'三七互娱',py:'sqhy'},'002556':{stockname:'辉隆股份',py:'hlgf'},'002557':{stockname:'洽洽食品',py:'qqsp'},'002558':{stockname:'世纪游轮',py:'sjyl'},'002559':{stockname:'亚威股份',py:'ywgf'},'002560':{stockname:'通达股份',py:'tdgf'},'002561':{stockname:'徐家汇',py:'xjh'},'002562':{stockname:'兄弟科技',py:'xdkj'},'002563':{stockname:'森马服饰',py:'smfs'},'002564':{stockname:'天沃科技',py:'twkj'},'002565':{stockname:'上海绿新',py:'shlx'},'002566':{stockname:'益盛药业',py:'ysyy'},'002567':{stockname:'唐人神',py:'trs'},'002568':{stockname:'百润股份',py:'brgf'},'002569':{stockname:'步森股份',py:'bsgf'},'002570':{stockname:'贝因美',py:'bym'},'002571':{stockname:'德力股份',py:'dlgf'},'002572':{stockname:'索菲亚',py:'sfy'},'002573':{stockname:'清新环境',py:'qxhj'},'002574':{stockname:'明牌珠宝',py:'mpzb'},'002575':{stockname:'群兴玩具',py:'qxwj'},'002576':{stockname:'通达动力',py:'tddl'},'002577':{stockname:'雷柏科技',py:'lbkj'},'002578':{stockname:'闽发铝业',py:'mfly'},'002579':{stockname:'中京电子',py:'zjdz'},'002580':{stockname:'圣阳股份',py:'sygf'},'002581':{stockname:'未名医药',py:'wmyy'},'002582':{stockname:'好想你',py:'hxn'},'002583':{stockname:'海能达',py:'hnd'},'002584':{stockname:'西陇科学',py:'xlkx'},'002585':{stockname:'双星新材',py:'sxxc'},'002586':{stockname:'围海股份',py:'whgf'},'002587':{stockname:'奥拓电子',py:'atdz'},'002588':{stockname:'史丹利',py:'sdl'},'002589':{stockname:'瑞康医药',py:'rkyy'},'002590':{stockname:'万安科技',py:'wakj'},'002591':{stockname:'恒大高新',py:'hdgx'},'002592':{stockname:'八菱科技',py:'blkj'},'002593':{stockname:'日上集团',py:'rsjt'},'002594':{stockname:'比亚迪',py:'byd'},'002595':{stockname:'豪迈科技',py:'hmkj'},'002596':{stockname:'海南瑞泽',py:'hnrz'},'002597':{stockname:'金禾实业',py:'jhsy'},'002598':{stockname:'山东章鼓',py:'sdzg'},'002599':{stockname:'盛通股份',py:'stgf'},'002600':{stockname:'江粉磁材',py:'jfcc'},'002601':{stockname:'佰利联',py:'bll'},'002602':{stockname:'世纪华通',py:'sjht'},'002603':{stockname:'以岭药业',py:'ylyy'},'002604':{stockname:'龙力生物',py:'llsw'},'002605':{stockname:'姚记扑克',py:'yjpk'},'002606':{stockname:'大连电瓷',py:'dldc'},'002607':{stockname:'亚夏汽车',py:'yxqc'},'002608':{stockname:'ST舜船',py:'stsc'},'002609':{stockname:'捷顺科技',py:'jskj'},'002610':{stockname:'爱康科技',py:'akkj'},'002611':{stockname:'东方精工',py:'dfjg'},'002612':{stockname:'朗姿股份',py:'lzgf'},'002613':{stockname:'北玻股份',py:'bbgf'},'002614':{stockname:'蒙发利',py:'mfl'},'002615':{stockname:'哈尔斯',py:'hes'},'002616':{stockname:'长青集团',py:'cqjt'},'002617':{stockname:'露笑科技',py:'lxkj'},'002618':{stockname:'丹邦科技',py:'dbkj'},'002619':{stockname:'巨龙管业',py:'jlgy'},'002620':{stockname:'瑞和股份',py:'rhgf'},'002621':{stockname:'三垒股份',py:'slgf'},'002622':{stockname:'永大集团',py:'ydjt'},'002623':{stockname:'亚玛顿',py:'ymd'},'002624':{stockname:'完美环球',py:'wmhq'},'002625':{stockname:'龙生股份',py:'lsgf'},'002626':{stockname:'金达威',py:'jdw'},'002627':{stockname:'宜昌交运',py:'ycjy'},'002628':{stockname:'成都路桥',py:'cdlq'},'002629':{stockname:'仁智油服',py:'rzyf'},'002630':{stockname:'华西能源',py:'hxny'},'002631':{stockname:'德尔未来',py:'dewl'},'002632':{stockname:'道明光学',py:'dmgx'},'002633':{stockname:'申科股份',py:'skgf'},'002634':{stockname:'棒杰股份',py:'bjgf'},'002635':{stockname:'安洁科技',py:'ajkj'},'002636':{stockname:'金安国纪',py:'jagj'},'002637':{stockname:'赞宇科技',py:'zykj'},'002638':{stockname:'勤上光电',py:'qsgd'},'002639':{stockname:'雪人股份',py:'xrgf'},'002640':{stockname:'跨境通',py:'kjt'},'002641':{stockname:'永高股份',py:'yggf'},'002642':{stockname:'荣之联',py:'rzl'},'002643':{stockname:'万润股份',py:'wrgf'},'002644':{stockname:'佛慈制药',py:'fczy'},'002645':{stockname:'华宏科技',py:'hhkj'},'002646':{stockname:'青青稞酒',py:'qqkj'},'002647':{stockname:'宏磊股份',py:'hlgf'},'002648':{stockname:'卫星石化',py:'wxsh'},'002649':{stockname:'博彦科技',py:'bykj'},'002650':{stockname:'加加食品',py:'jjsp'},'002651':{stockname:'利君股份',py:'ljgf'},'002652':{stockname:'扬子新材',py:'yzxc'},'002653':{stockname:'海思科',py:'hsk'},'002654':{stockname:'万润科技',py:'wrkj'},'002655':{stockname:'共达电声',py:'gdds'},'002656':{stockname:'摩登大道',py:'mddd'},'002657':{stockname:'中科金财',py:'zkjc'},'002658':{stockname:'雪迪龙',py:'xdl'},'002659':{stockname:'中泰桥梁',py:'ztql'},'002660':{stockname:'茂硕电源',py:'msdy'},'002661':{stockname:'克明面业',py:'kmmy'},'002662':{stockname:'京威股份',py:'jwgf'},'002663':{stockname:'普邦园林',py:'pbyl'},'002664':{stockname:'信质电机',py:'xzdj'},'002665':{stockname:'首航节能',py:'shjn'},'002666':{stockname:'德联集团',py:'dljt'},'002667':{stockname:'鞍重股份',py:'azgf'},'002668':{stockname:'奥马电器',py:'amdq'},'002669':{stockname:'康达新材',py:'kdxc'},'002670':{stockname:'华声股份',py:'hsgf'},'002671':{stockname:'龙泉股份',py:'lqgf'},'002672':{stockname:'东江环保',py:'djhb'},'002673':{stockname:'西部证券',py:'xbzq'},'002674':{stockname:'兴业科技',py:'xykj'},'002675':{stockname:'东诚药业',py:'dcyy'},'002676':{stockname:'顺威股份',py:'swgf'},'002677':{stockname:'浙江美大',py:'zjmd'},'002678':{stockname:'珠江钢琴',py:'zjgq'},'002679':{stockname:'福建金森',py:'fjjs'},'002680':{stockname:'长生生物',py:'cssw'},'002681':{stockname:'奋达科技',py:'fdkj'},'002682':{stockname:'龙洲股份',py:'lzgf'},'002683':{stockname:'宏大爆破',py:'hdbp'},'002684':{stockname:'猛狮科技',py:'mskj'},'002685':{stockname:'华东重机',py:'hdzj'},'002686':{stockname:'亿利达',py:'yld'},'002687':{stockname:'乔治白',py:'qzb'},'002688':{stockname:'金河生物',py:'jhsw'},'002689':{stockname:'远大智能',py:'ydzn'},'002690':{stockname:'美亚光电',py:'mygd'},'002691':{stockname:'冀凯股份',py:'jkgf'},'002692':{stockname:'远程电缆',py:'ycdl'},'002693':{stockname:'双成药业',py:'scyy'},'002694':{stockname:'顾地科技',py:'gdkj'},'002695':{stockname:'煌上煌',py:'hsh'},'002696':{stockname:'百洋股份',py:'bygf'},'002697':{stockname:'红旗连锁',py:'hqls'},'002698':{stockname:'博实股份',py:'bsgf'},'002699':{stockname:'美盛文化',py:'mswh'},'002700':{stockname:'新疆浩源',py:'xjhy'},'002701':{stockname:'奥瑞金',py:'arj'},'002702':{stockname:'海欣食品',py:'hxsp'},'002703':{stockname:'浙江世宝',py:'zjsb'},'002705':{stockname:'新宝股份',py:'xbgf'},'002706':{stockname:'良信电器',py:'lxdq'},'002707':{stockname:'众信旅游',py:'zxly'},'002708':{stockname:'光洋股份',py:'gygf'},'002709':{stockname:'天赐材料',py:'tccl'},'002711':{stockname:'欧浦智网',py:'opzw'},'002712':{stockname:'思美传媒',py:'smcm'},'002713':{stockname:'东易日盛',py:'dyrs'},'002714':{stockname:'牧原股份',py:'mygf'},'002715':{stockname:'登云股份',py:'dygf'},'002716':{stockname:'金贵银业',py:'jgyy'},'002717':{stockname:'岭南园林',py:'lnyl'},'002718':{stockname:'友邦吊顶',py:'ybdd'},'002719':{stockname:'麦趣尔',py:'mqe'},'002721':{stockname:'金一文化',py:'jywh'},'002722':{stockname:'金轮股份',py:'jlgf'},'002723':{stockname:'金莱特',py:'jlt'},'002724':{stockname:'海洋王',py:'hyw'},'002725':{stockname:'跃岭股份',py:'ylgf'},'002726':{stockname:'龙大肉食',py:'ldrs'},'002727':{stockname:'一心堂',py:'yxt'},'002728':{stockname:'台城制药',py:'tczy'},'002729':{stockname:'好利来',py:'hll'},'002730':{stockname:'电光科技',py:'dgkj'},'002731':{stockname:'萃华珠宝',py:'chzb'},'002732':{stockname:'燕塘乳业',py:'ytry'},'002733':{stockname:'雄韬股份',py:'xtgf'},'002734':{stockname:'利民股份',py:'lmgf'},'002735':{stockname:'王子新材',py:'wzxc'},'002736':{stockname:'国信证券',py:'gxzq'},'002737':{stockname:'葵花药业',py:'khyy'},'002738':{stockname:'中矿资源',py:'zkzy'},'002739':{stockname:'万达院线',py:'wdyx'},'002740':{stockname:'爱迪尔',py:'ade'},'002741':{stockname:'光华科技',py:'ghkj'},'002742':{stockname:'三圣特材',py:'sstc'},'002743':{stockname:'富煌钢构',py:'fhgg'},'002745':{stockname:'木林森',py:'mls'},'002746':{stockname:'仙坛股份',py:'xtgf'},'002747':{stockname:'埃斯顿',py:'asd'},'002748':{stockname:'世龙实业',py:'slsy'},'002749':{stockname:'国光股份',py:'gggf'},'002750':{stockname:'龙津药业',py:'ljyy'},'002751':{stockname:'易尚展示',py:'yszs'},'002752':{stockname:'昇兴股份',py:'[]'},'002753':{stockname:'永东股份',py:'ydgf'},'002755':{stockname:'东方新星',py:'dfxx'},'002756':{stockname:'永兴特钢',py:'yxtg'},'002757':{stockname:'南兴装备',py:'nxzb'},'002758':{stockname:'华通医药',py:'htyy'},'002759':{stockname:'天际股份',py:'tjgf'},'002760':{stockname:'凤形股份',py:'fxgf'},'002761':{stockname:'多喜爱',py:'dxa'},'002762':{stockname:'金发拉比',py:'jflb'},'002763':{stockname:'汇洁股份',py:'hjgf'},'002765':{stockname:'蓝黛传动',py:'ldcd'},'002766':{stockname:'索菱股份',py:'slgf'},'002767':{stockname:'先锋电子',py:'xfdz'},'002768':{stockname:'国恩股份',py:'gegf'},'002769':{stockname:'普路通',py:'plt'},'002770':{stockname:'科迪乳业',py:'kdry'},'002771':{stockname:'真视通',py:'zst'},'002772':{stockname:'众兴菌业',py:'zxjy'},'002773':{stockname:'康弘药业',py:'khyy'},'002775':{stockname:'文科园林',py:'wkyl'},'002776':{stockname:'柏堡龙',py:'bbl'},'002777':{stockname:'久远银海',py:'jyyh'},'002778':{stockname:'高科石化',py:'gksh'},'002779':{stockname:'中坚科技',py:'zjkj'},'002780':{stockname:'三夫户外',py:'sfhw'},'002781':{stockname:'奇信股份',py:'qxgf'},'002782':{stockname:'可立克',py:'klk'},'002783':{stockname:'凯龙股份',py:'klgf'},'002785':{stockname:'万里石',py:'wls'},'002786':{stockname:'银宝山新',py:'ybsx'},'002787':{stockname:'华源包装',py:'hybz'},'002788':{stockname:'鹭燕医药',py:'lyyy'},'002789':{stockname:'建艺集团',py:'jyjt'},'002790':{stockname:'瑞尔特',py:'ret'},'002791':{stockname:'坚朗五金',py:'jlwj'},'002792':{stockname:'通宇通讯',py:'tytx'},'002793':{stockname:'东音股份',py:'dygf'},'002795':{stockname:'永和智控',py:'yhzk'},'002796':{stockname:'世嘉科技',py:'sjkj'},'002797':{stockname:'第一创业',py:'dycy'},'002798':{stockname:'帝王洁具',py:'dwjj'},'300001':{stockname:'特锐德',py:'trd'},'300002':{stockname:'神州泰岳',py:'szty'},'300003':{stockname:'乐普医疗',py:'lpyl'},'300004':{stockname:'南风股份',py:'nfgf'},'300005':{stockname:'探路者',py:'tlz'},'300006':{stockname:'莱美药业',py:'lmyy'},'300007':{stockname:'汉威电子',py:'hwdz'},'300008':{stockname:'天海防务',py:'thfw'},'300009':{stockname:'安科生物',py:'aksw'},'300010':{stockname:'立思辰',py:'lsc'},'300011':{stockname:'鼎汉技术',py:'dhjs'},'300012':{stockname:'华测检测',py:'hcjc'},'300013':{stockname:'新宁物流',py:'xnwl'},'300014':{stockname:'亿纬锂能',py:'ywln'},'300015':{stockname:'爱尔眼科',py:'aeyk'},'300016':{stockname:'北陆药业',py:'blyy'},'300017':{stockname:'网宿科技',py:'wskj'},'300018':{stockname:'中元华电',py:'zyhd'},'300019':{stockname:'硅宝科技',py:'gbkj'},'300020':{stockname:'银江股份',py:'yjgf'},'300021':{stockname:'大禹节水',py:'dyjs'},'300022':{stockname:'吉峰农机',py:'jfnj'},'300023':{stockname:'宝德股份',py:'bdgf'},'300024':{stockname:'机器人',py:'jqr'},'300025':{stockname:'华星创业',py:'hxcy'},'300026':{stockname:'红日药业',py:'hryy'},'300027':{stockname:'华谊兄弟',py:'hyxd'},'300028':{stockname:'金亚科技',py:'jykj'},'300029':{stockname:'天龙光电',py:'tlgd'},'300030':{stockname:'阳普医疗',py:'ypyl'},'300031':{stockname:'宝通科技',py:'btkj'},'300032':{stockname:'金龙机电',py:'jljd'},'300033':{stockname:'同花顺',py:'ths'},'300034':{stockname:'钢研高纳',py:'gygn'},'300035':{stockname:'中科电气',py:'zkdq'},'300036':{stockname:'超图软件',py:'ctrj'},'300037':{stockname:'新宙邦',py:'xzb'},'300038':{stockname:'梅泰诺',py:'mtn'},'300039':{stockname:'上海凯宝',py:'shkb'},'300040':{stockname:'九洲电气',py:'jzdq'},'300041':{stockname:'回天新材',py:'htxc'},'300042':{stockname:'朗科科技',py:'lkkj'},'300043':{stockname:'互动娱乐',py:'hdyl'},'300044':{stockname:'赛为智能',py:'swzn'},'300045':{stockname:'华力创通',py:'hlct'},'300046':{stockname:'台基股份',py:'tjgf'},'300047':{stockname:'天源迪科',py:'tydk'},'300048':{stockname:'合康变频',py:'hkbp'},'300049':{stockname:'福瑞股份',py:'frgf'},'300050':{stockname:'世纪鼎利',py:'sjdl'},'300051':{stockname:'三五互联',py:'swhl'},'300052':{stockname:'中青宝',py:'zqb'},'300053':{stockname:'欧比特',py:'obt'},'300054':{stockname:'鼎龙股份',py:'dlgf'},'300055':{stockname:'万邦达',py:'wbd'},'300056':{stockname:'三维丝',py:'sws'},'300057':{stockname:'万顺股份',py:'wsgf'},'300058':{stockname:'蓝色光标',py:'lsgb'},'300059':{stockname:'东方财富',py:'dfcf'},'300061':{stockname:'康耐特',py:'knt'},'300062':{stockname:'中能电气',py:'zndq'},'300063':{stockname:'天龙集团',py:'tljt'},'300064':{stockname:'豫金刚石',py:'yjgs'},'300065':{stockname:'海兰信',py:'hlx'},'300066':{stockname:'三川智慧',py:'sczh'},'300067':{stockname:'安诺其',py:'anq'},'300068':{stockname:'南都电源',py:'nddy'},'300069':{stockname:'金利华电',py:'jlhd'},'300070':{stockname:'碧水源',py:'bsy'},'300071':{stockname:'华谊嘉信',py:'hyjx'},'300072':{stockname:'三聚环保',py:'sjhb'},'300073':{stockname:'当升科技',py:'dskj'},'300074':{stockname:'华平股份',py:'hpgf'},'300075':{stockname:'数字政通',py:'szzt'},'300076':{stockname:'GQY视讯',py:'gqysx'},'300077':{stockname:'国民技术',py:'gmjs'},'300078':{stockname:'思创医惠',py:'scyh'},'300079':{stockname:'数码视讯',py:'smsx'},'300080':{stockname:'易成新能',py:'ycxn'},'300081':{stockname:'恒信移动',py:'hxyd'},'300082':{stockname:'奥克股份',py:'akgf'},'300083':{stockname:'劲胜精密',py:'jsjm'},'300084':{stockname:'海默科技',py:'hmkj'},'300085':{stockname:'银之杰',py:'yzj'},'300086':{stockname:'康芝药业',py:'kzyy'},'300087':{stockname:'荃银高科',py:'qygk'},'300088':{stockname:'长信科技',py:'cxkj'},'300089':{stockname:'文化长城',py:'whcc'},'300090':{stockname:'盛运环保',py:'syhb'},'300091':{stockname:'金通灵',py:'jtl'},'300092':{stockname:'科新机电',py:'kxjd'},'300093':{stockname:'金刚玻璃',py:'jgbl'},'300094':{stockname:'国联水产',py:'glsc'},'300095':{stockname:'华伍股份',py:'hwgf'},'300096':{stockname:'易联众',py:'ylz'},'300097':{stockname:'智云股份',py:'zygf'},'300098':{stockname:'高新兴',py:'gxx'},'300099':{stockname:'尤洛卡',py:'ylk'},'300100':{stockname:'双林股份',py:'slgf'},'300101':{stockname:'振芯科技',py:'zxkj'},'300102':{stockname:'乾照光电',py:'qzgd'},'300103':{stockname:'达刚路机',py:'dglj'},'300104':{stockname:'乐视网',py:'lsw'},'300105':{stockname:'龙源技术',py:'lyjs'},'300106':{stockname:'西部牧业',py:'xbmy'},'300107':{stockname:'建新股份',py:'jxgf'},'300108':{stockname:'双龙股份',py:'slgf'},'300109':{stockname:'新开源',py:'xky'},'300110':{stockname:'华仁药业',py:'hryy'},'300111':{stockname:'向日葵',py:'xrk'},'300112':{stockname:'万讯自控',py:'wxzk'},'300113':{stockname:'顺网科技',py:'swkj'},'300114':{stockname:'中航电测',py:'zhdc'},'300115':{stockname:'长盈精密',py:'cyjm'},'300116':{stockname:'坚瑞消防',py:'jrxf'},'300117':{stockname:'嘉寓股份',py:'jygf'},'300118':{stockname:'东方日升',py:'dfrs'},'300119':{stockname:'瑞普生物',py:'rpsw'},'300120':{stockname:'经纬电材',py:'jwdc'},'300121':{stockname:'阳谷华泰',py:'yght'},'300122':{stockname:'智飞生物',py:'zfsw'},'300123':{stockname:'太阳鸟',py:'tyn'},'300124':{stockname:'汇川技术',py:'hcjs'},'300125':{stockname:'易世达',py:'ysd'},'300126':{stockname:'锐奇股份',py:'rqgf'},'300127':{stockname:'银河磁体',py:'yhct'},'300128':{stockname:'锦富新材',py:'jfxc'},'300129':{stockname:'泰胜风能',py:'tsfn'},'300130':{stockname:'新国都',py:'xgd'},'300131':{stockname:'英唐智控',py:'ytzk'},'300132':{stockname:'青松股份',py:'qsgf'},'300133':{stockname:'华策影视',py:'hcys'},'300134':{stockname:'大富科技',py:'dfkj'},'300135':{stockname:'宝利国际',py:'blgj'},'300136':{stockname:'信维通信',py:'xwtx'},'300137':{stockname:'先河环保',py:'xhhb'},'300138':{stockname:'晨光生物',py:'cgsw'},'300139':{stockname:'晓程科技',py:'xckj'},'300140':{stockname:'启源装备',py:'qyzb'},'300141':{stockname:'和顺电气',py:'hsdq'},'300142':{stockname:'沃森生物',py:'wssw'},'300143':{stockname:'星河生物',py:'xhsw'},'300144':{stockname:'宋城演艺',py:'scyy'},'300145':{stockname:'中金环境',py:'zjhj'},'300146':{stockname:'汤臣倍健',py:'tcbj'},'300147':{stockname:'香雪制药',py:'xxzy'},'300148':{stockname:'天舟文化',py:'tzwh'},'300149':{stockname:'量子高科',py:'lzgk'},'300150':{stockname:'世纪瑞尔',py:'sjre'},'300151':{stockname:'昌红科技',py:'chkj'},'300152':{stockname:'科融环境',py:'krhj'},'300153':{stockname:'科泰电源',py:'ktdy'},'300154':{stockname:'瑞凌股份',py:'rlgf'},'300155':{stockname:'安居宝',py:'ajb'},'300156':{stockname:'神雾环保',py:'swhb'},'300157':{stockname:'恒泰艾普',py:'htap'},'300158':{stockname:'振东制药',py:'zdzy'},'300159':{stockname:'新研股份',py:'xygf'},'300160':{stockname:'秀强股份',py:'xqgf'},'300161':{stockname:'华中数控',py:'hzsk'},'300162':{stockname:'雷曼股份',py:'lmgf'},'300163':{stockname:'先锋新材',py:'xfxc'},'300164':{stockname:'通源石油',py:'tysy'},'300165':{stockname:'天瑞仪器',py:'tryq'},'300166':{stockname:'东方国信',py:'dfgx'},'300167':{stockname:'迪威视讯',py:'dwsx'},'300168':{stockname:'万达信息',py:'wdxx'},'300169':{stockname:'天晟新材',py:'tsxc'},'300170':{stockname:'汉得信息',py:'hdxx'},'300171':{stockname:'东富龙',py:'dfl'},'300172':{stockname:'中电环保',py:'zdhb'},'300173':{stockname:'智慧松德',py:'zhsd'},'300174':{stockname:'元力股份',py:'ylgf'},'300175':{stockname:'朗源股份',py:'lygf'},'300176':{stockname:'鸿特精密',py:'htjm'},'300177':{stockname:'中海达',py:'zhd'},'300178':{stockname:'腾邦国际',py:'tbgj'},'300179':{stockname:'四方达',py:'sfd'},'300180':{stockname:'华峰超纤',py:'hfcq'},'300181':{stockname:'佐力药业',py:'zlyy'},'300182':{stockname:'捷成股份',py:'jcgf'},'300183':{stockname:'东软载波',py:'drzb'},'300184':{stockname:'力源信息',py:'lyxx'},'300185':{stockname:'通裕重工',py:'tyzg'},'300187':{stockname:'永清环保',py:'yqhb'},'300188':{stockname:'美亚柏科',py:'mybk'},'300189':{stockname:'神农基因',py:'snjy'},'300190':{stockname:'维尔利',py:'wel'},'300191':{stockname:'潜能恒信',py:'qnhx'},'300192':{stockname:'科斯伍德',py:'kswd'},'300193':{stockname:'佳士科技',py:'jskj'},'300194':{stockname:'福安药业',py:'fayy'},'300195':{stockname:'长荣股份',py:'crgf'},'300196':{stockname:'长海股份',py:'chgf'},'300197':{stockname:'铁汉生态',py:'thst'},'300198':{stockname:'纳川股份',py:'ncgf'},'300199':{stockname:'翰宇药业',py:'hyyy'},'300200':{stockname:'高盟新材',py:'gmxc'},'300201':{stockname:'海伦哲',py:'hlz'},'300202':{stockname:'聚龙股份',py:'jlgf'},'300203':{stockname:'聚光科技',py:'jgkj'},'300204':{stockname:'舒泰神',py:'sts'},'300205':{stockname:'天喻信息',py:'tyxx'},'300206':{stockname:'理邦仪器',py:'lbyq'},'300207':{stockname:'欣旺达',py:'xwd'},'300208':{stockname:'恒顺众昇',py:'[]'},'300209':{stockname:'天泽信息',py:'tzxx'},'300210':{stockname:'森远股份',py:'sygf'},'300211':{stockname:'亿通科技',py:'ytkj'},'300212':{stockname:'易华录',py:'yhl'},'300213':{stockname:'佳讯飞鸿',py:'jxfh'},'300214':{stockname:'日科化学',py:'rkhx'},'300215':{stockname:'电科院',py:'dky'},'300216':{stockname:'千山药机',py:'qsyj'},'300217':{stockname:'东方电热',py:'dfdr'},'300218':{stockname:'安利股份',py:'algf'},'300219':{stockname:'鸿利光电',py:'hlgd'},'300220':{stockname:'金运激光',py:'jyjg'},'300221':{stockname:'银禧科技',py:'yxkj'},'300222':{stockname:'科大智能',py:'kdzn'},'300223':{stockname:'北京君正',py:'bjjz'},'300224':{stockname:'正海磁材',py:'zhcc'},'300225':{stockname:'金力泰',py:'jlt'},'300226':{stockname:'上海钢联',py:'shgl'},'300227':{stockname:'光韵达',py:'gyd'},'300228':{stockname:'富瑞特装',py:'frtz'},'300229':{stockname:'拓尔思',py:'tes'},'300230':{stockname:'永利股份',py:'ylgf'},'300231':{stockname:'银信科技',py:'yxkj'},'300232':{stockname:'洲明科技',py:'zmkj'},'300233':{stockname:'金城医药',py:'jcyy'},'300234':{stockname:'开尔新材',py:'kexc'},'300235':{stockname:'方直科技',py:'fzkj'},'300236':{stockname:'上海新阳',py:'shxy'},'300237':{stockname:'美晨科技',py:'mckj'},'300238':{stockname:'冠昊生物',py:'ghsw'},'300239':{stockname:'东宝生物',py:'dbsw'},'300240':{stockname:'飞力达',py:'fld'},'300241':{stockname:'瑞丰光电',py:'rfgd'},'300242':{stockname:'明家联合',py:'mjlh'},'300243':{stockname:'瑞丰高材',py:'rfgc'},'300244':{stockname:'迪安诊断',py:'dazd'},'300245':{stockname:'天玑科技',py:'tjkj'},'300246':{stockname:'宝莱特',py:'blt'},'300247':{stockname:'乐金健康',py:'yjjk'},'300248':{stockname:'新开普',py:'xkp'},'300249':{stockname:'依米康',py:'ymk'},'300250':{stockname:'初灵信息',py:'clxx'},'300251':{stockname:'光线传媒',py:'gxcm'},'300252':{stockname:'金信诺',py:'jxn'},'300253':{stockname:'卫宁健康',py:'wnjk'},'300254':{stockname:'仟源医药',py:'qyyy'},'300255':{stockname:'常山药业',py:'csyy'},'300256':{stockname:'星星科技',py:'xxkj'},'300257':{stockname:'开山股份',py:'ksgf'},'300258':{stockname:'精锻科技',py:'jdkj'},'300259':{stockname:'新天科技',py:'xtkj'},'300260':{stockname:'新莱应材',py:'xlyc'},'300261':{stockname:'雅本化学',py:'ybhx'},'300262':{stockname:'巴安水务',py:'basw'},'300263':{stockname:'隆华节能',py:'lhjn'},'300264':{stockname:'佳创视讯',py:'jcsx'},'300265':{stockname:'通光线缆',py:'tgxl'},'300266':{stockname:'兴源环境',py:'xyhj'},'300267':{stockname:'尔康制药',py:'ekzy'},'300268':{stockname:'万福生科',py:'wfsk'},'300269':{stockname:'联建光电',py:'ljgd'},'300270':{stockname:'中威电子',py:'zwdz'},'300271':{stockname:'华宇软件',py:'hyrj'},'300272':{stockname:'开能环保',py:'knhb'},'300273':{stockname:'和佳股份',py:'hjgf'},'300274':{stockname:'阳光电源',py:'ygdy'},'300275':{stockname:'梅安森',py:'mas'},'300276':{stockname:'三丰智能',py:'sfzn'},'300277':{stockname:'海联讯',py:'hlx'},'300278':{stockname:'华昌达',py:'hcd'},'300279':{stockname:'和晶科技',py:'hjkj'},'300280':{stockname:'南通锻压',py:'ntdy'},'300281':{stockname:'金明精机',py:'jmjj'},'300282':{stockname:'汇冠股份',py:'hggf'},'300283':{stockname:'温州宏丰',py:'wzhf'},'300284':{stockname:'苏交科',py:'sjk'},'300285':{stockname:'国瓷材料',py:'gccl'},'300286':{stockname:'安科瑞',py:'akr'},'300287':{stockname:'飞利信',py:'flx'},'300288':{stockname:'朗玛信息',py:'lmxx'},'300289':{stockname:'利德曼',py:'ldm'},'300290':{stockname:'荣科科技',py:'rkkj'},'300291':{stockname:'华录百纳',py:'hlbn'},'300292':{stockname:'吴通控股',py:'wtkg'},'300293':{stockname:'蓝英装备',py:'lyzb'},'300294':{stockname:'博雅生物',py:'bysw'},'300295':{stockname:'三六五网',py:'slww'},'300296':{stockname:'利亚德',py:'lyd'},'300297':{stockname:'蓝盾股份',py:'ldgf'},'300298':{stockname:'三诺生物',py:'snsw'},'300299':{stockname:'富春通信',py:'fctx'},'300300':{stockname:'汉鼎股份',py:'hdgf'},'300301':{stockname:'长方集团',py:'cfjt'},'300302':{stockname:'同有科技',py:'tykj'},'300303':{stockname:'聚飞光电',py:'jfgd'},'300304':{stockname:'云意电气',py:'yydq'},'300305':{stockname:'裕兴股份',py:'yxgf'},'300306':{stockname:'远方光电',py:'yfgd'},'300307':{stockname:'慈星股份',py:'cxgf'},'300308':{stockname:'中际装备',py:'zjzb'},'300309':{stockname:'吉艾科技',py:'jakj'},'300310':{stockname:'宜通世纪',py:'ytsj'},'300311':{stockname:'任子行',py:'rzx'},'300312':{stockname:'邦讯技术',py:'bxjs'},'300313':{stockname:'天山生物',py:'tssw'},'300314':{stockname:'戴维医疗',py:'dwyl'},'300315':{stockname:'掌趣科技',py:'zqkj'},'300316':{stockname:'晶盛机电',py:'jsjd'},'300317':{stockname:'珈伟股份',py:'jwgf'},'300318':{stockname:'博晖创新',py:'bhcx'},'300319':{stockname:'麦捷科技',py:'mjkj'},'300320':{stockname:'海达股份',py:'hdgf'},'300321':{stockname:'同大股份',py:'tdgf'},'300322':{stockname:'硕贝德',py:'sbd'},'300323':{stockname:'华灿光电',py:'hcgd'},'300324':{stockname:'旋极信息',py:'xjxx'},'300325':{stockname:'德威新材',py:'dwxc'},'300326':{stockname:'凯利泰',py:'klt'},'300327':{stockname:'中颖电子',py:'zydz'},'300328':{stockname:'宜安科技',py:'yakj'},'300329':{stockname:'海伦钢琴',py:'hlgq'},'300330':{stockname:'华虹计通',py:'hhjt'},'300331':{stockname:'苏大维格',py:'sdwg'},'300332':{stockname:'天壕环境',py:'thhj'},'300333':{stockname:'兆日科技',py:'zrkj'},'300334':{stockname:'津膜科技',py:'jmkj'},'300335':{stockname:'迪森股份',py:'dsgf'},'300336':{stockname:'新文化',py:'xwh'},'300337':{stockname:'银邦股份',py:'ybgf'},'300338':{stockname:'开元仪器',py:'kyyq'},'300339':{stockname:'润和软件',py:'rhrj'},'300340':{stockname:'科恒股份',py:'khgf'},'300341':{stockname:'麦迪电气',py:'mddq'},'300342':{stockname:'天银机电',py:'tyjd'},'300343':{stockname:'联创股份',py:'lcgf'},'300344':{stockname:'太空板业',py:'tkby'},'300345':{stockname:'红宇新材',py:'hyxc'},'300346':{stockname:'南大光电',py:'ndgd'},'300347':{stockname:'泰格医药',py:'tgyy'},'300348':{stockname:'长亮科技',py:'clkj'},'300349':{stockname:'金卡股份',py:'jkgf'},'300350':{stockname:'华鹏飞',py:'hpf'},'300351':{stockname:'永贵电器',py:'ygdq'},'300352':{stockname:'北信源',py:'bxy'},'300353':{stockname:'东土科技',py:'dtkj'},'300354':{stockname:'东华测试',py:'dhcs'},'300355':{stockname:'蒙草抗旱',py:'mckh'},'300356':{stockname:'光一科技',py:'gykj'},'300357':{stockname:'我武生物',py:'wwsw'},'300358':{stockname:'楚天科技',py:'ctkj'},'300359':{stockname:'全通教育',py:'qtjy'},'300360':{stockname:'炬华科技',py:'jhkj'},'300362':{stockname:'天翔环境',py:'txhj'},'300363':{stockname:'博腾股份',py:'btgf'},'300364':{stockname:'中文在线',py:'zwzx'},'300365':{stockname:'恒华科技',py:'hhkj'},'300366':{stockname:'创意信息',py:'cyxx'},'300367':{stockname:'东方网力',py:'dfwl'},'300368':{stockname:'汇金股份',py:'hjgf'},'300369':{stockname:'绿盟科技',py:'lmkj'},'300370':{stockname:'安控科技',py:'akkj'},'300371':{stockname:'汇中股份',py:'hzgf'},'300372':{stockname:'欣泰电气',py:'xtdq'},'300373':{stockname:'扬杰科技',py:'yjkj'},'300374':{stockname:'恒通科技',py:'htkj'},'300375':{stockname:'鹏翎股份',py:'plgf'},'300376':{stockname:'易事特',py:'yst'},'300377':{stockname:'赢时胜',py:'yss'},'300378':{stockname:'鼎捷软件',py:'djrj'},'300379':{stockname:'东方通',py:'dft'},'300380':{stockname:'安硕信息',py:'asxx'},'300381':{stockname:'溢多利',py:'ydl'},'300382':{stockname:'斯莱克',py:'slk'},'300383':{stockname:'光环新网',py:'ghxw'},'300384':{stockname:'三联虹普',py:'slhp'},'300385':{stockname:'雪浪环境',py:'xlhj'},'300386':{stockname:'飞天诚信',py:'ftcx'},'300387':{stockname:'富邦股份',py:'fbgf'},'300388':{stockname:'国祯环保',py:'gzhb'},'300389':{stockname:'艾比森',py:'abs'},'300390':{stockname:'天华超净',py:'thcj'},'300391':{stockname:'康跃科技',py:'kykj'},'300392':{stockname:'腾信股份',py:'txgf'},'300393':{stockname:'中来股份',py:'zlgf'},'300394':{stockname:'天孚通信',py:'tftx'},'300395':{stockname:'菲利华',py:'flh'},'300396':{stockname:'迪瑞医疗',py:'dryl'},'300397':{stockname:'天和防务',py:'thfw'},'300398':{stockname:'飞凯材料',py:'fkcl'},'300399':{stockname:'京天利',py:'jtl'},'300400':{stockname:'劲拓股份',py:'jtgf'},'300401':{stockname:'花园生物',py:'hysw'},'300402':{stockname:'宝色股份',py:'bsgf'},'300403':{stockname:'地尔汉宇',py:'dehy'},'300404':{stockname:'博济医药',py:'bjyy'},'300405':{stockname:'科隆精化',py:'kljh'},'300406':{stockname:'九强生物',py:'jqsw'},'300407':{stockname:'凯发电气',py:'kfdq'},'300408':{stockname:'三环集团',py:'shjt'},'300409':{stockname:'道氏技术',py:'dsjs'},'300410':{stockname:'正业科技',py:'zykj'},'300411':{stockname:'金盾股份',py:'jdgf'},'300412':{stockname:'迦南科技',py:'jnkj'},'300413':{stockname:'快乐购',py:'klg'},'300414':{stockname:'中光防雷',py:'zgfl'},'300415':{stockname:'伊之密',py:'yzm'},'300416':{stockname:'苏试试验',py:'sssy'},'300417':{stockname:'南华仪器',py:'nhyq'},'300418':{stockname:'昆仑万维',py:'klww'},'300419':{stockname:'浩丰科技',py:'hfkj'},'300420':{stockname:'五洋科技',py:'wykj'},'300421':{stockname:'力星股份',py:'lxgf'},'300422':{stockname:'博世科',py:'bsk'},'300423':{stockname:'鲁亿通',py:'lyt'},'300424':{stockname:'航新科技',py:'hxkj'},'300425':{stockname:'环能科技',py:'hnkj'},'300426':{stockname:'唐德影视',py:'tdys'},'300427':{stockname:'红相电力',py:'hxdl'},'300428':{stockname:'四通新材',py:'stxc'},'300429':{stockname:'强力新材',py:'qlxc'},'300430':{stockname:'诚益通',py:'cyt'},'300431':{stockname:'暴风科技',py:'bfkj'},'300432':{stockname:'富临精工',py:'fljg'},'300433':{stockname:'蓝思科技',py:'lskj'},'300434':{stockname:'金石东方',py:'jsdf'},'300435':{stockname:'中泰股份',py:'ztgf'},'300436':{stockname:'广生堂',py:'gst'},'300437':{stockname:'清水源',py:'qsy'},'300438':{stockname:'鹏辉能源',py:'phny'},'300439':{stockname:'美康生物',py:'mksw'},'300440':{stockname:'运达科技',py:'ydkj'},'300441':{stockname:'鲍斯股份',py:'bsgf'},'300442':{stockname:'普丽盛',py:'pls'},'300443':{stockname:'金雷风电',py:'jlfd'},'300444':{stockname:'双杰电气',py:'sjdq'},'300445':{stockname:'康斯特',py:'kst'},'300446':{stockname:'乐凯新材',py:'lkxc'},'300447':{stockname:'全信股份',py:'qxgf'},'300448':{stockname:'浩云科技',py:'hykj'},'300449':{stockname:'汉邦高科',py:'hbgk'},'300450':{stockname:'先导智能',py:'xdzn'},'300451':{stockname:'创业软件',py:'cyrj'},'300452':{stockname:'山河药辅',py:'shyf'},'300453':{stockname:'三鑫医疗',py:'sxyl'},'300455':{stockname:'康拓红外',py:'kthw'},'300456':{stockname:'耐威科技',py:'nwkj'},'300457':{stockname:'赢合科技',py:'yhkj'},'300458':{stockname:'全志科技',py:'qzkj'},'300459':{stockname:'浙江金科',py:'zjjk'},'300460':{stockname:'惠伦晶体',py:'hljt'},'300461':{stockname:'田中精机',py:'tzjj'},'300462':{stockname:'华铭智能',py:'hmzn'},'300463':{stockname:'迈克生物',py:'mksw'},'300464':{stockname:'星徽精密',py:'xhjm'},'300465':{stockname:'高伟达',py:'gwd'},'300466':{stockname:'赛摩电气',py:'smdq'},'300467':{stockname:'迅游科技',py:'xykj'},'300468':{stockname:'四方精创',py:'sfjc'},'300469':{stockname:'信息发展',py:'xxfz'},'300470':{stockname:'日机密封',py:'rjmf'},'300471':{stockname:'厚普股份',py:'hpgf'},'300472':{stockname:'新元科技',py:'xykj'},'300473':{stockname:'德尔股份',py:'degf'},'300474':{stockname:'景嘉微',py:'jjw'},'300475':{stockname:'聚隆科技',py:'jlkj'},'300476':{stockname:'胜宏科技',py:'shkj'},'300477':{stockname:'合纵科技',py:'hzkj'},'300478':{stockname:'杭州高新',py:'hzgx'},'300479':{stockname:'神思电子',py:'ssdz'},'300480':{stockname:'光力科技',py:'glkj'},'300481':{stockname:'濮阳惠成',py:'pyhc'},'300482':{stockname:'万孚生物',py:'wfsw'},'300483':{stockname:'沃施股份',py:'wsgf'},'300484':{stockname:'蓝海华腾',py:'lhht'},'300485':{stockname:'赛升药业',py:'ssyy'},'300486':{stockname:'东杰智能',py:'djzn'},'300487':{stockname:'蓝晓科技',py:'lxkj'},'300488':{stockname:'恒锋工具',py:'hfgj'},'300489':{stockname:'中飞股份',py:'zfgf'},'300490':{stockname:'华自科技',py:'hzkj'},'300491':{stockname:'通合科技',py:'thkj'},'300492':{stockname:'山鼎设计',py:'sdsj'},'300493':{stockname:'润欣科技',py:'rxkj'},'300494':{stockname:'盛天网络',py:'stwl'},'300495':{stockname:'美尚生态',py:'msst'},'300496':{stockname:'中科创达',py:'zkcd'},'300497':{stockname:'富祥股份',py:'fxgf'},'300498':{stockname:'温氏股份',py:'wsgf'},'300499':{stockname:'高澜股份',py:'glgf'},'300500':{stockname:'苏州设计',py:'szsj'},'300501':{stockname:'海顺新材',py:'hsxc'},'300502':{stockname:'新易盛',py:'xys'},'300503':{stockname:'昊志机电',py:'hzjd'},'300505':{stockname:'川金诺',py:'cjn'},'300506':{stockname:'名家汇',py:'mjh'},'300507':{stockname:'苏奥传感',py:'sacg'},'300508':{stockname:'维宏股份',py:'whgf'},'300509':{stockname:'新美星',py:'xmx'},'300510':{stockname:'金冠电气',py:'jgdq'},'300511':{stockname:'雪榕生物',py:'xrsw'},'300512':{stockname:'N中亚',py:'nzy'},'600000':{stockname:'浦发银行',py:'pfyh'},'600004':{stockname:'白云机场',py:'byjc'},'600005':{stockname:'武钢股份',py:'wggf'},'600006':{stockname:'东风汽车',py:'dfqc'},'600007':{stockname:'中国国贸',py:'zggm'},'600008':{stockname:'首创股份',py:'scgf'},'600009':{stockname:'上海机场',py:'shjc'},'600010':{stockname:'包钢股份',py:'bggf'},'600011':{stockname:'华能国际',py:'hngj'},'600012':{stockname:'皖通高速',py:'wtgs'},'600015':{stockname:'华夏银行',py:'hxyh'},'600016':{stockname:'民生银行',py:'msyh'},'600017':{stockname:'日照港',py:'rzg'},'600018':{stockname:'上港集团',py:'sgjt'},'600019':{stockname:'宝钢股份',py:'bggf'},'600020':{stockname:'中原高速',py:'zygs'},'600021':{stockname:'上海电力',py:'shdl'},'600022':{stockname:'山东钢铁',py:'sdgt'},'600023':{stockname:'浙能电力',py:'zndl'},'600026':{stockname:'中海发展',py:'zhfz'},'600027':{stockname:'华电国际',py:'hdgj'},'600028':{stockname:'中国石化',py:'zgsh'},'600029':{stockname:'南方航空',py:'nfhk'},'600030':{stockname:'中信证券',py:'zxzq'},'600031':{stockname:'三一重工',py:'syzg'},'600033':{stockname:'福建高速',py:'fjgs'},'600035':{stockname:'楚天高速',py:'ctgs'},'600036':{stockname:'招商银行',py:'zsyh'},'600037':{stockname:'歌华有线',py:'ghyx'},'600038':{stockname:'中直股份',py:'zzgf'},'600039':{stockname:'四川路桥',py:'sclq'},'600048':{stockname:'保利地产',py:'bldc'},'600050':{stockname:'中国联通',py:'zglt'},'600051':{stockname:'宁波联合',py:'nblh'},'600052':{stockname:'浙江广厦',py:'zjgs'},'600053':{stockname:'九鼎投资',py:'jdtz'},'600054':{stockname:'黄山旅游',py:'hsly'},'600055':{stockname:'华润万东',py:'hrwd'},'600056':{stockname:'中国医药',py:'zgyy'},'600057':{stockname:'象屿股份',py:'xygf'},'600058':{stockname:'五矿发展',py:'wkfz'},'600059':{stockname:'古越龙山',py:'gyls'},'600060':{stockname:'海信电器',py:'hxdq'},'600061':{stockname:'国投安信',py:'gtax'},'600062':{stockname:'华润双鹤',py:'hrsh'},'600063':{stockname:'皖维高新',py:'wwgx'},'600064':{stockname:'南京高科',py:'njgk'},'600066':{stockname:'宇通客车',py:'ytkc'},'600067':{stockname:'冠城大通',py:'gcdt'},'600068':{stockname:'葛洲坝',py:'gzb'},'600069':{stockname:'银鸽投资',py:'ygtz'},'600070':{stockname:'浙江富润',py:'zjfr'},'600071':{stockname:'凤凰光学',py:'fhgx'},'600072':{stockname:'钢构工程',py:'gggc'},'600073':{stockname:'上海梅林',py:'shml'},'600074':{stockname:'保千里',py:'bql'},'600075':{stockname:'新疆天业',py:'xjty'},'600076':{stockname:'康欣新材',py:'kxxc'},'600077':{stockname:'宋都股份',py:'sdgf'},'600078':{stockname:'澄星股份',py:'cxgf'},'600079':{stockname:'人福医药',py:'rfyy'},'600080':{stockname:'金花股份',py:'jhgf'},'600081':{stockname:'东风科技',py:'dfkj'},'600082':{stockname:'海泰发展',py:'htfz'},'600083':{stockname:'博信股份',py:'bxgf'},'600084':{stockname:'中葡股份',py:'zpgf'},'600085':{stockname:'同仁堂',py:'trt'},'600086':{stockname:'东方金钰',py:'dfjy'},'600088':{stockname:'中视传媒',py:'zscm'},'600089':{stockname:'特变电工',py:'tbdg'},'600090':{stockname:'啤酒花',py:'pjh'},'600091':{stockname:'ST明科',py:'stmk'},'600093':{stockname:'禾嘉股份',py:'hjgf'},'600094':{stockname:'大名城',py:'dmc'},'600095':{stockname:'哈高科',py:'hgk'},'600096':{stockname:'云天化',py:'yth'},'600097':{stockname:'开创国际',py:'kcgj'},'600098':{stockname:'广州发展',py:'gzfz'},'600099':{stockname:'林海股份',py:'lhgf'},'600100':{stockname:'同方股份',py:'tfgf'},'600101':{stockname:'明星电力',py:'mxdl'},'600103':{stockname:'青山纸业',py:'qszy'},'600104':{stockname:'上汽集团',py:'sqjt'},'600105':{stockname:'永鼎股份',py:'ydgf'},'600106':{stockname:'重庆路桥',py:'cqlq'},'600107':{stockname:'美尔雅',py:'mey'},'600108':{stockname:'亚盛集团',py:'ysjt'},'600109':{stockname:'国金证券',py:'gjzq'},'600110':{stockname:'诺德股份',py:'ndgf'},'600111':{stockname:'北方稀土',py:'bfxt'},'600112':{stockname:'天成控股',py:'tckg'},'600113':{stockname:'浙江东日',py:'zjdr'},'600114':{stockname:'东睦股份',py:'dmgf'},'600115':{stockname:'东方航空',py:'dfhk'},'600116':{stockname:'三峡水利',py:'sxsl'},'600117':{stockname:'西宁特钢',py:'xntg'},'600118':{stockname:'中国卫星',py:'zgwx'},'600119':{stockname:'长江投资',py:'cjtz'},'600120':{stockname:'浙江东方',py:'zjdf'},'600121':{stockname:'郑州煤电',py:'zzmd'},'600122':{stockname:'宏图高科',py:'htgk'},'600123':{stockname:'兰花科创',py:'lhkc'},'600125':{stockname:'铁龙物流',py:'tlwl'},'600126':{stockname:'杭钢股份',py:'hggf'},'600127':{stockname:'金健米业',py:'jjmy'},'600128':{stockname:'弘业股份',py:'hygf'},'600129':{stockname:'太极集团',py:'tjjt'},'600130':{stockname:'波导股份',py:'bdgf'},'600131':{stockname:'岷江水电',py:'mjsd'},'600132':{stockname:'重庆啤酒',py:'cqpj'},'600133':{stockname:'东湖高新',py:'dhgx'},'600135':{stockname:'乐凯胶片',py:'lkjp'},'600136':{stockname:'道博股份',py:'dbgf'},'600137':{stockname:'浪莎股份',py:'lsgf'},'600138':{stockname:'中青旅',py:'zql'},'600139':{stockname:'西部资源',py:'xbzy'},'600141':{stockname:'兴发集团',py:'xfjt'},'600143':{stockname:'金发科技',py:'jfkj'},'600145':{stockname:'ST新亿',py:'stxy'},'600146':{stockname:'商赢环球',py:'syhq'},'600148':{stockname:'长春一东',py:'ccyd'},'600149':{stockname:'廊坊发展',py:'lffz'},'600150':{stockname:'中国船舶',py:'zgcb'},'600151':{stockname:'航天机电',py:'htjd'},'600152':{stockname:'维科精华',py:'wkjh'},'600153':{stockname:'建发股份',py:'jfgf'},'600155':{stockname:'宝硕股份',py:'bsgf'},'600156':{stockname:'华升股份',py:'hsgf'},'600157':{stockname:'永泰能源',py:'ytny'},'600158':{stockname:'中体产业',py:'ztcy'},'600159':{stockname:'大龙地产',py:'dldc'},'600160':{stockname:'巨化股份',py:'jhgf'},'600161':{stockname:'天坛生物',py:'ttsw'},'600162':{stockname:'香江控股',py:'xjkg'},'600163':{stockname:'中闽能源',py:'zmny'},'600165':{stockname:'新日恒力',py:'xrhl'},'600166':{stockname:'福田汽车',py:'ftqc'},'600167':{stockname:'联美控股',py:'lmkg'},'600168':{stockname:'武汉控股',py:'whkg'},'600169':{stockname:'太原重工',py:'tyzg'},'600170':{stockname:'上海建工',py:'shjg'},'600171':{stockname:'上海贝岭',py:'shbl'},'600172':{stockname:'黄河旋风',py:'hhxf'},'600173':{stockname:'卧龙地产',py:'wldc'},'600175':{stockname:'美都能源',py:'mdny'},'600176':{stockname:'中国巨石',py:'zgjs'},'600177':{stockname:'雅戈尔',py:'yge'},'600178':{stockname:'东安动力',py:'dadl'},'600179':{stockname:'ST黑化',py:'sthh'},'600180':{stockname:'瑞茂通',py:'rmt'},'600182':{stockname:'S佳通',py:'sjt'},'600183':{stockname:'生益科技',py:'sykj'},'600184':{stockname:'光电股份',py:'gdgf'},'600185':{stockname:'格力地产',py:'gldc'},'600186':{stockname:'莲花健康',py:'lhjk'},'600187':{stockname:'国中水务',py:'gzsw'},'600188':{stockname:'兖州煤业',py:'yzmy'},'600189':{stockname:'吉林森工',py:'jlsg'},'600190':{stockname:'锦州港',py:'jzg'},'600191':{stockname:'华资实业',py:'hzsy'},'600192':{stockname:'长城电工',py:'zcdg'},'600193':{stockname:'创兴资源',py:'cxzy'},'600195':{stockname:'中牧股份',py:'zmgf'},'600196':{stockname:'复星医药',py:'fxyy'},'600197':{stockname:'伊力特',py:'ylt'},'600198':{stockname:'大唐电信',py:'dtdx'},'600199':{stockname:'金种子酒',py:'jzzj'},'600200':{stockname:'江苏吴中',py:'jswz'},'600201':{stockname:'生物股份',py:'swgf'},'600202':{stockname:'哈空调',py:'hkt'},'600203':{stockname:'福日电子',py:'frdz'},'600206':{stockname:'有研新材',py:'yyxc'},'600207':{stockname:'安彩高科',py:'acgk'},'600208':{stockname:'新湖中宝',py:'xhzb'},'600209':{stockname:'罗顿发展',py:'ldfz'},'600210':{stockname:'紫江企业',py:'zjqy'},'600211':{stockname:'西藏药业',py:'xzyy'},'600212':{stockname:'ST江泉',py:'stjq'},'600213':{stockname:'亚星客车',py:'yxkc'},'600215':{stockname:'长春经开',py:'ccjk'},'600216':{stockname:'浙江医药',py:'zjyy'},'600217':{stockname:'秦岭水泥',py:'qlsn'},'600218':{stockname:'全柴动力',py:'qcdl'},'600219':{stockname:'南山铝业',py:'nsly'},'600220':{stockname:'江苏阳光',py:'jsyg'},'600221':{stockname:'海南航空',py:'hnhk'},'600222':{stockname:'太龙药业',py:'tlyy'},'600223':{stockname:'鲁商置业',py:'lszy'},'600225':{stockname:'天津松江',py:'tjsj'},'600226':{stockname:'升华拜克',py:'shbk'},'600227':{stockname:'赤天化',py:'cth'},'600228':{stockname:'昌九生化',py:'cjsh'},'600229':{stockname:'城市传媒',py:'cscm'},'600230':{stockname:'ST沧大',py:'stcd'},'600231':{stockname:'凌钢股份',py:'lggf'},'600232':{stockname:'金鹰股份',py:'jygf'},'600233':{stockname:'大杨创世',py:'dycs'},'600234':{stockname:'ST山水',py:'stss'},'600235':{stockname:'民丰特纸',py:'mftz'},'600236':{stockname:'桂冠电力',py:'ggdl'},'600237':{stockname:'铜峰电子',py:'tfdz'},'600238':{stockname:'海南椰岛',py:'hnyd'},'600239':{stockname:'云南城投',py:'ynct'},'600240':{stockname:'华业资本',py:'hyzb'},'600241':{stockname:'时代万恒',py:'sdwh'},'600242':{stockname:'中昌海运',py:'zchy'},'600243':{stockname:'青海华鼎',py:'qhhd'},'600246':{stockname:'万通地产',py:'wtdc'},'600247':{stockname:'ST成城',py:'stcc'},'600248':{stockname:'延长化建',py:'ychj'},'600249':{stockname:'两面针',py:'lmz'},'600250':{stockname:'南纺股份',py:'nfgf'},'600251':{stockname:'冠农股份',py:'gngf'},'600252':{stockname:'中恒集团',py:'zhjt'},'600255':{stockname:'鑫科材料',py:'xkcl'},'600256':{stockname:'广汇能源',py:'ghny'},'600257':{stockname:'大湖股份',py:'dhgf'},'600258':{stockname:'首旅酒店',py:'sljd'},'600259':{stockname:'广晟有色',py:'gsys'},'600260':{stockname:'凯乐科技',py:'klkj'},'600261':{stockname:'阳光照明',py:'ygzm'},'600262':{stockname:'北方股份',py:'bfgf'},'600265':{stockname:'ST景谷',py:'stjg'},'600266':{stockname:'北京城建',py:'bjcj'},'600267':{stockname:'海正药业',py:'hzyy'},'600268':{stockname:'国电南自',py:'gdnz'},'600269':{stockname:'赣粤高速',py:'gygs'},'600270':{stockname:'外运发展',py:'wyfz'},'600271':{stockname:'航天信息',py:'htxx'},'600272':{stockname:'开开实业',py:'kksy'},'600273':{stockname:'嘉化能源',py:'jhny'},'600275':{stockname:'武昌鱼',py:'wcy'},'600276':{stockname:'恒瑞医药',py:'hryy'},'600277':{stockname:'亿利洁能',py:'yljn'},'600278':{stockname:'东方创业',py:'dfcy'},'600279':{stockname:'重庆港九',py:'cqgj'},'600280':{stockname:'中央商场',py:'zysc'},'600281':{stockname:'太化股份',py:'thgf'},'600282':{stockname:'南钢股份',py:'nggf'},'600283':{stockname:'钱江水利',py:'qjsl'},'600284':{stockname:'浦东建设',py:'pdjs'},'600285':{stockname:'羚锐制药',py:'lrzy'},'600287':{stockname:'江苏舜天',py:'jsst'},'600288':{stockname:'大恒科技',py:'dhkj'},'600289':{stockname:'亿阳信通',py:'yyxt'},'600290':{stockname:'华仪电气',py:'hydq'},'600291':{stockname:'西水股份',py:'xsgf'},'600292':{stockname:'远达环保',py:'ydhb'},'600293':{stockname:'三峡新材',py:'sxxc'},'600295':{stockname:'鄂尔多斯',py:'eeds'},'600297':{stockname:'广汇汽车',py:'ghqc'},'600298':{stockname:'安琪酵母',py:'aqjm'},'600299':{stockname:'安迪苏',py:'ads'},'600300':{stockname:'维维股份',py:'wwgf'},'600301':{stockname:'ST南化',py:'stnh'},'600302':{stockname:'标准股份',py:'bzgf'},'600303':{stockname:'曙光股份',py:'sggf'},'600305':{stockname:'恒顺醋业',py:'hscy'},'600306':{stockname:'ST商城',py:'stsc'},'600307':{stockname:'酒钢宏兴',py:'jghx'},'600308':{stockname:'华泰股份',py:'htgf'},'600309':{stockname:'万华化学',py:'whhx'},'600310':{stockname:'桂东电力',py:'gddl'},'600311':{stockname:'荣华实业',py:'rhsy'},'600312':{stockname:'平高电气',py:'pgdq'},'600313':{stockname:'农发种业',py:'nfzy'},'600315':{stockname:'上海家化',py:'shjh'},'600316':{stockname:'洪都航空',py:'hdhk'},'600317':{stockname:'营口港',py:'ykg'},'600318':{stockname:'新力金融',py:'xljr'},'600319':{stockname:'ST亚星',py:'styx'},'600320':{stockname:'振华重工',py:'zhzg'},'600321':{stockname:'国栋建设',py:'gdjs'},'600322':{stockname:'天房发展',py:'tffz'},'600323':{stockname:'瀚蓝环境',py:'hlhj'},'600325':{stockname:'华发股份',py:'hfgf'},'600326':{stockname:'西藏天路',py:'xztl'},'600327':{stockname:'大东方',py:'ddf'},'600328':{stockname:'兰太实业',py:'ltsy'},'600329':{stockname:'中新药业',py:'zxyy'},'600330':{stockname:'天通股份',py:'ttgf'},'600331':{stockname:'宏达股份',py:'hdgf'},'600332':{stockname:'白云山',py:'bys'},'600333':{stockname:'长春燃气',py:'ccrq'},'600335':{stockname:'国机汽车',py:'gjqc'},'600336':{stockname:'澳柯玛',py:'akm'},'600337':{stockname:'美克家居',py:'mkjj'},'600338':{stockname:'西藏珠峰',py:'xzzf'},'600339':{stockname:'ST天利',py:'sttl'},'600340':{stockname:'华夏幸福',py:'hxxf'},'600343':{stockname:'航天动力',py:'htdl'},'600345':{stockname:'长江通信',py:'cjtx'},'600346':{stockname:'ST橡塑',py:'stxs'},'600348':{stockname:'阳泉煤业',py:'yqmy'},'600350':{stockname:'山东高速',py:'sdgs'},'600351':{stockname:'亚宝药业',py:'ybyy'},'600352':{stockname:'浙江龙盛',py:'zjls'},'600353':{stockname:'旭光股份',py:'xggf'},'600354':{stockname:'敦煌种业',py:'dhzy'},'600355':{stockname:'精伦电子',py:'jldz'},'600356':{stockname:'恒丰纸业',py:'hfzy'},'600358':{stockname:'国旅联合',py:'gllh'},'600359':{stockname:'新农开发',py:'xnkf'},'600360':{stockname:'华微电子',py:'hwdz'},'600361':{stockname:'华联综超',py:'hlzc'},'600362':{stockname:'江西铜业',py:'jxty'},'600363':{stockname:'联创光电',py:'lcgd'},'600365':{stockname:'通葡股份',py:'tpgf'},'600366':{stockname:'宁波韵升',py:'nbys'},'600367':{stockname:'红星发展',py:'hxfz'},'600368':{stockname:'五洲交通',py:'wzjt'},'600369':{stockname:'西南证券',py:'xnzq'},'600370':{stockname:'三房巷',py:'sfx'},'600371':{stockname:'万向德农',py:'wxdn'},'600372':{stockname:'中航电子',py:'zhdz'},'600373':{stockname:'中文传媒',py:'zwcm'},'600375':{stockname:'ST星马',py:'stxm'},'600376':{stockname:'首开股份',py:'skgf'},'600377':{stockname:'宁沪高速',py:'nhgs'},'600378':{stockname:'天科股份',py:'tkgf'},'600379':{stockname:'宝光股份',py:'bggf'},'600380':{stockname:'健康元',py:'jky'},'600381':{stockname:'青海春天',py:'qhct'},'600382':{stockname:'广东明珠',py:'gdmz'},'600383':{stockname:'金地集团',py:'jdjt'},'600385':{stockname:'山东金泰',py:'sdjt'},'600386':{stockname:'北巴传媒',py:'bbcm'},'600387':{stockname:'海越股份',py:'hygf'},'600388':{stockname:'龙净环保',py:'ljhb'},'600389':{stockname:'江山股份',py:'jsgf'},'600390':{stockname:'ST金瑞',py:'stjr'},'600391':{stockname:'成发科技',py:'cfkj'},'600392':{stockname:'盛和资源',py:'shzy'},'600393':{stockname:'粤泰股份',py:'ytgf'},'600395':{stockname:'盘江股份',py:'pjgf'},'600396':{stockname:'金山股份',py:'jsgf'},'600397':{stockname:'安源煤业',py:'aymy'},'600398':{stockname:'海澜之家',py:'hlzj'},'600399':{stockname:'抚顺特钢',py:'fstg'},'600400':{stockname:'红豆股份',py:'hdgf'},'600401':{stockname:'海润光伏',py:'hrgf'},'600403':{stockname:'大有能源',py:'dyny'},'600405':{stockname:'动力源',py:'dly'},'600406':{stockname:'国电南瑞',py:'gdnr'},'600408':{stockname:'安泰集团',py:'atjt'},'600409':{stockname:'三友化工',py:'syhg'},'600410':{stockname:'华胜天成',py:'hstc'},'600415':{stockname:'小商品城',py:'xspc'},'600416':{stockname:'湘电股份',py:'xdgf'},'600418':{stockname:'江淮汽车',py:'jhqc'},'600419':{stockname:'天润乳业',py:'trry'},'600420':{stockname:'现代制药',py:'xdzy'},'600421':{stockname:'仰帆控股',py:'yfkg'},'600422':{stockname:'昆药集团',py:'kyjt'},'600423':{stockname:'柳化股份',py:'lhgf'},'600425':{stockname:'青松建化',py:'qsjh'},'600426':{stockname:'华鲁恒升',py:'hlhs'},'600428':{stockname:'中远航运',py:'zyhy'},'600429':{stockname:'三元股份',py:'sygf'},'600432':{stockname:'ST吉恩',py:'stje'},'600433':{stockname:'冠豪高新',py:'ghgx'},'600435':{stockname:'北方导航',py:'bfdh'},'600436':{stockname:'片仔癀',py:'pzh'},'600438':{stockname:'通威股份',py:'twgf'},'600439':{stockname:'瑞贝卡',py:'rbk'},'600444':{stockname:'国机通用',py:'gjty'},'600446':{stockname:'金证股份',py:'jzgf'},'600448':{stockname:'华纺股份',py:'hfgf'},'600449':{stockname:'宁夏建材',py:'nxjc'},'600452':{stockname:'涪陵电力',py:'fldl'},'600455':{stockname:'博通股份',py:'btgf'},'600456':{stockname:'宝钛股份',py:'btgf'},'600458':{stockname:'时代新材',py:'sdxc'},'600459':{stockname:'贵研铂业',py:'gyby'},'600460':{stockname:'士兰微',py:'slw'},'600461':{stockname:'洪城水业',py:'hcsy'},'600462':{stockname:'九有股份',py:'jygf'},'600463':{stockname:'空港股份',py:'kggf'},'600466':{stockname:'蓝光发展',py:'lgfz'},'600467':{stockname:'好当家',py:'hdj'},'600468':{stockname:'百利电气',py:'bldq'},'600469':{stockname:'风神股份',py:'fsgf'},'600470':{stockname:'六国化工',py:'lghg'},'600475':{stockname:'华光股份',py:'hggf'},'600476':{stockname:'湘邮科技',py:'xykj'},'600477':{stockname:'杭萧钢构',py:'hxgg'},'600478':{stockname:'科力远',py:'kly'},'600479':{stockname:'千金药业',py:'qjyy'},'600480':{stockname:'凌云股份',py:'lygf'},'600481':{stockname:'双良节能',py:'sljn'},'600482':{stockname:'中国动力',py:'zgdl'},'600483':{stockname:'福能股份',py:'fngf'},'600485':{stockname:'信威集团',py:'xwjt'},'600486':{stockname:'扬农化工',py:'ynhg'},'600487':{stockname:'亨通光电',py:'htgd'},'600488':{stockname:'天药股份',py:'tygf'},'600489':{stockname:'中金黄金',py:'zjhj'},'600490':{stockname:'鹏欣资源',py:'pxzy'},'600491':{stockname:'龙元建设',py:'lyjs'},'600493':{stockname:'凤竹纺织',py:'fzfz'},'600495':{stockname:'晋西车轴',py:'jxcz'},'600496':{stockname:'精工钢构',py:'jggg'},'600497':{stockname:'驰宏锌锗',py:'chxz'},'600498':{stockname:'烽火通信',py:'fhtx'},'600499':{stockname:'科达洁能',py:'kdjn'},'600500':{stockname:'中化国际',py:'zhgj'},'600501':{stockname:'航天晨光',py:'htcg'},'600502':{stockname:'安徽水利',py:'ahsl'},'600503':{stockname:'华丽家族',py:'hljz'},'600505':{stockname:'西昌电力',py:'xcdl'},'600506':{stockname:'香梨股份',py:'xlgf'},'600507':{stockname:'方大特钢',py:'fdtg'},'600508':{stockname:'上海能源',py:'shny'},'600509':{stockname:'天富能源',py:'tfny'},'600510':{stockname:'黑牡丹',py:'hmd'},'600511':{stockname:'国药股份',py:'gygf'},'600512':{stockname:'腾达建设',py:'tdjs'},'600513':{stockname:'联环药业',py:'lhyy'},'600515':{stockname:'海航基础',py:'hhjc'},'600516':{stockname:'方大炭素',py:'fdts'},'600517':{stockname:'置信电气',py:'zxdq'},'600518':{stockname:'康美药业',py:'kmyy'},'600519':{stockname:'贵州茅台',py:'gzmt'},'600520':{stockname:'ST中发',py:'stzf'},'600521':{stockname:'华海药业',py:'hhyy'},'600522':{stockname:'中天科技',py:'ztkj'},'600523':{stockname:'贵航股份',py:'ghgf'},'600525':{stockname:'长园集团',py:'cyjt'},'600526':{stockname:'菲达环保',py:'fdhb'},'600527':{stockname:'江南高纤',py:'jngx'},'600528':{stockname:'中铁二局',py:'ztej'},'600529':{stockname:'山东药玻',py:'sdyb'},'600530':{stockname:'交大昂立',py:'jdal'},'600531':{stockname:'豫光金铅',py:'ygjq'},'600532':{stockname:'宏达矿业',py:'hdky'},'600533':{stockname:'栖霞建设',py:'qxjs'},'600535':{stockname:'天士力',py:'tsl'},'600536':{stockname:'中国软件',py:'zgrj'},'600537':{stockname:'亿晶光电',py:'yjgd'},'600538':{stockname:'国发股份',py:'gfgf'},'600539':{stockname:'狮头股份',py:'stgf'},'600540':{stockname:'新赛股份',py:'xsgf'},'600543':{stockname:'莫高股份',py:'mggf'},'600545':{stockname:'新疆城建',py:'xjcj'},'600546':{stockname:'ST山煤',py:'stsm'},'600547':{stockname:'山东黄金',py:'sdhj'},'600548':{stockname:'深高速',py:'sgs'},'600549':{stockname:'厦门钨业',py:'xmwy'},'600550':{stockname:'保变电气',py:'bbdq'},'600551':{stockname:'时代出版',py:'sdcb'},'600552':{stockname:'凯盛科技',py:'kskj'},'600555':{stockname:'海航创新',py:'hhcx'},'600556':{stockname:'慧球科技',py:'hqkj'},'600557':{stockname:'康缘药业',py:'kyyy'},'600558':{stockname:'大西洋',py:'dxy'},'600559':{stockname:'老白干酒',py:'lbgj'},'600560':{stockname:'金自天正',py:'jztz'},'600561':{stockname:'江西长运',py:'jxcy'},'600562':{stockname:'国睿科技',py:'grkj'},'600563':{stockname:'法拉电子',py:'fldz'},'600565':{stockname:'迪马股份',py:'dmgf'},'600566':{stockname:'济川药业',py:'jcyy'},'600567':{stockname:'山鹰纸业',py:'syzy'},'600568':{stockname:'中珠控股',py:'zzkg'},'600569':{stockname:'安阳钢铁',py:'aygt'},'600570':{stockname:'恒生电子',py:'hsdz'},'600571':{stockname:'信雅达',py:'xyd'},'600572':{stockname:'康恩贝',py:'keb'},'600573':{stockname:'惠泉啤酒',py:'hqpj'},'600575':{stockname:'皖江物流',py:'wjwl'},'600576':{stockname:'万家文化',py:'wjwh'},'600577':{stockname:'精达股份',py:'jdgf'},'600578':{stockname:'京能电力',py:'jndl'},'600579':{stockname:'天华院',py:'thy'},'600580':{stockname:'卧龙电气',py:'wldq'},'600581':{stockname:'ST八钢',py:'stbg'},'600582':{stockname:'天地科技',py:'tdkj'},'600583':{stockname:'海油工程',py:'hygc'},'600584':{stockname:'长电科技',py:'cdkj'},'600585':{stockname:'海螺水泥',py:'hlsn'},'600586':{stockname:'金晶科技',py:'jjkj'},'600587':{stockname:'新华医疗',py:'xhyl'},'600588':{stockname:'用友网络',py:'yywl'},'600589':{stockname:'广东榕泰',py:'gdrt'},'600590':{stockname:'泰豪科技',py:'thkj'},'600592':{stockname:'龙溪股份',py:'lxgf'},'600593':{stockname:'大连圣亚',py:'dlsy'},'600594':{stockname:'益佰制药',py:'ybzy'},'600595':{stockname:'中孚实业',py:'zfsy'},'600596':{stockname:'新安股份',py:'xagf'},'600597':{stockname:'光明乳业',py:'gmry'},'600598':{stockname:'北大荒',py:'bdh'},'600599':{stockname:'熊猫金控',py:'xmjk'},'600600':{stockname:'青岛啤酒',py:'qdpj'},'600601':{stockname:'方正科技',py:'fzkj'},'600602':{stockname:'仪电电子',py:'yddz'},'600603':{stockname:'ST兴业',py:'stxy'},'600604':{stockname:'市北高新',py:'sbgx'},'600605':{stockname:'汇通能源',py:'htny'},'600606':{stockname:'绿地控股',py:'ldkg'},'600608':{stockname:'ST沪科',py:'sthk'},'600609':{stockname:'金杯汽车',py:'jbqc'},'600610':{stockname:'中毅达',py:'zyd'},'600611':{stockname:'大众交通',py:'dzjt'},'600612':{stockname:'老凤祥',py:'lfx'},'600613':{stockname:'神奇制药',py:'sqzy'},'600614':{stockname:'鼎立股份',py:'dlgf'},'600615':{stockname:'丰华股份',py:'fhgf'},'600616':{stockname:'金枫酒业',py:'jfjy'},'600617':{stockname:'国新能源',py:'gxny'},'600618':{stockname:'氯碱化工',py:'ljhg'},'600619':{stockname:'海立股份',py:'hlgf'},'600620':{stockname:'天宸股份',py:'tcgf'},'600621':{stockname:'华鑫股份',py:'hxgf'},'600622':{stockname:'嘉宝集团',py:'jbjt'},'600623':{stockname:'华谊集团',py:'hyjt'},'600624':{stockname:'复旦复华',py:'fdfh'},'600626':{stockname:'申达股份',py:'sdgf'},'600628':{stockname:'新世界',py:'xsj'},'600629':{stockname:'华建集团',py:'hjjt'},'600630':{stockname:'龙头股份',py:'ltgf'},'600633':{stockname:'浙报传媒',py:'zbcm'},'600634':{stockname:'中技控股',py:'zjkg'},'600635':{stockname:'大众公用',py:'dzgy'},'600636':{stockname:'三爱富',py:'saf'},'600637':{stockname:'东方明珠',py:'dfmz'},'600638':{stockname:'新黄浦',py:'xhp'},'600639':{stockname:'浦东金桥',py:'pdjq'},'600640':{stockname:'号百控股',py:'hbkg'},'600641':{stockname:'万业企业',py:'wyqy'},'600642':{stockname:'申能股份',py:'sngf'},'600643':{stockname:'爱建集团',py:'ajjt'},'600644':{stockname:'乐山电力',py:'lsdl'},'600645':{stockname:'中源协和',py:'zyxh'},'600647':{stockname:'同达创业',py:'tdcy'},'600648':{stockname:'外高桥',py:'wgq'},'600649':{stockname:'城投控股',py:'ctkg'},'600650':{stockname:'锦江投资',py:'jjtz'},'600651':{stockname:'飞乐音响',py:'fyyx'},'600652':{stockname:'游久游戏',py:'yjyx'},'600653':{stockname:'申华控股',py:'shkg'},'600654':{stockname:'中安消',py:'zax'},'600655':{stockname:'豫园商城',py:'yysc'},'600657':{stockname:'信达地产',py:'xddc'},'600658':{stockname:'电子城',py:'dzc'},'600660':{stockname:'福耀玻璃',py:'fybl'},'600661':{stockname:'新南洋',py:'xny'},'600662':{stockname:'强生控股',py:'qskg'},'600663':{stockname:'陆家嘴',py:'ljz'},'600664':{stockname:'哈药股份',py:'hygf'},'600665':{stockname:'天地源',py:'tdy'},'600666':{stockname:'奥瑞德',py:'ard'},'600667':{stockname:'太极实业',py:'tjsy'},'600668':{stockname:'尖峰集团',py:'jfjt'},'600671':{stockname:'天目药业',py:'tmyy'},'600673':{stockname:'东阳光科',py:'dygk'},'600674':{stockname:'川投能源',py:'ctny'},'600675':{stockname:'ST中企',py:'stzq'},'600676':{stockname:'交运股份',py:'jygf'},'600677':{stockname:'航天通信',py:'httx'},'600678':{stockname:'四川金顶',py:'scjd'},'600679':{stockname:'上海凤凰',py:'shfh'},'600680':{stockname:'上海普天',py:'shpt'},'600681':{stockname:'百川能源',py:'bcny'},'600682':{stockname:'南京新百',py:'njxb'},'600683':{stockname:'京投银泰',py:'jtyt'},'600684':{stockname:'珠江实业',py:'zjsy'},'600685':{stockname:'中船防务',py:'zcfw'},'600686':{stockname:'金龙汽车',py:'jlqc'},'600687':{stockname:'刚泰控股',py:'gtkg'},'600688':{stockname:'上海石化',py:'shsh'},'600689':{stockname:'上海三毛',py:'shsm'},'600690':{stockname:'青岛海尔',py:'qdhe'},'600691':{stockname:'阳煤化工',py:'ymhg'},'600692':{stockname:'亚通股份',py:'ytgf'},'600693':{stockname:'东百集团',py:'dbjt'},'600694':{stockname:'大商股份',py:'dsgf'},'600695':{stockname:'绿庭投资',py:'lttz'},'600696':{stockname:'匹凸匹',py:'ptp'},'600697':{stockname:'欧亚集团',py:'oyjt'},'600698':{stockname:'湖南天雁',py:'hnty'},'600699':{stockname:'均胜电子',py:'ysdz'},'600701':{stockname:'ST工新',py:'stgx'},'600702':{stockname:'沱牌舍得',py:'tpsd'},'600703':{stockname:'三安光电',py:'sagd'},'600704':{stockname:'物产中大',py:'wczd'},'600705':{stockname:'中航资本',py:'zhzb'},'600706':{stockname:'曲江文旅',py:'qjwl'},'600707':{stockname:'彩虹股份',py:'chgf'},'600708':{stockname:'光明地产',py:'gmdc'},'600710':{stockname:'ST常林',py:'stcl'},'600711':{stockname:'盛屯矿业',py:'stky'},'600712':{stockname:'南宁百货',py:'nnbh'},'600713':{stockname:'南京医药',py:'njyy'},'600714':{stockname:'金瑞矿业',py:'jrky'},'600715':{stockname:'文投控股',py:'wtkg'},'600716':{stockname:'凤凰股份',py:'fhgf'},'600717':{stockname:'天津港',py:'tjg'},'600718':{stockname:'东软集团',py:'drjt'},'600719':{stockname:'大连热电',py:'dlrd'},'600720':{stockname:'祁连山',py:'qls'},'600721':{stockname:'ST百花',py:'stbh'},'600722':{stockname:'金牛化工',py:'jnhg'},'600723':{stockname:'首商股份',py:'ssgf'},'600724':{stockname:'宁波富达',py:'nbfd'},'600725':{stockname:'ST云维',py:'styw'},'600726':{stockname:'华电能源',py:'hdny'},'600727':{stockname:'鲁北化工',py:'lbhg'},'600728':{stockname:'佳都科技',py:'jdkj'},'600729':{stockname:'重庆百货',py:'cqbh'},'600730':{stockname:'中国高科',py:'zggk'},'600731':{stockname:'湖南海利',py:'hnhl'},'600732':{stockname:'ST新梅',py:'stxm'},'600733':{stockname:'S前锋',py:'sqf'},'600734':{stockname:'实达集团',py:'sdjt'},'600735':{stockname:'新华锦',py:'xhj'},'600736':{stockname:'苏州高新',py:'szgx'},'600737':{stockname:'中粮屯河',py:'zlth'},'600738':{stockname:'兰州民百',py:'lzmb'},'600739':{stockname:'辽宁成大',py:'lncd'},'600740':{stockname:'山西焦化',py:'sxjh'},'600741':{stockname:'华域汽车',py:'hyqc'},'600742':{stockname:'一汽富维',py:'yqfw'},'600743':{stockname:'华远地产',py:'hydc'},'600744':{stockname:'华银电力',py:'hydl'},'600745':{stockname:'中茵股份',py:'zygf'},'600746':{stockname:'江苏索普',py:'jssp'},'600747':{stockname:'大连控股',py:'dlkg'},'600748':{stockname:'上实发展',py:'ssfz'},'600749':{stockname:'西藏旅游',py:'xzly'},'600750':{stockname:'江中药业',py:'jzyy'},'600751':{stockname:'天海投资',py:'thtz'},'600753':{stockname:'东方银星',py:'dfyx'},'600754':{stockname:'锦江股份',py:'jjgf'},'600755':{stockname:'厦门国贸',py:'xmgm'},'600756':{stockname:'浪潮软件',py:'lcrj'},'600757':{stockname:'长江传媒',py:'cjcm'},'600758':{stockname:'红阳能源',py:'hyny'},'600759':{stockname:'洲际油气',py:'zjyq'},'600760':{stockname:'ST黑豹',py:'sthb'},'600761':{stockname:'安徽合力',py:'ahhl'},'600763':{stockname:'通策医疗',py:'tcyl'},'600764':{stockname:'中电广通',py:'zdgt'},'600765':{stockname:'中航重机',py:'zhzj'},'600766':{stockname:'园城黄金',py:'ychj'},'600767':{stockname:'运盛医疗',py:'ysyl'},'600768':{stockname:'宁波富邦',py:'nbfb'},'600769':{stockname:'祥龙电业',py:'xldy'},'600770':{stockname:'综艺股份',py:'zygf'},'600771':{stockname:'广誉远',py:'gyy'},'600773':{stockname:'西藏城投',py:'xzct'},'600774':{stockname:'汉商集团',py:'hsjt'},'600775':{stockname:'南京熊猫',py:'njxm'},'600776':{stockname:'东方通信',py:'dftx'},'600777':{stockname:'新潮实业',py:'xcsy'},'600778':{stockname:'友好集团',py:'yhjt'},'600779':{stockname:'水井坊',py:'sjf'},'600780':{stockname:'通宝能源',py:'tbny'},'600781':{stockname:'辅仁药业',py:'fryy'},'600782':{stockname:'新钢股份',py:'xggf'},'600783':{stockname:'鲁信创投',py:'lxct'},'600784':{stockname:'鲁银投资',py:'lytz'},'600785':{stockname:'新华百货',py:'xhbh'},'600787':{stockname:'中储股份',py:'zcgf'},'600789':{stockname:'鲁抗医药',py:'lkyy'},'600790':{stockname:'轻纺城',py:'qfc'},'600791':{stockname:'京能置业',py:'jnzy'},'600792':{stockname:'云煤能源',py:'ymny'},'600793':{stockname:'ST宜纸',py:'styz'},'600794':{stockname:'保税科技',py:'bskj'},'600795':{stockname:'国电电力',py:'gddl'},'600796':{stockname:'钱江生化',py:'qjsh'},'600797':{stockname:'浙大网新',py:'zdwx'},'600798':{stockname:'宁波海运',py:'nbhy'},'600800':{stockname:'天津磁卡',py:'tjck'},'600801':{stockname:'华新水泥',py:'hxsn'},'600802':{stockname:'福建水泥',py:'fjsn'},'600803':{stockname:'新奥股份',py:'xagf'},'600804':{stockname:'鹏博士',py:'pbs'},'600805':{stockname:'悦达投资',py:'ydtz'},'600806':{stockname:'ST昆机',py:'stkj'},'600807':{stockname:'天业股份',py:'tygf'},'600808':{stockname:'马钢股份',py:'mggf'},'600809':{stockname:'山西汾酒',py:'sxfj'},'600810':{stockname:'神马股份',py:'smgf'},'600811':{stockname:'东方集团',py:'dfjt'},'600812':{stockname:'华北制药',py:'hbzy'},'600814':{stockname:'杭州解百',py:'hzjb'},'600815':{stockname:'厦工股份',py:'xggf'},'600816':{stockname:'安信信托',py:'axxt'},'600817':{stockname:'ST宏盛',py:'sths'},'600818':{stockname:'中路股份',py:'zlgf'},'600819':{stockname:'耀皮玻璃',py:'ypbl'},'600820':{stockname:'隧道股份',py:'sdgf'},'600821':{stockname:'津劝业',py:'jqy'},'600822':{stockname:'上海物贸',py:'shwm'},'600823':{stockname:'世茂股份',py:'smgf'},'600824':{stockname:'益民集团',py:'ymjt'},'600825':{stockname:'新华传媒',py:'xhcm'},'600826':{stockname:'兰生股份',py:'lsgf'},'600827':{stockname:'百联股份',py:'blgf'},'600828':{stockname:'茂业商业',py:'mysy'},'600829':{stockname:'人民同泰',py:'rmtt'},'600830':{stockname:'香溢融通',py:'xyrt'},'600831':{stockname:'广电网络',py:'gdwl'},'600833':{stockname:'第一医药',py:'dyyy'},'600834':{stockname:'申通地铁',py:'stdt'},'600835':{stockname:'上海机电',py:'shjd'},'600836':{stockname:'界龙实业',py:'jlsy'},'600837':{stockname:'海通证券',py:'htzq'},'600838':{stockname:'上海九百',py:'shjb'},'600839':{stockname:'四川长虹',py:'scch'},'600841':{stockname:'上柴股份',py:'scgf'},'600843':{stockname:'上工申贝',py:'sgsb'},'600844':{stockname:'丹化科技',py:'dhkj'},'600845':{stockname:'宝信软件',py:'bxrj'},'600846':{stockname:'同济科技',py:'tjkj'},'600847':{stockname:'万里股份',py:'wlgf'},'600848':{stockname:'上海临港',py:'shlg'},'600850':{stockname:'华东电脑',py:'hddn'},'600851':{stockname:'海欣股份',py:'hxgf'},'600853':{stockname:'龙建股份',py:'ljgf'},'600854':{stockname:'春兰股份',py:'clgf'},'600855':{stockname:'航天长峰',py:'htcf'},'600856':{stockname:'中天能源',py:'ztny'},'600857':{stockname:'宁波中百',py:'nbzb'},'600858':{stockname:'银座股份',py:'yzgf'},'600859':{stockname:'王府井',py:'wfj'},'600860':{stockname:'京城股份',py:'jcgf'},'600861':{stockname:'北京城乡',py:'bjcx'},'600862':{stockname:'中航高科',py:'zhgk'},'600863':{stockname:'内蒙华电',py:'nmhd'},'600864':{stockname:'哈投股份',py:'htgf'},'600865':{stockname:'百大集团',py:'bdjt'},'600866':{stockname:'ST星湖',py:'stxh'},'600867':{stockname:'通化东宝',py:'thdb'},'600868':{stockname:'梅雁吉祥',py:'myjx'},'600869':{stockname:'智慧能源',py:'zhny'},'600870':{stockname:'厦华电子',py:'xhdz'},'600871':{stockname:'石化油服',py:'shyf'},'600872':{stockname:'中炬高新',py:'zjgx'},'600873':{stockname:'梅花生物',py:'mhsw'},'600874':{stockname:'创业环保',py:'cyhb'},'600875':{stockname:'东方电气',py:'dfdq'},'600876':{stockname:'洛阳玻璃',py:'lybl'},'600877':{stockname:'中国嘉陵',py:'zgjl'},'600879':{stockname:'航天电子',py:'htdz'},'600880':{stockname:'博瑞传播',py:'brcb'},'600881':{stockname:'亚泰集团',py:'ytjt'},'600882':{stockname:'华联矿业',py:'hlky'},'600883':{stockname:'博闻科技',py:'bwkj'},'600884':{stockname:'杉杉股份',py:'ssgf'},'600885':{stockname:'宏发股份',py:'hfgf'},'600886':{stockname:'国投电力',py:'gtdl'},'600887':{stockname:'伊利股份',py:'ylgf'},'600888':{stockname:'新疆众和',py:'xjzh'},'600889':{stockname:'南京化纤',py:'njhx'},'600890':{stockname:'中房股份',py:'zfgf'},'600891':{stockname:'秋林集团',py:'qljt'},'600892':{stockname:'宝诚股份',py:'bcgf'},'600893':{stockname:'中航动力',py:'zhdl'},'600894':{stockname:'广日股份',py:'grgf'},'600895':{stockname:'张江高科',py:'zjgk'},'600896':{stockname:'中海海盛',py:'zhhs'},'600897':{stockname:'厦门空港',py:'xmkg'},'600898':{stockname:'三联商社',py:'slss'},'600900':{stockname:'长江电力',py:'cjdl'},'600917':{stockname:'重庆燃气',py:'cqrq'},'600958':{stockname:'东方证券',py:'dfzq'},'600959':{stockname:'江苏有线',py:'jsyx'},'600960':{stockname:'渤海活塞',py:'bhhs'},'600961':{stockname:'株冶集团',py:'zyjt'},'600962':{stockname:'国投中鲁',py:'gtzl'},'600963':{stockname:'岳阳林纸',py:'yylz'},'600965':{stockname:'福成股份',py:'fcgf'},'600966':{stockname:'博汇纸业',py:'bhzy'},'600967':{stockname:'北方创业',py:'bfcy'},'600969':{stockname:'郴电国际',py:'cdgj'},'600970':{stockname:'中材国际',py:'zcgj'},'600971':{stockname:'恒源煤电',py:'hymd'},'600973':{stockname:'宝胜股份',py:'bsgf'},'600975':{stockname:'新五丰',py:'xwf'},'600976':{stockname:'健民集团',py:'jmjt'},'600978':{stockname:'宜华木业',py:'yhmy'},'600979':{stockname:'广安爱众',py:'gaaz'},'600980':{stockname:'北矿磁材',py:'bkcc'},'600981':{stockname:'汇鸿集团',py:'hhjt'},'600982':{stockname:'宁波热电',py:'nbrd'},'600983':{stockname:'惠而浦',py:'hep'},'600984':{stockname:'建设机械',py:'jsjx'},'600985':{stockname:'雷鸣科化',py:'lmkh'},'600986':{stockname:'科达股份',py:'kdgf'},'600987':{stockname:'航民股份',py:'hmgf'},'600988':{stockname:'赤峰黄金',py:'cfhj'},'600990':{stockname:'四创电子',py:'scdz'},'600992':{stockname:'贵绳股份',py:'gsgf'},'600993':{stockname:'马应龙',py:'myl'},'600995':{stockname:'文山电力',py:'wsdl'},'600997':{stockname:'开滦股份',py:'klgf'},'600998':{stockname:'九州通',py:'jzt'},'600999':{stockname:'招商证券',py:'zszq'},'601000':{stockname:'唐山港',py:'tsg'},'601001':{stockname:'大同煤业',py:'dtmy'},'601002':{stockname:'晋亿实业',py:'jysy'},'601003':{stockname:'柳钢股份',py:'lggf'},'601005':{stockname:'重庆钢铁',py:'cqgt'},'601006':{stockname:'大秦铁路',py:'dqtl'},'601007':{stockname:'金陵饭店',py:'jlfd'},'601008':{stockname:'连云港',py:'lyg'},'601009':{stockname:'南京银行',py:'njyh'},'601010':{stockname:'文峰股份',py:'wfgf'},'601011':{stockname:'宝泰隆',py:'btl'},'601012':{stockname:'隆基股份',py:'ljgf'},'601015':{stockname:'陕西黑猫',py:'sxhm'},'601016':{stockname:'节能风电',py:'jnfd'},'601018':{stockname:'宁波港',py:'nbg'},'601020':{stockname:'华钰矿业',py:'hyky'},'601021':{stockname:'春秋航空',py:'cqhk'},'601028':{stockname:'玉龙股份',py:'ylgf'},'601038':{stockname:'一拖股份',py:'ytgf'},'601058':{stockname:'赛轮金宇',py:'sljy'},'601069':{stockname:'西部黄金',py:'xbhj'},'601088':{stockname:'中国神华',py:'zgsh'},'601098':{stockname:'中南传媒',py:'zncm'},'601099':{stockname:'太平洋',py:'tpy'},'601100':{stockname:'恒立液压',py:'hlyy'},'601101':{stockname:'昊华能源',py:'hhny'},'601106':{stockname:'中国一重',py:'zgyz'},'601107':{stockname:'四川成渝',py:'sccy'},'601111':{stockname:'中国国航',py:'zggh'},'601113':{stockname:'华鼎股份',py:'hdgf'},'601116':{stockname:'三江购物',py:'sjgw'},'601117':{stockname:'中国化学',py:'zghx'},'601118':{stockname:'海南橡胶',py:'hnxj'},'601126':{stockname:'四方股份',py:'sfgf'},'601137':{stockname:'博威合金',py:'bwhj'},'601139':{stockname:'深圳燃气',py:'szrq'},'601155':{stockname:'新城控股',py:'xckg'},'601158':{stockname:'重庆水务',py:'cqsw'},'601166':{stockname:'兴业银行',py:'xyyh'},'601168':{stockname:'西部矿业',py:'xbky'},'601169':{stockname:'北京银行',py:'bjyh'},'601177':{stockname:'杭齿前进',py:'hcqj'},'601179':{stockname:'中国西电',py:'zgxd'},'601186':{stockname:'中国铁建',py:'zgtj'},'601188':{stockname:'龙江交通',py:'ljjt'},'601198':{stockname:'东兴证券',py:'dxzq'},'601199':{stockname:'江南水务',py:'jnsw'},'601208':{stockname:'东材科技',py:'dckj'},'601211':{stockname:'国泰君安',py:'gtja'},'601216':{stockname:'君正集团',py:'jzjt'},'601218':{stockname:'吉鑫科技',py:'jxkj'},'601222':{stockname:'林洋能源',py:'lyny'},'601225':{stockname:'陕西煤业',py:'sxmy'},'601226':{stockname:'华电重工',py:'hdzg'},'601231':{stockname:'环旭电子',py:'hxdz'},'601233':{stockname:'桐昆股份',py:'tkgf'},'601238':{stockname:'广汽集团',py:'gqjt'},'601258':{stockname:'庞大集团',py:'pdjt'},'601288':{stockname:'农业银行',py:'nyyh'},'601311':{stockname:'骆驼股份',py:'ltgf'},'601313':{stockname:'江南嘉捷',py:'jnjj'},'601318':{stockname:'中国平安',py:'zgpa'},'601328':{stockname:'交通银行',py:'jtyh'},'601333':{stockname:'广深铁路',py:'gstl'},'601336':{stockname:'新华保险',py:'xhbx'},'601339':{stockname:'百隆东方',py:'bldf'},'601368':{stockname:'绿城水务',py:'lcsw'},'601369':{stockname:'陕鼓动力',py:'sgdl'},'601377':{stockname:'兴业证券',py:'xyzq'},'601388':{stockname:'怡球资源',py:'yqzy'},'601390':{stockname:'中国中铁',py:'zgzt'},'601398':{stockname:'工商银行',py:'gsyh'},'601515':{stockname:'东风股份',py:'dfgf'},'601518':{stockname:'吉林高速',py:'jlgs'},'601519':{stockname:'大智慧',py:'dzh'},'601555':{stockname:'东吴证券',py:'dwzq'},'601558':{stockname:'华锐风电',py:'hrfd'},'601566':{stockname:'九牧王',py:'jmw'},'601567':{stockname:'三星医疗',py:'sxyl'},'601579':{stockname:'会稽山',py:'kjs'},'601588':{stockname:'北辰实业',py:'bcsy'},'601599':{stockname:'鹿港科技',py:'lgkj'},'601600':{stockname:'中国铝业',py:'zgly'},'601601':{stockname:'中国太保',py:'zgtb'},'601607':{stockname:'上海医药',py:'shyy'},'601608':{stockname:'中信重工',py:'zxzg'},'601616':{stockname:'广电电气',py:'gddq'},'601618':{stockname:'中国中冶',py:'zgzy'},'601628':{stockname:'中国人寿',py:'zgrs'},'601633':{stockname:'长城汽车',py:'ccqc'},'601636':{stockname:'旗滨集团',py:'qbjt'},'601666':{stockname:'平煤股份',py:'pmgf'},'601668':{stockname:'中国建筑',py:'zgjz'},'601669':{stockname:'中国电建',py:'zgdj'},'601677':{stockname:'明泰铝业',py:'mtly'},'601678':{stockname:'滨化股份',py:'bhgf'},'601688':{stockname:'华泰证券',py:'htzq'},'601689':{stockname:'拓普集团',py:'tpjt'},'601699':{stockname:'潞安环能',py:'lahn'},'601700':{stockname:'风范股份',py:'ffgf'},'601717':{stockname:'郑煤机',py:'zmj'},'601718':{stockname:'际华集团',py:'jhjt'},'601727':{stockname:'上海电气',py:'shdq'},'601766':{stockname:'中国中车',py:'zgzc'},'601777':{stockname:'力帆股份',py:'lfgf'},'601788':{stockname:'光大证券',py:'gdzq'},'601789':{stockname:'宁波建工',py:'nbjg'},'601798':{stockname:'蓝科高新',py:'lkgx'},'601799':{stockname:'星宇股份',py:'xygf'},'601800':{stockname:'中国交建',py:'zgjj'},'601801':{stockname:'皖新传媒',py:'wxcm'},'601808':{stockname:'中海油服',py:'zhyf'},'601818':{stockname:'光大银行',py:'gdyh'},'601857':{stockname:'中国石油',py:'zgsy'},'601866':{stockname:'中海集运',py:'zhjy'},'601872':{stockname:'招商轮船',py:'zslc'},'601877':{stockname:'正泰电器',py:'ztdq'},'601880':{stockname:'大连港',py:'dlg'},'601886':{stockname:'江河集团',py:'jhjt'},'601888':{stockname:'中国国旅',py:'zggl'},'601890':{stockname:'亚星锚链',py:'yxml'},'601898':{stockname:'中煤能源',py:'zmny'},'601899':{stockname:'紫金矿业',py:'zjky'},'601900':{stockname:'南方传媒',py:'nfcm'},'601901':{stockname:'方正证券',py:'fzzq'},'601908':{stockname:'京运通',py:'jyt'},'601918':{stockname:'ST新集',py:'stxj'},'601919':{stockname:'中国远洋',py:'zgyy'},'601928':{stockname:'凤凰传媒',py:'fhcm'},'601929':{stockname:'吉视传媒',py:'jscm'},'601933':{stockname:'永辉超市',py:'yhcs'},'601939':{stockname:'建设银行',py:'jsyh'},'601958':{stockname:'金钼股份',py:'jmgf'},'601965':{stockname:'中国汽研',py:'zgqy'},'601968':{stockname:'宝钢包装',py:'bgbz'},'601969':{stockname:'海南矿业',py:'hnky'},'601985':{stockname:'中国核电',py:'zghd'},'601988':{stockname:'中国银行',py:'zgyh'},'601989':{stockname:'中国重工',py:'zgzg'},'601991':{stockname:'大唐发电',py:'dtfd'},'601992':{stockname:'金隅股份',py:'jygf'},'601996':{stockname:'丰林集团',py:'fljt'},'601998':{stockname:'中信银行',py:'zxyh'},'601999':{stockname:'出版传媒',py:'cbcm'},'603000':{stockname:'人民网',py:'rmw'},'603001':{stockname:'奥康国际',py:'akgj'},'603002':{stockname:'宏昌电子',py:'hcdz'},'603003':{stockname:'龙宇燃油',py:'lyry'},'603005':{stockname:'晶方科技',py:'jfkj'},'603006':{stockname:'联明股份',py:'lmgf'},'603008':{stockname:'喜临门',py:'xlm'},'603009':{stockname:'北特科技',py:'btkj'},'603010':{stockname:'万盛股份',py:'wsgf'},'603011':{stockname:'合锻智能',py:'hdzn'},'603012':{stockname:'创力集团',py:'cljt'},'603015':{stockname:'弘讯科技',py:'hxkj'},'603017':{stockname:'中衡设计',py:'zhsj'},'603018':{stockname:'设计股份',py:'sjgf'},'603019':{stockname:'中科曙光',py:'zksg'},'603020':{stockname:'爱普股份',py:'apgf'},'603021':{stockname:'山东华鹏',py:'sdhp'},'603022':{stockname:'新通联',py:'xtl'},'603023':{stockname:'威帝股份',py:'wdgf'},'603025':{stockname:'大豪科技',py:'dhkj'},'603026':{stockname:'石大胜华',py:'sdsh'},'603027':{stockname:'千禾味业',py:'qhwy'},'603028':{stockname:'赛福天',py:'sft'},'603029':{stockname:'天鹅股份',py:'tegf'},'603030':{stockname:'全筑股份',py:'qzgf'},'603066':{stockname:'音飞储存',py:'yfcc'},'603077':{stockname:'和邦生物',py:'hbsw'},'603085':{stockname:'天成自控',py:'tczk'},'603088':{stockname:'宁波精达',py:'nbjd'},'603099':{stockname:'长白山',py:'cbs'},'603100':{stockname:'川仪股份',py:'cygf'},'603101':{stockname:'汇嘉时代',py:'hjsd'},'603108':{stockname:'润达医疗',py:'rdyl'},'603111':{stockname:'康尼机电',py:'knjd'},'603116':{stockname:'红蜻蜓',py:'hqt'},'603117':{stockname:'万林股份',py:'wlgf'},'603118':{stockname:'共进股份',py:'gjgf'},'603123':{stockname:'翠微股份',py:'cwgf'},'603126':{stockname:'中材节能',py:'zcjn'},'603128':{stockname:'华贸物流',py:'hmwl'},'603158':{stockname:'腾龙股份',py:'tlgf'},'603166':{stockname:'福达股份',py:'fdgf'},'603167':{stockname:'渤海轮渡',py:'bhld'},'603168':{stockname:'莎普爱思',py:'spas'},'603169':{stockname:'兰石重装',py:'lszz'},'603188':{stockname:'亚邦股份',py:'ybgf'},'603198':{stockname:'迎驾贡酒',py:'yjgj'},'603199':{stockname:'九华旅游',py:'jhly'},'603222':{stockname:'济民制药',py:'jmzy'},'603223':{stockname:'恒通股份',py:'htgf'},'603227':{stockname:'雪峰科技',py:'xfkj'},'603268':{stockname:'松发股份',py:'sfgf'},'603288':{stockname:'海天味业',py:'htwy'},'603299':{stockname:'井神股份',py:'jsgf'},'603300':{stockname:'华铁科技',py:'htkj'},'603306':{stockname:'华懋科技',py:'hmkj'},'603308':{stockname:'应流股份',py:'ylgf'},'603309':{stockname:'维力医疗',py:'wlyl'},'603311':{stockname:'金海环境',py:'jhhj'},'603315':{stockname:'福鞍股份',py:'fagf'},'603318':{stockname:'派思股份',py:'psgf'},'603328':{stockname:'依顿电子',py:'yddz'},'603333':{stockname:'明星电缆',py:'mxdl'},'603338':{stockname:'浙江鼎力',py:'zjdl'},'603339':{stockname:'四方冷链',py:'sfll'},'603355':{stockname:'莱克电气',py:'lkdq'},'603366':{stockname:'日出东方',py:'rcdf'},'603368':{stockname:'柳州医药',py:'lzyy'},'603369':{stockname:'今世缘',py:'jsy'},'603377':{stockname:'东方时尚',py:'dfss'},'603398':{stockname:'邦宝益智',py:'bbyz'},'603399':{stockname:'新华龙',py:'xhl'},'603456':{stockname:'九洲药业',py:'jzyy'},'603508':{stockname:'思维列控',py:'swlk'},'603518':{stockname:'维格娜丝',py:'wgns'},'603519':{stockname:'立霸股份',py:'lbgf'},'603520':{stockname:'司太立',py:'stl'},'603528':{stockname:'多伦科技',py:'dlkj'},'603555':{stockname:'贵人鸟',py:'grn'},'603558':{stockname:'健盛集团',py:'jsjt'},'603566':{stockname:'普莱柯',py:'plk'},'603567':{stockname:'珍宝岛',py:'zbd'},'603568':{stockname:'伟明环保',py:'wmhb'},'603588':{stockname:'高能环境',py:'gnhj'},'603589':{stockname:'口子窖',py:'kzj'},'603598':{stockname:'引力传媒',py:'ylcm'},'603599':{stockname:'广信股份',py:'gxgf'},'603600':{stockname:'永艺股份',py:'yygf'},'603601':{stockname:'再升科技',py:'zskj'},'603606':{stockname:'东方电缆',py:'dfdl'},'603608':{stockname:'天创时尚',py:'tcss'},'603609':{stockname:'禾丰牧业',py:'hfmy'},'603611':{stockname:'诺力股份',py:'nlgf'},'603616':{stockname:'韩建河山',py:'hjhs'},'603618':{stockname:'杭电股份',py:'hdgf'},'603636':{stockname:'南威软件',py:'nwrj'},'603669':{stockname:'灵康药业',py:'lkyy'},'603678':{stockname:'火炬电子',py:'hjdz'},'603686':{stockname:'龙马环卫',py:'lmhw'},'603688':{stockname:'石英股份',py:'sygf'},'603696':{stockname:'安记食品',py:'ajsp'},'603698':{stockname:'航天工程',py:'htgc'},'603699':{stockname:'纽威股份',py:'nwgf'},'603701':{stockname:'德宏股份',py:'dhgf'},'603703':{stockname:'盛洋科技',py:'sykj'},'603718':{stockname:'海利生物',py:'hlsw'},'603726':{stockname:'朗迪集团',py:'ldjt'},'603729':{stockname:'龙韵股份',py:'lygf'},'603766':{stockname:'隆鑫通用',py:'lxty'},'603778':{stockname:'乾景园林',py:'qjyl'},'603779':{stockname:'威龙股份',py:'wlgf'},'603788':{stockname:'宁波高发',py:'nbgf'},'603789':{stockname:'星光农机',py:'xgnj'},'603798':{stockname:'康普顿',py:'kpd'},'603799':{stockname:'华友钴业',py:'hygy'},'603800':{stockname:'道森股份',py:'dsgf'},'603806':{stockname:'福斯特',py:'fst'},'603808':{stockname:'歌力思',py:'gls'},'603818':{stockname:'曲美家居',py:'qmjj'},'603822':{stockname:'嘉澳环保',py:'jahb'},'603828':{stockname:'柯利达',py:'kld'},'603838':{stockname:'四通股份',py:'stgf'},'603861':{stockname:'白云电器',py:'bydq'},'603866':{stockname:'桃李面包',py:'tlmb'},'603868':{stockname:'飞科电器',py:'fkdq'},'603869':{stockname:'北部湾旅',py:'bbwl'},'603883':{stockname:'老百姓',py:'lbx'},'603885':{stockname:'吉祥航空',py:'jxhk'},'603889':{stockname:'新澳股份',py:'xagf'},'603898':{stockname:'好莱客',py:'hlk'},'603899':{stockname:'晨光文具',py:'cgwj'},'603901':{stockname:'永创智能',py:'yczn'},'603918':{stockname:'金桥信息',py:'jqxx'},'603919':{stockname:'金徽酒',py:'jhj'},'603936':{stockname:'博敏电子',py:'bmdz'},'603939':{stockname:'益丰药房',py:'yfyf'},'603959':{stockname:'百利科技',py:'blkj'},'603968':{stockname:'醋化股份',py:'chgf'},'603969':{stockname:'银龙股份',py:'ylgf'},'603979':{stockname:'金诚信',py:'jcx'},'603988':{stockname:'中电电机',py:'zddj'},'603989':{stockname:'艾华集团',py:'ahjt'},'603993':{stockname:'洛阳钼业',py:'lymy'},'603996':{stockname:'中新科技',py:'zxkj'},'603997':{stockname:'继峰股份',py:'jfgf'},'603998':{stockname:'方盛制药',py:'fszy'},'603999':{stockname:'读者传媒',py:'dzcm'}};var getStockName=function getStockName(stockcode){if(codeTableMap[stockcode]!=undefined){return codeTableMap[stockcode].stockname;}return'';};var searchStock=function searchStock(py){var stockarr=[];var reg=new RegExp("^[0-9]*$");if(reg.test(py)){for(var c in codeTableMap){if(c.indexOf(py)==0){stockarr.push({stockcode:c,stockname:codeTableMap[c].stockname,py:codeTableMap[c].py});}if(stockarr.length>20){break;}}}else{for(var c in codeTableMap){if(codeTableMap[c].py.indexOf(py)==0){stockarr.push({stockcode:c,stockname:codeTableMap[c].stockname,py:codeTableMap[c].py});}if(stockarr.length>20){break;}}}return stockarr;};var stockData=function stockData(){var data=[];for(var c in codeTableMap){var obj={code:c,chinese:codeTableMap[c].stockname,name:codeTableMap[c].py};data.push(obj);}console.log('stockData',data);return data;};return{getStockName:getStockName,searchStock:searchStock,stockData:stockData};}();module.exports=CodeTable;
 
 /***/ },
-/* 430 */
+/* 426 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var Router = __webpack_require__(183);
+	var Router = __webpack_require__(178);
 	var Link = Router.Link;
 
 	var Whoops404 = React.createClass({

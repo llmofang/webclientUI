@@ -4,21 +4,17 @@ var PubSub = require('pubsub-js');
 var d3 = require('d3');
 
 var MarketMGR=(function(){
+  var onOpenCallBack;
 	var ws;
 	var subsyms=[];
 
 	var handleOnOpen=function(e) {
 		console.log('连接行情源成功');
+    isOpen=true
+    onOpenCallBack()
 		//TradePanelMGR.changeState({marketWS:"连通"});
-      var cmdtxt = ".u.sub[`ohlcv_ws;";
-<<<<<<< HEAD
-         cmdtxt += "`603598"; 
-=======
-         cmdtxt += "`"; 
->>>>>>> 542f0995297ce442b5b671f7f5ea6282584300a4
-         cmdtxt += "]";
-         console.log("Sending Subscribe Command:", cmdtxt);
-         ws.send(serialize(cmdtxt));
+         //console.log("Sending Subscribe Command:", cmdtxt);
+         //ws.send(serialize(cmdtxt));
 	};
 
 	var handleOnMessage=function(e) {
@@ -28,7 +24,7 @@ var MarketMGR=(function(){
          var data=payload[2];
          for (var i = 0; i < data.length; i++) {
             var Market=formatData(data[i]);
-            PubSub.publish('receiveData', Market);
+            PubSub.publish(Market.sym, Market);
             //console.log('postdata',Market)
          }
          //console.log('原始数据',data)	
@@ -50,11 +46,10 @@ var MarketMGR=(function(){
    };
 
 
-   var init=function(){
-   	ws=WSMGR.init('ws://139.196.77.165:5034',handleOnOpen,handleOnClose,handleOnMessage,handleOnError);
-
+   var init=function(callback){
+      this.onOpenCallBack=callback;
+   	  ws=WSMGR.init('ws://139.196.77.165:5034',handleOnOpen,handleOnClose,handleOnMessage,handleOnError);
       return ws;
-
    };
 
    var subscribe=function(sym){
