@@ -36,7 +36,7 @@ function deserialize(x){
       c3 = rUInt8();
       s += String.fromCharCode( ((c&15)<<12) | ((c2&63)<<6) | (c3&63) );
     }
-	}		
+	}
 	return s;
 	}
   function rTimestamp(){ return date(rInt64()/86400000000000);}

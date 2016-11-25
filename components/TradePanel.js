@@ -1,62 +1,100 @@
 var React = require('react');
 var ReStock =  require("react-stockcharts");
+var { helper } = ReStock;
+var { fitWidth,fitDimensions } = helper;
 var d3 = require('d3');
-var MarketMGR=require('./parts/MarketMGR')
-
-/*var CandleStickChartWithUpdatingData = require('./parts/CandleStickChartWithUpdatingData');*/
 var CandleStickStockScaleChart = require("./parts/CandleStickStockScaleChart") 
-/*var CandleStickChartWithZoomPan = require("./parts/zoom") */
-/*var  MarketMGR = require('../components/MarketMGR')*/
+var MarketMGR = require('./parts/MarketMGR')
+//var resize = require('./parts/resize')
+var PubSub = require('pubsub-js')
+
 var TradePannel = React.createClass({
     getInitialState:function() {
+        var parentHeight = document.getElementById("zz_1").offsetHeight
+        //console.log(document.getElementById("zz_1").offsetHeight)
         var arr=[]
         for(var i=0; i<2;i++){
-            var temp={};
-            temp.date=new Date(d3.timeParse("%Y-%m-%d")('2012-02-04').getTime());
-            temp.open=0;
-            temp.high=0;
-            temp.low=0;
-            temp.close=0;
-            temp.volume=0;
+          var temp={};
+            temp.date=new Date(d3.timeParse("%Y-%m-%d %H:%M")('2016-11-21 09:01').getTime());
+            temp.open=27;
+            temp.high=27;
+            temp.low=27;
+            temp.close=27;
+            temp.volume=2120;
           arr.push(temp)
         }
         return {
-            data: arr
+            data: arr,
+            height: parentHeight
         }
     },
     componentWillMount:function(){
         MarketMGR.init()
-        //MarketMGR.*/
-        d3["tsv"]("//rrag.github.io/react-stockcharts/data/MSFT.tsv", (err, data) => {
-            data.forEach((d, i) => {
-                d.date = new Date(d3.timeParse("%Y-%m-%d")(d.date).getTime());
-                d.open = +d.open;
-                d.high = +d.high;
-                d.low = +d.low;
-                d.close = +d.close;
-                d.volume = +d.volume;
-            });
-            this.setState({data:data})   
-        });
     },
+    componentDidMount:function(){
+
+        PubSub.subscribe('resizeHandler',(topic,data)=>{
+          //console.log('resize',data)
+          this.setState({height:data})
+        })   
     
+
+        var first = true
+        var flag = false
+        PubSub.subscribe('receiveData',(topic,data)=>{
+          
+            var parHeight = document.getElementById("zz_1").clientHeight
+            var parWidth = document.getElementById('zz_1').clientWidth
+            console.log("parHeight",parHeight)
+            this.setState({height:parHeight,width:parWidth})
+
+          
+
+          var flag = false
+          console.log("开始receiveData",data) 
+          console.log("stateData",this.state.data)
+
+          var olddata = this.state.data,
+               oldLength = olddata.length,
+               lastMinutes = olddata[oldLength-1].date.getMinutes(),
+               newMinutes = data[0].date.getMinutes(),
+               newdata
+         /* if(flag == false && oldLength > 4){
+               olddata.splice(0,2)
+               flag = true
+          }*/
+            //console.log('first:' + first) 
+          if(first){
+              newdata = [data[0],data[0]]
+              first = false
+          }else{
+               if(newMinutes != lastMinutes){
+                   newdata = olddata.concat(data[0])
+                }else{
+                   console.log()
+                   olddata.splice((oldLength-1) , 1 ,data[0])
+                   newdata = olddata
+                } 
+          }
+          this.setState({data:newdata})
+        }) 
+    },
     render: function () {
-        console.log('123');
-        var { type } = this.props;
+        var { type,width } = this.props;
         return (
-            <CandleStickStockScaleChart type={type}  data={this.state.data} />
+            <CandleStickStockScaleChart type={type}  data={this.state.data} height={this.state.height}/>
         );
     }
 });
+
+TradePannel = fitDimensions(TradePannel)
 
 TradePannel.propTypes = {
     type: React.PropTypes.oneOf(["svg", "hybrid"]).isRequired,
 };
 TradePannel.defaultProps = {
     type:"svg",
-    title:'hello!'
 };
-
 
 module.exports = TradePannel;
 

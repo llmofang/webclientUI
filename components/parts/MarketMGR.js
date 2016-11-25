@@ -1,6 +1,8 @@
 
 var WSMGR=require('./WSMGR');
-//var PubSub = require('pubsub-js');
+var PubSub = require('pubsub-js');
+var d3 = require('d3');
+
 var MarketMGR=(function(){
 	var ws;
 	var subsyms=[];
@@ -9,7 +11,7 @@ var MarketMGR=(function(){
 		console.log('连接行情源成功');
 		//TradePanelMGR.changeState({marketWS:"连通"});
       var cmdtxt = ".u.sub[`ohlcv_ws;";
-         cmdtxt += "`600000"; 
+         cmdtxt += "`603598"; 
          cmdtxt += "]";
          console.log("Sending Subscribe Command:", cmdtxt);
          ws.send(serialize(cmdtxt));
@@ -20,23 +22,21 @@ var MarketMGR=(function(){
 		var payload=JSON.parse(e.data);
 		if (payload.length == 3 && payload[0] == "upd" && payload[1] == "ohlcv_ws") {
          var data=payload[2];
-         // for (var i = 0; i < data.length; i++) {
-         //    var Market=conver2Makert(data[i]);
-         //    PubSub.publish(Market.Sym, Market);
-         //    //console.log('marketws onmessage',Market.Sym);
-         // }
-         console.log('receive data',data)
-			
+         for (var i = 0; i < data.length; i++) {
+            var Market=formatData(data[i]);
+            PubSub.publish('receiveData', Market);
+            //console.log('postdata',Market)
+         }
+         //console.log('原始数据',data)	
 		}
       //TODO 浮盈计算
-
     };
 
     var handleOnClose=function(e) {
     	console.log("行情源断开连接");
        //  alert("行情服务器未能连接,请刷新重新连接！！");
        //TradePanelMGR.changeState({marketWS:"未连接"});
-        alert('行情服务器断开连接！！请刷新重试！！');
+      alert('行情服务器断开连接！！请刷新重试！！');
    };
 
    var handleOnError=function(e) {
@@ -127,10 +127,38 @@ var MarketMGR=(function(){
    			Market.Increase = (Market.Match - rawMarket.nPreClose/10000).toFixed(2);
    			Market.IncreaseP = ((Market.Increase * 100) / (rawMarket.nPreClose/10000)).toFixed(2);
    			return Market;
-
-   		};
-   	
+   		};	
    };
+
+   var formatData = function(data){
+     var Market = [{
+      date:'',
+      high:0,
+      low:0,
+      open:0,
+      close:0,
+      volume:0
+     }]
+     var year = new Date().getFullYear()
+     var month = new Date().getMonth() + 1
+     var today = new Date().getDate()
+     if(month<10){
+      month = "0"+month
+     }
+     if (today<10) {
+      today = "0"+today
+     }
+     data.minute = year+"-"+month+"-"+today+" "+data.minute
+     //console.log(data.minute)
+     Market[0].date = new Date(d3.timeParse("%Y-%m-%d %H:%M")(data.minute).getTime())
+     Market[0].high = (data.high / 10000).toFixed(2)
+     Market[0].low = (data.low / 10000).toFixed(2)
+     Market[0].open = (data.open /10000).toFixed(2)
+     Market[0].close = (data.close / 10000).toFixed(2)
+     Market[0].volume = data.size
+
+     return Market
+   }
 
 
    var close=function(){
@@ -143,10 +171,7 @@ var MarketMGR=(function(){
    	subscribe:subscribe,
    	unsubscribe:unsubscribe,
       close:close
-
    };
-
-
 })();
 
 module.exports = MarketMGR;

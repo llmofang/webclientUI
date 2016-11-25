@@ -2,20 +2,35 @@
 <html>
 <head>
 	<title>stockcharts</title>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
+  <link rel="stylesheet" type="text/css" href="./autocomplete.css">
+  <link rel="stylesheet" type="text/css" href="./style.css">
+	<script type="text/javascript" src='./jquery.js'></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src='./autocomplete.js'></script>
 	<script src="./c.js"></script>
-
+      
 </head>
 
 <body>
-	<div>
 		<div class="row">
-			<div id="react-container" class="col-lg-12 col-md-12 col-sm-12">
+			<div id="react-container">
 				<h1>加载中.....</h1>
 			</div>
 		</div>
-	</div>
+		<div class="control">
+       <button id="btn_1">1</button>
+       <button id="btn_4">4</button>
+       <button id="btn_6">6</button>
+       <button id="btn_9">9</button>
+		</div>
 
+<script type="text/javascript">
+  var winHeight = $(window).height()
+  $('.row').height(winHeight)
+</script>
 <script type="text/javascript" src='./bundle.js'></script>
+<script type="text/javascript" src='./script.js'></script>
+
 </body>
 </html>

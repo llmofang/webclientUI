@@ -6,7 +6,7 @@ var DefaultRoute = Router.DefaultRoute;
 var NotFoundRoute = Router.NotFoundRoute;
 
 var APP = require('./components/APP');
-var TradePanel = require('./components/TradePanel');
+var Panel = require('./components/pannel');
 var Whoops404 = require('./components/Whoops404');
 
 
@@ -15,13 +15,13 @@ var Whoops404 = require('./components/Whoops404');
 // <Route name="conf" path="conf" handler={Conf}></Route>
 var routes = (
 	<Route handler={APP}>
-        	<DefaultRoute handler={TradePanel} />
- 		      <Route handler={TradePanel} name="trade" path="trade" />
+        	<DefaultRoute handler={Panel} />
+ 		      <Route handler={Panel} name="trade" path="trade" />
         	<NotFoundRoute handler={Whoops404} />
 	</Route>
 );
 
 Router.run(routes, function(Handler) {
-	ReactDom.render(<Handler />, document.getElementById('react-container'));
+  ReactDom.render(<Handler />, document.getElementById('react-container'));
 });
 

@@ -1,0 +1,35 @@
+*{
+        
+}
+body {
+  background: #303030;
+}
+.react-stockcharts-tooltip {
+  fill: white;
+}
+.react-stockcharts-tooltip-label {
+  fill: yellow;
+}
+.row{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.chart{
+  overflow: hidden;
+  border:1px #fff solid;
+  position: relative;
+}
+.control{
+  position: fixed;
+  z-index: 99;
+  bottom: 0;
+  right: 0;
+}
+.search{
+  display: none; 
+  position: absolute;
+  top:0;
+  right: 0;
+  z-index: 999;
+}
