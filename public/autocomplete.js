@@ -84,7 +84,7 @@ Author: Lorenzo Cioni - https://github.com/lorecioni
 						}
 						currentSelection = -1;
 						proposalList.empty();
-						params.onSubmit(input.val());
+						params.onSubmit(input.val().split(':')[0]);
 						break;
 					case 27: // Esc button
 						currentSelection = -1;
@@ -112,7 +112,7 @@ Author: Lorenzo Cioni - https://github.com/lorecioni
 									.click(function(){
 										input.val($(this).html());
 										proposalList.empty();
-										params.onSubmit(input.val());
+										params.onSubmit(input.val().split(':')[0]);
 									})
 									.mouseenter(function() {
 										input.blur();

@@ -32975,12 +32975,13 @@
 	        }
 	        return {
 	            data: arr,
-	            height: parentHeight
-
+	            height: parentHeight,
+	            stockcode: "",
+	            SubTopic: 'SubStock'
 	        };
 	    },
 	    componentWillMount: function componentWillMount() {
-	        MarketMGR.init();
+	        MarketMGR.init(this.wsOnOpen);
 	    },
 	    componentDidMount: function componentDidMount() {
 	        var _this = this;
@@ -32989,45 +32990,65 @@
 	            //console.log('resize',data)
 	            _this.setState({ height: data });
 	        });
+	    },
+	    wsOnOpen: function wsOnOpen() {
+	        this.subscribe('600000');
+	    },
 
+	    subHandler: function subHandler(topic, data) {
 	        var first = true;
 	        var flag = false;
-	        PubSub.subscribe('receiveData', function (topic, data) {
+	        var parHeight = document.getElementById("zz_1").clientHeight;
+	        var parWidth = document.getElementById('zz_1').clientWidth;
+	        console.log("parHeight", parHeight);
+	        this.setState({ height: parHeight });
 
-	            var parHeight = document.getElementById("zz_0").clientHeight;
-	            var parWidth = document.getElementById('zz_0').clientWidth;
-	            console.log("parHeight", parHeight);
-	            _this.setState({ height: parHeight });
+	        var flag = false;
+	        console.log("开始receiveData", data);
+	        console.log("stateData", this.state.data);
 
-	            var flag = false;
-	            console.log("开始receiveData", data);
-	            console.log("stateData", _this.state.data);
-
-	            var olddata = _this.state.data,
-	                oldLength = olddata.length,
-	                lastMinutes = olddata[oldLength - 1].date.getMinutes(),
-	                newMinutes = data[0].date.getMinutes(),
-	                newdata;
-	            /* if(flag == false && oldLength > 4){
-	                  olddata.splice(0,2)
-	                  flag = true
-	             }*/
-	            //console.log('first:' + first) 
-	            if (first) {
-	                newdata = [data[0], data[0]];
-	                first = false;
+	        var olddata = this.state.data,
+	            oldLength = olddata.length,
+	            lastMinutes = olddata[oldLength - 1].date.getMinutes(),
+	            newMinutes = data[0].date.getMinutes(),
+	            newdata;
+	        /* if(flag == false && oldLength > 4){
+	              olddata.splice(0,2)
+	              flag = true
+	         }*/
+	        //console.log('first:' + first) 
+	        if (first) {
+	            newdata = [data[0], data[0]];
+	            first = false;
+	        } else {
+	            if (newMinutes != lastMinutes) {
+	                newdata = olddata.concat(data[0]);
 	            } else {
-	                if (newMinutes != lastMinutes) {
-	                    newdata = olddata.concat(data[0]);
-	                } else {
-	                    console.log();
-	                    olddata.splice(oldLength - 1, 1, data[0]);
-	                    newdata = olddata;
-	                }
+	                console.log();
+	                olddata.splice(oldLength - 1, 1, data[0]);
+	                newdata = olddata;
 	            }
-	            _this.setState({ data: newdata });
-	        });
+	        }
+	        this.setState({ data: newdata });
 	    },
+
+	    subscribe: function subscribe(sym) {
+	        MarketMGR.subscribe(sym);
+	        var token = PubSub.subscribe(sym, this.subHandler);
+	        this.setState({ subTopic: token });
+	        console.log('subscribe    ', sym);
+	        //console.log('subscribe subtopic',token);
+	    },
+
+	    unsubscribe: function unsubscribe(sym) {
+	        console.log('unsubscribe    ', sym);
+	        console.log('unsubscribe subtopic', this.state.subTopic);
+	        MarketMGR.unsubscribe(sym);
+	        if (this.state.subTopic) {
+	            PubSub.unsubscribe(this.state.subTopic);
+	        }
+	    },
+
 	    render: function render() {
 	        var _props = this.props,
 	            type = _props.type,
@@ -77498,7 +77519,7 @@
 	            return React.createElement(
 	                ChartCanvas,
 	                { ref: 'ChartCanvas', width: width, height: height, ratio: ratio,
-	                    margin: { left: 70, right: 100, top: 20, bottom: 10 }, type: type,
+	                    margin: { left: 50, right: 100, top: 20, bottom: 10 }, type: type,
 	                    seriesName: 'MSFT',
 	                    data: data, calculator: [sma5, sma10, sma20, sma60, smaVolume50],
 	                    xAccessor: function xAccessor(d) {
@@ -77601,17 +77622,14 @@
 	var d3 = __webpack_require__(423);
 
 	var MarketMGR = function () {
+	   var onOpenCallBack;
 	   var ws;
 	   var subsyms = [];
 
 	   var handleOnOpen = function handleOnOpen(e) {
 	      console.log('连接行情源成功');
-	      //TradePanelMGR.changeState({marketWS:"连通"});
-	      var cmdtxt = ".u.sub[`ohlcv_ws;";
-	      cmdtxt += "`603598";
-	      cmdtxt += "]";
-	      console.log("Sending Subscribe Command:", cmdtxt);
-	      ws.send(serialize(cmdtxt));
+	      isOpen = true;
+	      onOpenCallBack();
 	   };
 
 	   var handleOnMessage = function handleOnMessage(e) {
@@ -77621,7 +77639,7 @@
 	         var data = payload[2];
 	         for (var i = 0; i < data.length; i++) {
 	            var Market = formatData(data[i]);
-	            PubSub.publish('receiveData', Market);
+	            PubSub.publish(Market.sym, Market);
 	            //console.log('postdata',Market)
 	         }
 	         //console.log('原始数据',data)	
@@ -77642,9 +77660,9 @@
 	      console.log('marketws onerror', e.data);
 	   };
 
-	   var init = function init() {
+	   var init = function init(callback) {
+	      this.onOpenCallBack = callback;
 	      ws = WSMGR.init('ws://139.196.77.165:5034', handleOnOpen, handleOnClose, handleOnMessage, handleOnError);
-
 	      return ws;
 	   };
 

@@ -15,18 +15,11 @@ var Pannel = React.createClass({
       var words = Code.stockData()
 
       $('.search').autocomplete({
-        hints: words
+        hints: words,
       });
-      /*this.showHowmany()*/
+
    },
 
-   /*showHowmany:function(){
-        
-      return (
-          <div className="chart col-xs-4 col-sm-4" id="zz_1" style={{height: kk/3}}> <TradePanel /> </div>
-             )
-         
-   },*/
    render:function(){
       var kk = window.document.body.offsetHeight
 
