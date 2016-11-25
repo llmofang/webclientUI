@@ -65,8 +65,11 @@ var MarketMGR=(function(){
    			key: sym,
    			count: 1
    		});
-   		console.log('subscribe stockcodes:',subsyms);
-   		subData('Market', subsyms);
+   		
+        subData('Market', subsyms);
+        console.log('subscribe stockcodes:',subsyms);
+     
+   		
    	}
    };
 
@@ -96,7 +99,11 @@ var MarketMGR=(function(){
    	}
    	cmdtxt += "]";
    	console.log("Sending Subscribe Command:", cmdtxt);
-   	ws.send(serialize(cmdtxt));
+    if(isOpen){
+   	  ws.send(serialize(cmdtxt));
+     }else{
+        console.log('can not subscribe stockcode marketws is connecting.....')
+      }
    };
 
 
