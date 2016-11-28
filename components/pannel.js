@@ -5,18 +5,26 @@ var MarketMGR = require('./parts/MarketMGR')
 
 
 var Pannel = React.createClass({
+
    componentWillMount:function(){
       MarketMGR.init()
    },
    
    componentDidMount:function(){
+
       window.onresize = function () {
-        var xx = document.getElementById("zz_0").clientHeight
-        PubSub.publish('resizeHandler', xx);
+        var h = document.getElementById("zz_0").clientHeight
+        var w = document.getElementById("zz_0").clientWidth
+        var size = {
+          height:h,
+          width:w
+        }
+        
+        PubSub.publish('resizeHandler', size);
       }
 
-
    },
+   
 
    render:function(){
       var kk = window.document.body.offsetHeight

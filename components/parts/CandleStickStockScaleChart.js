@@ -31,27 +31,32 @@ class CandleStickStockScaleChart extends React.Component{
             .sourcePath("close")
             .merge((d, c) => {d.sma5 = c})
             .accessor(d => d.sma5)
+            .stroke('#1f77b4')
         var sma10 = sma()
             .windowSize(10)
             .sourcePath("close")
             .merge((d, c) => {d.sma10 = c})
             .accessor(d => d.sma10)
+            .stroke('#ff7f0e')
         var sma20 = sma()
             .windowSize(20)
             .sourcePath("close")
             .merge((d, c) => {d.sma20 = c})
             .accessor(d => d.sma20)
+            .stroke('#2ca02c')
         var sma60 = sma()
             .windowSize(60)
             .sourcePath("close")
             .merge((d, c) => {d.sma60 = c})
             .accessor(d => d.sma60)
+            .stroke('#d62728')
         var smaVolume50 = sma()
             .id(3)
             .windowSize(10)
             .sourcePath("volume")
             .merge((d, c) => {d.smaVolume50 = c})
-            .accessor(d => d.smaVolume50);
+            .accessor(d => d.smaVolume50)
+
         return (
             <ChartCanvas ref='ChartCanvas' width={width} height={height} ratio={ratio}
                     margin={{left: 50, right: 100, top:20, bottom: 10}} type={type}
@@ -70,7 +75,7 @@ class CandleStickStockScaleChart extends React.Component{
                     <CandlestickSeries  wickStroke={d => d.close > d.open ? "#DB0000":"#6BA583" }
                             fill={d => d.close > d.open ? "#DB0000":"#6BA583" }/>
 
-                    <LineSeries yAccessor={sma5.accessor()} stroke={sma5.stroke()}/>
+                    <LineSeries yAccessor={sma5.accessor()} stroke={sma5.stroke()} />
                     <LineSeries yAccessor={sma10.accessor()} stroke={sma10.stroke()}/>
                     <LineSeries yAccessor={sma20.accessor()} stroke={sma20.stroke()}/>
                     <LineSeries yAccessor={sma60.accessor()} stroke={sma60.stroke()}/>
@@ -91,16 +96,15 @@ class CandleStickStockScaleChart extends React.Component{
                         yExtents={[d => d.volume, smaVolume50.accessor()]}
                         origin={(w, h) => [0, h - height*(2/6)]}>
                     <XAxis axisAt="bottom" orient="bottom" tickStroke="#FFFFFF" stroke="#FFFFFF"  />
-                    <YAxis axisAt="left" orient="left" ticks={5} tickFormat={format(".0s")}  showTicks={false}
-                              tickStroke="#FFFFFF"  /> 
-                     <MouseCoordinateX
+                    <YAxis axisAt="left" orient="left" ticks={5} tickFormat={format(".0s")}  showTicks={false}  /> 
+                      <MouseCoordinateX
                         at="bottom"
                         orient="bottom"
                         displayFormat={timeFormat("%H:%M")} />
-                    <MouseCoordinateY
+                      {/*<MouseCoordinateY
                         at="left"
                         orient="left"
-                        displayFormat={format(".4s")} />
+                        displayFormat={format(".4s")} />*/}
 
                     <BarSeries yAccessor={d => d.volume} fill={d => d.close > d.open ? "#DB0000":"#6BA583" } />
                     <AreaSeries yAccessor={smaVolume50.accessor()} stroke={smaVolume50.stroke()} fill={smaVolume50.fill()}/>

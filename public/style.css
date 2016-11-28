@@ -3,6 +3,7 @@
 }
 body {
   background: #303030;
+  font: normal 75% Helvetica, Arial, sans-serif;
 }
 .react-stockcharts-tooltip {
   fill: white;
@@ -33,6 +34,46 @@ body {
   right: 0;
   z-index: 999;
 }
-.col-sm-10, .col-sm-2{
+.col-sm-9, .col-sm-3,.col-xs-4 ,.col-sm-4,.col-xs-12,.col-sm-12, .col-xs-6 ,.col-sm-6{
   padding: 0
+}
+.tenTable_left{
+  border: 1px solid #fff;
+  border-right: 1px solid #fff ;
+  border-top:0;
+  font-size: 12px;
+}
+.tenTable_right{
+  border: 1px solid #fff
+  border-right: 0 ;
+  border-top:0;
+}
+.tenTable_right tr {
+  border-bottom: 1px solid #fff
+} 
+.tenTable_right tr td{
+  border-right: 1px solid #fff;
+  text-align: center;
+}
+.tenTable_1{
+  border-top:0;
+  border-bottom: 0;
+  border-right: 0 ;
+  color: #fff ;
+  font-size: .9em;
+  border-left: 1px solid #fff
+}
+.tenTable_2{
+  border-top:0;
+  border-bottom: 0;
+  border-right: 0;
+  color:red;
+  font-size: .9em;
+  border-left: 1px solid #fff
+}
+.tenTable_2 .tenTable_left{
+  border-bottom: 0;
+}
+.tenTable_2 .tenTable_right{
+  border-bottom: 0;
 }
