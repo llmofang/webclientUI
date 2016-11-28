@@ -3,7 +3,6 @@ var React = require('react')
 
 class TenMarket extends React.Component{
   
-
   render(){
     var {width,height} = this.props
     return(
@@ -149,10 +148,8 @@ class TenMarket extends React.Component{
                     </tbody>
                   </table>
       </div>
-        
       )
   }
-
 }
 
 module.exports = TenMarket

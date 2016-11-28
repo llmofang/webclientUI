@@ -32742,13 +32742,16 @@
 	var Pannel = React.createClass({
 	   displayName: 'Pannel',
 
-
+	   getInitialState: function getInitialState() {
+	      return {
+	         number: [{ col: 'col-sm-12', id: "zz_0", index: '1', h: '1' }]
+	      };
+	   },
 	   componentWillMount: function componentWillMount() {
 	      MarketMGR.init();
 	   },
 
 	   componentDidMount: function componentDidMount() {
-
 	      window.onresize = function () {
 	         var h = document.getElementById("zz_0").clientHeight;
 	         var w = document.getElementById("zz_0").clientWidth;
@@ -32756,70 +32759,59 @@
 	            height: h,
 	            width: w
 	         };
-
 	         PubSub.publish('resizeHandler', size);
 	      };
+	   },
+	   btn_1: function btn_1() {
+	      this.setState({ number: [{ col: 'col-sm-12', id: "zz_0", index: '1', h: 1 }] });
+	   },
+	   btn_4: function btn_4() {
+	      this.setState({ number: [{ col: 'col-sm-6', id: "zz_0", index: '1', h: 2 }, { col: 'col-sm-6', id: "zz_1", index: '2', h: 2 }, { col: 'col-sm-6', id: "zz_2", index: '3', h: 2 }, { col: 'col-sm-6', id: "zz_3", index: '4', h: 2 }] });
+	   },
+	   btn_6: function btn_6() {
+	      this.setState({ number: [{ col: 'col-sm-4', id: "zz_0", index: '1', h: 2 }, { col: 'col-sm-4', id: "zz_1", index: '2', h: 2 }, { col: 'col-sm-4', id: "zz_2", index: '3', h: 2 }, { col: 'col-sm-4', id: "zz_3", index: '4', h: 2 }, { col: 'col-sm-4', id: "zz_4", index: '5', h: 2 }, { col: 'col-sm-4', id: "zz_5", index: '6', h: 2 }] });
+	   },
+	   btn_9: function btn_9() {
+	      this.setState({ number: [{ col: 'col-sm-4', id: "zz_0", index: '1', h: 3 }, { col: 'col-sm-4', id: "zz_1", index: '2', h: 3 }, { col: 'col-sm-4', id: "zz_2", index: '3', h: 3 }, { col: 'col-sm-4', id: "zz_3", index: '4', h: 3 }, { col: 'col-sm-4', id: "zz_4", index: '5', h: 3 }, { col: 'col-sm-4', id: "zz_5", index: '6', h: 3 }, { col: 'col-sm-4', id: "zz_6", index: '6', h: 3 }, { col: 'col-sm-4', id: "zz_7", index: '7', h: 3 }, { col: 'col-sm-4', id: "zz_8", index: '8', h: 3 }] });
 	   },
 
 	   render: function render() {
 	      var kk = window.document.body.offsetHeight;
-
+	      var list = this.state.number.map(function (data, index) {
+	         return React.createElement(
+	            'div',
+	            { className: "chart " + data.col, id: data.id, style: { height: kk / data.h } },
+	            ' ',
+	            React.createElement(TradePanel, { name: index })
+	         );
+	      });
 	      return React.createElement(
 	         'div',
 	         { id: 'stockcharts' },
+	         list,
 	         React.createElement(
 	            'div',
-	            { className: 'chart col-xs-4 col-sm-4', id: 'zz_0', style: { height: kk / 3 } },
-	            ' ',
-	            React.createElement(TradePanel, { name: 1 })
-	         ),
-	         React.createElement(
-	            'div',
-	            { className: 'chart col-xs-4 col-sm-4', style: { height: kk / 3 } },
-	            ' ',
-	            React.createElement(TradePanel, { name: 2 })
-	         ),
-	         React.createElement(
-	            'div',
-	            { className: 'chart col-xs-4 col-sm-4', style: { height: kk / 3 } },
-	            ' ',
-	            React.createElement(TradePanel, { name: 3 })
-	         ),
-	         React.createElement(
-	            'div',
-	            { className: 'chart col-xs-4 col-sm-4', style: { height: kk / 3 } },
-	            ' ',
-	            React.createElement(TradePanel, { name: 4 })
-	         ),
-	         React.createElement(
-	            'div',
-	            { className: 'chart col-xs-4 col-sm-4', style: { height: kk / 3 } },
-	            ' ',
-	            React.createElement(TradePanel, { name: 5 })
-	         ),
-	         React.createElement(
-	            'div',
-	            { className: 'chart col-xs-4 col-sm-4', style: { height: kk / 3 } },
-	            ' ',
-	            React.createElement(TradePanel, { name: 6 })
-	         ),
-	         React.createElement(
-	            'div',
-	            { className: 'chart col-xs-4 col-sm-4', style: { height: kk / 3 } },
-	            ' ',
-	            React.createElement(TradePanel, { name: 7 })
-	         ),
-	         React.createElement(
-	            'div',
-	            { className: 'chart col-xs-4 col-sm-4', style: { height: kk / 3 } },
-	            ' ',
-	            React.createElement(TradePanel, { name: 8 })
-	         ),
-	         React.createElement(
-	            'div',
-	            { className: 'chart col-xs-4 col-sm-4', style: { height: kk / 3 } },
-	            ' ',
-	            React.createElement(TradePanel, { name: 9 })
+	            { className: 'control' },
+	            React.createElement(
+	               'button',
+	               { id: 'btn_1', onClick: this.btn_1 },
+	               '1'
+	            ),
+	            React.createElement(
+	               'button',
+	               { id: 'btn_4', onClick: this.btn_4 },
+	               '4'
+	            ),
+	            React.createElement(
+	               'button',
+	               { id: 'btn_6', onClick: this.btn_6 },
+	               '6'
+	            ),
+	            React.createElement(
+	               'button',
+	               { id: 'btn_9', onClick: this.btn_9 },
+	               '9'
+	            )
 	         )
 	      );
 	   }
@@ -32854,7 +32846,6 @@
 	    getInitialState: function getInitialState() {
 	        var parentHeight = document.getElementById("zz_0").clientHeight;
 	        var parentWidth = document.getElementById('zz_0').clientWidth;
-	        //console.log(document.getElementById("zz_1").offsetHeight)
 	        var arr = [];
 	        for (var i = 0; i < 2; i++) {
 	            var temp = {};
@@ -32879,7 +32870,6 @@
 	        var _this = this;
 
 	        PubSub.subscribe('resizeHandler', function (topic, data) {
-	            //console.log('resize',data)
 	            _this.setState({ height: data.height });
 	            _this.setState({ width: data.width });
 	        });
@@ -32900,12 +32890,11 @@
 	        var flag = false;
 	        var parHeight = document.getElementById("zz_0").clientHeight;
 	        var parWidth = document.getElementById('zz_0').clientWidth;
-	        //console.log("parHeight",parHeight)
 	        this.setState({ height: parHeight });
 	        this.setState({ width: parWidth });
 
-	        console.log("开始receiveData", data);
-	        console.log("stateData", this.state.data);
+	        //console.log("开始receiveData",data) 
+	        //console.log("stateData",this.state.data)
 
 	        var olddata = this.state.data,
 	            oldLength = olddata.length,
@@ -32973,7 +32962,6 @@
 	TradePannel.defaultProps = {
 	    type: "svg"
 	};
-
 	module.exports = TradePannel;
 
 /***/ },
@@ -77534,7 +77522,6 @@
 	      console.log('连接行情源成功');
 	      isOpen = true;
 	      //onOpenCallBack()
-
 	   };
 
 	   var handleOnMessage = function handleOnMessage(e) {

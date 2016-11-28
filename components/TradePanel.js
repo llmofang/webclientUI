@@ -15,7 +15,6 @@ var TradePannel = React.createClass({
     getInitialState:function() {
         var parentHeight = document.getElementById("zz_0").clientHeight
         var parentWidth = document.getElementById('zz_0').clientWidth
-        //console.log(document.getElementById("zz_1").offsetHeight)
         var arr=[]
         for(var i=0; i<2;i++){
           var temp={};
@@ -39,10 +38,8 @@ var TradePannel = React.createClass({
     componentDidMount:function(){
 
         PubSub.subscribe('resizeHandler',(topic,data)=>{
-          //console.log('resize',data)
           this.setState({height:data.height})
           this.setState({width:data.width})
-
         }) 
         var words = Code.stockData()
 
@@ -62,12 +59,11 @@ var TradePannel = React.createClass({
       var flag = false
       var parHeight = document.getElementById("zz_0").clientHeight
           var parWidth = document.getElementById('zz_0').clientWidth
-          //console.log("parHeight",parHeight)
           this.setState({height:parHeight})
           this.setState({width:parWidth})
 
-        console.log("开始receiveData",data) 
-        console.log("stateData",this.state.data)
+        //console.log("开始receiveData",data) 
+        //console.log("stateData",this.state.data)
 
         var olddata = this.state.data,
              oldLength = olddata.length,
@@ -116,13 +112,9 @@ var TradePannel = React.createClass({
               <div className='col-sm-9' style={{height: kk/3}} width={this.state.width *0.75 } >
                 <CandleStickStockScaleChart type={type}  data={this.state.data} height={this.state.height}/>
               </div> 
-              
               <TenMarket  height={this.state.height} width={this.state.width *0.25 } />
-            
               <SearchInput name={'search_'+this.props.name}/>
-             </div> 
-              
-            
+            </div>
           );
       }
 });
@@ -135,5 +127,4 @@ TradePannel.propTypes = {
 TradePannel.defaultProps = {
     type:"svg",
 };
-
 module.exports = TradePannel;

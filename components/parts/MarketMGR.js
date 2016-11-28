@@ -14,7 +14,6 @@ var MarketMGR=(function(){
     isOpen=true
     //onOpenCallBack()
 
-
 	};
   
 	var handleOnMessage=function(e) {

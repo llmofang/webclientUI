@@ -47,13 +47,19 @@ $(window).resize(function(){
 
 })
 //交互操作
-$(".chart").hover(function(){
+$("body").on('mouseover','.chart',function(){
   $(this).find('.search').css('display','block')
-},function(){
+})
+$("body").on('mouseout','.chart',function(){
   $(this).find('.search').css('display','none')
   $(this).find('.autocomplete-input').val('')
   $(this).find('.proposal-list').empty()
 })
-$('.chart').on('click',function(){
+$('body').on('click','.chart',function(){
   $(this).find('.search input').focus()
+})
+$('.control').hover(function(){
+  $(this).css('opacity','1')
+},function(){
+  $(this).css('opacity','0')
 })
