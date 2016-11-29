@@ -1,54 +1,50 @@
-
+var Config=require('../parts/Config');
+var TradePanelMGR=require('./TradePanelMGR');
 var WSMGR=require('./WSMGR');
 var PubSub = require('pubsub-js');
-var d3 = require('d3');
-
 var MarketMGR=(function(){
-  //var onOpenCallBack;
 	var ws;
 	var subsyms=[];
-  var isOpen = false;
 
 	var handleOnOpen=function(e) {
 		console.log('连接行情源成功');
-    isOpen=true
-    //onOpenCallBack()
-
+		TradePanelMGR.changeState({marketWS:"连通"});
 	};
-  
+
 	var handleOnMessage=function(e) {
-		console.log('marketws onmessage',e);
+		//console.log('marketws onmessage',e);
 		var payload=JSON.parse(e.data);
-		if (payload.length == 3 && payload[0] == "upd" && payload[1] == "ohlcv_ws") {
+		if (payload.length == 3 && payload[0] == "upd" && payload[1] == "Market") {
          var data=payload[2];
          for (var i = 0; i < data.length; i++) {
-            var Market=formatData(data[i]);
-            PubSub.publish(data[i].sym, Market);
-            //console.log('postdata',Market)
+            var Market=conver2Makert(data[i]);
+            PubSub.publish(Market.Sym, Market);
+            //console.log('marketws onmessage',Market.Sym);
          }
-         //console.log('原始数据',data)	
+			
 		}
-      //TODO 浮盈计算
+        //TODO 浮盈计算
+
     };
 
     var handleOnClose=function(e) {
     	console.log("行情源断开连接");
        //  alert("行情服务器未能连接,请刷新重新连接！！");
-       //TradePanelMGR.changeState({marketWS:"未连接"});
-      alert('行情服务器断开连接！！请刷新重试！！');
+       TradePanelMGR.changeState({marketWS:"未连接"});
+        alert('行情服务器断开连接！！请刷新重试！！');
    };
 
    var handleOnError=function(e) {
 
-   	//TradePanelMGR.changeState({marketWS:"错误"});
+   	TradePanelMGR.changeState({marketWS:"错误"});
    	console.log('marketws onerror',e.data);
    };
 
 
-   var init=function(callback){
-      //this.onOpenCallBack=callback;
-   	  ws=WSMGR.init('ws://139.196.77.165:5034',handleOnOpen,handleOnClose,handleOnMessage,handleOnError);
+   var init=function(){
+   	ws=WSMGR.init(Config.MARKETWS,handleOnOpen,handleOnClose,handleOnMessage,handleOnError);
       return ws;
+
    };
 
    var subscribe=function(sym){
@@ -65,11 +61,8 @@ var MarketMGR=(function(){
    			key: sym,
    			count: 1
    		});
-   		
-        subData('ohlcv_ws', subsyms);
-        console.log('subscribe stockcodes:',subsyms);
-     
-   		
+   		console.log('subscribe stockcodes:',subsyms);
+   		subData('Market', subsyms);
    	}
    };
 
@@ -78,7 +71,7 @@ var MarketMGR=(function(){
    		if (subsyms[i].key == sym) {
    			if (subsyms[i].count <= 1) {
    				subsyms.splice(i, 1);
-   				subData('ohlcv_ws', subsyms);
+   				subData('Market', subsyms);
    				break;
    			} else {
    				subsyms[i].count--
@@ -99,11 +92,7 @@ var MarketMGR=(function(){
    	}
    	cmdtxt += "]";
    	console.log("Sending Subscribe Command:", cmdtxt);
-    if(isOpen){
-   	  ws.send(serialize(cmdtxt));
-     }else{
-        console.log('can not subscribe stockcode marketws is connecting.....')
-      }
+   	ws.send(serialize(cmdtxt));
    };
 
 
@@ -132,38 +121,10 @@ var MarketMGR=(function(){
    			Market.Increase = (Market.Match - rawMarket.nPreClose/10000).toFixed(2);
    			Market.IncreaseP = ((Market.Increase * 100) / (rawMarket.nPreClose/10000)).toFixed(2);
    			return Market;
-   		};	
+
+   		};
+   	
    };
-
-   var formatData = function(data){
-     var Market = [{
-      date:'',
-      high:0,
-      low:0,
-      open:0,
-      close:0,
-      volume:0
-     }]
-     var year = new Date().getFullYear()
-     var month = new Date().getMonth() + 1
-     var today = new Date().getDate()
-     if(month<10){
-      month = "0"+month
-     }
-     if (today<10) {
-      today = "0"+today
-     }
-     data.minute = year+"-"+month+"-"+today+" "+data.minute
-     //console.log(data.minute)
-     Market[0].date = new Date(d3.timeParse("%Y-%m-%d %H:%M")(data.minute).getTime())
-     Market[0].high = (data.high / 10000).toFixed(2)
-     Market[0].low = (data.low / 10000).toFixed(2)
-     Market[0].open = (data.open /10000).toFixed(2)
-     Market[0].close = (data.close / 10000).toFixed(2)
-     Market[0].volume = data.size
-
-     return Market
-   }
 
 
    var close=function(){
@@ -176,7 +137,10 @@ var MarketMGR=(function(){
    	subscribe:subscribe,
    	unsubscribe:unsubscribe,
       close:close
+
    };
+
+
 })();
 
 module.exports = MarketMGR;
