@@ -18,7 +18,7 @@ var MarketMGR=(function(){
          var data=payload[2];
          for (var i = 0; i < data.length; i++) {
             var Market=conver2Makert(data[i]);
-            PubSub.publish(Market.Sym, Market);
+            PubSub.publish(Market.Sym, ['market',Market]);
             //console.log('marketws onmessage',Market.Sym);
          }
 			

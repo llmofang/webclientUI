@@ -22,8 +22,8 @@ var KlineMGR=(function(){
 		if (payload.length == 3 && payload[0] == "upd" && payload[1] == "ohlcv_ws") {
          var data=payload[2];
          for (var i = 0; i < data.length; i++) {
-            var Market=formatData(data[i]);
-            PubSub.publish(data[i].sym, Market);
+            var ohcv=formatData(data[i]);
+            PubSub.publish(data[i].sym, ['kline',ohcv]);
             //console.log('postdata',Market)
          }
          //console.log('原始数据',data)	
